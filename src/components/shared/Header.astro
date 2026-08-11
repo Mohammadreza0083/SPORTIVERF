@@ -1,5 +1,6 @@
 ---
 import LanguageSwitcher from './LanguageSwitcher.astro';
+import { SUPPORTED_LOCALES } from '@/i18n/config';
 import type { SupportedLocale } from '@/types/i18n';
 import { useTranslations } from '@/i18n/utils';
 
@@ -18,12 +19,21 @@ const navItems = [
   { href: `/${locale}/tours`, label: t('nav.tours'), key: 'tours' },
   { href: `/${locale}/about`, label: t('nav.about'), key: 'about' },
 ];
+
+function getSwitchedPath(targetLocale: SupportedLocale): string {
+  const parts = currentPath.split('/');
+  if (parts.length > 1 && ['en', 'tr', 'fa'].includes(parts[1])) {
+    parts[1] = targetLocale;
+    return parts.join('/') || `/${targetLocale}`;
+  }
+  return `/${targetLocale}${currentPath.startsWith('/') ? currentPath : '/' + currentPath}`;
+}
 ---
 
 <header
   id="app-header"
   role="banner"
-  class="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-md border-b border-[#E5E3DC] transition-all duration-300"
+  class="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-[#E5E3DC] transition-all duration-300"
 >
   <div class="max-w-[1400px] mx-auto px-4 md:px-8 h-20 flex items-center justify-between">
     <!-- Brand Logo -->
@@ -67,8 +77,10 @@ const navItems = [
 
     <!-- Right Utilities & Action CTAs -->
     <div class="flex items-center gap-4 rtl:space-x-reverse">
-      <!-- Persistent Header Language Switcher -->
-      <LanguageSwitcher currentLocale={locale} />
+      <!-- Persistent Desktop Language Switcher -->
+      <div class="hidden lg:block">
+        <LanguageSwitcher currentLocale={locale} />
+      </div>
       
       <a
         href={`/${locale}/tours`}
@@ -81,35 +93,76 @@ const navItems = [
       <button
         id="mobile-menu-toggle"
         type="button"
-        class="lg:hidden p-2 text-[#0D0D0D] border border-[#E5E3DC] hover:border-[#C5A059] focus:outline-none"
+        class="lg:hidden p-2 text-[#0D0D0D] border border-[#E5E3DC] hover:border-[#C5A059] focus:outline-none bg-white shadow-sm transition-all duration-200 active:scale-95"
         aria-label="Toggle Navigation Menu"
         aria-expanded="false"
         aria-controls="mobile-nav-drawer"
       >
-        <svg class="w-6 h-6 fill-none stroke-current stroke-2" viewBox="0 0 24 24" aria-hidden="true">
+        <svg class="w-6 h-6 fill-none stroke-current stroke-2 transition-transform duration-300" viewBox="0 0 24 24" aria-hidden="true">
           <path id="menu-icon-path" stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
         </svg>
       </button>
     </div>
   </div>
 
-  <!-- Mobile Navigation Drawer -->
+  <!-- Animated Mobile Navigation Drawer Slide -->
   <div
     id="mobile-nav-drawer"
-    class="hidden lg:hidden fixed inset-x-0 top-20 bg-white/98 border-b border-[#E5E3DC] p-6 flex-col gap-4 backdrop-blur-xl transition-all shadow-xl"
+    class="hidden lg:hidden fixed inset-x-0 top-20 bg-[#FAF9F6] border-b-2 border-[#C5A059] p-6 flex flex-col gap-6 backdrop-blur-2xl transition-all duration-300 ease-in-out shadow-2xl max-h-[calc(100vh-80px)] overflow-y-auto z-50 transform opacity-0 -translate-y-3 pointer-events-none"
   >
+    <!-- Navigation Links -->
     <nav class="flex flex-col gap-3">
-      {navItems.map((item) => (
-        <a
-          href={item.href}
-          class="text-sm font-medium uppercase tracking-wider text-[#0D0D0D] hover:text-[#C5A059] border-b border-[#F4F3EF] pb-2"
-        >
-          {item.label}
-        </a>
-      ))}
+      {navItems.map((item) => {
+        const isActive = currentPath === item.href || (item.href !== `/${locale}` && currentPath.startsWith(`${item.href}`));
+        return (
+          <a
+            href={item.href}
+            class={`text-sm font-medium uppercase tracking-wider transition-all duration-200 border-b border-[#E5E3DC] pb-3 flex items-center justify-between ${
+              isActive ? 'text-[#C5A059] font-bold pl-2 border-l-2 border-[#C5A059]' : 'text-[#0D0D0D] hover:text-[#C5A059] hover:pl-1'
+            }`}
+          >
+            <span>{item.label}</span>
+            {isActive && <span class="w-2 h-2 rounded-full bg-[#C5A059]" />}
+          </a>
+        );
+      })}
     </nav>
-    <div class="pt-4 flex flex-col gap-3">
-      <a href={`/${locale}/tours`} class="btn-primary w-full text-center">
+
+    <!-- Mobile Choose Language Section -->
+    <div class="pt-4 border-t border-[#E5E3DC] space-y-3">
+      <div class="flex items-center justify-between">
+        <span class="text-[10px] font-mono text-[#C5A059] uppercase tracking-[0.2em] font-bold">
+          CHOOSE LANGUAGE
+        </span>
+        <span class="text-[10px] font-mono text-[#888888] uppercase">
+          {locale.toUpperCase()}
+        </span>
+      </div>
+
+      <div class="grid grid-cols-3 gap-2">
+        {Object.values(SUPPORTED_LOCALES).map((loc) => {
+          const isActive = loc.code === locale;
+          return (
+            <a
+              href={getSwitchedPath(loc.code)}
+              data-locale-switch={loc.code}
+              class={`lang-switch-link flex flex-col items-center justify-center p-3 border text-center font-mono transition-all duration-200 ${
+                isActive
+                  ? 'bg-[#0D0D0D] text-white font-bold border-[#0D0D0D] shadow-md scale-[1.02]'
+                  : 'bg-white text-[#555555] border-[#E5E3DC] hover:border-[#C5A059] hover:text-[#0D0D0D]'
+              }`}
+            >
+              <span class="text-xs uppercase font-bold tracking-wider">{loc.code}</span>
+              <span class="text-[10px] opacity-80 font-sans mt-0.5">{loc.nativeName}</span>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+
+    <!-- Mobile Action CTA -->
+    <div class="pt-2">
+      <a href={`/${locale}/tours`} class="btn-primary w-full justify-center !py-3.5 text-center text-xs font-bold tracking-[0.18em] shadow-lg">
         {t('nav.bookNow')}
       </a>
     </div>
@@ -128,9 +181,34 @@ const navItems = [
   if (toggleBtn && drawer) {
     toggleBtn.addEventListener('click', () => {
       const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
-      toggleBtn.setAttribute('aria-expanded', String(!isExpanded));
-      drawer.classList.toggle('hidden');
-      drawer.classList.toggle('flex');
+      const newExpanded = !isExpanded;
+      toggleBtn.setAttribute('aria-expanded', String(newExpanded));
+
+      if (newExpanded) {
+        drawer.classList.remove('hidden');
+        requestAnimationFrame(() => {
+          drawer.classList.remove('opacity-0', '-translate-y-3', 'pointer-events-none');
+          drawer.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+        });
+      } else {
+        drawer.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+        drawer.classList.add('opacity-0', '-translate-y-3', 'pointer-events-none');
+        setTimeout(() => {
+          drawer.classList.add('hidden');
+        }, 300);
+      }
     });
   }
+
+  // Handle localStorage update on mobile language link click
+  const langLinks = document.querySelectorAll('.lang-switch-link');
+  langLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      const lang = link.getAttribute('data-locale-switch');
+      if (lang) {
+        localStorage.setItem('user-lang', lang);
+        document.cookie = `user-lang=${lang}; path=/; max-age=31536000; SameSite=Lax`;
+      }
+    });
+  });
 </script>
