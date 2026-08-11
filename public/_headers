@@ -1,0 +1,27 @@
+# Production Security & Performance Caching Strategy for SportivERF
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+
+# Immutable Static Assets Caching (1 Year)
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Fonts & Vectors
+/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.svg
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+# HTML / Dynamic Pages (Require validation for immediate updates)
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate

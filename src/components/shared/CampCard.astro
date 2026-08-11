@@ -1,0 +1,134 @@
+---
+import OptimizedImage from '@/components/seo/OptimizedImage.astro';
+import type { SupportedLocale } from '@/types/i18n';
+import { useTranslations } from '@/i18n/utils';
+
+export interface Props {
+  locale?: SupportedLocale;
+  title: string;
+  sport: 'FOOTBALL' | 'VOLLEYBALL';
+  starRating?: 3 | 4 | 5;
+  tierName?: string;
+  location: string;
+  dates: string;
+  ageGroup: string;
+  capacity: string;
+  imageUrl: string;
+  href: string;
+  class?: string;
+}
+
+const {
+  locale = 'en',
+  title,
+  sport,
+  starRating = 5,
+  tierName,
+  location,
+  dates,
+  ageGroup,
+  capacity,
+  imageUrl,
+  href,
+  class: className = ''
+} = Astro.props;
+
+const t = useTranslations(locale);
+
+const starsArray = Array.from({ length: starRating });
+---
+
+<article
+  class={`group relative bg-white border border-[#E5E3DC] overflow-hidden transition-all duration-300 hover:border-[#C5A059] hover:-translate-y-1.5 hover:shadow-xl flex flex-col ${className}`}
+  data-sport={sport}
+  data-star-rating={starRating}
+>
+  <!-- Media Container with Aspect Ratio and Hover Zoom -->
+  <div class="relative w-full aspect-[16/10] overflow-hidden bg-[#FAF9F6]">
+    <OptimizedImage
+      src={imageUrl}
+      alt={title}
+      width={600}
+      height={375}
+      loading="lazy"
+      class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-[#0D0D0D]/70 via-transparent to-transparent opacity-80" />
+
+    <!-- Top Floating Badges (Sport & Star Tier) -->
+    <div class="absolute top-4 left-4 right-4 z-10 flex items-center justify-between pointer-events-none">
+      <span class="inline-block px-3 py-1 bg-[#0D0D0D]/90 border border-[#C5A059]/40 text-white font-mono text-[10px] uppercase tracking-[0.18em] backdrop-blur-md">
+        {sport}
+      </span>
+
+      <span class="inline-flex items-center gap-1 px-3 py-1 bg-[#FAF9F6]/95 border border-[#E5E3DC] text-[#0D0D0D] font-mono text-[10px] uppercase tracking-wider backdrop-blur-md shadow-sm">
+        <span class="text-[#C5A059] font-bold">{starRating}★</span>
+        <span class="hidden sm:inline text-[#555555]">{tierName || `${starRating}-Star`}</span>
+      </span>
+    </div>
+
+    <!-- Location Tag Overlay -->
+    <div class="absolute bottom-3 left-4 right-4 z-10 flex items-center gap-1.5 text-white font-mono text-xs uppercase tracking-wider">
+      <svg class="w-3.5 h-3.5 fill-none stroke-current stroke-2 text-[#C5A059]" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+      </svg>
+      <span class="drop-shadow-md truncate">{location}</span>
+    </div>
+  </div>
+
+  <!-- Content Block -->
+  <div class="p-6 flex-1 flex flex-col justify-between bg-white">
+    <div>
+      <!-- Star Rating Rating Visual Strip -->
+      <div class="flex items-center gap-1 mb-2">
+        {starsArray.map(() => (
+          <svg class="w-3.5 h-3.5 fill-[#C5A059] text-[#C5A059]" viewBox="0 0 24 24">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+          </svg>
+        ))}
+      </div>
+
+      <h2 class="font-serif font-bold text-xl text-[#0D0D0D] group-hover:text-[#C5A059] transition-colors line-clamp-2 leading-tight mb-4">
+        {title}
+      </h2>
+
+      <!-- Metadata Specs Grid -->
+      <div class="grid grid-cols-3 gap-2 py-3 border-y border-[#E5E3DC] mb-6 text-center font-mono">
+        <div class="border-r border-[#E5E3DC] pr-2">
+          <span class="block text-[9px] text-[#888888] uppercase tracking-widest">{t('camps.dates')}</span>
+          <span class="text-xs font-bold text-[#0D0D0D] block mt-0.5 truncate">{dates}</span>
+        </div>
+        <div class="border-r border-[#E5E3DC] px-2">
+          <span class="block text-[9px] text-[#888888] uppercase tracking-widest">{t('camps.age')}</span>
+          <span class="text-xs font-bold text-[#0D0D0D] block mt-0.5 truncate">{ageGroup}</span>
+        </div>
+        <div class="pl-2">
+          <span class="block text-[9px] text-[#888888] uppercase tracking-widest">{t('camps.capacity')}</span>
+          <span class="text-xs font-bold text-[#C5A059] block mt-0.5 truncate">{capacity}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Action & Price-on-Request Luxury Badge Row -->
+    <div class="flex items-center justify-between pt-2 border-t border-[#F4F3EF] gap-2">
+      <div class="flex flex-col">
+        <span class="block text-[9px] text-[#888888] font-mono uppercase tracking-widest">{t('camps.tuition')}</span>
+        <span class="inline-block text-xs font-semibold text-[#C5A059] font-sans mt-0.5">
+          {t('camps.priceOnRequest')}
+        </span>
+      </div>
+
+      <a
+        href={href}
+        class="inline-flex items-center gap-1.5 px-3.5 py-2 bg-[#0D0D0D] text-white font-medium text-[11px] uppercase tracking-wider transition-all group-hover:bg-[#C5A059] group-hover:text-white flex-shrink-0"
+        aria-label={`${t('camps.viewDetails')}: ${title}`}
+      >
+        <span>{t('camps.viewDetails')}</span>
+        <svg class="w-3.5 h-3.5 fill-none stroke-current stroke-2 rtl:rotate-180" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</article>

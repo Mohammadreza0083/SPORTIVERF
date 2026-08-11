@@ -1,0 +1,173 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import { LOCALES_LIST } from '@/i18n/config';
+import type { SupportedLocale } from '@/types/i18n';
+import CampCard from '@/components/shared/CampCard.astro';
+import FilterBar from '@/components/islands/FilterBar.astro';
+import ContactButtons from '@/components/shared/ContactButtons.astro';
+import { CAMPS_DATA } from '@/data/camps';
+import { useTranslations, getLocalizedField } from '@/i18n/utils';
+
+export function getStaticPaths() {
+  return LOCALES_LIST.map((locale) => ({
+    params: { locale }
+  }));
+}
+
+const { locale } = Astro.params as { locale: SupportedLocale };
+const t = useTranslations(locale);
+---
+
+<MainLayout
+  locale={locale}
+  seo={{
+    title: t('site.title'),
+    description: t('site.description')
+  }}
+>
+  <!-- Light Luxury Hero Section -->
+  <section class="relative py-28 md:py-36 bg-[#FAF9F6] border-b border-[#E5E3DC] overflow-hidden">
+    <div class="max-w-[1400px] mx-auto px-4 md:px-8 text-center flex flex-col items-center relative z-10">
+      <!-- Top Tagline Badge -->
+      <span class="inline-block px-4 py-1.5 bg-white border border-[#C5A059] text-[#C5A059] font-mono text-xs uppercase tracking-[0.2em] mb-6 shadow-sm">
+        {t('hero.badge')}
+      </span>
+
+      <!-- Main Serif Headline -->
+      <h1 class="font-serif font-bold text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-[#0D0D0D] max-w-5xl leading-[1.05] mb-6">
+        {t('hero.title')}
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="font-sans text-base md:text-xl text-[#555555] max-w-2xl font-light mb-10 leading-relaxed">
+        {t('hero.subtitle')}
+      </p>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-wrap justify-center gap-4 mb-16">
+        <a href={`/${locale}/football-camps`} class="btn-primary !py-4 !px-8 text-xs">
+          {t('hero.ctaPrimary')}
+        </a>
+        <a href={`/${locale}/volleyball-camps`} class="btn-secondary !py-4 !px-8 text-xs">
+          {t('hero.ctaSecondary')}
+        </a>
+      </div>
+
+      <!-- Stat Strip -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 w-full max-w-4xl py-8 border-y border-[#E5E3DC] bg-white/80 backdrop-blur-md shadow-sm">
+        <div>
+          <span class="font-serif font-bold text-3xl md:text-4xl text-[#0D0D0D] block">500+</span>
+          <span class="font-mono text-xs text-[#888888] uppercase tracking-wider mt-1 block">{t('hero.statAthletes')}</span>
+        </div>
+        <div class="sm:border-x border-[#E5E3DC]">
+          <span class="font-serif font-bold text-3xl md:text-4xl text-[#0D0D0D] block">40+</span>
+          <span class="font-mono text-xs text-[#888888] uppercase tracking-wider mt-1 block">{t('hero.statClubs')}</span>
+        </div>
+        <div>
+          <span class="font-serif font-bold text-3xl md:text-4xl text-[#0D0D0D] block">15+</span>
+          <span class="font-mono text-xs text-[#888888] uppercase tracking-wider mt-1 block">{t('hero.statAcademies')}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Values Section -->
+  <section class="py-24 bg-white border-b border-[#E5E3DC]">
+    <div class="max-w-[1400px] mx-auto px-4 md:px-8">
+      <div class="text-center mb-16">
+        <span class="font-mono text-xs text-[#C5A059] uppercase tracking-[0.2em] block mb-2">
+          {t('values.badge')}
+        </span>
+        <h2 class="font-serif font-bold text-3xl md:text-5xl text-[#0D0D0D]">
+          {t('values.title')}
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Value 1: TRUST -->
+        <div class="bg-[#FAF9F6] border border-[#E5E3DC] p-8 hover:border-[#C5A059] transition-all">
+          <span class="font-mono text-xs text-[#C5A059] block mb-4">01 / PRINCIPLE</span>
+          <h3 class="font-serif font-bold text-2xl text-[#0D0D0D] mb-3">{t('values.trustTitle')}</h3>
+          <p class="text-[#555555] text-sm leading-relaxed font-light">
+            {t('values.trustDesc')}
+          </p>
+        </div>
+
+        <!-- Value 2: DEVELOPMENT -->
+        <div class="bg-[#FAF9F6] border border-[#E5E3DC] p-8 hover:border-[#C5A059] transition-all">
+          <span class="font-mono text-xs text-[#C5A059] block mb-4">02 / PRINCIPLE</span>
+          <h3 class="font-serif font-bold text-2xl text-[#0D0D0D] mb-3">{t('values.devTitle')}</h3>
+          <p class="text-[#555555] text-sm leading-relaxed font-light">
+            {t('values.devDesc')}
+          </p>
+        </div>
+
+        <!-- Value 3: OPPORTUNITY -->
+        <div class="bg-[#FAF9F6] border border-[#E5E3DC] p-8 hover:border-[#C5A059] transition-all">
+          <span class="font-mono text-xs text-[#C5A059] block mb-4">03 / PRINCIPLE</span>
+          <h3 class="font-serif font-bold text-2xl text-[#0D0D0D] mb-3">{t('values.oppTitle')}</h3>
+          <p class="text-[#555555] text-sm leading-relaxed font-light">
+            {t('values.oppDesc')}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FilterBar & Tiered Camps Grid -->
+  <section class="py-20 bg-[#FAF9F6]">
+    <div class="max-w-[1400px] mx-auto px-4 md:px-8 mb-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+      <div>
+        <span class="font-mono text-xs text-[#C5A059] uppercase tracking-[0.2em] block mb-2">
+          {t('camps.badge')}
+        </span>
+        <h2 class="font-serif font-bold text-3xl md:text-5xl text-[#0D0D0D]">
+          {t('camps.title')}
+        </h2>
+      </div>
+      <a href={`/${locale}/tours`} class="btn-secondary !py-2.5 !px-5 text-xs">
+        {t('nav.tours')} →
+      </a>
+    </div>
+
+    <!-- Filter Pill Bar Island -->
+    <FilterBar locale={locale} activeSport="ALL" activeStar="ALL" />
+
+    <!-- Camp Grid -->
+    <div class="max-w-[1400px] mx-auto px-4 md:px-8 mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {CAMPS_DATA.map((camp) => (
+        <div data-camp-wrapper data-sport={camp.sport} data-star-rating={camp.starRating}>
+          <CampCard
+            locale={locale}
+            title={getLocalizedField(camp.title, locale)}
+            sport={camp.sport}
+            starRating={camp.starRating}
+            tierName={getLocalizedField(camp.tierName, locale)}
+            location={getLocalizedField(camp.location, locale)}
+            dates={getLocalizedField(camp.dates, locale)}
+            ageGroup={getLocalizedField(camp.ageGroup, locale)}
+            capacity={getLocalizedField(camp.capacity, locale)}
+            imageUrl={camp.imageUrl}
+            href={`/${locale}/camps/${camp.slug}`}
+          />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Concierge Direct Action Section -->
+  <section class="py-20 bg-white border-t border-[#E5E3DC] text-center">
+    <div class="max-w-3xl mx-auto px-4">
+      <span class="font-mono text-xs text-[#C5A059] uppercase tracking-[0.2em] block mb-3">
+        {t('booking.badge')}
+      </span>
+      <h2 class="font-serif font-bold text-3xl md:text-5xl text-[#0D0D0D] mb-6">
+        {t('booking.title')}
+      </h2>
+      <p class="text-[#555555] text-base mb-8 leading-relaxed font-light">
+        {t('booking.subtitle')}
+      </p>
+      <ContactButtons class="justify-center" />
+    </div>
+  </section>
+</MainLayout>

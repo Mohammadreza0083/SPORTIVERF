@@ -1,0 +1,24 @@
+# ==============================================================================
+# Development Dockerfile for Astro Website
+# ==============================================================================
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Install OS utilities
+RUN apk add --no-cache libc6-compat curl git
+
+# Copy package descriptors
+COPY package.json package-lock.json ./
+
+# Install all dependencies including devDependencies
+RUN npm install
+
+# Expose default Astro development port and host flag port
+EXPOSE 4321
+
+ENV HOST=0.0.0.0
+ENV PORT=4321
+
+# Default execution command for hot reloading
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]

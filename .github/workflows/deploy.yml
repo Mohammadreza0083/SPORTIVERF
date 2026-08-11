@@ -1,0 +1,106 @@
+name: Production CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+env:
+  TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN || '8921060827:AAHUNo_mdKGBwTlbysIf3nbBYd3BIX9k1Pw' }}
+  TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID || '269309616' }}
+
+jobs:
+  # ============================================================================
+  # JOB 1: Code Quality, Type Checks & Static Build
+  # ============================================================================
+  quality-checks:
+    name: Code Verification & Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js Environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Send Telegram - Build Started
+        run: |
+          chmod +x ./scripts/telegram-notify.sh
+          ./scripts/telegram-notify.sh "BUILD_START" "Build Started" "Commit: ${{ github.sha }} on branch ${{ github.ref_name }}"
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run Linter
+        run: npm run lint
+
+      - name: Run Type Check
+        run: npm run check
+
+      - name: Run Application Build
+        run: npm run build
+
+      - name: Send Telegram - Build Succeeded
+        if: success()
+        run: |
+          ./scripts/telegram-notify.sh "BUILD_SUCCESS" "Build Succeeded" "Linting, type checking, and Astro compilation passed cleanly."
+
+      - name: Send Telegram - Build Failed
+        if: failure()
+        run: |
+          ./scripts/telegram-notify.sh "BUILD_FAILED" "Build Failed" "Compilation or quality check error in workflow run."
+
+  # ============================================================================
+  # JOB 2: Zero-Downtime VPS Deployment & Rollback Engine
+  # ============================================================================
+  deploy-vps:
+    name: VPS Production Deployment
+    needs: quality-checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Send Telegram - Deployment Started
+        run: |
+          chmod +x ./scripts/telegram-notify.sh
+          ./scripts/telegram-notify.sh "DEPLOY_START" "Deployment Started" "Connecting via SSH to Linux VPS..."
+
+      - name: SSH Deploy & Health Check Verification
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USERNAME }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          passphrase: ${{ secrets.VPS_PASSPHRASE }}
+          port: ${{ secrets.VPS_PORT || 22 }}
+          envs: TELEGRAM_BOT_TOKEN,TELEGRAM_CHAT_ID,GITHUB_SHA
+          script: |
+            export TELEGRAM_BOT_TOKEN="${TELEGRAM_BOT_TOKEN}"
+            export TELEGRAM_CHAT_ID="${TELEGRAM_CHAT_ID}"
+            export GITHUB_SHA="${{ github.sha }}"
+            
+            # Navigate to production deployment path
+            cd /opt/sportiverf || cd ~/sportiverf
+            
+            # Pull latest repository changes
+            git fetch origin main
+            git reset --hard origin/main
+            
+            # Execute zero-downtime rolling deployment
+            chmod +x deploy/deploy.sh scripts/telegram-notify.sh
+            ./deploy/deploy.sh
+
+      - name: Send Telegram - Deployment Succeeded
+        if: success()
+        run: |
+          ./scripts/telegram-notify.sh "DEPLOY_SUCCESS" "Deployment Succeeded" "Live site is online, healthy, and serving traffic."
+
+      - name: Send Telegram - Deployment Failed
+        if: failure()
+        run: |
+          ./scripts/telegram-notify.sh "DEPLOY_FAILED" "Deployment Failed" "Errors encountered during VPS SSH execution. Check deployment logs."

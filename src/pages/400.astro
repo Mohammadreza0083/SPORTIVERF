@@ -1,0 +1,52 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import { useTranslations } from '@/i18n/utils';
+
+const locale = 'en';
+const t = useTranslations(locale);
+---
+
+<MainLayout
+  locale={locale}
+  seo={{
+    title: `${t('errors.e400Title')} — SPORTIVERF`,
+    description: t('errors.e400Desc'),
+    noindex: true
+  }}
+>
+  <section class="min-h-[85vh] flex flex-col items-center justify-center text-center px-4 py-20 bg-[#FAF9F6]">
+    <div class="max-w-2xl mx-auto space-y-6">
+      <h1 class="font-serif font-bold text-8xl sm:text-[11rem] text-[#0D0D0D] tracking-tight leading-none select-none opacity-15">
+        400
+      </h1>
+
+      <div class="-mt-12 sm:-mt-20 relative z-10 space-y-4">
+        <span class="inline-block px-3 py-1 bg-white border border-[#C5A059] text-[#C5A059] font-mono text-[10px] uppercase tracking-[0.2em]">
+          BAD REQUEST
+        </span>
+
+        <h2 class="font-serif font-bold text-3xl sm:text-5xl text-[#0D0D0D] tracking-tight">
+          {t('errors.e400Title')}
+        </h2>
+
+        <p class="text-[#555555] font-light text-base max-w-md mx-auto leading-relaxed">
+          {t('errors.e400Desc')}
+        </p>
+
+        <div class="pt-6 flex flex-wrap justify-center gap-4">
+          <a href={`/${locale}`} class="btn-primary !py-3.5 !px-8 text-xs">
+            {t('errors.backHome')}
+          </a>
+          <a
+            href="https://wa.me/905421661698"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-secondary !py-3.5 !px-8 text-xs"
+          >
+            {t('errors.contactSupport')}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>

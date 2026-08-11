@@ -1,0 +1,32 @@
+---
+export interface Props {
+  email?: string;
+  subject?: string;
+  body?: string;
+  label?: string;
+  class?: string;
+  variant?: 'solid' | 'outline';
+}
+
+const {
+  email = 'contact@sportiverf.com',
+  subject = 'Inquiry: SPORTIVERF Overseas Sports Camp',
+  body = 'Hello SPORTIVERF Team,\n\nI would like to receive details regarding your upcoming athletic camps and overseas pathways.\n\nThank you.',
+  label = 'Email Headquarters',
+  class: className = '',
+  variant = 'outline'
+} = Astro.props;
+
+const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+---
+
+<a
+  href={mailtoUrl}
+  class={variant === 'solid' ? `btn-primary gap-2.5 ${className}` : `btn-secondary gap-2.5 ${className}`}
+  aria-label={`Send email to ${email}`}
+>
+  <svg class="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+  </svg>
+  <span>{label}</span>
+</a>

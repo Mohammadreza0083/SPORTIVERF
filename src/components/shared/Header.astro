@@ -1,0 +1,136 @@
+---
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import type { SupportedLocale } from '@/types/i18n';
+import { useTranslations } from '@/i18n/utils';
+
+export interface Props {
+  locale: SupportedLocale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { href: `/${locale}`, label: t('nav.home'), key: 'home' },
+  { href: `/${locale}/football-camps`, label: t('nav.football'), key: 'football' },
+  { href: `/${locale}/volleyball-camps`, label: t('nav.volleyball'), key: 'volleyball' },
+  { href: `/${locale}/tours`, label: t('nav.tours'), key: 'tours' },
+  { href: `/${locale}/about`, label: t('nav.about'), key: 'about' },
+];
+---
+
+<header
+  id="app-header"
+  role="banner"
+  class="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-md border-b border-[#E5E3DC] transition-all duration-300"
+>
+  <div class="max-w-[1400px] mx-auto px-4 md:px-8 h-20 flex items-center justify-between">
+    <!-- Brand Logo -->
+    <a
+      href={`/${locale}`}
+      class="flex flex-col focus:outline-none group"
+      aria-label="SPORTIVERF Homepage"
+    >
+      <span class="font-serif font-bold text-2xl md:text-3xl tracking-tight text-[#0D0D0D] group-hover:text-[#C5A059] transition-colors">
+        SPORTIV<span class="text-[#C5A059]">ERF</span>
+      </span>
+      <span class="font-mono text-[9px] tracking-[0.2em] text-[#888888] uppercase -mt-1">
+        TALENT OVERSEAS
+      </span>
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <nav
+      role="navigation"
+      aria-label={t('nav.main')}
+      class="hidden lg:flex items-center gap-8 rtl:space-x-reverse"
+    >
+      {navItems.map((item) => {
+        const isActive = currentPath === item.href || (item.href !== `/${locale}` && currentPath.startsWith(`${item.href}`));
+        return (
+          <a
+            href={item.href}
+            class={`relative text-xs uppercase tracking-[0.15em] font-medium transition-colors py-1 ${
+              isActive ? 'text-[#0D0D0D] font-bold' : 'text-[#555555] hover:text-[#C5A059]'
+            }`}
+            aria-current={isActive ? 'page' : undefined}
+          >
+            {item.label}
+            {isActive && (
+              <span class="absolute bottom-0 left-0 w-full h-[2px] bg-[#C5A059]" />
+            )}
+          </a>
+        );
+      })}
+    </nav>
+
+    <!-- Right Utilities & Action CTAs -->
+    <div class="flex items-center gap-4 rtl:space-x-reverse">
+      <!-- Persistent Header Language Switcher -->
+      <LanguageSwitcher currentLocale={locale} />
+      
+      <a
+        href={`/${locale}/tours`}
+        class="hidden sm:inline-flex btn-primary !py-2.5 !px-5 !text-[11px]"
+      >
+        {t('nav.bookNow')}
+      </a>
+
+      <!-- Mobile Hamburger Button -->
+      <button
+        id="mobile-menu-toggle"
+        type="button"
+        class="lg:hidden p-2 text-[#0D0D0D] border border-[#E5E3DC] hover:border-[#C5A059] focus:outline-none"
+        aria-label="Toggle Navigation Menu"
+        aria-expanded="false"
+        aria-controls="mobile-nav-drawer"
+      >
+        <svg class="w-6 h-6 fill-none stroke-current stroke-2" viewBox="0 0 24 24" aria-hidden="true">
+          <path id="menu-icon-path" stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation Drawer -->
+  <div
+    id="mobile-nav-drawer"
+    class="hidden lg:hidden fixed inset-x-0 top-20 bg-white/98 border-b border-[#E5E3DC] p-6 flex-col gap-4 backdrop-blur-xl transition-all shadow-xl"
+  >
+    <nav class="flex flex-col gap-3">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class="text-sm font-medium uppercase tracking-wider text-[#0D0D0D] hover:text-[#C5A059] border-b border-[#F4F3EF] pb-2"
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+    <div class="pt-4 flex flex-col gap-3">
+      <a href={`/${locale}/tours`} class="btn-primary w-full text-center">
+        {t('nav.bookNow')}
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  import { setupStickyHeaderAnimation } from '@/utils/animations';
+
+  const header = document.getElementById('app-header');
+  setupStickyHeaderAnimation(header);
+
+  const toggleBtn = document.getElementById('mobile-menu-toggle');
+  const drawer = document.getElementById('mobile-nav-drawer');
+
+  if (toggleBtn && drawer) {
+    toggleBtn.addEventListener('click', () => {
+      const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+      toggleBtn.setAttribute('aria-expanded', String(!isExpanded));
+      drawer.classList.toggle('hidden');
+      drawer.classList.toggle('flex');
+    });
+  }
+</script>

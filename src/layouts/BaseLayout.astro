@@ -1,0 +1,39 @@
+---
+import { getDirFromLocale } from '@/i18n/utils';
+import type { SupportedLocale } from '@/types/i18n';
+import SEO, { type SEOProps } from '@/components/shared/SEO.astro';
+import '@/styles/global.css';
+
+export interface Props {
+  locale: SupportedLocale;
+  seo?: SEOProps;
+}
+
+const { locale = 'en', seo } = Astro.props;
+const dir = getDirFromLocale(locale);
+---
+
+<!DOCTYPE html>
+<html lang={locale} dir={dir} class="scroll-smooth bg-[#FAF9F6] text-[#0D0D0D]">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <SEO locale={locale} {...seo} />
+    
+    <!-- Critical Font Preconnect & Typography Strategy -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Google Fonts: Cormorant Garamond & Playfair Display (Serif Display), Inter (Body), Space Mono (Data), Vazirmatn (RTL) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=Vazirmatn:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="min-h-screen bg-[#FAF9F6] text-[#0D0D0D] antialiased selection:bg-[#C5A059] selection:text-white">
+    <slot />
+  </body>
+</html>

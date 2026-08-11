@@ -1,0 +1,43 @@
+---
+export interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<div
+  id="brand-entrance-loader"
+  class={`fixed inset-0 z-[100] bg-black flex flex-col items-center justify-center transition-opacity duration-700 pointer-events-none ${className}`}
+  aria-hidden="true"
+>
+  <div class="flex flex-col items-center gap-4">
+    <!-- Centered Pulsing Wordmark -->
+    <h1 class="font-display font-black text-4xl sm:text-6xl tracking-wider text-white animate-pulse">
+      SPORTIV<span class="text-neutral-500">ERF</span>
+    </h1>
+
+    <p class="font-mono text-xs text-neutral-400 uppercase tracking-widest">
+      Connecting Talent to the World
+    </p>
+
+    <!-- Hairline Bottom Progress Bar -->
+    <div class="w-48 h-[2px] bg-brand-borderMedium rounded-full overflow-hidden mt-6">
+      <div class="h-full bg-white animate-shimmer w-full" />
+    </div>
+  </div>
+</div>
+
+<script>
+  window.addEventListener('load', () => {
+    const loader = document.getElementById('brand-entrance-loader');
+    if (loader) {
+      setTimeout(() => {
+        loader.style.opacity = '0';
+        setTimeout(() => {
+          loader.style.display = 'none';
+        }, 700);
+      }, 400);
+    }
+  });
+</script>

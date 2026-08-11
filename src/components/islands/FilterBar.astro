@@ -1,0 +1,140 @@
+---
+import type { SupportedLocale } from '@/types/i18n';
+import { useTranslations } from '@/i18n/utils';
+
+export interface Props {
+  locale?: SupportedLocale;
+  activeSport?: string;
+  activeStar?: string;
+  class?: string;
+}
+
+const {
+  locale = 'en',
+  activeSport = 'ALL',
+  activeStar = 'ALL',
+  class: className = ''
+} = Astro.props;
+
+const t = useTranslations(locale);
+
+const sports = [
+  { id: 'ALL', label: t('camps.filterAllSports') },
+  { id: 'FOOTBALL', label: t('camps.filterFootball') },
+  { id: 'VOLLEYBALL', label: t('camps.filterVolleyball') },
+];
+
+const starTiers = [
+  { id: 'ALL', label: t('camps.filterAllStars') },
+  { id: '5', label: '5★ ' + t('camps.filter5Star') },
+  { id: '4', label: '4★ ' + t('camps.filter4Star') },
+  { id: '3', label: '3★ ' + t('camps.filter3Star') },
+];
+---
+
+<div class={`sticky top-20 z-40 bg-white/95 backdrop-blur-md py-4 border-b border-[#E5E3DC] shadow-sm ${className}`}>
+  <div class="max-w-[1400px] mx-auto px-4 md:px-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+    <!-- Sport Filter Pills -->
+    <div class="flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth w-full md:w-auto pb-1 md:pb-0">
+      <span class="text-[10px] font-mono uppercase tracking-widest text-[#888888] mr-2 flex-shrink-0">SPORT:</span>
+      {sports.map((sport) => {
+        const isActive = sport.id === activeSport;
+        return (
+          <button
+            type="button"
+            data-sport-filter={sport.id}
+            class={`sport-pill whitespace-nowrap px-4 py-2 border text-xs font-mono uppercase tracking-wider transition-all duration-200 focus:outline-none ${
+              isActive
+                ? 'bg-[#0D0D0D] text-white font-bold border-[#0D0D0D] shadow-sm'
+                : 'bg-[#FAF9F6] text-[#555555] border-[#E5E3DC] hover:border-[#C5A059] hover:text-[#C5A059]'
+            }`}
+          >
+            {sport.label}
+          </button>
+        );
+      })}
+    </div>
+
+    <!-- Star Tier Filter Pills -->
+    <div class="flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth w-full md:w-auto">
+      <span class="text-[10px] font-mono uppercase tracking-widest text-[#888888] mr-2 flex-shrink-0">TIER:</span>
+      {starTiers.map((tier) => {
+        const isActive = tier.id === activeStar;
+        return (
+          <button
+            type="button"
+            data-star-filter={tier.id}
+            class={`star-pill whitespace-nowrap px-3.5 py-1.5 border text-xs font-mono uppercase tracking-wider transition-all duration-200 focus:outline-none ${
+              isActive
+                ? 'bg-[#C5A059] text-white font-bold border-[#C5A059] shadow-sm'
+                : 'bg-white text-[#555555] border-[#E5E3DC] hover:border-[#C5A059] hover:text-[#C5A059]'
+            }`}
+          >
+            {tier.label}
+          </button>
+        );
+      })}
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    let currentSport = 'ALL';
+    let currentStar = 'ALL';
+
+    const sportPills = document.querySelectorAll('[data-sport-filter]');
+    const starPills = document.querySelectorAll('[data-star-filter]');
+
+    function applyFilters() {
+      const campCards = document.querySelectorAll('[data-sport]');
+
+      campCards.forEach((card) => {
+        const cardSport = card.getAttribute('data-sport');
+        const cardStar = card.getAttribute('data-star-rating');
+
+        const matchSport = currentSport === 'ALL' || cardSport === currentSport;
+        const matchStar = currentStar === 'ALL' || cardStar === currentStar;
+
+        // Container wrapper element check
+        const container = card.closest('[data-camp-wrapper]') || card;
+
+        if (matchSport && matchStar) {
+          container.style.display = '';
+        } else {
+          container.style.display = 'none';
+        }
+      });
+    }
+
+    sportPills.forEach((pill) => {
+      pill.addEventListener('click', () => {
+        sportPills.forEach((p) => {
+          p.classList.remove('bg-[#0D0D0D]', 'text-white', 'font-bold', 'border-[#0D0D0D]');
+          p.classList.add('bg-[#FAF9F6]', 'text-[#555555]', 'border-[#E5E3DC]');
+        });
+
+        pill.classList.remove('bg-[#FAF9F6]', 'text-[#555555]', 'border-[#E5E3DC]');
+        pill.classList.add('bg-[#0D0D0D]', 'text-white', 'font-bold', 'border-[#0D0D0D]');
+
+        currentSport = pill.getAttribute('data-sport-filter') || 'ALL';
+        applyFilters();
+      });
+    });
+
+    starPills.forEach((pill) => {
+      pill.addEventListener('click', () => {
+        starPills.forEach((p) => {
+          p.classList.remove('bg-[#C5A059]', 'text-white', 'font-bold', 'border-[#C5A059]');
+          p.classList.add('bg-white', 'text-[#555555]', 'border-[#E5E3DC]');
+        });
+
+        pill.classList.remove('bg-white', 'text-[#555555]', 'border-[#E5E3DC]');
+        pill.classList.add('bg-[#C5A059]', 'text-white', 'font-bold', 'border-[#C5A059]');
+
+        currentStar = pill.getAttribute('data-star-filter') || 'ALL';
+        applyFilters();
+      });
+    });
+  });
+</script>

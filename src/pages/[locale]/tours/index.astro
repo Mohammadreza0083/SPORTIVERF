@@ -1,0 +1,86 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import { LOCALES_LIST } from '@/i18n/config';
+import type { SupportedLocale } from '@/types/i18n';
+import CampCard from '@/components/shared/CampCard.astro';
+import FilterBar from '@/components/islands/FilterBar.astro';
+import ContactButtons from '@/components/shared/ContactButtons.astro';
+import { CAMPS_DATA } from '@/data/camps';
+import { useTranslations, getLocalizedField } from '@/i18n/utils';
+
+export function getStaticPaths() {
+  return LOCALES_LIST.map((locale) => ({
+    params: { locale }
+  }));
+}
+
+const { locale } = Astro.params as { locale: SupportedLocale };
+const t = useTranslations(locale);
+---
+
+<MainLayout
+  locale={locale}
+  seo={{
+    title: `${t('nav.tours')} — SPORTIVERF`,
+    description: t('site.description')
+  }}
+>
+  <!-- Hero Section -->
+  <section class="relative py-24 bg-[#FAF9F6] border-b border-[#E5E3DC] overflow-hidden">
+    <div class="max-w-[1400px] mx-auto px-4 md:px-8 text-center relative z-10">
+      <span class="font-mono text-xs text-[#C5A059] uppercase tracking-[0.2em] block mb-4">
+        {t('camps.badge')}
+      </span>
+      <h1 class="font-serif font-bold text-4xl sm:text-6xl text-[#0D0D0D] tracking-tight mb-6">
+        {t('camps.title')}
+      </h1>
+      <p class="font-sans text-[#555555] text-base md:text-lg max-w-2xl mx-auto font-light leading-relaxed">
+        {t('camps.subtitle')}
+      </p>
+    </div>
+  </section>
+
+  <!-- Filter Bar Island -->
+  <FilterBar locale={locale} activeSport="ALL" activeStar="ALL" />
+
+  <!-- Camp Grid -->
+  <section class="py-16 bg-[#FAF9F6]">
+    <div class="max-w-[1400px] mx-auto px-4 md:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {CAMPS_DATA.map((camp) => (
+          <div data-camp-wrapper data-sport={camp.sport} data-star-rating={camp.starRating}>
+            <CampCard
+              locale={locale}
+              title={getLocalizedField(camp.title, locale)}
+              sport={camp.sport}
+              starRating={camp.starRating}
+              tierName={getLocalizedField(camp.tierName, locale)}
+              location={getLocalizedField(camp.location, locale)}
+              dates={getLocalizedField(camp.dates, locale)}
+              ageGroup={getLocalizedField(camp.ageGroup, locale)}
+              capacity={getLocalizedField(camp.capacity, locale)}
+              imageUrl={camp.imageUrl}
+              href={`/${locale}/camps/${camp.slug}`}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Concierge Direct Call to Action -->
+  <section class="py-20 bg-white border-t border-[#E5E3DC] text-center">
+    <div class="max-w-3xl mx-auto px-4">
+      <span class="font-mono text-xs text-[#C5A059] uppercase tracking-[0.2em] block mb-3">
+        {t('booking.badge')}
+      </span>
+      <h2 class="font-serif font-bold text-3xl md:text-5xl text-[#0D0D0D] mb-6">
+        {t('booking.title')}
+      </h2>
+      <p class="text-[#555555] text-base mb-8 font-light leading-relaxed">
+        {t('booking.subtitle')}
+      </p>
+      <ContactButtons class="justify-center" />
+    </div>
+  </section>
+</MainLayout>

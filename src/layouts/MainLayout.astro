@@ -1,0 +1,45 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import type { SupportedLocale } from '@/types/i18n';
+import type { SEOProps } from '@/components/shared/SEO.astro';
+import Header from '@/components/shared/Header.astro';
+import Footer from '@/components/shared/Footer.astro';
+import SkipToContent from '@/components/shared/SkipToContent.astro';
+import WhatsAppButton from '@/components/shared/WhatsAppButton.astro';
+import LoadingEntrance from '@/components/shared/LoadingEntrance.astro';
+import LanguageGate from '@/components/LanguageGate.astro';
+
+export interface Props {
+  locale: SupportedLocale;
+  seo?: SEOProps;
+}
+
+const { locale, seo } = Astro.props;
+---
+
+<BaseLayout locale={locale} seo={seo}>
+  <!-- One-time First Visitor Language Gate Modal -->
+  <LanguageGate currentLocale={locale} />
+
+  <!-- Full-Screen Brand Entrance Loader -->
+  <LoadingEntrance />
+
+  <!-- Accessibility Skip Link -->
+  <SkipToContent locale={locale} targetId="main-content" />
+
+  <div class="flex min-h-screen flex-col bg-[#FAF9F6] text-[#0D0D0D] font-sans selection:bg-[#C5A059] selection:text-white">
+    <!-- Header Landmark -->
+    <Header locale={locale} />
+
+    <!-- Main Content Landmark -->
+    <main id="main-content" role="main" class="flex-1 focus:outline-none" tabindex="-1">
+      <slot />
+    </main>
+
+    <!-- Mandatory Architectural Footer -->
+    <Footer locale={locale} />
+
+    <!-- Floating WhatsApp Concierge -->
+    <WhatsAppButton variant="floating" />
+  </div>
+</BaseLayout>

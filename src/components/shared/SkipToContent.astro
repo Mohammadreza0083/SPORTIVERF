@@ -1,0 +1,21 @@
+---
+import { useTranslations } from '@/i18n/utils';
+import type { SupportedLocale } from '@/types/i18n';
+
+export interface Props {
+  locale: SupportedLocale;
+  targetId?: string;
+}
+
+const { locale, targetId = 'main-content' } = Astro.props;
+const t = useTranslations(locale);
+const skipText = t('common.skipToContent');
+---
+
+<a
+  href={`#${targetId}`}
+  class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-6 focus:py-3 focus:bg-white focus:text-black focus:font-bold focus:rounded-lg focus:shadow-2xl focus:outline-none focus:ring-4 focus:ring-white transition-all duration-200"
+  aria-label={skipText}
+>
+  {skipText}
+</a>

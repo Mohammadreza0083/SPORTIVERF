@@ -1,0 +1,62 @@
+---
+export interface Props {
+  phoneNumber?: string; // e.g. +905421661698
+  message?: string;
+  label?: string;
+  class?: string;
+  variant?: 'solid' | 'outline' | 'floating';
+}
+
+const {
+  phoneNumber = '+905421661698',
+  message = 'Hello SPORTIVERF! I would like to inquire about sports camps and overseas opportunities.',
+  label = 'WhatsApp Concierge',
+  class: className = '',
+  variant = 'solid'
+} = Astro.props;
+
+const cleanPhone = phoneNumber.replace(/[^0-9]/g, '');
+const encodedMessage = encodeURIComponent(message);
+const whatsappUrl = `https://wa.me/${cleanPhone}?text=${encodedMessage}`;
+---
+
+{variant === 'floating' ? (
+  <a
+    href={whatsappUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    class={`fixed bottom-6 right-6 z-50 flex items-center gap-3 px-5 py-3 rounded-full bg-white text-black font-semibold text-xs tracking-wider uppercase border border-brand-borderStrong shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-neutral-200 focus:outline-none ${className}`}
+    aria-label="Contact SPORTIVERF on WhatsApp"
+  >
+    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.964 9.964 0 001.333 4.993L2 22l5.233-1.237a9.982 9.982 0 004.779 1.222h.004c5.505 0 9.988-4.478 9.989-9.984 0-2.669-2.08-5.172-3.932-7.054C16.143 3.064 13.639 2 12.012 2zm0 1.8c4.52 0 8.188 3.664 8.189 8.184 0 4.52-3.668 8.184-8.189 8.184a8.167 8.167 0 01-4.162-1.129l-.299-.177-3.1 0.733.826-3.023-.194-.31a8.162 8.162 0 01-1.252-4.278c0-4.52 3.669-8.184 8.189-8.184z"/>
+    </svg>
+    <span>{label}</span>
+  </a>
+) : variant === 'outline' ? (
+  <a
+    href={whatsappUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    class={`btn-secondary gap-2.5 ${className}`}
+    aria-label="Inquire via WhatsApp"
+  >
+    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.964 9.964 0 001.333 4.993L2 22l5.233-1.237a9.982 9.982 0 004.779 1.222h.004c5.505 0 9.988-4.478 9.989-9.984 0-2.669-2.08-5.172-3.932-7.054C16.143 3.064 13.639 2 12.012 2zm0 1.8c4.52 0 8.188 3.664 8.189 8.184 0 4.52-3.668 8.184-8.189 8.184a8.167 8.167 0 01-4.162-1.129l-.299-.177-3.1 0.733.826-3.023-.194-.31a8.162 8.162 0 01-1.252-4.278c0-4.52 3.669-8.184 8.189-8.184z"/>
+    </svg>
+    <span>{label}</span>
+  </a>
+) : (
+  <a
+    href={whatsappUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    class={`btn-primary gap-2.5 ${className}`}
+    aria-label="Direct WhatsApp Inquiry"
+  >
+    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.964 9.964 0 001.333 4.993L2 22l5.233-1.237a9.982 9.982 0 004.779 1.222h.004c5.505 0 9.988-4.478 9.989-9.984 0-2.669-2.08-5.172-3.932-7.054C16.143 3.064 13.639 2 12.012 2zm0 1.8c4.52 0 8.188 3.664 8.189 8.184 0 4.52-3.668 8.184-8.189 8.184a8.167 8.167 0 01-4.162-1.129l-.299-.177-3.1 0.733.826-3.023-.194-.31a8.162 8.162 0 01-1.252-4.278c0-4.52 3.669-8.184 8.189-8.184z"/>
+    </svg>
+    <span>{label}</span>
+  </a>
+)}
