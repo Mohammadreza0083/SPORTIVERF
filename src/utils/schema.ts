@@ -26,7 +26,7 @@ export interface SportsTourItem {
 /**
  * Organization Schema.org JSON-LD (Corporate Entity)
  */
-export function generateOrganizationSchema(siteUrl: string) {
+export function generateOrganizationSchema(siteUrl: string): Record<string, unknown> {
   return {
     '@context': 'https://schema.org',
     '@type': 'SportsOrganization',
@@ -72,7 +72,7 @@ export function generateOrganizationSchema(siteUrl: string) {
 /**
  * WebSite Schema.org JSON-LD with Sitelinks SearchBox
  */
-export function generateWebSiteSchema(siteUrl: string, locale: SupportedLocale) {
+export function generateWebSiteSchema(siteUrl: string, locale: SupportedLocale): Record<string, unknown> {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
@@ -98,7 +98,7 @@ export function generateWebSiteSchema(siteUrl: string, locale: SupportedLocale) 
 /**
  * BreadcrumbList Schema.org JSON-LD
  */
-export function generateBreadcrumbSchema(siteUrl: string, items: BreadcrumbItem[]) {
+export function generateBreadcrumbSchema(siteUrl: string, items: BreadcrumbItem[]): Record<string, unknown> {
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -114,7 +114,7 @@ export function generateBreadcrumbSchema(siteUrl: string, items: BreadcrumbItem[
 /**
  * FAQPage Schema.org JSON-LD
  */
-export function generateFAQSchema(faqItems: FAQItem[]) {
+export function generateFAQSchema(faqItems: FAQItem[]): Record<string, unknown> {
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -132,7 +132,7 @@ export function generateFAQSchema(faqItems: FAQItem[]) {
 /**
  * TouristTrip / Product Schema.org JSON-LD for Sports Tourism Packages
  */
-export function generateSportsTourSchema(siteUrl: string, tour: SportsTourItem) {
+export function generateSportsTourSchema(siteUrl: string, tour: SportsTourItem): Record<string, unknown> {
   const fullUrl = tour.url.startsWith('http') ? tour.url : `${siteUrl}${tour.url}`;
   const fullImage = tour.image.startsWith('http') ? tour.image : `${siteUrl}${tour.image}`;
 

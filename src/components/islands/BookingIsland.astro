@@ -264,14 +264,14 @@ const t = useTranslations(locale);
     const errorModalMsg = document.getElementById(`error-modal-msg-${tourId}`);
     const errorModalClose = document.getElementById(`error-modal-close-${tourId}`);
 
-    function showErrorModal(message) {
+    const showErrorModal = (message) => {
       if (errorModalMsg) {
         errorModalMsg.textContent = message || 'Please check your information and try again.';
       }
       if (errorModal) {
         errorModal.classList.remove('hidden');
       }
-    }
+    };
 
     if (errorModalClose) {
       errorModalClose.addEventListener('click', () => {
@@ -365,7 +365,7 @@ const t = useTranslations(locale);
           locale
         };
 
-        console.log('[SPORTIVERF Inquiry Payload]', payload);
+        console.warn('[SPORTIVERF Inquiry Payload]', payload);
 
         // Build URL query params for fallback transmission
         const queryParams = new URLSearchParams({

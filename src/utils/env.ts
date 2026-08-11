@@ -16,7 +16,7 @@ export const envSchema = z.object({
 /**
  * Validates and returns parsed environment variables
  */
-export function getValidatedEnv() {
+export function getValidatedEnv(): z.infer<typeof envSchema> {
   const result = envSchema.safeParse(import.meta.env);
   if (!result.success) {
     console.error('Invalid Environment Configuration:', result.error.format());

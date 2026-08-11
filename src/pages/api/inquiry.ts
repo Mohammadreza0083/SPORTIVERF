@@ -31,7 +31,7 @@ export const GET: APIRoute = async () => {
 };
 
 export const POST: APIRoute = async ({ request }) => {
-  let data: Record<string, any> = {};
+  let data: Record<string, unknown> = {};
 
   // Extract query parameters first as guaranteed fallback
   try {
@@ -44,33 +44,36 @@ export const POST: APIRoute = async ({ request }) => {
 
   // Attempt to parse JSON body or Connect middleware body
   try {
-    if ((request as any).body && typeof (request as any).body === 'object') {
-      data = { ...data, ...(request as any).body };
+    const reqBody = (request as unknown as { body?: unknown }).body;
+    if (reqBody && typeof reqBody === 'object') {
+      data = { ...data, ...(reqBody as Record<string, unknown>) };
     } else {
       const parsed = await request.json();
       if (parsed && typeof parsed === 'object') {
-        data = { ...data, ...parsed };
+        data = { ...data, ...(parsed as Record<string, unknown>) };
       }
     }
-  } catch (e1) {
+  } catch {
     try {
       const rawText = await request.text();
       if (rawText && rawText.trim().length > 0) {
         const parsedText = JSON.parse(rawText);
-        data = { ...data, ...parsedText };
+        if (parsedText && typeof parsedText === 'object') {
+          data = { ...data, ...(parsedText as Record<string, unknown>) };
+        }
       }
-    } catch (e2) {
+    } catch {
       try {
         const formData = await request.formData();
         const fdObj = Object.fromEntries(formData.entries());
         data = { ...data, ...fdObj };
-      } catch (e3) {
+      } catch {
         // Keep searchParams fallback in data
       }
     }
   }
 
-  console.log('[Inquiry API Server Received Final Data]', data);
+  console.warn('[Inquiry API Server Received Final Data]', data);
 
   try {
     const fullName = (
@@ -207,13 +210,14 @@ export const POST: APIRoute = async ({ request }) => {
       }),
       { status: 200, headers: corsHeaders }
     );
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error('Inquiry API Handler Error:', err);
+    const errorMessage = err instanceof Error ? err.message : 'Internal server error processing inquiry.';
     return new Response(
       JSON.stringify({
         success: false,
         status: 'error',
-        message: err?.message || 'Internal server error processing inquiry.'
+        message: errorMessage
       }),
       { status: 500, headers: corsHeaders }
     );

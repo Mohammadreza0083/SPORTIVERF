@@ -4,7 +4,7 @@ import { animate, inView, stagger } from 'motion';
  * Utility functions for Motion One kinetic animations
  */
 
-export function setupScrollReveals() {
+export function setupScrollReveals(): void {
   if (typeof window === 'undefined') return;
 
   inView('.reveal-on-scroll', (element) => {
@@ -27,7 +27,7 @@ export function setupScrollReveals() {
   });
 }
 
-export function setupStickyHeaderAnimation(headerElement: HTMLElement | null) {
+export function setupStickyHeaderAnimation(headerElement: HTMLElement | null): void {
   if (!headerElement || typeof window === 'undefined') return;
 
   let lastScrollY = window.scrollY;
@@ -47,7 +47,7 @@ export function setupStickyHeaderAnimation(headerElement: HTMLElement | null) {
   });
 }
 
-export function animatePulse(target: string | HTMLElement) {
+export function animatePulse(target: string | HTMLElement): ReturnType<typeof animate> {
   return animate(
     target,
     { opacity: [0.3, 1, 0.3] },
