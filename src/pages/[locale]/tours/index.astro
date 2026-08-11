@@ -5,7 +5,8 @@ import type { SupportedLocale } from '@/types/i18n';
 import CampCard from '@/components/shared/CampCard.astro';
 import FilterBar from '@/components/islands/FilterBar.astro';
 import ContactButtons from '@/components/shared/ContactButtons.astro';
-import { CAMPS_DATA } from '@/data/camps';
+import campsData from '@/data/camps.json';
+import type { CampItem } from '@/data/camps';
 import { useTranslations, getLocalizedField } from '@/i18n/utils';
 
 export function getStaticPaths() {
@@ -47,7 +48,7 @@ const t = useTranslations(locale);
   <section class="py-16 bg-[#FAF9F6]">
     <div class="max-w-[1400px] mx-auto px-4 md:px-8">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {CAMPS_DATA.map((camp) => (
+        {(campsData as CampItem[]).map((camp) => (
           <div data-camp-wrapper data-sport={camp.sport} data-star-rating={camp.starRating}>
             <CampCard
               locale={locale}

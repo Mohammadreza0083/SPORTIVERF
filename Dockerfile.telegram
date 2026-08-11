@@ -1,0 +1,24 @@
+FROM python:3.11-alpine
+
+LABEL maintainer="SportivERF SRE Team <sre@sportiverf.com>"
+LABEL description="Python Telegram Concierge Webhook Listener for SportivERF"
+
+WORKDIR /app
+
+# Install curl for container health checks
+RUN apk add --no-cache curl
+
+# Copy requirements and install dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy scripts directory containing telegram_listener.py
+COPY scripts/ ./scripts/
+
+EXPOSE 5000
+
+# Healthcheck endpoint check
+HEALTHCHECK --interval=15s --timeout=5s --start-period=5s --retries=3 \
+  CMD curl -f http://localhost:5000/ || exit 1
+
+CMD ["python", "scripts/telegram_listener.py"]

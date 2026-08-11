@@ -1,25 +1,47 @@
 version: '3.8'
 
 services:
-  app-dev:
+  web:
     build:
       context: .
-      dockerfile: Dockerfile.dev
-    container_name: sportiverf-dev
+      dockerfile: Dockerfile
+    image: sportiverf-web:latest
+    container_name: sportiverf-web
     ports:
-      - "4321:4321"
-    volumes:
-      - .:/app
-      - /app/node_modules
-      - /app/.astro
+      - "80:80"
     environment:
-      - NODE_ENV=development
-      - PORT=4321
-      - HOST=0.0.0.0
+      - NODE_ENV=production
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:80/health || curl -f http://localhost:80/ || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
     networks:
-      - sportiverf-dev-net
+      - sportiverf-net
+
+  telegram-bot:
+    build:
+      context: .
+      dockerfile: Dockerfile.telegram
+    image: sportiverf-telegram-bot:latest
+    container_name: sportiverf-telegram-bot
+    ports:
+      - "5000:5000"
+    environment:
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN:-8921060827:AAHUNo_mdKGBwTlbysIf3nbBYd3BIX9k1Pw}
+      - TELEGRAM_CHAT_ID=${TELEGRAM_CHAT_ID:-269309616}
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:5000/ || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+    networks:
+      - sportiverf-net
 
 networks:
-  sportiverf-dev-net:
+  sportiverf-net:
     driver: bridge

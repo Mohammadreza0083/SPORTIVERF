@@ -5,11 +5,14 @@ import type { SupportedLocale } from '@/types/i18n';
 import BookingIsland from '@/components/islands/BookingIsland.astro';
 import OptimizedImage from '@/components/seo/OptimizedImage.astro';
 import ContactButtons from '@/components/shared/ContactButtons.astro';
-import { CAMPS_DATA, getCampBySlug } from '@/data/camps';
+import campsData from '@/data/camps.json';
+import { getCampBySlug, type CampItem } from '@/data/camps';
 import { useTranslations, getLocalizedField } from '@/i18n/utils';
 
+const allCamps = campsData as CampItem[];
+
 export function getStaticPaths() {
-  const slugs = CAMPS_DATA.map((camp) => camp.slug);
+  const slugs = (campsData as CampItem[]).map((camp) => camp.slug);
 
   return LOCALES_LIST.flatMap((locale) =>
     slugs.map((slug) => ({
@@ -21,7 +24,7 @@ export function getStaticPaths() {
 const { locale, slug } = Astro.params as { locale: SupportedLocale; slug: string };
 const t = useTranslations(locale);
 
-const camp = getCampBySlug(slug) || CAMPS_DATA[0];
+const camp = getCampBySlug(slug) || allCamps[0];
 
 const title = getLocalizedField(camp.title, locale);
 const summary = getLocalizedField(camp.summary, locale);
