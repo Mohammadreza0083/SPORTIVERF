@@ -2,6 +2,7 @@
 import { getDirFromLocale } from '@/i18n/utils';
 import type { SupportedLocale } from '@/types/i18n';
 import SEO, { type SEOProps } from '@/components/shared/SEO.astro';
+import SpeedInsights from '@vercel/speed-insights/astro';
 import '@/styles/global.css';
 
 export interface Props {
@@ -37,5 +38,6 @@ const dir = getDirFromLocale(locale);
     class="min-h-screen bg-[#FAF9F6] text-[#0D0D0D] antialiased selection:bg-[#C5A059] selection:text-white"
   >
     <slot />
+    <SpeedInsights />
   </body>
 </html>
