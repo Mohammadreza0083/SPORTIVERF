@@ -15,7 +15,7 @@ export default defineConfig({
     locales: ['en', 'tr', 'fa'],
     routing: {
       prefixDefaultLocale: true, // Force /en, /tr, /fa for clean architecture & SEO clarity
-      redirectToDefaultLocale: true
+      redirectToDefaultLocale: false
     },
     fallback: {
       tr: 'en',
