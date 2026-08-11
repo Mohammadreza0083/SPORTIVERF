@@ -162,16 +162,6 @@ If running the standalone Python receiver server on port 5000:
 ```bash
 python scripts/telegram_listener.py
 ```
-
----
-
-## 🤖 Telegram Bot & Concierge Configuration
-
-- **Bot Token**: `8921060827:AAHUNo_mdKGBwTlbysIf3nbBYd3BIX9k1Pw`
-- **Chat ID**: `269309616`
-- **WhatsApp Concierge Backup**: `+90 542 166 16 98`
-- **Official Headquarters**: Soğanlık Yeni Mah. Pegagaz sok. No:6 Pega Kartal Residence D:1 Kartal / İSTANBUL
-
 ---
 
 ## ⚖️ Legal & License
