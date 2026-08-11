@@ -368,7 +368,7 @@ export const CAMPS_DATA: CampItem[] = [
       tr: '12 KONTENJAN KALDI',
       fa: '۱۲ ظرفیت باقی‌مانده'
     },
-    imageUrl: 'https://images.unsplash.com/photo-1588636394503-4f9fa2d4a6ef?q=80&w=1200&auto=format&fit=crop',
+    imageUrl: 'https://images.unsplash.com/photo-1592656094267-764a45160876?q=80&w=1200&auto=format&fit=crop',
     summary: {
       en: '3-Star foundational volleyball camp designed to refine hitting posture, blocking positioning, server stability, and team chemistry.',
       tr: 'Smaç duruşu, blok zamanlaması, servis istikrarı ve takım oyununu geliştirmek üzere tasarlanmış 3 yıldızlı temel kamp.',

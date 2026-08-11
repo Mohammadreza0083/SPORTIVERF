@@ -28,6 +28,7 @@ if (!alt && alt !== '') {
 
 const isExternal = src.startsWith('http://') || src.startsWith('https://');
 const aspectRatio = (width / height).toFixed(4);
+const fallbackUrl = 'https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?q=80&w=1200&auto=format&fit=crop';
 ---
 
 <figure class={`relative overflow-hidden inline-block ${className}`} style={`aspect-ratio: ${aspectRatio};`}>
@@ -42,6 +43,7 @@ const aspectRatio = (width / height).toFixed(4);
       decoding="async"
       sizes={sizes}
       class="w-full h-full object-cover transition-opacity duration-300"
+      onerror={`this.onerror=null;this.src='${fallbackUrl}';`}
     />
   ) : (
     <picture>
@@ -57,6 +59,7 @@ const aspectRatio = (width / height).toFixed(4);
         decoding="async"
         sizes={sizes}
         class="w-full h-full object-cover transition-opacity duration-300"
+        onerror={`this.onerror=null;this.src='${fallbackUrl}';`}
       />
     </picture>
   )}
