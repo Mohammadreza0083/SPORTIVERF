@@ -8,7 +8,7 @@ export default defineConfig({
   trailingSlash: 'never',
   compressHTML: true,
   integrations: [tailwind()],
-  
+
   // Internationalization Architecture Config
   i18n: {
     defaultLocale: 'en',

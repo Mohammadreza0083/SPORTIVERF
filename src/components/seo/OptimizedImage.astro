@@ -28,27 +28,16 @@ if (!alt && alt !== '') {
 
 const isExternal = src.startsWith('http://') || src.startsWith('https://');
 const aspectRatio = (width / height).toFixed(4);
-const fallbackUrl = 'https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?q=80&w=1200&auto=format&fit=crop';
+const fallbackUrl =
+  'https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?q=80&w=1200&auto=format&fit=crop';
 ---
 
-<figure class={`relative overflow-hidden inline-block ${className}`} style={`aspect-ratio: ${aspectRatio};`}>
-  {isExternal ? (
-    <img
-      src={src}
-      alt={alt}
-      width={width}
-      height={height}
-      loading={loading}
-      fetchpriority={fetchpriority}
-      decoding="async"
-      sizes={sizes}
-      class="w-full h-full object-cover transition-opacity duration-300"
-      onerror={`this.onerror=null;this.src='${fallbackUrl}';`}
-    />
-  ) : (
-    <picture>
-      <source srcset={`${src}?format=avif`} type="image/avif" />
-      <source srcset={`${src}?format=webp`} type="image/webp" />
+<figure
+  class={`relative overflow-hidden inline-block ${className}`}
+  style={`aspect-ratio: ${aspectRatio};`}
+>
+  {
+    isExternal ? (
       <img
         src={src}
         alt={alt}
@@ -61,6 +50,23 @@ const fallbackUrl = 'https://images.unsplash.com/photo-1612872087720-bb876e2e67d
         class="w-full h-full object-cover transition-opacity duration-300"
         onerror={`this.onerror=null;this.src='${fallbackUrl}';`}
       />
-    </picture>
-  )}
+    ) : (
+      <picture>
+        <source srcset={`${src}?format=avif`} type="image/avif" />
+        <source srcset={`${src}?format=webp`} type="image/webp" />
+        <img
+          src={src}
+          alt={alt}
+          width={width}
+          height={height}
+          loading={loading}
+          fetchpriority={fetchpriority}
+          decoding="async"
+          sizes={sizes}
+          class="w-full h-full object-cover transition-opacity duration-300"
+          onerror={`this.onerror=null;this.src='${fallbackUrl}';`}
+        />
+      </picture>
+    )
+  }
 </figure>

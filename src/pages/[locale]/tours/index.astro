@@ -35,7 +35,9 @@ const t = useTranslations(locale);
       <h1 class="font-serif font-bold text-4xl sm:text-6xl text-[#0D0D0D] tracking-tight mb-6">
         {t('camps.title')}
       </h1>
-      <p class="font-sans text-[#555555] text-base md:text-lg max-w-2xl mx-auto font-light leading-relaxed">
+      <p
+        class="font-sans text-[#555555] text-base md:text-lg max-w-2xl mx-auto font-light leading-relaxed"
+      >
         {t('camps.subtitle')}
       </p>
     </div>
@@ -48,23 +50,25 @@ const t = useTranslations(locale);
   <section class="py-16 bg-[#FAF9F6]">
     <div class="max-w-[1400px] mx-auto px-4 md:px-8">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {(campsData as CampItem[]).map((camp) => (
-          <div data-camp-wrapper data-sport={camp.sport} data-star-rating={camp.starRating}>
-            <CampCard
-              locale={locale}
-              title={getLocalizedField(camp.title, locale)}
-              sport={camp.sport}
-              starRating={camp.starRating}
-              tierName={getLocalizedField(camp.tierName, locale)}
-              location={getLocalizedField(camp.location, locale)}
-              dates={getLocalizedField(camp.dates, locale)}
-              ageGroup={getLocalizedField(camp.ageGroup, locale)}
-              capacity={getLocalizedField(camp.capacity, locale)}
-              imageUrl={camp.imageUrl}
-              href={`/${locale}/camps/${camp.slug}`}
-            />
-          </div>
-        ))}
+        {
+          (campsData as CampItem[]).map((camp) => (
+            <div data-camp-wrapper data-sport={camp.sport} data-star-rating={camp.starRating}>
+              <CampCard
+                locale={locale}
+                title={getLocalizedField(camp.title, locale)}
+                sport={camp.sport}
+                starRating={camp.starRating}
+                tierName={getLocalizedField(camp.tierName, locale)}
+                location={getLocalizedField(camp.location, locale)}
+                dates={getLocalizedField(camp.dates, locale)}
+                ageGroup={getLocalizedField(camp.ageGroup, locale)}
+                capacity={getLocalizedField(camp.capacity, locale)}
+                imageUrl={camp.imageUrl}
+                href={`/${locale}/camps/${camp.slug}`}
+              />
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>

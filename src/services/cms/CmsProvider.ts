@@ -38,9 +38,12 @@ export class StrapiCmsAdapter implements ICmsProvider {
   }
 
   public async fetchPageContent<T>(pageSlug: string, locale: string): Promise<T | null> {
-    const res = await fetch(`${this.baseUrl}/api/pages?filters[slug][$eq]=${pageSlug}&locale=${locale}`, {
-      headers: { Authorization: `Bearer ${this.apiKey}` }
-    });
+    const res = await fetch(
+      `${this.baseUrl}/api/pages?filters[slug][$eq]=${pageSlug}&locale=${locale}`,
+      {
+        headers: { Authorization: `Bearer ${this.apiKey}` }
+      }
+    );
     if (!res.ok) return null;
     const json = await res.json();
     return json.data?.[0]?.attributes || null;

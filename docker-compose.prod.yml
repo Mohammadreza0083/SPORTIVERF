@@ -9,8 +9,8 @@ services:
     container_name: sportiverf-prod
     restart: always
     ports:
-      - "80:80"
-      - "443:443"
+      - '80:80'
+      - '443:443'
     environment:
       - NODE_ENV=production
     volumes:
@@ -18,7 +18,7 @@ services:
       - /var/www/certbot:/var/www/certbot:ro
       - web-logs:/var/log/nginx
     healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:80/health || exit 1"]
+      test: ['CMD-SHELL', 'curl -f http://localhost:80/health || exit 1']
       interval: 15s
       timeout: 5s
       retries: 3
@@ -32,10 +32,10 @@ services:
           cpus: '0.25'
           memory: 256M
     logging:
-      driver: "json-file"
+      driver: 'json-file'
       options:
-        max-size: "10m"
-        max-file: "3"
+        max-size: '10m'
+        max-file: '3'
     networks:
       - sportiverf-prod-net
 

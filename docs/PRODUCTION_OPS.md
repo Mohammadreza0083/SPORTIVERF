@@ -35,6 +35,7 @@ This document serves as the authoritative operational runbook for deploying, sec
 ## 2. Linux VPS Provisioning & Security Hardening
 
 ### 2.1 Firewall Configuration (UFW)
+
 Enforce minimal open ports on the VPS:
 
 ```bash
@@ -53,6 +54,7 @@ sudo ufw status verbose
 ```
 
 ### 2.2 Fail2Ban Protection
+
 Install and configure Fail2Ban to block brute-force SSH attacks and Nginx abuse:
 
 ```bash
@@ -84,6 +86,7 @@ bantime  = 7200
 ```
 
 Restart Fail2Ban:
+
 ```bash
 sudo systemctl restart fail2ban
 ```
@@ -113,14 +116,14 @@ Certificates will be mounted into the Docker container via:
 
 Configure the following environment secrets in your GitHub Repository under **Settings > Secrets and variables > Actions**:
 
-| Secret Name | Description | Example / Default |
-| :--- | :--- | :--- |
-| `VPS_HOST` | IP address or domain of the VPS | `192.0.2.1` |
-| `VPS_USERNAME` | SSH User (e.g. `root` or `deploy`) | `deploy` |
-| `VPS_SSH_KEY` | Private SSH Key for passwordless authentication | `-----BEGIN OPENSSH PRIVATE KEY-----...` |
-| `VPS_PORT` | SSH Port (Default: 22) | `22` |
-| `TELEGRAM_BOT_TOKEN` | Bot Access Token | `8921060827:AAHUNo_mdKGBwTlbysIf3nbBYd3BIX9k1Pw` |
-| `TELEGRAM_CHAT_ID` | Telegram Chat / Channel ID | `269309616` |
+| Secret Name          | Description                                     | Example / Default                                |
+| :------------------- | :---------------------------------------------- | :----------------------------------------------- |
+| `VPS_HOST`           | IP address or domain of the VPS                 | `192.0.2.1`                                      |
+| `VPS_USERNAME`       | SSH User (e.g. `root` or `deploy`)              | `deploy`                                         |
+| `VPS_SSH_KEY`        | Private SSH Key for passwordless authentication | `-----BEGIN OPENSSH PRIVATE KEY-----...`         |
+| `VPS_PORT`           | SSH Port (Default: 22)                          | `22`                                             |
+| `TELEGRAM_BOT_TOKEN` | Bot Access Token                                | `8921060827:AAHUNo_mdKGBwTlbysIf3nbBYd3BIX9k1Pw` |
+| `TELEGRAM_CHAT_ID`   | Telegram Chat / Channel ID                      | `269309616`                                      |
 
 ---
 
@@ -154,7 +157,9 @@ To enable automated server health monitoring and daily status reports on the VPS
 ## 6. Zero-Downtime Deployment & Manual Rollback Commands
 
 ### Automatic CI/CD Deployment Flow
+
 Every push to `main` executes `.github/workflows/deploy.yml`:
+
 1. Linting & type checking (`npm run check`).
 2. Static compilation (`npm run build`).
 3. Multi-stage Docker image build.
@@ -166,31 +171,37 @@ Every push to `main` executes `.github/workflows/deploy.yml`:
 ### Manual VPS Commands
 
 #### Run Production Stack
+
 ```bash
 docker compose -f docker-compose.prod.yml up -d
 ```
 
 #### Check Container Logs
+
 ```bash
 docker compose -f docker-compose.prod.yml logs -f web
 ```
 
 #### Check Container Health Status
+
 ```bash
 docker inspect --format='{{json .State.Health}}' sportiverf-prod
 ```
 
 #### Manual Rollback
+
 ```bash
 ./deploy/deploy.sh --rollback
 ```
 
 #### Manual Backup
+
 ```bash
 ./scripts/backup.sh
 ```
 
 #### Manual Restore
+
 ```bash
 ./scripts/restore.sh backups/sportiverf_backup_YYYYMMDD_HHMMSS.tar.gz
 ```

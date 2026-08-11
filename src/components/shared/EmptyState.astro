@@ -16,12 +16,25 @@ const {
 } = Astro.props;
 ---
 
-<div class={`bg-brand-dark border border-brand-borderSubtle rounded-lg p-12 text-center flex flex-col items-center justify-center max-w-xl mx-auto my-12 ${className}`}>
+<div
+  class={`bg-brand-dark border border-brand-borderSubtle rounded-lg p-12 text-center flex flex-col items-center justify-center max-w-xl mx-auto my-12 ${className}`}
+>
   <!-- Minimalist Icon -->
-  <div class="w-16 h-16 rounded-full bg-brand-surface border border-brand-borderMedium flex items-center justify-center mb-6">
-    <svg class="w-8 h-8 text-neutral-400 fill-none stroke-current stroke-1.5" viewBox="0 0 24 24" aria-hidden="true">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18z" />
-      <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25V9m-3 0h12.75c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125H4.875A1.125 1.125 0 013.75 19.875V10.125C3.75 9.504 4.254 9 4.875 9z" />
+  <div
+    class="w-16 h-16 rounded-full bg-brand-surface border border-brand-borderMedium flex items-center justify-center mb-6"
+  >
+    <svg
+      class="w-8 h-8 text-neutral-400 fill-none stroke-current stroke-1.5"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18z"
+      ></path>
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25V9m-3 0h12.75c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125H4.875A1.125 1.125 0 013.75 19.875V10.125C3.75 9.504 4.254 9 4.875 9z"
+      ></path>
     </svg>
   </div>
 
@@ -33,19 +46,17 @@ const {
     {subtitle}
   </p>
 
-  {actionHref ? (
-    <a href={actionHref} class="btn-primary !py-3 !px-6">
-      {actionText}
-    </a>
-  ) : (
-    <button
-      type="button"
-      id="reset-filters-btn"
-      class="btn-primary !py-3 !px-6"
-    >
-      {actionText}
-    </button>
-  )}
+  {
+    actionHref ? (
+      <a href={actionHref} class="btn-primary !py-3 !px-6">
+        {actionText}
+      </a>
+    ) : (
+      <button type="button" id="reset-filters-btn" class="btn-primary !py-3 !px-6">
+        {actionText}
+      </button>
+    )
+  }
 </div>
 
 <script>

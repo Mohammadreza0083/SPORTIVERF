@@ -28,19 +28,27 @@ const t = useTranslations(locale);
 >
   <!-- Light Luxury Hero Section -->
   <section class="relative py-28 md:py-36 bg-[#FAF9F6] border-b border-[#E5E3DC] overflow-hidden">
-    <div class="max-w-[1400px] mx-auto px-4 md:px-8 text-center flex flex-col items-center relative z-10">
+    <div
+      class="max-w-[1400px] mx-auto px-4 md:px-8 text-center flex flex-col items-center relative z-10"
+    >
       <!-- Top Tagline Badge -->
-      <span class="inline-block px-4 py-1.5 bg-white border border-[#C5A059] text-[#C5A059] font-mono text-xs uppercase tracking-[0.2em] mb-6 shadow-sm">
+      <span
+        class="inline-block px-4 py-1.5 bg-white border border-[#C5A059] text-[#C5A059] font-mono text-xs uppercase tracking-[0.2em] mb-6 shadow-sm"
+      >
         {t('hero.badge')}
       </span>
 
       <!-- Main Serif Headline -->
-      <h1 class="font-serif font-bold text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-[#0D0D0D] max-w-5xl leading-[1.05] mb-6">
+      <h1
+        class="font-serif font-bold text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-[#0D0D0D] max-w-5xl leading-[1.05] mb-6"
+      >
         {t('hero.title')}
       </h1>
 
       <!-- Subtitle -->
-      <p class="font-sans text-base md:text-xl text-[#555555] max-w-2xl font-light mb-10 leading-relaxed">
+      <p
+        class="font-sans text-base md:text-xl text-[#555555] max-w-2xl font-light mb-10 leading-relaxed"
+      >
         {t('hero.subtitle')}
       </p>
 
@@ -55,7 +63,9 @@ const t = useTranslations(locale);
       </div>
 
       <!-- Stat Strip with Kinetic Counting Numbers -->
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 w-full max-w-4xl py-8 border-y border-[#E5E3DC] bg-white/80 backdrop-blur-md shadow-sm">
+      <div
+        class="grid grid-cols-1 sm:grid-cols-3 gap-8 w-full max-w-4xl py-8 border-y border-[#E5E3DC] bg-white/80 backdrop-blur-md shadow-sm"
+      >
         <div>
           <span
             class="font-serif font-bold text-3xl md:text-4xl text-[#0D0D0D] block transition-all"
@@ -64,7 +74,9 @@ const t = useTranslations(locale);
           >
             0+
           </span>
-          <span class="font-mono text-xs text-[#888888] uppercase tracking-wider mt-1 block">{t('hero.statAthletes')}</span>
+          <span class="font-mono text-xs text-[#888888] uppercase tracking-wider mt-1 block"
+            >{t('hero.statAthletes')}</span
+          >
         </div>
         <div class="sm:border-x border-[#E5E3DC]">
           <span
@@ -74,7 +86,9 @@ const t = useTranslations(locale);
           >
             0+
           </span>
-          <span class="font-mono text-xs text-[#888888] uppercase tracking-wider mt-1 block">{t('hero.statClubs')}</span>
+          <span class="font-mono text-xs text-[#888888] uppercase tracking-wider mt-1 block"
+            >{t('hero.statClubs')}</span
+          >
         </div>
         <div>
           <span
@@ -84,7 +98,9 @@ const t = useTranslations(locale);
           >
             0+
           </span>
-          <span class="font-mono text-xs text-[#888888] uppercase tracking-wider mt-1 block">{t('hero.statAcademies')}</span>
+          <span class="font-mono text-xs text-[#888888] uppercase tracking-wider mt-1 block"
+            >{t('hero.statAcademies')}</span
+          >
         </div>
       </div>
     </div>
@@ -106,7 +122,9 @@ const t = useTranslations(locale);
         <!-- Value 1: TRUST -->
         <div class="bg-[#FAF9F6] border border-[#E5E3DC] p-8 hover:border-[#C5A059] transition-all">
           <span class="font-mono text-xs text-[#C5A059] block mb-4">01 / PRINCIPLE</span>
-          <h3 class="font-serif font-bold text-2xl text-[#0D0D0D] mb-3">{t('values.trustTitle')}</h3>
+          <h3 class="font-serif font-bold text-2xl text-[#0D0D0D] mb-3">
+            {t('values.trustTitle')}
+          </h3>
           <p class="text-[#555555] text-sm leading-relaxed font-light">
             {t('values.trustDesc')}
           </p>
@@ -135,7 +153,9 @@ const t = useTranslations(locale);
 
   <!-- FilterBar & Tiered Camps Grid -->
   <section class="py-20 bg-[#FAF9F6]">
-    <div class="max-w-[1400px] mx-auto px-4 md:px-8 mb-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+    <div
+      class="max-w-[1400px] mx-auto px-4 md:px-8 mb-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-4"
+    >
       <div>
         <span class="font-mono text-xs text-[#C5A059] uppercase tracking-[0.2em] block mb-2">
           {t('camps.badge')}
@@ -153,24 +173,28 @@ const t = useTranslations(locale);
     <FilterBar locale={locale} activeSport="ALL" activeStar="ALL" />
 
     <!-- Camp Grid -->
-    <div class="max-w-[1400px] mx-auto px-4 md:px-8 mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {(campsData as CampItem[]).map((camp) => (
-        <div data-camp-wrapper data-sport={camp.sport} data-star-rating={camp.starRating}>
-          <CampCard
-            locale={locale}
-            title={getLocalizedField(camp.title, locale)}
-            sport={camp.sport}
-            starRating={camp.starRating}
-            tierName={getLocalizedField(camp.tierName, locale)}
-            location={getLocalizedField(camp.location, locale)}
-            dates={getLocalizedField(camp.dates, locale)}
-            ageGroup={getLocalizedField(camp.ageGroup, locale)}
-            capacity={getLocalizedField(camp.capacity, locale)}
-            imageUrl={camp.imageUrl}
-            href={`/${locale}/camps/${camp.slug}`}
-          />
-        </div>
-      ))}
+    <div
+      class="max-w-[1400px] mx-auto px-4 md:px-8 mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+    >
+      {
+        (campsData as CampItem[]).map((camp) => (
+          <div data-camp-wrapper data-sport={camp.sport} data-star-rating={camp.starRating}>
+            <CampCard
+              locale={locale}
+              title={getLocalizedField(camp.title, locale)}
+              sport={camp.sport}
+              starRating={camp.starRating}
+              tierName={getLocalizedField(camp.tierName, locale)}
+              location={getLocalizedField(camp.location, locale)}
+              dates={getLocalizedField(camp.dates, locale)}
+              ageGroup={getLocalizedField(camp.ageGroup, locale)}
+              capacity={getLocalizedField(camp.capacity, locale)}
+              imageUrl={camp.imageUrl}
+              href={`/${locale}/camps/${camp.slug}`}
+            />
+          </div>
+        ))
+      }
     </div>
   </section>
 
@@ -221,14 +245,17 @@ const t = useTranslations(locale);
       requestAnimationFrame(updateCount);
     };
 
-    const observer = new IntersectionObserver((entries, obs) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          animateCounter(entry.target);
-          obs.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.2 });
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
 
     counters.forEach((c) => observer.observe(c));
   });

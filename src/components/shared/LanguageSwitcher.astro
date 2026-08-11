@@ -21,29 +21,31 @@ function getSwitchedPath(targetLocale: SupportedLocale): string {
 
 <nav aria-label="Language selection" class="relative inline-block text-left">
   <ul class="flex items-center space-x-1.5 text-xs font-mono font-medium rtl:space-x-reverse">
-    {Object.values(SUPPORTED_LOCALES).map((loc) => {
-      const isActive = loc.code === currentLocale;
-      return (
-        <li>
-          <a
-            href={getSwitchedPath(loc.code)}
-            hreflang={loc.code}
-            lang={loc.code}
-            data-locale-switch={loc.code}
-            class={`lang-switch-link inline-flex items-center gap-1 px-2.5 py-1.5 transition-all focus:outline-none border text-[11px] uppercase tracking-wider ${
-              isActive
-                ? 'bg-[#0D0D0D] text-white font-bold border-[#0D0D0D] shadow-sm'
-                : 'bg-white text-[#555555] border-[#E5E3DC] hover:border-[#C5A059] hover:text-[#C5A059]'
-            }`}
-            aria-current={isActive ? 'true' : undefined}
-            aria-label={`Switch language to ${loc.name}`}
-          >
-            <span>{loc.code.toUpperCase()}</span>
-            <span class="text-[10px] opacity-75 font-sans">({loc.nativeName})</span>
-          </a>
-        </li>
-      );
-    })}
+    {
+      Object.values(SUPPORTED_LOCALES).map((loc) => {
+        const isActive = loc.code === currentLocale;
+        return (
+          <li>
+            <a
+              href={getSwitchedPath(loc.code)}
+              hreflang={loc.code}
+              lang={loc.code}
+              data-locale-switch={loc.code}
+              class={`lang-switch-link inline-flex items-center gap-1 px-2.5 py-1.5 transition-all focus:outline-none border text-[11px] uppercase tracking-wider ${
+                isActive
+                  ? 'bg-[#0D0D0D] text-white font-bold border-[#0D0D0D] shadow-sm'
+                  : 'bg-white text-[#555555] border-[#E5E3DC] hover:border-[#C5A059] hover:text-[#C5A059]'
+              }`}
+              aria-current={isActive ? 'true' : undefined}
+              aria-label={`Switch language to ${loc.name}`}
+            >
+              <span>{loc.code.toUpperCase()}</span>
+              <span class="text-[10px] opacity-75 font-sans">({loc.nativeName})</span>
+            </a>
+          </li>
+        );
+      })
+    }
   </ul>
 </nav>
 

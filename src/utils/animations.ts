@@ -48,9 +48,5 @@ export function setupStickyHeaderAnimation(headerElement: HTMLElement | null): v
 }
 
 export function animatePulse(target: string | HTMLElement): ReturnType<typeof animate> {
-  return animate(
-    target,
-    { opacity: [0.3, 1, 0.3] },
-    { duration: 1.5, repeat: Infinity }
-  );
+  return animate(target, { opacity: [0.3, 1, 0.3] }, { duration: 1.5, repeat: Infinity });
 }

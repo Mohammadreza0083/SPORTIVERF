@@ -105,14 +105,14 @@ jobs:
             export TELEGRAM_BOT_TOKEN="${TELEGRAM_BOT_TOKEN}"
             export TELEGRAM_CHAT_ID="${TELEGRAM_CHAT_ID}"
             export GITHUB_SHA="${{ github.sha }}"
-            
+
             # Navigate to production deployment path
             cd /opt/sportiverf || cd ~/sportiverf || exit 1
-            
+
             # Pull latest repository changes
             git fetch origin ${{ github.ref_name }}
             git reset --hard origin/${{ github.ref_name }}
-            
+
             # Execute zero-downtime rolling deployment
             chmod +x deploy/deploy.sh scripts/telegram-notify.sh
             ./deploy/deploy.sh

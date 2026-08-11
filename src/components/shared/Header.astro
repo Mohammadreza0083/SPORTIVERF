@@ -17,7 +17,7 @@ const navItems = [
   { href: `/${locale}/football-camps`, label: t('nav.football'), key: 'football' },
   { href: `/${locale}/volleyball-camps`, label: t('nav.volleyball'), key: 'volleyball' },
   { href: `/${locale}/tours`, label: t('nav.tours'), key: 'tours' },
-  { href: `/${locale}/about`, label: t('nav.about'), key: 'about' },
+  { href: `/${locale}/about`, label: t('nav.about'), key: 'about' }
 ];
 
 function getSwitchedPath(targetLocale: SupportedLocale): string {
@@ -42,7 +42,9 @@ function getSwitchedPath(targetLocale: SupportedLocale): string {
       class="flex flex-col focus:outline-none group"
       aria-label="SPORTIVERF Homepage"
     >
-      <span class="font-serif font-bold text-2xl md:text-3xl tracking-tight text-[#0D0D0D] group-hover:text-[#C5A059] transition-colors">
+      <span
+        class="font-serif font-bold text-2xl md:text-3xl tracking-tight text-[#0D0D0D] group-hover:text-[#C5A059] transition-colors"
+      >
         SPORTIV<span class="text-[#C5A059]">ERF</span>
       </span>
       <span class="font-mono text-[9px] tracking-[0.2em] text-[#888888] uppercase -mt-1">
@@ -56,23 +58,25 @@ function getSwitchedPath(targetLocale: SupportedLocale): string {
       aria-label={t('nav.main')}
       class="hidden lg:flex items-center gap-8 rtl:space-x-reverse"
     >
-      {navItems.map((item) => {
-        const isActive = currentPath === item.href || (item.href !== `/${locale}` && currentPath.startsWith(`${item.href}`));
-        return (
-          <a
-            href={item.href}
-            class={`relative text-xs uppercase tracking-[0.15em] font-medium transition-colors py-1 ${
-              isActive ? 'text-[#0D0D0D] font-bold' : 'text-[#555555] hover:text-[#C5A059]'
-            }`}
-            aria-current={isActive ? 'page' : undefined}
-          >
-            {item.label}
-            {isActive && (
-              <span class="absolute bottom-0 left-0 w-full h-[2px] bg-[#C5A059]" />
-            )}
-          </a>
-        );
-      })}
+      {
+        navItems.map((item) => {
+          const isActive =
+            currentPath === item.href ||
+            (item.href !== `/${locale}` && currentPath.startsWith(`${item.href}`));
+          return (
+            <a
+              href={item.href}
+              class={`relative text-xs uppercase tracking-[0.15em] font-medium transition-colors py-1 ${
+                isActive ? 'text-[#0D0D0D] font-bold' : 'text-[#555555] hover:text-[#C5A059]'
+              }`}
+              aria-current={isActive ? 'page' : undefined}
+            >
+              {item.label}
+              {isActive && <span class="absolute bottom-0 left-0 w-full h-[2px] bg-[#C5A059]" />}
+            </a>
+          );
+        })
+      }
     </nav>
 
     <!-- Right Utilities & Action CTAs -->
@@ -81,7 +85,7 @@ function getSwitchedPath(targetLocale: SupportedLocale): string {
       <div class="hidden lg:block">
         <LanguageSwitcher currentLocale={locale} />
       </div>
-      
+
       <a
         href={`/${locale}/tours`}
         class="hidden sm:inline-flex btn-primary !py-2.5 !px-5 !text-[11px]"
@@ -98,8 +102,16 @@ function getSwitchedPath(targetLocale: SupportedLocale): string {
         aria-expanded="false"
         aria-controls="mobile-nav-drawer"
       >
-        <svg class="w-6 h-6 fill-none stroke-current stroke-2 transition-transform duration-300" viewBox="0 0 24 24" aria-hidden="true">
-          <path id="menu-icon-path" stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        <svg
+          class="w-6 h-6 fill-none stroke-current stroke-2 transition-transform duration-300"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            id="menu-icon-path"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
         </svg>
       </button>
     </div>
@@ -112,20 +124,26 @@ function getSwitchedPath(targetLocale: SupportedLocale): string {
   >
     <!-- Navigation Links -->
     <nav class="flex flex-col gap-3">
-      {navItems.map((item) => {
-        const isActive = currentPath === item.href || (item.href !== `/${locale}` && currentPath.startsWith(`${item.href}`));
-        return (
-          <a
-            href={item.href}
-            class={`text-sm font-medium uppercase tracking-wider transition-all duration-200 border-b border-[#E5E3DC] pb-3 flex items-center justify-between ${
-              isActive ? 'text-[#C5A059] font-bold pl-2 border-l-2 border-[#C5A059]' : 'text-[#0D0D0D] hover:text-[#C5A059] hover:pl-1'
-            }`}
-          >
-            <span>{item.label}</span>
-            {isActive && <span class="w-2 h-2 rounded-full bg-[#C5A059]" />}
-          </a>
-        );
-      })}
+      {
+        navItems.map((item) => {
+          const isActive =
+            currentPath === item.href ||
+            (item.href !== `/${locale}` && currentPath.startsWith(`${item.href}`));
+          return (
+            <a
+              href={item.href}
+              class={`text-sm font-medium uppercase tracking-wider transition-all duration-200 border-b border-[#E5E3DC] pb-3 flex items-center justify-between ${
+                isActive
+                  ? 'text-[#C5A059] font-bold pl-2 border-l-2 border-[#C5A059]'
+                  : 'text-[#0D0D0D] hover:text-[#C5A059] hover:pl-1'
+              }`}
+            >
+              <span>{item.label}</span>
+              {isActive && <span class="w-2 h-2 rounded-full bg-[#C5A059]" />}
+            </a>
+          );
+        })
+      }
     </nav>
 
     <!-- Mobile Choose Language Section -->
@@ -140,29 +158,34 @@ function getSwitchedPath(targetLocale: SupportedLocale): string {
       </div>
 
       <div class="grid grid-cols-3 gap-2">
-        {Object.values(SUPPORTED_LOCALES).map((loc) => {
-          const isActive = loc.code === locale;
-          return (
-            <a
-              href={getSwitchedPath(loc.code)}
-              data-locale-switch={loc.code}
-              class={`lang-switch-link flex flex-col items-center justify-center p-3 border text-center font-mono transition-all duration-200 ${
-                isActive
-                  ? 'bg-[#0D0D0D] text-white font-bold border-[#0D0D0D] shadow-md scale-[1.02]'
-                  : 'bg-white text-[#555555] border-[#E5E3DC] hover:border-[#C5A059] hover:text-[#0D0D0D]'
-              }`}
-            >
-              <span class="text-xs uppercase font-bold tracking-wider">{loc.code}</span>
-              <span class="text-[10px] opacity-80 font-sans mt-0.5">{loc.nativeName}</span>
-            </a>
-          );
-        })}
+        {
+          Object.values(SUPPORTED_LOCALES).map((loc) => {
+            const isActive = loc.code === locale;
+            return (
+              <a
+                href={getSwitchedPath(loc.code)}
+                data-locale-switch={loc.code}
+                class={`lang-switch-link flex flex-col items-center justify-center p-3 border text-center font-mono transition-all duration-200 ${
+                  isActive
+                    ? 'bg-[#0D0D0D] text-white font-bold border-[#0D0D0D] shadow-md scale-[1.02]'
+                    : 'bg-white text-[#555555] border-[#E5E3DC] hover:border-[#C5A059] hover:text-[#0D0D0D]'
+                }`}
+              >
+                <span class="text-xs uppercase font-bold tracking-wider">{loc.code}</span>
+                <span class="text-[10px] opacity-80 font-sans mt-0.5">{loc.nativeName}</span>
+              </a>
+            );
+          })
+        }
       </div>
     </div>
 
     <!-- Mobile Action CTA -->
     <div class="pt-2">
-      <a href={`/${locale}/tours`} class="btn-primary w-full justify-center !py-3.5 text-center text-xs font-bold tracking-[0.18em] shadow-lg">
+      <a
+        href={`/${locale}/tours`}
+        class="btn-primary w-full justify-center !py-3.5 text-center text-xs font-bold tracking-[0.18em] shadow-lg"
+      >
         {t('nav.bookNow')}
       </a>
     </div>

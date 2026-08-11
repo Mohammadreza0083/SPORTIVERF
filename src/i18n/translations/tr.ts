@@ -1,7 +1,8 @@
 export default {
   site: {
     title: 'SPORTIVERF — Lüks Spor Turizmi & Seçkin Kamplar',
-    description: 'Uluslararası spor turizm platformu, futbol seçmeleri, voleybol uzmanlık kampları ve 3/4/5 yıldızlı atletik kamplar.'
+    description:
+      'Uluslararası spor turizm platformu, futbol seçmeleri, voleybol uzmanlık kampları ve 3/4/5 yıldızlı atletik kamplar.'
   },
   nav: {
     main: 'Ana Menü',
@@ -15,7 +16,8 @@ export default {
   },
   gate: {
     title: 'Dil ve Bölge Seçimi',
-    subtitle: 'SPORTIVERF platformuna hoş geldiniz. Özel lüks hizmet deneyimi için lütfen tercih ettiğiniz dili seçiniz.',
+    subtitle:
+      'SPORTIVERF platformuna hoş geldiniz. Özel lüks hizmet deneyimi için lütfen tercih ettiğiniz dili seçiniz.',
     en: 'English',
     tr: 'Türkçe',
     fa: 'فارسی',
@@ -25,7 +27,8 @@ export default {
   hero: {
     badge: 'LÜKS SPOR TURİZMİ VE SEÇMELER',
     title: 'Hassas Atletik ve Uluslararası Kamp Programları',
-    subtitle: 'Seçkin sporcular için özel olarak tasarlanmış 3 Yıldızlı, 4 Yıldızlı ve 5 Yıldızlı VIP atletik kamplar, scout seçmeleri ve yüksek performans eğitimleri.',
+    subtitle:
+      'Seçkin sporcular için özel olarak tasarlanmış 3 Yıldızlı, 4 Yıldızlı ve 5 Yıldızlı VIP atletik kamplar, scout seçmeleri ve yüksek performans eğitimleri.',
     ctaPrimary: 'Futbol Kamplarını İncele',
     ctaSecondary: 'Voleybol Kamplarını İncele',
     statAthletes: 'Yerleştirilen Sporcu',
@@ -36,16 +39,20 @@ export default {
     badge: 'TEMEL İLKELERİMİZ',
     title: 'Temel Değerler',
     trustTitle: 'Güven & Denetim',
-    trustDesc: 'Tavizsiz güvenlik standartları, Aklimosaturizm denetiminde lisanslı seyahat güvencesi ve tüm süreçlerde tam sözleşme şeffaflığı.',
+    trustDesc:
+      'Tavizsiz güvenlik standartları, Aklimosaturizm denetiminde lisanslı seyahat güvencesi ve tüm süreçlerde tam sözleşme şeffaflığı.',
     devTitle: 'Sportif Mükemmellik',
-    devDesc: 'Yüksek performanslı fiziksel hazırlık, UEFA & FIVB lisanslı antrenörler ve son teknoloji antrenman tesisleri.',
+    devDesc:
+      'Yüksek performanslı fiziksel hazırlık, UEFA & FIVB lisanslı antrenörler ve son teknoloji antrenman tesisleri.',
     oppTitle: 'Küresel Fırsat',
-    oppDesc: 'Avrupalı scoutlara doğrudan erişim, uluslararası üniversite burs yolları ve seçkin kulüp seçmeleri.'
+    oppDesc:
+      'Avrupalı scoutlara doğrudan erişim, uluslararası üniversite burs yolları ve seçkin kulüp seçmeleri.'
   },
   camps: {
     badge: 'ÖZEL SPOR PROGRAMLARI',
     title: 'Kategorili Spor Kampları ve Seçmeler',
-    subtitle: 'Dünya standartlarında tesisleri ve profesyonel scout seçmelerini keşfetmek için spor ve yıldız kategorisine göre filtreleyin.',
+    subtitle:
+      'Dünya standartlarında tesisleri ve profesyonel scout seçmelerini keşfetmek için spor ve yıldız kategorisine göre filtreleyin.',
     filterAllSports: 'Tüm Sporlar',
     filterFootball: 'Futbol Kampları',
     filterVolleyball: 'Voleybol Kampları',
@@ -68,14 +75,18 @@ export default {
     star3: '3 Yıldızlı Temel',
     star4: '4 Yıldızlı Yönetici',
     star5: '5 Yıldızlı VIP Lüks',
-    star3Desc: 'Konforlu konaklama ve standart saha antrenmanları sunan temel atletik gelişim kliniği.',
-    star4Desc: '4 yıldızlı konaklama, video analizi ve uzman antrenör kadrosu ile akademilere özel paket.',
-    star5Desc: '5 yıldızlı sahil otelleri, UEFA/FIVB antrenörleri ve doğrudan scout takibi içeren VIP lüks gösteri kampı.'
+    star3Desc:
+      'Konforlu konaklama ve standart saha antrenmanları sunan temel atletik gelişim kliniği.',
+    star4Desc:
+      '4 yıldızlı konaklama, video analizi ve uzman antrenör kadrosu ile akademilere özel paket.',
+    star5Desc:
+      '5 yıldızlı sahil otelleri, UEFA/FIVB antrenörleri ve doğrudan scout takibi içeren VIP lüks gösteri kampı.'
   },
   booking: {
     badge: 'DOĞRUDAN BAŞVURU FORMU',
     title: 'Kamp Başvuru ve Rezervasyon',
-    subtitle: 'Resmi başvurunuzu başlatmak için aşağıdaki formu doldurun. Hizmet ekibimiz başvurunuzu 24 saat içinde inceleyecektir.',
+    subtitle:
+      'Resmi başvurunuzu başlatmak için aşağıdaki formu doldurun. Hizmet ekibimiz başvurunuzu 24 saat içinde inceleyecektir.',
     fullNameLabel: 'Ad Soyad',
     fullNamePlaceholder: 'ör. Alexander Wright',
     emailLabel: 'E-posta Adresi',
@@ -86,34 +97,42 @@ export default {
     starTierLabel: 'Tercih Edilen Kategori',
     participantsLabel: 'Sporcu Sayısı',
     notesLabel: 'Özel Talepler / Pozisyon Detayları',
-    notesPlaceholder: 'Oynadığı mevki, beslenme tercihleri veya transfer taleplerinizi belirtiniz...',
+    notesPlaceholder:
+      'Oynadığı mevki, beslenme tercihleri veya transfer taleplerinizi belirtiniz...',
     submitBtn: 'Resmi Başvuruyu Gönder',
     submittingBtn: 'Başvuru Gönderiliyor...',
     successTitle: 'Başvurunuz Başarıyla Alındı',
-    successSubtitle: 'Teşekkür ederiz. Talebiniz doğrudan danışman ekibimize ve Telegram sistemimize iletilmiştir.',
+    successSubtitle:
+      'Teşekkür ederiz. Talebiniz doğrudan danışman ekibimize ve Telegram sistemimize iletilmiştir.',
     refNumber: 'Referans Numarası',
-    statusText: 'Kıdemli spor danışmanımız 24 saat içinde WhatsApp veya E-posta yoluyla sizinle iletişime geçecektir.',
+    statusText:
+      'Kıdemli spor danışmanımız 24 saat içinde WhatsApp veya E-posta yoluyla sizinle iletişime geçecektir.',
     whatsappBtn: 'Doğrudan WhatsApp Danışmanı',
     newInquiryBtn: 'Yeni Başvuru Gönder'
   },
   about: {
     badge: 'AKLİMOSATURİZM GÜVENCESİ',
     heroTitle: 'Yurt Dışı Spor Turizmini Yeniden Tanımlıyoruz',
-    heroSubtitle: 'Genç yetenekleri üst düzey, yapılandırılmış kamp deneyimleriyle uluslararası kulüpler ve akademilerle buluşturuyoruz.',
+    heroSubtitle:
+      'Genç yetenekleri üst düzey, yapılandırılmış kamp deneyimleriyle uluslararası kulüpler ve akademilerle buluşturuyoruz.',
     storyTitle: 'Marka Hikayemiz',
-    storyDesc: 'SPORTIVERF, yetenekli sporcular ile küresel fırsatlar arasındaki köprüyü kurmak amacıyla kurulmuştur. Aklimosaturizm resmi lisansı ve denetimi altında, eşsiz profesyonellikle uçtan uca spor turizmi hizmeti sunuyoruz.',
+    storyDesc:
+      'SPORTIVERF, yetenekli sporcular ile küresel fırsatlar arasındaki köprüyü kurmak amacıyla kurulmuştur. Aklimosaturizm resmi lisansı ve denetimi altında, eşsiz profesyonellikle uçtan uca spor turizmi hizmeti sunuyoruz.',
     supervisionTitle: 'Lisanslı Yasal Denetim',
-    supervisionDesc: 'Tüm SPORTIVERF kampları, Aklimosaturizm\'in yasal denetimi altında yürütülür; eksiksiz seyahat sigortası, akredite otel ortaklıkları ve sertifikalı güvenlik garanti edilir.',
+    supervisionDesc:
+      "Tüm SPORTIVERF kampları, Aklimosaturizm'in yasal denetimi altında yürütülür; eksiksiz seyahat sigortası, akredite otel ortaklıkları ve sertifikalı güvenlik garanti edilir.",
     standardsTitle: 'Derecelendirilmiş Mükemmellik',
-    standardsDesc: 'İster 3 Yıldızlı Temel Klinik, ister 4 Yıldızlı Akademi veya 5 Yıldızlı VIP Lüks Kamp seçin; her sporcu profesyonel antrenörlük, biyo-fiziksel değerlendirme ve video analizi alır.',
+    standardsDesc:
+      'İster 3 Yıldızlı Temel Klinik, ister 4 Yıldızlı Akademi veya 5 Yıldızlı VIP Lüks Kamp seçin; her sporcu profesyonel antrenörlük, biyo-fiziksel değerlendirme ve video analizi alır.',
     leadershipTitle: 'Misyon ve Vizyonumuz',
-    leadershipDesc: 'Avrasya\'nın lider spor turizmi kapısı olarak, sporculara şeffaf, güvenli ve dönüştürücü sportif yolculuklar sağlamak.'
+    leadershipDesc:
+      "Avrasya'nın lider spor turizmi kapısı olarak, sporculara şeffaf, güvenli ve dönüştürücü sportif yolculuklar sağlamak."
   },
   faq: {
     badge: 'SIKÇA SORULAN SORULAR',
     title: 'Platform SSS',
     q1: 'SPORTIVERF hangi yasal denetim altında çalışmaktadır?',
-    a1: 'SPORTIVERF, Aklimosaturizm\'in doğrudan yasal denetimi ve lisansı altında faaliyet göstermektedir.',
+    a1: "SPORTIVERF, Aklimosaturizm'in doğrudan yasal denetimi ve lisansı altında faaliyet göstermektedir.",
     q2: '3 Yıldızlı, 4 Yıldızlı ve 5 Yıldızlı kamplar arasındaki fark nedir?',
     a2: '3 Yıldızlı kamplar temel beceri ve konforlu konaklamaya; 4 Yıldızlı kamplar üst düzey tesis ve video analizine; 5 Yıldızlı VIP kamplar ise lüks oteller, UEFA/FIVB antrenörler ve scout takibine odaklanır.',
     q3: 'Kulübüm veya akademim için nasıl başvuru yapabilirim?',
@@ -145,7 +164,8 @@ export default {
     e403Title: '403 — Erişim Engellendi',
     e403Desc: 'Bu özel spor dosyasına erişmek için gerekli yetkiye sahip değilsiniz.',
     e500Title: '500 — Sunucu Hatası',
-    e500Desc: 'Platformumuzda geçici bir sunucu zaman aşımı yaşandı. Teknik ekibimiz bilgilendirildi.',
+    e500Desc:
+      'Platformumuzda geçici bir sunucu zaman aşımı yaşandı. Teknik ekibimiz bilgilendirildi.',
     e400Title: '400 — Geçersiz İstek',
     e400Desc: 'İletilen başvuru parametreleri eksik veya hatalı biçimlendirilmiş.',
     backHome: 'Ana Sayfaya Dön',

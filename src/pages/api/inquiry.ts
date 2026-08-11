@@ -13,10 +13,10 @@ const corsHeaders = {
 };
 
 export const OPTIONS: APIRoute = async () => {
-  return new Response(
-    JSON.stringify({ success: true, message: 'CORS Preflight OK' }),
-    { status: 200, headers: corsHeaders }
-  );
+  return new Response(JSON.stringify({ success: true, message: 'CORS Preflight OK' }), {
+    status: 200,
+    headers: corsHeaders
+  });
 };
 
 export const GET: APIRoute = async () => {
@@ -83,15 +83,13 @@ export const POST: APIRoute = async ({ request }) => {
       data.fullname ||
       data['fullName'] ||
       ''
-    ).toString().trim();
+    )
+      .toString()
+      .trim();
 
-    const email = (
-      data.email ||
-      data.emailAddress ||
-      data.mail ||
-      data['email'] ||
-      ''
-    ).toString().trim();
+    const email = (data.email || data.emailAddress || data.mail || data['email'] || '')
+      .toString()
+      .trim();
 
     const rawPhone = (
       data.phone ||
@@ -101,13 +99,17 @@ export const POST: APIRoute = async ({ request }) => {
       data.tel ||
       data['phone'] ||
       ''
-    ).toString().trim();
+    )
+      .toString()
+      .trim();
 
     const sport = (data.sport || 'FOOTBALL').toString().trim();
     const starTier = (data.starTier || '5-Star VIP').toString().trim();
     const participants = (data.participants || data.athletesCount || '1').toString().trim();
     const notes = (data.notes || data.message || 'No additional demands').toString().trim();
-    const campTitle = (data.campTitle || data.tourTitle || 'SPORTIVERF Expedition').toString().trim();
+    const campTitle = (data.campTitle || data.tourTitle || 'SPORTIVERF Expedition')
+      .toString()
+      .trim();
     const locale = (data.locale || 'en').toString().toUpperCase();
 
     // 1. Full Name Validation
@@ -144,7 +146,8 @@ export const POST: APIRoute = async ({ request }) => {
         JSON.stringify({
           success: false,
           status: 'error',
-          message: 'Validation Error: Please enter a valid international phone number with country code (7–15 digits).'
+          message:
+            'Validation Error: Please enter a valid international phone number with country code (7–15 digits).'
         }),
         { status: 400, headers: corsHeaders }
       );
@@ -212,7 +215,8 @@ export const POST: APIRoute = async ({ request }) => {
     );
   } catch (err: unknown) {
     console.error('Inquiry API Handler Error:', err);
-    const errorMessage = err instanceof Error ? err.message : 'Internal server error processing inquiry.';
+    const errorMessage =
+      err instanceof Error ? err.message : 'Internal server error processing inquiry.';
     return new Response(
       JSON.stringify({
         success: false,

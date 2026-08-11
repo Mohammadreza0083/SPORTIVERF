@@ -41,7 +41,8 @@ export function generateOrganizationSchema(siteUrl: string): Record<string, unkn
       caption: 'SportivERF Logo'
     },
     image: `${siteUrl}/assets/images/og-default.jpg`,
-    description: 'Premier global sports tourism platform, alpine skiing expeditions, and elite athletic retreats.',
+    description:
+      'Premier global sports tourism platform, alpine skiing expeditions, and elite athletic retreats.',
     email: 'contact@sportiverf.com',
     telephone: '+1-800-555-0199',
     address: {
@@ -72,7 +73,10 @@ export function generateOrganizationSchema(siteUrl: string): Record<string, unkn
 /**
  * WebSite Schema.org JSON-LD with Sitelinks SearchBox
  */
-export function generateWebSiteSchema(siteUrl: string, locale: SupportedLocale): Record<string, unknown> {
+export function generateWebSiteSchema(
+  siteUrl: string,
+  locale: SupportedLocale
+): Record<string, unknown> {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
@@ -98,7 +102,10 @@ export function generateWebSiteSchema(siteUrl: string, locale: SupportedLocale):
 /**
  * BreadcrumbList Schema.org JSON-LD
  */
-export function generateBreadcrumbSchema(siteUrl: string, items: BreadcrumbItem[]): Record<string, unknown> {
+export function generateBreadcrumbSchema(
+  siteUrl: string,
+  items: BreadcrumbItem[]
+): Record<string, unknown> {
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -132,7 +139,10 @@ export function generateFAQSchema(faqItems: FAQItem[]): Record<string, unknown> 
 /**
  * TouristTrip / Product Schema.org JSON-LD for Sports Tourism Packages
  */
-export function generateSportsTourSchema(siteUrl: string, tour: SportsTourItem): Record<string, unknown> {
+export function generateSportsTourSchema(
+  siteUrl: string,
+  tour: SportsTourItem
+): Record<string, unknown> {
   const fullUrl = tour.url.startsWith('http') ? tour.url : `${siteUrl}${tour.url}`;
   const fullImage = tour.image.startsWith('http') ? tour.image : `${siteUrl}${tour.image}`;
 

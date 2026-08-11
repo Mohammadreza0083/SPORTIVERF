@@ -25,43 +25,52 @@ const {
 ---
 
 <div class={`flex flex-col gap-2 ${className}`}>
-  <label for={name} class="font-mono text-xs text-neutral-400 uppercase tracking-wider flex items-center justify-between">
+  <label
+    for={name}
+    class="font-mono text-xs text-neutral-400 uppercase tracking-wider flex items-center justify-between"
+  >
     <span>{label}</span>
     {required && <span class="text-white font-bold">*</span>}
   </label>
 
-  {type === 'select' ? (
-    <select
-      id={name}
-      name={name}
-      required={required}
-      class="w-full bg-brand-dark border border-brand-borderMedium rounded px-4 py-3 text-white text-sm focus:border-white focus:outline-none transition-colors"
-    >
-      <option value="" disabled selected={!value}>Select option...</option>
-      {options.map((opt) => (
-        <option value={opt.value} selected={opt.value === value}>
-          {opt.label}
+  {
+    type === 'select' ? (
+      <select
+        id={name}
+        name={name}
+        required={required}
+        class="w-full bg-brand-dark border border-brand-borderMedium rounded px-4 py-3 text-white text-sm focus:border-white focus:outline-none transition-colors"
+      >
+        <option value="" disabled selected={!value}>
+          Select option...
         </option>
-      ))}
-    </select>
-  ) : type === 'textarea' ? (
-    <textarea
-      id={name}
-      name={name}
-      rows={rows}
-      placeholder={placeholder}
-      required={required}
-      class="w-full bg-brand-dark border border-brand-borderMedium rounded px-4 py-3 text-white text-sm placeholder-neutral-600 focus:border-white focus:outline-none transition-colors resize-y"
-    >{value}</textarea>
-  ) : (
-    <input
-      type={type}
-      id={name}
-      name={name}
-      placeholder={placeholder}
-      required={required}
-      value={value}
-      class="w-full bg-brand-dark border border-brand-borderMedium rounded px-4 py-3 text-white text-sm placeholder-neutral-600 focus:border-white focus:outline-none transition-colors"
-    />
-  )}
+        {options.map((opt) => (
+          <option value={opt.value} selected={opt.value === value}>
+            {opt.label}
+          </option>
+        ))}
+      </select>
+    ) : type === 'textarea' ? (
+      <textarea
+        id={name}
+        name={name}
+        rows={rows}
+        placeholder={placeholder}
+        required={required}
+        class="w-full bg-brand-dark border border-brand-borderMedium rounded px-4 py-3 text-white text-sm placeholder-neutral-600 focus:border-white focus:outline-none transition-colors resize-y"
+      >
+        {value}
+      </textarea>
+    ) : (
+      <input
+        type={type}
+        id={name}
+        name={name}
+        placeholder={placeholder}
+        required={required}
+        value={value}
+        class="w-full bg-brand-dark border border-brand-borderMedium rounded px-4 py-3 text-white text-sm placeholder-neutral-600 focus:border-white focus:outline-none transition-colors"
+      />
+    )
+  }
 </div>

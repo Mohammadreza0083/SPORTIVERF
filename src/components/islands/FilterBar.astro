@@ -21,59 +21,77 @@ const t = useTranslations(locale);
 const sports = [
   { id: 'ALL', label: t('camps.filterAllSports') },
   { id: 'FOOTBALL', label: t('camps.filterFootball') },
-  { id: 'VOLLEYBALL', label: t('camps.filterVolleyball') },
+  { id: 'VOLLEYBALL', label: t('camps.filterVolleyball') }
 ];
 
 const starTiers = [
   { id: 'ALL', label: t('camps.filterAllStars') },
   { id: '5', label: '5★ ' + t('camps.filter5Star') },
   { id: '4', label: '4★ ' + t('camps.filter4Star') },
-  { id: '3', label: '3★ ' + t('camps.filter3Star') },
+  { id: '3', label: '3★ ' + t('camps.filter3Star') }
 ];
 ---
 
-<div class={`sticky top-20 z-40 bg-white/95 backdrop-blur-md py-4 border-b border-[#E5E3DC] shadow-sm ${className}`}>
-  <div class="max-w-[1400px] mx-auto px-4 md:px-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+<div
+  class={`sticky top-20 z-40 bg-white/95 backdrop-blur-md py-4 border-b border-[#E5E3DC] shadow-sm ${className}`}
+>
+  <div
+    class="max-w-[1400px] mx-auto px-4 md:px-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4"
+  >
     <!-- Sport Filter Pills -->
-    <div class="flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth w-full md:w-auto pb-1 md:pb-0">
-      <span class="text-[10px] font-mono uppercase tracking-widest text-[#888888] mr-2 flex-shrink-0">SPORT:</span>
-      {sports.map((sport) => {
-        const isActive = sport.id === activeSport;
-        return (
-          <button
-            type="button"
-            data-sport-filter={sport.id}
-            class={`sport-pill whitespace-nowrap px-4 py-2 border text-xs font-mono uppercase tracking-wider transition-all duration-200 focus:outline-none ${
-              isActive
-                ? 'bg-[#0D0D0D] text-white font-bold border-[#0D0D0D] shadow-sm'
-                : 'bg-[#FAF9F6] text-[#555555] border-[#E5E3DC] hover:border-[#C5A059] hover:text-[#C5A059]'
-            }`}
-          >
-            {sport.label}
-          </button>
-        );
-      })}
+    <div
+      class="flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth w-full md:w-auto pb-1 md:pb-0"
+    >
+      <span
+        class="text-[10px] font-mono uppercase tracking-widest text-[#888888] mr-2 flex-shrink-0"
+        >SPORT:</span
+      >
+      {
+        sports.map((sport) => {
+          const isActive = sport.id === activeSport;
+          return (
+            <button
+              type="button"
+              data-sport-filter={sport.id}
+              class={`sport-pill whitespace-nowrap px-4 py-2 border text-xs font-mono uppercase tracking-wider transition-all duration-200 focus:outline-none ${
+                isActive
+                  ? 'bg-[#0D0D0D] text-white font-bold border-[#0D0D0D] shadow-sm'
+                  : 'bg-[#FAF9F6] text-[#555555] border-[#E5E3DC] hover:border-[#C5A059] hover:text-[#C5A059]'
+              }`}
+            >
+              {sport.label}
+            </button>
+          );
+        })
+      }
     </div>
 
     <!-- Star Tier Filter Pills -->
-    <div class="flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth w-full md:w-auto">
-      <span class="text-[10px] font-mono uppercase tracking-widest text-[#888888] mr-2 flex-shrink-0">TIER:</span>
-      {starTiers.map((tier) => {
-        const isActive = tier.id === activeStar;
-        return (
-          <button
-            type="button"
-            data-star-filter={tier.id}
-            class={`star-pill whitespace-nowrap px-3.5 py-1.5 border text-xs font-mono uppercase tracking-wider transition-all duration-200 focus:outline-none ${
-              isActive
-                ? 'bg-[#C5A059] text-white font-bold border-[#C5A059] shadow-sm'
-                : 'bg-white text-[#555555] border-[#E5E3DC] hover:border-[#C5A059] hover:text-[#C5A059]'
-            }`}
-          >
-            {tier.label}
-          </button>
-        );
-      })}
+    <div
+      class="flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth w-full md:w-auto"
+    >
+      <span
+        class="text-[10px] font-mono uppercase tracking-widest text-[#888888] mr-2 flex-shrink-0"
+        >TIER:</span
+      >
+      {
+        starTiers.map((tier) => {
+          const isActive = tier.id === activeStar;
+          return (
+            <button
+              type="button"
+              data-star-filter={tier.id}
+              class={`star-pill whitespace-nowrap px-3.5 py-1.5 border text-xs font-mono uppercase tracking-wider transition-all duration-200 focus:outline-none ${
+                isActive
+                  ? 'bg-[#C5A059] text-white font-bold border-[#C5A059] shadow-sm'
+                  : 'bg-white text-[#555555] border-[#E5E3DC] hover:border-[#C5A059] hover:text-[#C5A059]'
+              }`}
+            >
+              {tier.label}
+            </button>
+          );
+        })
+      }
     </div>
   </div>
 </div>

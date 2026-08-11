@@ -10,7 +10,8 @@ export class ApiClient {
   private readonly timeoutMs: number;
 
   constructor(baseUrl?: string, timeoutMs: number = 10000) {
-    this.baseUrl = baseUrl || (import.meta.env.PUBLIC_API_BASE_URL ?? 'https://api.sportiverf.com/v1');
+    this.baseUrl =
+      baseUrl || (import.meta.env.PUBLIC_API_BASE_URL ?? 'https://api.sportiverf.com/v1');
     this.timeoutMs = Number(import.meta.env.PUBLIC_API_TIMEOUT_MS) || timeoutMs;
   }
 
@@ -23,13 +24,13 @@ export class ApiClient {
     customHeaders: Record<string, string> = {}
   ): Promise<ApiResponse<T>> {
     const url = `${this.baseUrl.replace(/\/$/, '')}/${endpoint.replace(/^\//, '')}`;
-    
+
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), this.timeoutMs);
 
     const headers: HeadersInit = {
       'Content-Type': 'application/json',
-      'Accept': 'application/json',
+      Accept: 'application/json',
       ...customHeaders,
       ...(options.headers || {})
     };
@@ -81,7 +82,11 @@ export class ApiClient {
     return this.request<T>(endpoint, { method: 'GET' }, headers);
   }
 
-  public async post<T, D>(endpoint: string, data: D, headers?: Record<string, string>): Promise<ApiResponse<T>> {
+  public async post<T, D>(
+    endpoint: string,
+    data: D,
+    headers?: Record<string, string>
+  ): Promise<ApiResponse<T>> {
     return this.request<T>(
       endpoint,
       {

@@ -6,7 +6,10 @@ import { apiClient } from './ApiClient';
  * Repository Interface following Dependency Inversion Principle (SOLID)
  */
 export interface ITourRepository {
-  getTours(options?: TourFilterOptions, locale?: string): Promise<PaginatedResult<SportsTourPackage>>;
+  getTours(
+    options?: TourFilterOptions,
+    locale?: string
+  ): Promise<PaginatedResult<SportsTourPackage>>;
   getTourBySlug(slug: string, locale?: string): Promise<SportsTourPackage | null>;
   getFeaturedTours(locale?: string): Promise<SportsTourPackage[]>;
 }
@@ -59,7 +62,10 @@ export class MockTourRepository implements ITourRepository {
     }
   ];
 
-  public async getTours(options?: TourFilterOptions, _locale: string = 'en'): Promise<PaginatedResult<SportsTourPackage>> {
+  public async getTours(
+    options?: TourFilterOptions,
+    _locale: string = 'en'
+  ): Promise<PaginatedResult<SportsTourPackage>> {
     let filtered = [...this.mockData];
     if (options?.difficulty) {
       filtered = filtered.filter((t) => t.difficultyLevel === options.difficulty);
@@ -75,7 +81,10 @@ export class MockTourRepository implements ITourRepository {
     };
   }
 
-  public async getTourBySlug(slug: string, _locale: string = 'en'): Promise<SportsTourPackage | null> {
+  public async getTourBySlug(
+    slug: string,
+    _locale: string = 'en'
+  ): Promise<SportsTourPackage | null> {
     const tour = this.mockData.find((t) => t.slug === slug);
     return tour || null;
   }
@@ -89,17 +98,25 @@ export class MockTourRepository implements ITourRepository {
  * Future Production API Implementation (ASP.NET Core REST API Integration)
  */
 export class ApiTourRepository implements ITourRepository {
-  public async getTours(options?: TourFilterOptions, locale: string = 'en'): Promise<PaginatedResult<SportsTourPackage>> {
+  public async getTours(
+    options?: TourFilterOptions,
+    locale: string = 'en'
+  ): Promise<PaginatedResult<SportsTourPackage>> {
     const params = new URLSearchParams({
       locale,
       ...(options?.difficulty && { difficulty: options.difficulty }),
       ...(options?.categoryId && { categoryId: options.categoryId })
     });
-    const response = await apiClient.get<PaginatedResult<SportsTourPackage>>(`/tours?${params.toString()}`);
+    const response = await apiClient.get<PaginatedResult<SportsTourPackage>>(
+      `/tours?${params.toString()}`
+    );
     return response.data;
   }
 
-  public async getTourBySlug(slug: string, locale: string = 'en'): Promise<SportsTourPackage | null> {
+  public async getTourBySlug(
+    slug: string,
+    locale: string = 'en'
+  ): Promise<SportsTourPackage | null> {
     const response = await apiClient.get<SportsTourPackage>(`/tours/${slug}?locale=${locale}`);
     return response.data;
   }

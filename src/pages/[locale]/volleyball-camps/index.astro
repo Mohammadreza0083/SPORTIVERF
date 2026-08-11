@@ -37,8 +37,11 @@ const volleyballCamps = (campsData as CampItem[]).filter((camp) => camp.sport ==
       <h1 class="font-serif font-bold text-4xl sm:text-6xl text-[#0D0D0D] tracking-tight mb-6">
         {t('nav.volleyball')}
       </h1>
-      <p class="font-sans text-[#555555] text-base md:text-lg max-w-2xl mx-auto font-light leading-relaxed">
-        Position-specific volleyball masterclasses, jump biomechanics, setter-libero precision drills, and elite club scout exposure across 3-Star, 4-Star, and 5-Star categories.
+      <p
+        class="font-sans text-[#555555] text-base md:text-lg max-w-2xl mx-auto font-light leading-relaxed"
+      >
+        Position-specific volleyball masterclasses, jump biomechanics, setter-libero precision
+        drills, and elite club scout exposure across 3-Star, 4-Star, and 5-Star categories.
       </p>
     </div>
   </section>
@@ -50,23 +53,25 @@ const volleyballCamps = (campsData as CampItem[]).filter((camp) => camp.sport ==
   <section class="py-16 bg-[#FAF9F6]">
     <div class="max-w-[1400px] mx-auto px-4 md:px-8">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {volleyballCamps.map((camp) => (
-          <div data-camp-wrapper data-sport={camp.sport} data-star-rating={camp.starRating}>
-            <CampCard
-              locale={locale}
-              title={getLocalizedField(camp.title, locale)}
-              sport={camp.sport}
-              starRating={camp.starRating}
-              tierName={getLocalizedField(camp.tierName, locale)}
-              location={getLocalizedField(camp.location, locale)}
-              dates={getLocalizedField(camp.dates, locale)}
-              ageGroup={getLocalizedField(camp.ageGroup, locale)}
-              capacity={getLocalizedField(camp.capacity, locale)}
-              imageUrl={camp.imageUrl}
-              href={`/${locale}/camps/${camp.slug}`}
-            />
-          </div>
-        ))}
+        {
+          volleyballCamps.map((camp) => (
+            <div data-camp-wrapper data-sport={camp.sport} data-star-rating={camp.starRating}>
+              <CampCard
+                locale={locale}
+                title={getLocalizedField(camp.title, locale)}
+                sport={camp.sport}
+                starRating={camp.starRating}
+                tierName={getLocalizedField(camp.tierName, locale)}
+                location={getLocalizedField(camp.location, locale)}
+                dates={getLocalizedField(camp.dates, locale)}
+                ageGroup={getLocalizedField(camp.ageGroup, locale)}
+                capacity={getLocalizedField(camp.capacity, locale)}
+                imageUrl={camp.imageUrl}
+                href={`/${locale}/camps/${camp.slug}`}
+              />
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>
@@ -87,19 +92,22 @@ const volleyballCamps = (campsData as CampItem[]).filter((camp) => camp.sport ==
         <div class="bg-[#FAF9F6] p-8 border border-[#E5E3DC]">
           <h3 class="font-serif font-bold text-xl text-[#0D0D0D] mb-3">FIVB Taraflex Courts</h3>
           <p class="text-[#555555] text-sm leading-relaxed font-light">
-            Official shock-absorbing Taraflex surfaces designed to maximize jump performance and minimize athlete fatigue.
+            Official shock-absorbing Taraflex surfaces designed to maximize jump performance and
+            minimize athlete fatigue.
           </p>
         </div>
         <div class="bg-[#FAF9F6] p-8 border border-[#E5E3DC]">
           <h3 class="font-serif font-bold text-xl text-[#0D0D0D] mb-3">Jump Biomechanics Lab</h3>
           <p class="text-[#555555] text-sm leading-relaxed font-light">
-            High-speed video capture and vertical jump assessment to refine spike velocity and blocking timing.
+            High-speed video capture and vertical jump assessment to refine spike velocity and
+            blocking timing.
           </p>
         </div>
         <div class="bg-[#FAF9F6] p-8 border border-[#E5E3DC]">
           <h3 class="font-serif font-bold text-xl text-[#0D0D0D] mb-3">European Scout Network</h3>
           <p class="text-[#555555] text-sm leading-relaxed font-light">
-            Direct showcase matches attended by European volleyball agents and university club recruiters.
+            Direct showcase matches attended by European volleyball agents and university club
+            recruiters.
           </p>
         </div>
       </div>

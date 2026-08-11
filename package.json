@@ -12,7 +12,9 @@
     "astro": "astro",
     "check": "astro check && tsc --noEmit",
     "lint": "eslint . --ext .js,.mjs,.ts,.astro",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "audit": "tsx scripts/audit.ts"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.0",

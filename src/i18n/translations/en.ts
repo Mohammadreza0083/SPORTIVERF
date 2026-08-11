@@ -1,7 +1,8 @@
 export default {
   site: {
     title: 'SPORTIVERF — Light Luxury Sports Tourism & Elite Camps',
-    description: 'Premier international sports tourism platform, football showcases, volleyball masterclasses, and 3/4/5-star athletic retreats.'
+    description:
+      'Premier international sports tourism platform, football showcases, volleyball masterclasses, and 3/4/5-star athletic retreats.'
   },
   nav: {
     main: 'Main Navigation',
@@ -15,7 +16,8 @@ export default {
   },
   gate: {
     title: 'Select Language & Region',
-    subtitle: 'Welcome to SPORTIVERF. Choose your preferred language for a tailored luxury service experience.',
+    subtitle:
+      'Welcome to SPORTIVERF. Choose your preferred language for a tailored luxury service experience.',
     en: 'English',
     tr: 'Türkçe',
     fa: 'فارسی',
@@ -25,7 +27,8 @@ export default {
   hero: {
     badge: 'LUXURY SPORTS TOURISM & SHOWCASES',
     title: 'Precision Athletic & Overseas Camp Expeditions',
-    subtitle: 'Curated 3-Star, 4-Star, and 5-Star athletic retreats, scout showcases, and high-performance training camps tailored for elite performers.',
+    subtitle:
+      'Curated 3-Star, 4-Star, and 5-Star athletic retreats, scout showcases, and high-performance training camps tailored for elite performers.',
     ctaPrimary: 'Explore Football Camps',
     ctaSecondary: 'Explore Volleyball Camps',
     statAthletes: 'Athletes Placed',
@@ -36,16 +39,20 @@ export default {
     badge: 'FOUNDATIONAL PRINCIPLES',
     title: 'Core Values',
     trustTitle: 'Trust & Supervision',
-    trustDesc: 'Uncompromising safety standards, licensed travel supervision under Aklimosaturizm, and total contract transparency in every journey.',
+    trustDesc:
+      'Uncompromising safety standards, licensed travel supervision under Aklimosaturizm, and total contract transparency in every journey.',
     devTitle: 'Athletic Excellence',
-    devDesc: 'High-performance physical conditioning, UEFA & FIVB licensed coaches, and state-of-the-art training facilities.',
+    devDesc:
+      'High-performance physical conditioning, UEFA & FIVB licensed coaches, and state-of-the-art training facilities.',
     oppTitle: 'Global Opportunity',
-    oppDesc: 'Exclusive exposure to European scouts, international university pathways, and elite club trial showcases.'
+    oppDesc:
+      'Exclusive exposure to European scouts, international university pathways, and elite club trial showcases.'
   },
   camps: {
     badge: 'CURATED SPORTS EXPEDITIONS',
     title: 'Tiered Sports Camps & Showcases',
-    subtitle: 'Filter by sport and star-tier to discover world-class facilities and professional scout showcases.',
+    subtitle:
+      'Filter by sport and star-tier to discover world-class facilities and professional scout showcases.',
     filterAllSports: 'All Sports',
     filterFootball: 'Football Camps',
     filterVolleyball: 'Volleyball Camps',
@@ -68,14 +75,18 @@ export default {
     star3: '3-Star Essentials',
     star4: '4-Star Executive',
     star5: '5-Star VIP Luxury',
-    star3Desc: 'Foundational athletic clinics with comfortable accommodation and high-standard pitch training.',
-    star4Desc: 'Executive academy packages with 4-star lodging, video analysis, and specialized coaching.',
-    star5Desc: 'VIP luxury showcases featuring 5-star beachfront resorts, UEFA/FIVB mentors, and scout exposure.'
+    star3Desc:
+      'Foundational athletic clinics with comfortable accommodation and high-standard pitch training.',
+    star4Desc:
+      'Executive academy packages with 4-star lodging, video analysis, and specialized coaching.',
+    star5Desc:
+      'VIP luxury showcases featuring 5-star beachfront resorts, UEFA/FIVB mentors, and scout exposure.'
   },
   booking: {
     badge: 'DIRECT CONCIERGE INQUIRY',
     title: 'Camp Inquiry & Reservation',
-    subtitle: 'Complete the form below to initiate your official reservation. Our concierge team will review your application within 24 hours.',
+    subtitle:
+      'Complete the form below to initiate your official reservation. Our concierge team will review your application within 24 hours.',
     fullNameLabel: 'Full Name',
     fullNamePlaceholder: 'e.g. Alexander Wright',
     emailLabel: 'Email Address',
@@ -90,7 +101,8 @@ export default {
     submitBtn: 'Submit Official Inquiry',
     submittingBtn: 'Sending Inquiry...',
     successTitle: 'Inquiry Received Successfully',
-    successSubtitle: 'Thank you. Your request has been transmitted directly to our concierge team and Telegram dispatch.',
+    successSubtitle:
+      'Thank you. Your request has been transmitted directly to our concierge team and Telegram dispatch.',
     refNumber: 'Reference ID',
     statusText: 'A senior sports concierge will contact you via WhatsApp or Email within 24 hours.',
     whatsappBtn: 'Direct WhatsApp Concierge',
@@ -99,15 +111,20 @@ export default {
   about: {
     badge: 'AKLIMOSATURIZM SUPERVISION',
     heroTitle: 'Redefining Overseas Sports Tourism',
-    heroSubtitle: 'Connecting young athletic talent to international clubs and academies through high-end, structured camp experiences.',
+    heroSubtitle:
+      'Connecting young athletic talent to international clubs and academies through high-end, structured camp experiences.',
     storyTitle: 'Our Brand Story',
-    storyDesc: 'SPORTIVERF was established to bridge the gap between talented athletes and global sporting opportunities. Operating under the official license and supervision of Aklimosaturizm, we deliver end-to-end sports tourism services with unrivaled professionalism.',
+    storyDesc:
+      'SPORTIVERF was established to bridge the gap between talented athletes and global sporting opportunities. Operating under the official license and supervision of Aklimosaturizm, we deliver end-to-end sports tourism services with unrivaled professionalism.',
     supervisionTitle: 'Licensed Legal Supervision',
-    supervisionDesc: 'Every SPORTIVERF expedition is conducted under the strict legal oversight of Aklimosaturizm, guaranteeing complete travel insurance, accredited hotel partnerships, and certified security.',
+    supervisionDesc:
+      'Every SPORTIVERF expedition is conducted under the strict legal oversight of Aklimosaturizm, guaranteeing complete travel insurance, accredited hotel partnerships, and certified security.',
     standardsTitle: 'Tiered Excellence Standard',
-    standardsDesc: 'Whether choosing a 3-Star Essentials Clinic, 4-Star Executive Academy, or 5-Star VIP Luxury Showcase, every athlete receives professional coaching, biophysical assessment, and video analysis.',
+    standardsDesc:
+      'Whether choosing a 3-Star Essentials Clinic, 4-Star Executive Academy, or 5-Star VIP Luxury Showcase, every athlete receives professional coaching, biophysical assessment, and video analysis.',
     leadershipTitle: 'Our Mission & Vision',
-    leadershipDesc: 'To be the premier sports tourism gateway in Eurasia, providing athletes with transparent, safe, and transformational athletic journeys.'
+    leadershipDesc:
+      'To be the premier sports tourism gateway in Eurasia, providing athletes with transparent, safe, and transformational athletic journeys.'
   },
   faq: {
     badge: 'FREQUENTLY ASKED QUESTIONS',
@@ -141,11 +158,13 @@ export default {
   },
   errors: {
     e404Title: '404 — Out of Bounds',
-    e404Desc: 'The athletic pathway or page you are looking for does not exist, has expired, or has been relocated.',
+    e404Desc:
+      'The athletic pathway or page you are looking for does not exist, has expired, or has been relocated.',
     e403Title: '403 — Access Forbidden',
     e403Desc: 'You do not have administrative clearance to access this private sports dossier.',
     e500Title: '500 — Server Timeout',
-    e500Desc: 'Our platform experienced a temporary system timeout. Our technical staff has been dispatched.',
+    e500Desc:
+      'Our platform experienced a temporary system timeout. Our technical staff has been dispatched.',
     e400Title: '400 — Bad Request',
     e400Desc: 'The transmitted inquiry parameters were malformed or invalid.',
     backHome: 'Return to Homepage',

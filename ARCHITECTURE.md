@@ -5,15 +5,16 @@
 > **Core Engine**: Astro 4.x (Static Site Generation / Micro-frontend Islands Architecture)  
 > **Primary Language**: TypeScript (Strict Mode)  
 > **Target Audience**: Enterprise Frontend Engineers, Backend Architects, DevOps Engineers  
-> **License**: Private & Proprietary — SportivERF 2026  
+> **License**: Private & Proprietary — SportivERF 2026
 
 ---
 
 ## Executive Summary & System Vision
 
-SportivERF is engineered as a high-performance, statically generated, multilingual sports tourism web platform. The platform is designed from first principles according to **Clean Architecture** and **SOLID** principles. 
+SportivERF is engineered as a high-performance, statically generated, multilingual sports tourism web platform. The platform is designed from first principles according to **Clean Architecture** and **SOLID** principles.
 
 Key architectural invariants:
+
 1. **Zero JavaScript by Default**: Render 100% pure HTML/CSS at build time via Astro SSG.
 2. **Astro Islands Client Strategy**: Hydrate interactive widgets (booking widget, filter drawers) as isolated client islands using explicit directive strategies (`client:visible`, `client:idle`, `client:media`).
 3. **Decoupled Data Layer**: All page components consume abstract contracts (`ITourRepository`, `ICmsProvider`, `IBookingService`). Switching from static pre-render to live **ASP.NET Core REST API** or **Headless CMS** requires zero modifications to presentation views.
@@ -120,11 +121,13 @@ SportivERF/
 ## Route Architecture & Internationalization (i18n)
 
 ### Routing Strategy
+
 - **Explicit Locale Prefixing**: Routes are strictly prefixed with ISO language codes (`/en/tours`, `/fa/tours`, `/ar/tours`).
 - **Dynamic Route Files**: Utilizes Astro's file-based route parameter matching: `src/pages/[locale]/tours/[slug].astro`.
 - **Static Generation (`getStaticPaths`)**: During static site generation (SSG), Astro resolves all supported locales (`en`, `fa`, `ar`) and tour slugs at build time.
 
 ### Direction Handling (LTR / RTL)
+
 - Locales `fa` (Persian) and `ar` (Arabic) set `dir="rtl"` on `<html>` and load specialized Vazirmatn typography.
 - Locale `en` (English) sets `dir="ltr"` and loads Plus Jakarta Sans font.
 - CSS classes leverage logical spacing utilities (`space-x-reverse`, `ms-auto`, `pe-4`) to ensure natural bidirectional layout flow.
@@ -135,18 +138,19 @@ SportivERF/
 
 To maximize performance, client-side JavaScript is deferred or omitted entirely:
 
-| Directive | Use Case in SportivERF | Reason |
-| :--- | :--- | :--- |
-| **No Directive** (Default) | Cards, Header, Footer, Static Tour Details | Zero JS bundle footprint. Output as static HTML. |
-| `client:visible` | Interactive Booking Form, Tour Date Picker | Hydrates JS code only when component scrolls into viewport. |
-| `client:idle` | Language Switcher Drawer, Currency Picker | Low priority hydration after main page rendering finishes. |
-| `client:media="(max-width: 768px)"` | Mobile Navigation Drawer | Hydrates JS only on mobile screen viewports. |
+| Directive                           | Use Case in SportivERF                     | Reason                                                      |
+| :---------------------------------- | :----------------------------------------- | :---------------------------------------------------------- |
+| **No Directive** (Default)          | Cards, Header, Footer, Static Tour Details | Zero JS bundle footprint. Output as static HTML.            |
+| `client:visible`                    | Interactive Booking Form, Tour Date Picker | Hydrates JS code only when component scrolls into viewport. |
+| `client:idle`                       | Language Switcher Drawer, Currency Picker  | Low priority hydration after main page rendering finishes.  |
+| `client:media="(max-width: 768px)"` | Mobile Navigation Drawer                   | Hydrates JS only on mobile screen viewports.                |
 
 ---
 
 ## State Management Strategy (Nanostores)
 
 Because Astro pages consist of decoupled static HTML and micro-frontend client islands:
+
 - Standard React Context or Redux cannot share state across distinct island roots.
 - **Nanostores** is selected as the lightweight (1KB), framework-agnostic atomic store.
 - `bookingDraftStore` maintains reactive client state (selected tour, date, participants) across islands without re-rendering the surrounding static HTML.
@@ -156,16 +160,19 @@ Because Astro pages consist of decoupled static HTML and micro-frontend client i
 ## Future Backend & CMS Integration Strategy
 
 ### ASP.NET Core Web API Alignment
+
 All TypeScript interfaces in `src/types/api.ts` directly mirror ASP.NET Core C# DTOs:
 
-| TypeScript Model (`src/types/api.ts`) | ASP.NET Core C# Equivalent DTO |
-| :--- | :--- |
-| `ApiResponse<T>` | `ApiResponse<T>` (Standard Wrapper) |
-| `PaginatedResult<T>` | `PagedList<T>` / `PaginatedResponse<T>` |
-| `CreateBookingRequest` | `CreateBookingCommand` / `BookingRequestDto` |
+| TypeScript Model (`src/types/api.ts`) | ASP.NET Core C# Equivalent DTO               |
+| :------------------------------------ | :------------------------------------------- |
+| `ApiResponse<T>`                      | `ApiResponse<T>` (Standard Wrapper)          |
+| `PaginatedResult<T>`                  | `PagedList<T>` / `PaginatedResponse<T>`      |
+| `CreateBookingRequest`                | `CreateBookingCommand` / `BookingRequestDto` |
 
 ### Repository Pattern (`ITourRepository`)
+
 Page components depend strictly on interface `ITourRepository`.
+
 - **Static Phase**: `MockTourRepository` supplies JSON mock data for SSG pre-rendering.
 - **Production API Phase**: `ApiTourRepository` communicates with ASP.NET Core endpoint using `ApiClient`.
 - **Switch Control**: Controlled via single environment variable: `PUBLIC_CMS_PROVIDER=api`.

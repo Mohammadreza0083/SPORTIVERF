@@ -27,7 +27,9 @@ const { locale, seo } = Astro.props;
   <!-- Accessibility Skip Link -->
   <SkipToContent locale={locale} targetId="main-content" />
 
-  <div class="flex min-h-screen flex-col bg-[#FAF9F6] text-[#0D0D0D] font-sans selection:bg-[#C5A059] selection:text-white">
+  <div
+    class="flex min-h-screen flex-col bg-[#FAF9F6] text-[#0D0D0D] font-sans selection:bg-[#C5A059] selection:text-white"
+  >
     <!-- Header Landmark -->
     <Header locale={locale} />
 

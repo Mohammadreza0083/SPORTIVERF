@@ -13,16 +13,16 @@ const { locale = 'en', seo } = Astro.props;
 const dir = getDirFromLocale(locale);
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang={locale} dir={dir} class="scroll-smooth bg-[#FAF9F6] text-[#0D0D0D]">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    
+
     <SEO locale={locale} {...seo} />
-    
+
     <!-- Critical Font Preconnect & Typography Strategy -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -33,7 +33,9 @@ const dir = getDirFromLocale(locale);
       rel="stylesheet"
     />
   </head>
-  <body class="min-h-screen bg-[#FAF9F6] text-[#0D0D0D] antialiased selection:bg-[#C5A059] selection:text-white">
+  <body
+    class="min-h-screen bg-[#FAF9F6] text-[#0D0D0D] antialiased selection:bg-[#C5A059] selection:text-white"
+  >
     <slot />
   </body>
 </html>

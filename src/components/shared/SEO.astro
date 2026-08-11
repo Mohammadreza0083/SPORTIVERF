@@ -50,7 +50,11 @@ const alternateOgLocales = Object.entries(ogLocales)
 // Base Schemas
 const orgSchema = generateOrganizationSchema(siteUrl);
 const websiteSchema = generateWebSiteSchema(siteUrl, locale);
-const allSchemas = [orgSchema, websiteSchema, ...(customSchema ? (Array.isArray(customSchema) ? customSchema : [customSchema]) : [])];
+const allSchemas = [
+  orgSchema,
+  websiteSchema,
+  ...(customSchema ? (Array.isArray(customSchema) ? customSchema : [customSchema]) : [])
+];
 ---
 
 <!-- Primary Technical Meta Tags -->
@@ -64,21 +68,32 @@ const allSchemas = [orgSchema, websiteSchema, ...(customSchema ? (Array.isArray(
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-{noindex ? (
-  <meta name="robots" content="noindex, nofollow" />
-) : (
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-)}
+{
+  noindex ? (
+    <meta name="robots" content="noindex, nofollow" />
+  ) : (
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+  )
+}
 
 <!-- Canonical Link -->
 <link rel="canonical" href={computedCanonical} />
 
 <!-- Multilingual SEO Hreflang Strategy -->
-{LOCALES_LIST.map((loc) => {
-  const cleanPath = Astro.url.pathname.replace(/^\/(en|tr|fa)/, '');
-  const localizedHref = `${siteUrl}/${loc}${cleanPath.startsWith('/') ? cleanPath : '/' + cleanPath}`.replace(/\/$/, '') || `${siteUrl}/${loc}`;
-  return <link rel="alternate" hreflang={loc} href={localizedHref} />;
-})}
+{
+  LOCALES_LIST.map((loc) => {
+    const cleanPath = Astro.url.pathname.replace(/^\/(en|tr|fa)/, '');
+    const localizedHref =
+      `${siteUrl}/${loc}${cleanPath.startsWith('/') ? cleanPath : '/' + cleanPath}`.replace(
+        /\/$/,
+        ''
+      ) || `${siteUrl}/${loc}`;
+    return <link rel="alternate" hreflang={loc} href={localizedHref} />;
+  })
+}
 <link rel="alternate" hreflang="x-default" href={`${siteUrl}/en`} />
 
 <!-- OpenGraph Metadata -->
@@ -92,9 +107,7 @@ const allSchemas = [orgSchema, websiteSchema, ...(customSchema ? (Array.isArray(
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content={title} />
 <meta property="og:locale" content={currentOgLocale} />
-{alternateOgLocales.map((altOg) => (
-  <meta property="og:locale:alternate" content={altOg} />
-))}
+{alternateOgLocales.map((altOg) => <meta property="og:locale:alternate" content={altOg} />)}
 
 <!-- Twitter Card Metadata -->
 <meta name="twitter:card" content="summary_large_image" />

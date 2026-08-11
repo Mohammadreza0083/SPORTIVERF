@@ -23,9 +23,11 @@ const {
 const t = useTranslations(locale);
 ---
 
-<div class={`bg-white border border-[#E5E3DC] p-6 md:p-8 shadow-xl relative overflow-hidden ${className}`}>
+<div
+  class={`bg-white border border-[#E5E3DC] p-6 md:p-8 shadow-xl relative overflow-hidden ${className}`}
+>
   <!-- Gold Top Accent Line -->
-  <div class="absolute top-0 left-0 right-0 h-1 bg-[#C5A059]" />
+  <div class="absolute top-0 left-0 right-0 h-1 bg-[#C5A059]"></div>
 
   <!-- Form Container -->
   <div id={`booking-container-${tourId}`}>
@@ -48,7 +50,10 @@ const t = useTranslations(locale);
       <input type="hidden" id={`locale-${tourId}`} name="locale" value={locale} />
 
       <div>
-        <label for={`fullName-${tourId}`} class="block text-xs font-medium uppercase tracking-wider text-[#0D0D0D] mb-1">
+        <label
+          for={`fullName-${tourId}`}
+          class="block text-xs font-medium uppercase tracking-wider text-[#0D0D0D] mb-1"
+        >
           {t('booking.fullNameLabel')} *
         </label>
         <input
@@ -59,14 +64,20 @@ const t = useTranslations(locale);
           placeholder={t('booking.fullNamePlaceholder')}
           class="w-full px-4 py-3 bg-[#FAF9F6] border border-[#E5E3DC] text-sm text-[#0D0D0D] placeholder-[#888888] focus:outline-none focus:border-[#C5A059] transition-colors"
         />
-        <span id={`err-fullName-${tourId}`} class="text-[11px] text-red-600 hidden font-sans mt-1 block">
+        <span
+          id={`err-fullName-${tourId}`}
+          class="text-[11px] text-red-600 hidden font-sans mt-1 block"
+        >
           Please enter your full name (at least 2 characters).
         </span>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label for={`email-${tourId}`} class="block text-xs font-medium uppercase tracking-wider text-[#0D0D0D] mb-1">
+          <label
+            for={`email-${tourId}`}
+            class="block text-xs font-medium uppercase tracking-wider text-[#0D0D0D] mb-1"
+          >
             {t('booking.emailLabel')} *
           </label>
           <input
@@ -77,13 +88,19 @@ const t = useTranslations(locale);
             placeholder={t('booking.emailPlaceholder')}
             class="w-full px-4 py-3 bg-[#FAF9F6] border border-[#E5E3DC] text-sm text-[#0D0D0D] placeholder-[#888888] focus:outline-none focus:border-[#C5A059] transition-colors"
           />
-          <span id={`err-email-${tourId}`} class="text-[11px] text-red-600 hidden font-sans mt-1 block">
+          <span
+            id={`err-email-${tourId}`}
+            class="text-[11px] text-red-600 hidden font-sans mt-1 block"
+          >
             Please enter a valid email address (e.g. name@domain.com).
           </span>
         </div>
 
         <div>
-          <label for={`phone-${tourId}`} class="block text-xs font-medium uppercase tracking-wider text-[#0D0D0D] mb-1">
+          <label
+            for={`phone-${tourId}`}
+            class="block text-xs font-medium uppercase tracking-wider text-[#0D0D0D] mb-1"
+          >
             {t('booking.phoneLabel')} *
           </label>
           <input
@@ -94,14 +111,20 @@ const t = useTranslations(locale);
             placeholder={t('booking.phonePlaceholder')}
             class="w-full px-4 py-3 bg-[#FAF9F6] border border-[#E5E3DC] text-sm text-[#0D0D0D] placeholder-[#888888] focus:outline-none focus:border-[#C5A059] transition-colors"
           />
-          <span id={`err-phone-${tourId}`} class="text-[11px] text-red-600 hidden font-sans mt-1 block">
+          <span
+            id={`err-phone-${tourId}`}
+            class="text-[11px] text-red-600 hidden font-sans mt-1 block"
+          >
             Please enter a valid phone number with country code (7–15 digits).
           </span>
         </div>
       </div>
 
       <div>
-        <label for={`participants-${tourId}`} class="block text-xs font-medium uppercase tracking-wider text-[#0D0D0D] mb-1">
+        <label
+          for={`participants-${tourId}`}
+          class="block text-xs font-medium uppercase tracking-wider text-[#0D0D0D] mb-1"
+        >
           {t('booking.participantsLabel')} *
         </label>
         <input
@@ -117,7 +140,10 @@ const t = useTranslations(locale);
       </div>
 
       <div>
-        <label for={`notes-${tourId}`} class="block text-xs font-medium uppercase tracking-wider text-[#0D0D0D] mb-1">
+        <label
+          for={`notes-${tourId}`}
+          class="block text-xs font-medium uppercase tracking-wider text-[#0D0D0D] mb-1"
+        >
           {t('booking.notesLabel')}
         </label>
         <textarea
@@ -150,13 +176,12 @@ const t = useTranslations(locale);
   </div>
 
   <!-- Message Received Success UI (Hidden initially) -->
-  <div
-    id={`success-container-${tourId}`}
-    class="hidden text-center py-8 space-y-5 animate-fade-in"
-  >
-    <div class="w-16 h-16 rounded-full bg-[#FAF9F6] border-2 border-[#C5A059] flex items-center justify-center mx-auto text-[#C5A059]">
+  <div id={`success-container-${tourId}`} class="hidden text-center py-8 space-y-5 animate-fade-in">
+    <div
+      class="w-16 h-16 rounded-full bg-[#FAF9F6] border-2 border-[#C5A059] flex items-center justify-center mx-auto text-[#C5A059]"
+    >
       <svg class="w-8 h-8 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
       </svg>
     </div>
 
@@ -172,7 +197,9 @@ const t = useTranslations(locale);
       </p>
     </div>
 
-    <div class="bg-[#FAF9F6] p-4 border border-[#E5E3DC] max-w-xs mx-auto text-left font-mono text-xs space-y-1">
+    <div
+      class="bg-[#FAF9F6] p-4 border border-[#E5E3DC] max-w-xs mx-auto text-left font-mono text-xs space-y-1"
+    >
       <div class="flex justify-between text-[#888888]">
         <span>{t('booking.refNumber')}:</span>
         <span id={`ref-id-${tourId}`} class="text-[#0D0D0D] font-bold">SRF-892106</span>
@@ -213,16 +240,16 @@ const t = useTranslations(locale);
     id={`error-modal-${tourId}`}
     class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in"
   >
-    <div class="bg-white border-2 border-[#C5A059] p-6 sm:p-8 max-w-md w-full shadow-2xl relative text-center space-y-4">
-      <div class="w-12 h-1 bg-[#C5A059] mx-auto mb-2" />
+    <div
+      class="bg-white border-2 border-[#C5A059] p-6 sm:p-8 max-w-md w-full shadow-2xl relative text-center space-y-4"
+    >
+      <div class="w-12 h-1 bg-[#C5A059] mx-auto mb-2"></div>
 
       <span class="font-mono text-[10px] text-[#C5A059] uppercase tracking-[0.2em] block">
         CONCIERGE NOTICE
       </span>
 
-      <h4 class="font-serif font-bold text-xl text-[#0D0D0D]">
-        Inquiry Submission Notice
-      </h4>
+      <h4 class="font-serif font-bold text-xl text-[#0D0D0D]">Inquiry Submission Notice</h4>
 
       <p id={`error-modal-msg-${tourId}`} class="text-xs text-[#555555] font-light leading-relaxed">
         Please check your information and try again.
@@ -286,15 +313,29 @@ const t = useTranslations(locale);
         e.preventDefault();
 
         // Dynamically query input elements inside the form at submission time
-        const fullNameEl = form.querySelector('input[name="fullName"]') || document.getElementById(`fullName-${tourId}`);
-        const emailEl = form.querySelector('input[name="email"]') || document.getElementById(`email-${tourId}`);
-        const phoneEl = form.querySelector('input[name="phone"]') || document.getElementById(`phone-${tourId}`);
-        const participantsEl = form.querySelector('input[name="participants"]') || document.getElementById(`participants-${tourId}`);
-        const notesEl = form.querySelector('textarea[name="notes"]') || document.getElementById(`notes-${tourId}`);
-        const sportEl = form.querySelector('input[name="sport"]') || document.getElementById(`sport-${tourId}`);
-        const starTierEl = form.querySelector('input[name="starTier"]') || document.getElementById(`starTier-${tourId}`);
-        const campTitleEl = form.querySelector('input[name="campTitle"]') || document.getElementById(`campTitle-${tourId}`);
-        const localeEl = form.querySelector('input[name="locale"]') || document.getElementById(`locale-${tourId}`);
+        const fullNameEl =
+          form.querySelector('input[name="fullName"]') ||
+          document.getElementById(`fullName-${tourId}`);
+        const emailEl =
+          form.querySelector('input[name="email"]') || document.getElementById(`email-${tourId}`);
+        const phoneEl =
+          form.querySelector('input[name="phone"]') || document.getElementById(`phone-${tourId}`);
+        const participantsEl =
+          form.querySelector('input[name="participants"]') ||
+          document.getElementById(`participants-${tourId}`);
+        const notesEl =
+          form.querySelector('textarea[name="notes"]') ||
+          document.getElementById(`notes-${tourId}`);
+        const sportEl =
+          form.querySelector('input[name="sport"]') || document.getElementById(`sport-${tourId}`);
+        const starTierEl =
+          form.querySelector('input[name="starTier"]') ||
+          document.getElementById(`starTier-${tourId}`);
+        const campTitleEl =
+          form.querySelector('input[name="campTitle"]') ||
+          document.getElementById(`campTitle-${tourId}`);
+        const localeEl =
+          form.querySelector('input[name="locale"]') || document.getElementById(`locale-${tourId}`);
 
         // Error message spans
         const errFullName = document.getElementById(`err-fullName-${tourId}`);
@@ -312,11 +353,21 @@ const t = useTranslations(locale);
         const fullName = (fullNameEl?.value || formData.get('fullName') || '').toString().trim();
         const email = (emailEl?.value || formData.get('email') || '').toString().trim();
         const phone = (phoneEl?.value || formData.get('phone') || '').toString().trim();
-        const participants = (participantsEl?.value || formData.get('participants') || '1').toString().trim();
+        const participants = (participantsEl?.value || formData.get('participants') || '1')
+          .toString()
+          .trim();
         const notes = (notesEl?.value || formData.get('notes') || '').toString().trim();
         const sport = (sportEl?.value || formData.get('sport') || 'FOOTBALL').toString().trim();
-        const starTier = (starTierEl?.value || formData.get('starTier') || '5-Star VIP').toString().trim();
-        const campTitle = (campTitleEl?.value || formData.get('campTitle') || 'SPORTIVERF Expedition').toString().trim();
+        const starTier = (starTierEl?.value || formData.get('starTier') || '5-Star VIP')
+          .toString()
+          .trim();
+        const campTitle = (
+          campTitleEl?.value ||
+          formData.get('campTitle') ||
+          'SPORTIVERF Expedition'
+        )
+          .toString()
+          .trim();
         const locale = (localeEl?.value || formData.get('locale') || 'en').toString().trim();
 
         // Strict Client Validation
@@ -338,7 +389,9 @@ const t = useTranslations(locale);
 
         // Phone Validation (7-15 digits, no repeated fake digits)
         const phoneDigits = phone.replace(/[^0-9]/g, '');
-        const isRepeatedPhone = phoneDigits.length > 0 && Array.from(phoneDigits).every((char) => char === phoneDigits[0]);
+        const isRepeatedPhone =
+          phoneDigits.length > 0 &&
+          Array.from(phoneDigits).every((char) => char === phoneDigits[0]);
 
         if (!phone || phoneDigits.length < 7 || phoneDigits.length > 15 || isRepeatedPhone) {
           if (errPhone) errPhone.classList.remove('hidden');
@@ -406,8 +459,10 @@ const t = useTranslations(locale);
 
         // Direct Telegram Fallback if local API route returned error
         if (resStatus === 400 || json?.success === false) {
-          console.warn('[SPORTIVERF API returned error, activating Direct Telegram Dispatch Fallback]');
-          
+          console.warn(
+            '[SPORTIVERF API returned error, activating Direct Telegram Dispatch Fallback]'
+          );
+
           try {
             const botToken = '8921060827:AAHUNo_mdKGBwTlbysIf3nbBYd3BIX9k1Pw';
             const chatId = '269309616';
@@ -450,7 +505,12 @@ const t = useTranslations(locale);
             });
 
             if (tgRes.ok) {
-              json = { success: true, referenceId: `SRF-${Math.floor(Date.now() / 1000).toString().slice(-6)}` };
+              json = {
+                success: true,
+                referenceId: `SRF-${Math.floor(Date.now() / 1000)
+                  .toString()
+                  .slice(-6)}`
+              };
               resStatus = 200;
             }
           } catch (directTgErr) {
@@ -459,7 +519,9 @@ const t = useTranslations(locale);
         }
 
         if (resStatus === 400 || json?.success === false) {
-          showErrorModal(json?.message || 'Inquiry submission failed. Please verify your contact information.');
+          showErrorModal(
+            json?.message || 'Inquiry submission failed. Please verify your contact information.'
+          );
           if (submitBtn) {
             submitBtn.disabled = false;
             submitBtn.textContent = 'Inquire for Pricing';
@@ -467,7 +529,11 @@ const t = useTranslations(locale);
           return;
         }
 
-        const refId = json?.referenceId || `SRF-${Math.floor(Date.now() / 1000).toString().slice(-6)}`;
+        const refId =
+          json?.referenceId ||
+          `SRF-${Math.floor(Date.now() / 1000)
+            .toString()
+            .slice(-6)}`;
 
         if (refIdSpan) {
           refIdSpan.textContent = refId;
