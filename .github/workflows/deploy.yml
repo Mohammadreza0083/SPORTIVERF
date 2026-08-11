@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
   workflow_dispatch:
 
 env:
@@ -28,9 +33,10 @@ jobs:
           cache: 'npm'
 
       - name: Send Telegram - Build Started
+        continue-on-error: true
         run: |
-          chmod +x ./scripts/telegram-notify.sh
-          ./scripts/telegram-notify.sh "BUILD_START" "Build Started" "Commit: ${{ github.sha }} on branch ${{ github.ref_name }}"
+          chmod +x ./scripts/telegram-notify.sh || true
+          ./scripts/telegram-notify.sh "BUILD_START" "Build Started" "Commit: ${{ github.sha }} on branch ${{ github.ref_name }}" || true
 
       - name: Install Dependencies
         run: npm ci
@@ -46,13 +52,15 @@ jobs:
 
       - name: Send Telegram - Build Succeeded
         if: success()
+        continue-on-error: true
         run: |
-          ./scripts/telegram-notify.sh "BUILD_SUCCESS" "Build Succeeded" "Linting, type checking, and Astro compilation passed cleanly."
+          ./scripts/telegram-notify.sh "BUILD_SUCCESS" "Build Succeeded" "Linting, type checking, and Astro compilation passed cleanly." || true
 
       - name: Send Telegram - Build Failed
         if: failure()
+        continue-on-error: true
         run: |
-          ./scripts/telegram-notify.sh "BUILD_FAILED" "Build Failed" "Compilation or quality check error in workflow run."
+          ./scripts/telegram-notify.sh "BUILD_FAILED" "Build Failed" "Compilation or quality check error in workflow run." || true
 
   # ============================================================================
   # JOB 2: Zero-Downtime VPS Deployment & Rollback Engine
@@ -60,17 +68,31 @@ jobs:
   deploy-vps:
     name: VPS Production Deployment
     needs: quality-checks
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Send Telegram - Deployment Started
+      - name: Check VPS Secrets Availability
+        id: check_secrets
         run: |
-          chmod +x ./scripts/telegram-notify.sh
-          ./scripts/telegram-notify.sh "DEPLOY_START" "Deployment Started" "Connecting via SSH to Linux VPS..."
+          if [ -z "${{ secrets.VPS_HOST }}" ]; then
+            echo "has_secrets=false" >> $GITHUB_OUTPUT
+            echo "VPS_HOST secret not configured in GitHub Repository. Skipping remote SSH deployment step."
+          else
+            echo "has_secrets=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Send Telegram - Deployment Started
+        if: steps.check_secrets.outputs.has_secrets == 'true'
+        continue-on-error: true
+        run: |
+          chmod +x ./scripts/telegram-notify.sh || true
+          ./scripts/telegram-notify.sh "DEPLOY_START" "Deployment Started" "Connecting via SSH to Linux VPS..." || true
 
       - name: SSH Deploy & Health Check Verification
+        if: steps.check_secrets.outputs.has_secrets == 'true'
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.VPS_HOST }}
@@ -85,22 +107,24 @@ jobs:
             export GITHUB_SHA="${{ github.sha }}"
             
             # Navigate to production deployment path
-            cd /opt/sportiverf || cd ~/sportiverf
+            cd /opt/sportiverf || cd ~/sportiverf || exit 1
             
             # Pull latest repository changes
-            git fetch origin main
-            git reset --hard origin/main
+            git fetch origin ${{ github.ref_name }}
+            git reset --hard origin/${{ github.ref_name }}
             
             # Execute zero-downtime rolling deployment
             chmod +x deploy/deploy.sh scripts/telegram-notify.sh
             ./deploy/deploy.sh
 
       - name: Send Telegram - Deployment Succeeded
-        if: success()
+        if: steps.check_secrets.outputs.has_secrets == 'true' && success()
+        continue-on-error: true
         run: |
-          ./scripts/telegram-notify.sh "DEPLOY_SUCCESS" "Deployment Succeeded" "Live site is online, healthy, and serving traffic."
+          ./scripts/telegram-notify.sh "DEPLOY_SUCCESS" "Deployment Succeeded" "Live site is online, healthy, and serving traffic." || true
 
       - name: Send Telegram - Deployment Failed
-        if: failure()
+        if: steps.check_secrets.outputs.has_secrets == 'true' && failure()
+        continue-on-error: true
         run: |
-          ./scripts/telegram-notify.sh "DEPLOY_FAILED" "Deployment Failed" "Errors encountered during VPS SSH execution. Check deployment logs."
+          ./scripts/telegram-notify.sh "DEPLOY_FAILED" "Deployment Failed" "Errors encountered during VPS SSH execution. Check deployment logs." || true

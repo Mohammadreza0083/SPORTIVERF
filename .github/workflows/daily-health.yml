@@ -7,8 +7,8 @@ on:
   workflow_dispatch:
 
 env:
-  TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-  TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+  TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN || '8921060827:AAHUNo_mdKGBwTlbysIf3nbBYd3BIX9k1Pw' }}
+  TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID || '269309616' }}
 
 jobs:
   health-check:
@@ -18,7 +18,18 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
+      - name: Check VPS Secrets Availability
+        id: check_secrets
+        run: |
+          if [ -z "${{ secrets.VPS_HOST }}" ]; then
+            echo "has_secrets=false" >> $GITHUB_OUTPUT
+            echo "VPS_HOST secret not configured. Skipping remote VPS health check."
+          else
+            echo "has_secrets=true" >> $GITHUB_OUTPUT
+          fi
+
       - name: Run Remote VPS Health Monitor
+        if: steps.check_secrets.outputs.has_secrets == 'true'
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.VPS_HOST }}
@@ -26,6 +37,6 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           port: ${{ secrets.VPS_PORT || 22 }}
           script: |
-            cd /opt/sportiverf || cd ~/sportiverf
+            cd /opt/sportiverf || cd ~/sportiverf || exit 1
             chmod +x scripts/server-monitor.sh scripts/telegram-notify.sh
             ./scripts/server-monitor.sh --daily

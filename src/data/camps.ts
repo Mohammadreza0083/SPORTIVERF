@@ -56,7 +56,7 @@ export const CAMPS_DATA: CampItem[] = [
       tr: '6 KONTENJAN KALDI',
       fa: '۶ ظرفیت باقی‌مانده'
     },
-    imageUrl: 'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=1200&auto=format&fit=crop',
+    imageUrl: 'https://images.unsplash.com/photo-1517466787929-bc90951d0974?q=80&w=1200&auto=format&fit=crop',
     summary: {
       en: 'Premier 5-Star trial showcase featuring UEFA Pro coaches, 5-Star luxury resort stay, FIFA Quality Pro hybrid pitch, and direct exposure to licensed European club scouts.',
       tr: 'UEFA Pro lisanslı antrenörler, 5 yıldızlı lüks otel konaklaması, FIFA Quality Pro hibrit çim ve Avrupalı menajerler eşliğinde üst düzey gösteri kampı.',
@@ -368,7 +368,7 @@ export const CAMPS_DATA: CampItem[] = [
       tr: '12 KONTENJAN KALDI',
       fa: '۱۲ ظرفیت باقی‌مانده'
     },
-    imageUrl: 'https://images.unsplash.com/photo-1547347298-1d748509c269?q=80&w=1200&auto=format&fit=crop',
+    imageUrl: 'https://images.unsplash.com/photo-1588636394503-4f9fa2d4a6ef?q=80&w=1200&auto=format&fit=crop',
     summary: {
       en: '3-Star foundational volleyball camp designed to refine hitting posture, blocking positioning, server stability, and team chemistry.',
       tr: 'Smaç duruşu, blok zamanlaması, servis istikrarı ve takım oyununu geliştirmek üzere tasarlanmış 3 yıldızlı temel kamp.',
