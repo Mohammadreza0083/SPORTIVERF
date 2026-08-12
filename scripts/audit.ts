@@ -248,7 +248,9 @@ enKeys.forEach((key) => {
 });
 
 if (missingTr === 0 && missingFa === 0) {
-  logPass('100% translation key parity verified across English, Turkish, and Persian dictionaries!');
+  logPass(
+    '100% translation key parity verified across English, Turkish, and Persian dictionaries!'
+  );
 }
 
 console.log('');

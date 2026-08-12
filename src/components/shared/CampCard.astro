@@ -118,24 +118,32 @@ const starsArray = Array.from({ length: starRating });
       </a>
 
       <!-- Metadata Specs Grid -->
-      <div class="grid grid-cols-3 gap-2 py-3.5 px-1 border-y border-[#E5E3DC] mb-5 text-center font-mono">
+      <div
+        class="grid grid-cols-3 gap-2 py-3.5 px-1 border-y border-[#E5E3DC] mb-5 text-center font-mono"
+      >
         <div class="border-r border-[#E5E3DC] px-1 flex flex-col justify-center">
           <span class="block text-[9px] text-[#888888] uppercase tracking-wider mb-0.5"
             >{t('camps.dates')}</span
           >
-          <span class="text-[11px] leading-tight font-bold text-[#0D0D0D] block whitespace-normal">{dates}</span>
+          <span class="text-[11px] leading-tight font-bold text-[#0D0D0D] block whitespace-normal"
+            >{dates}</span
+          >
         </div>
         <div class="border-r border-[#E5E3DC] px-1 flex flex-col justify-center">
           <span class="block text-[9px] text-[#888888] uppercase tracking-wider mb-0.5"
             >{t('camps.age')}</span
           >
-          <span class="text-[11px] leading-tight font-bold text-[#0D0D0D] block whitespace-normal">{ageGroup}</span>
+          <span class="text-[11px] leading-tight font-bold text-[#0D0D0D] block whitespace-normal"
+            >{ageGroup}</span
+          >
         </div>
         <div class="px-1 flex flex-col justify-center">
           <span class="block text-[9px] text-[#888888] uppercase tracking-wider mb-0.5"
             >{t('camps.capacity')}</span
           >
-          <span class="text-[11px] leading-tight font-bold text-[#E5383B] block whitespace-normal">{capacity}</span>
+          <span class="text-[11px] leading-tight font-bold text-[#E5383B] block whitespace-normal"
+            >{capacity}</span
+          >
         </div>
       </div>
     </div>

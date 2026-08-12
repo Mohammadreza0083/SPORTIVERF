@@ -10,26 +10,47 @@ const { locale } = Astro.props;
 const t = useTranslations(locale);
 ---
 
-<section id="storytelling-section" class="py-16 md:py-24 bg-[#0A0A0A] text-white overflow-hidden relative border-b border-[#222222]">
+<section
+  id="storytelling-section"
+  class="py-16 md:py-24 bg-[#0A0A0A] text-white overflow-hidden relative border-b border-[#222222]"
+>
   <div class="max-w-[1400px] mx-auto px-4 md:px-8 mb-8 md:mb-12 text-center">
-    <span class="inline-block px-3.5 py-1 bg-[#E5383B]/10 border border-[#E5383B]/30 text-[#E5383B] font-mono text-xs uppercase tracking-[0.2em] mb-3">
+    <span
+      class="inline-block px-3.5 py-1 bg-[#E5383B]/10 border border-[#E5383B]/30 text-[#E5383B] font-mono text-xs uppercase tracking-[0.2em] mb-3"
+    >
       {t('values.badge')}
     </span>
-    <h2 class="font-barlow font-extrabold text-4xl sm:text-5xl md:text-6xl uppercase tracking-tight text-white">
+    <h2
+      class="font-barlow font-extrabold text-4xl sm:text-5xl md:text-6xl uppercase tracking-tight text-white"
+    >
       {t('about.storyTitle')}
     </h2>
   </div>
 
   <!-- Mobile Layout: Horizontal Snap Carousel with Peeking Blur Mask -->
-  <div class="md:hidden flex gap-4 overflow-x-auto snap-x snap-mandatory px-6 pb-6 pt-2 scrollbar-none scroll-smooth">
+  <div
+    class="md:hidden flex gap-4 overflow-x-auto snap-x snap-mandatory px-6 pb-6 pt-2 scrollbar-none scroll-smooth"
+  >
     <!-- Slide 1: Introduction & Core Values -->
-    <div class="snap-center shrink-0 w-[88vw] max-w-[360px] bg-[#141414] border border-[#262626] p-6 flex flex-col justify-between relative overflow-hidden group">
-      <div class="absolute top-0 right-0 w-24 h-24 bg-[#E5383B]/10 rounded-full blur-2xl pointer-events-none"></div>
+    <div
+      class="snap-center shrink-0 w-[88vw] max-w-[360px] bg-[#141414] border border-[#262626] p-6 flex flex-col justify-between relative overflow-hidden group"
+    >
+      <div
+        class="absolute top-0 right-0 w-24 h-24 bg-[#E5383B]/10 rounded-full blur-2xl pointer-events-none"
+      >
+      </div>
       <div>
         <div class="flex items-center justify-between mb-4">
-          <span class="font-mono text-xs text-[#E5383B] uppercase tracking-widest">01 / INTRODUCTION</span>
+          <span class="font-mono text-xs text-[#E5383B] uppercase tracking-widest"
+            >01 / INTRODUCTION</span
+          >
           <svg class="w-8 h-8 text-[#E5383B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+            ></path>
           </svg>
         </div>
         <h3 class="font-barlow font-extrabold text-2xl uppercase tracking-tight text-white mb-3">
@@ -39,19 +60,33 @@ const t = useTranslations(locale);
           {t('about.storyDesc')}
         </p>
       </div>
-      <a href={`/${locale}/about`} class="btn-red !py-3 !px-5 text-xs text-center w-full block font-barlow font-bold uppercase tracking-wider">
+      <a
+        href={`/${locale}/about`}
+        class="btn-red !py-3 !px-5 text-xs text-center w-full block font-barlow font-bold uppercase tracking-wider"
+      >
         {t('nav.about')} &rarr;
       </a>
     </div>
 
     <!-- Slide 2: Mission -->
-    <div class="snap-center shrink-0 w-[88vw] max-w-[360px] bg-[#141414] border border-[#262626] p-6 flex flex-col justify-between relative overflow-hidden group">
-      <div class="absolute top-0 right-0 w-24 h-24 bg-[#E5383B]/10 rounded-full blur-2xl pointer-events-none"></div>
+    <div
+      class="snap-center shrink-0 w-[88vw] max-w-[360px] bg-[#141414] border border-[#262626] p-6 flex flex-col justify-between relative overflow-hidden group"
+    >
+      <div
+        class="absolute top-0 right-0 w-24 h-24 bg-[#E5383B]/10 rounded-full blur-2xl pointer-events-none"
+      >
+      </div>
       <div>
         <div class="flex items-center justify-between mb-4">
-          <span class="font-mono text-xs text-[#E5383B] uppercase tracking-widest">02 / MISSION</span>
+          <span class="font-mono text-xs text-[#E5383B] uppercase tracking-widest"
+            >02 / MISSION</span
+          >
           <svg class="w-8 h-8 text-[#E5383B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              d="M13 10V3L4 14h7v7l9-11h-7z"></path>
           </svg>
         </div>
         <h3 class="font-barlow font-extrabold text-2xl uppercase tracking-tight text-white mb-3">
@@ -61,19 +96,33 @@ const t = useTranslations(locale);
           {t('about.leadershipDesc')}
         </p>
       </div>
-      <div class="pt-4 border-t border-[#222222] font-mono text-xs text-[#888888] uppercase tracking-widest">
+      <div
+        class="pt-4 border-t border-[#222222] font-mono text-xs text-[#888888] uppercase tracking-widest"
+      >
         {t('values.devTitle')}
       </div>
     </div>
 
     <!-- Slide 3: Vision & Supervision -->
-    <div class="snap-center shrink-0 w-[88vw] max-w-[360px] bg-[#141414] border border-[#262626] p-6 flex flex-col justify-between relative overflow-hidden group">
-      <div class="absolute top-0 right-0 w-24 h-24 bg-[#E5383B]/10 rounded-full blur-2xl pointer-events-none"></div>
+    <div
+      class="snap-center shrink-0 w-[88vw] max-w-[360px] bg-[#141414] border border-[#262626] p-6 flex flex-col justify-between relative overflow-hidden group"
+    >
+      <div
+        class="absolute top-0 right-0 w-24 h-24 bg-[#E5383B]/10 rounded-full blur-2xl pointer-events-none"
+      >
+      </div>
       <div>
         <div class="flex items-center justify-between mb-4">
-          <span class="font-mono text-xs text-[#E5383B] uppercase tracking-widest">03 / VISION & TRUST</span>
+          <span class="font-mono text-xs text-[#E5383B] uppercase tracking-widest"
+            >03 / VISION & TRUST</span
+          >
           <svg class="w-8 h-8 text-[#E5383B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+            ></path>
           </svg>
         </div>
         <h3 class="font-barlow font-extrabold text-2xl uppercase tracking-tight text-white mb-3">
@@ -83,7 +132,9 @@ const t = useTranslations(locale);
           {t('about.supervisionDesc')}
         </p>
       </div>
-      <div class="pt-4 border-t border-[#222222] font-mono text-xs text-[#E5383B] uppercase tracking-widest font-bold">
+      <div
+        class="pt-4 border-t border-[#222222] font-mono text-xs text-[#E5383B] uppercase tracking-widest font-bold"
+      >
         {t('about.badge')}
       </div>
     </div>
@@ -97,44 +148,92 @@ const t = useTranslations(locale);
         <div class="space-y-6">
           <p class="font-mono text-xs text-[#888888] uppercase tracking-widest">SELECT CHAPTER</p>
 
-          <button data-story-target="0" class="story-tab active w-full text-left p-4 bg-[#141414] border-l-4 border-[#E5383B] transition-all hover:bg-[#1A1A1A]">
-            <span class="font-mono text-[10px] text-[#E5383B] block uppercase tracking-widest">CHAPTER 01</span>
-            <span class="font-barlow font-bold text-xl uppercase tracking-wide text-white block mt-0.5">{t('about.heroTitle')}</span>
+          <button
+            data-story-target="0"
+            class="story-tab active w-full text-left p-4 bg-[#141414] border-l-4 border-[#E5383B] transition-all hover:bg-[#1A1A1A]"
+          >
+            <span class="font-mono text-[10px] text-[#E5383B] block uppercase tracking-widest"
+              >CHAPTER 01</span
+            >
+            <span
+              class="font-barlow font-bold text-xl uppercase tracking-wide text-white block mt-0.5"
+              >{t('about.heroTitle')}</span
+            >
           </button>
 
-          <button data-story-target="1" class="story-tab w-full text-left p-4 bg-[#111111] border-l-4 border-transparent transition-all hover:bg-[#1A1A1A]">
-            <span class="font-mono text-[10px] text-[#888888] block uppercase tracking-widest">CHAPTER 02</span>
-            <span class="font-barlow font-bold text-xl uppercase tracking-wide text-[#CCCCCC] block mt-0.5">{t('about.leadershipTitle')}</span>
+          <button
+            data-story-target="1"
+            class="story-tab w-full text-left p-4 bg-[#111111] border-l-4 border-transparent transition-all hover:bg-[#1A1A1A]"
+          >
+            <span class="font-mono text-[10px] text-[#888888] block uppercase tracking-widest"
+              >CHAPTER 02</span
+            >
+            <span
+              class="font-barlow font-bold text-xl uppercase tracking-wide text-[#CCCCCC] block mt-0.5"
+              >{t('about.leadershipTitle')}</span
+            >
           </button>
 
-          <button data-story-target="2" class="story-tab w-full text-left p-4 bg-[#111111] border-l-4 border-transparent transition-all hover:bg-[#1A1A1A]">
-            <span class="font-mono text-[10px] text-[#888888] block uppercase tracking-widest">CHAPTER 03</span>
-            <span class="font-barlow font-bold text-xl uppercase tracking-wide text-[#CCCCCC] block mt-0.5">{t('about.supervisionTitle')}</span>
+          <button
+            data-story-target="2"
+            class="story-tab w-full text-left p-4 bg-[#111111] border-l-4 border-transparent transition-all hover:bg-[#1A1A1A]"
+          >
+            <span class="font-mono text-[10px] text-[#888888] block uppercase tracking-widest"
+              >CHAPTER 03</span
+            >
+            <span
+              class="font-barlow font-bold text-xl uppercase tracking-wide text-[#CCCCCC] block mt-0.5"
+              >{t('about.supervisionTitle')}</span
+            >
           </button>
         </div>
 
-        <a href={`/${locale}/about`} class="btn-red !py-3.5 !px-6 text-xs text-center font-barlow font-bold uppercase tracking-wider block mt-8">
+        <a
+          href={`/${locale}/about`}
+          class="btn-red !py-3.5 !px-6 text-xs text-center font-barlow font-bold uppercase tracking-wider block mt-8"
+        >
           {t('about.storyTitle')} &rarr;
         </a>
       </div>
 
       <!-- Slide Display Screen with Peeking Edge -->
-      <div class="col-span-8 relative overflow-hidden bg-[#121212] border border-[#262626] p-10 flex flex-col justify-between">
+      <div
+        class="col-span-8 relative overflow-hidden bg-[#121212] border border-[#262626] p-10 flex flex-col justify-between"
+      >
         <!-- Background Ambient Glow -->
-        <div class="absolute -bottom-10 -right-10 w-64 h-64 bg-[#E5383B]/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div
+          class="absolute -bottom-10 -right-10 w-64 h-64 bg-[#E5383B]/10 rounded-full blur-3xl pointer-events-none"
+        >
+        </div>
 
         <!-- Slide 1 Display -->
-        <div id="story-slide-0" class="story-slide transition-all duration-500 opacity-100 translate-y-0 relative z-10 flex flex-col justify-between h-full">
+        <div
+          id="story-slide-0"
+          class="story-slide transition-all duration-500 opacity-100 translate-y-0 relative z-10 flex flex-col justify-between h-full"
+        >
           <div>
             <div class="flex items-center gap-4 mb-6">
-              <div class="w-12 h-12 rounded-none bg-[#E5383B]/10 border border-[#E5383B]/30 flex items-center justify-center text-[#E5383B]">
+              <div
+                class="w-12 h-12 rounded-none bg-[#E5383B]/10 border border-[#E5383B]/30 flex items-center justify-center text-[#E5383B]"
+              >
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                  ></path>
                 </svg>
               </div>
               <div>
-                <span class="font-mono text-xs text-[#E5383B] uppercase tracking-widest block">FOUNDATION</span>
-                <h3 class="font-barlow font-black text-3xl md:text-4xl uppercase tracking-tight text-white">{t('about.heroTitle')}</h3>
+                <span class="font-mono text-xs text-[#E5383B] uppercase tracking-widest block"
+                  >FOUNDATION</span
+                >
+                <h3
+                  class="font-barlow font-black text-3xl md:text-4xl uppercase tracking-tight text-white"
+                >
+                  {t('about.heroTitle')}
+                </h3>
               </div>
             </div>
             <p class="text-base text-[#CCCCCC] leading-relaxed font-light mb-8 max-w-2xl">
@@ -145,31 +244,52 @@ const t = useTranslations(locale);
           <div class="grid grid-cols-3 gap-4 pt-6 border-t border-[#222222]">
             <div>
               <span class="font-mono text-[10px] text-[#888888] uppercase block">EXCELLENCE</span>
-              <span class="font-barlow font-bold text-lg text-white block mt-1">{t('values.trustTitle')}</span>
+              <span class="font-barlow font-bold text-lg text-white block mt-1"
+                >{t('values.trustTitle')}</span
+              >
             </div>
             <div>
               <span class="font-mono text-[10px] text-[#888888] uppercase block">DEVELOPMENT</span>
-              <span class="font-barlow font-bold text-lg text-white block mt-1">{t('values.devTitle')}</span>
+              <span class="font-barlow font-bold text-lg text-white block mt-1"
+                >{t('values.devTitle')}</span
+              >
             </div>
             <div>
               <span class="font-mono text-[10px] text-[#888888] uppercase block">OPPORTUNITY</span>
-              <span class="font-barlow font-bold text-lg text-white block mt-1">{t('values.oppTitle')}</span>
+              <span class="font-barlow font-bold text-lg text-white block mt-1"
+                >{t('values.oppTitle')}</span
+              >
             </div>
           </div>
         </div>
 
         <!-- Slide 2 Display (Hidden initially) -->
-        <div id="story-slide-1" class="story-slide hidden transition-all duration-500 opacity-0 translate-y-4 relative z-10 flex flex-col justify-between h-full">
+        <div
+          id="story-slide-1"
+          class="story-slide hidden transition-all duration-500 opacity-0 translate-y-4 relative z-10 flex flex-col justify-between h-full"
+        >
           <div>
             <div class="flex items-center gap-4 mb-6">
-              <div class="w-12 h-12 rounded-none bg-[#E5383B]/10 border border-[#E5383B]/30 flex items-center justify-center text-[#E5383B]">
+              <div
+                class="w-12 h-12 rounded-none bg-[#E5383B]/10 border border-[#E5383B]/30 flex items-center justify-center text-[#E5383B]"
+              >
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                 </svg>
               </div>
               <div>
-                <span class="font-mono text-xs text-[#E5383B] uppercase tracking-widest block">MISSION</span>
-                <h3 class="font-barlow font-black text-3xl md:text-4xl uppercase tracking-tight text-white">{t('about.leadershipTitle')}</h3>
+                <span class="font-mono text-xs text-[#E5383B] uppercase tracking-widest block"
+                  >MISSION</span
+                >
+                <h3
+                  class="font-barlow font-black text-3xl md:text-4xl uppercase tracking-tight text-white"
+                >
+                  {t('about.leadershipTitle')}
+                </h3>
               </div>
             </div>
             <p class="text-base text-[#CCCCCC] leading-relaxed font-light mb-8 max-w-2xl">
@@ -178,23 +298,45 @@ const t = useTranslations(locale);
           </div>
 
           <div class="pt-6 border-t border-[#222222]">
-            <span class="font-mono text-xs text-[#E5383B] uppercase tracking-widest block font-bold mb-1">GLOBAL PATHWAY</span>
-            <p class="text-xs text-[#888888] font-light">Connecting athletes directly with European scout networks and international university trials.</p>
+            <span
+              class="font-mono text-xs text-[#E5383B] uppercase tracking-widest block font-bold mb-1"
+              >GLOBAL PATHWAY</span
+            >
+            <p class="text-xs text-[#888888] font-light">
+              Connecting athletes directly with European scout networks and international university
+              trials.
+            </p>
           </div>
         </div>
 
         <!-- Slide 3 Display (Hidden initially) -->
-        <div id="story-slide-2" class="story-slide hidden transition-all duration-500 opacity-0 translate-y-4 relative z-10 flex flex-col justify-between h-full">
+        <div
+          id="story-slide-2"
+          class="story-slide hidden transition-all duration-500 opacity-0 translate-y-4 relative z-10 flex flex-col justify-between h-full"
+        >
           <div>
             <div class="flex items-center gap-4 mb-6">
-              <div class="w-12 h-12 rounded-none bg-[#E5383B]/10 border border-[#E5383B]/30 flex items-center justify-center text-[#E5383B]">
+              <div
+                class="w-12 h-12 rounded-none bg-[#E5383B]/10 border border-[#E5383B]/30 flex items-center justify-center text-[#E5383B]"
+              >
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                  ></path>
                 </svg>
               </div>
               <div>
-                <span class="font-mono text-xs text-[#E5383B] uppercase tracking-widest block">LEGAL ASSURANCE</span>
-                <h3 class="font-barlow font-black text-3xl md:text-4xl uppercase tracking-tight text-white">{t('about.supervisionTitle')}</h3>
+                <span class="font-mono text-xs text-[#E5383B] uppercase tracking-widest block"
+                  >LEGAL ASSURANCE</span
+                >
+                <h3
+                  class="font-barlow font-black text-3xl md:text-4xl uppercase tracking-tight text-white"
+                >
+                  {t('about.supervisionTitle')}
+                </h3>
               </div>
             </div>
             <p class="text-base text-[#CCCCCC] leading-relaxed font-light mb-8 max-w-2xl">
@@ -203,8 +345,14 @@ const t = useTranslations(locale);
           </div>
 
           <div class="pt-6 border-t border-[#222222]">
-            <span class="font-mono text-xs text-[#E5383B] uppercase tracking-widest block font-bold mb-1">{t('about.badge')}</span>
-            <p class="text-xs text-[#888888] font-light">Official TÜRSAB licensed agency guarantee, full comprehensive travel protection & contract clarity.</p>
+            <span
+              class="font-mono text-xs text-[#E5383B] uppercase tracking-widest block font-bold mb-1"
+              >{t('about.badge')}</span
+            >
+            <p class="text-xs text-[#888888] font-light">
+              Official TÜRSAB licensed agency guarantee, full comprehensive travel protection &
+              contract clarity.
+            </p>
           </div>
         </div>
       </div>

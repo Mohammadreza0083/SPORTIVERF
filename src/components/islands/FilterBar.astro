@@ -96,7 +96,7 @@ const starTiers = [
   </div>
 </div>
 
-<script is:inline>
+<script>
   document.addEventListener('DOMContentLoaded', () => {
     let currentSport = 'ALL';
     let currentStar = 'ALL';
@@ -104,7 +104,7 @@ const starTiers = [
     const sportPills = document.querySelectorAll('[data-sport-filter]');
     const starPills = document.querySelectorAll('[data-star-filter]');
 
-    function applyFilters() {
+    function applyFilters(): void {
       const campCards = document.querySelectorAll('[data-sport]');
 
       campCards.forEach((card) => {
@@ -115,7 +115,7 @@ const starTiers = [
         const matchStar = currentStar === 'ALL' || cardStar === currentStar;
 
         // Container wrapper element check
-        const container = card.closest('[data-camp-wrapper]') || card;
+        const container = (card.closest('[data-camp-wrapper]') || card) as HTMLElement;
 
         if (matchSport && matchStar) {
           container.style.display = '';
