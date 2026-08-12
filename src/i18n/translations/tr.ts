@@ -150,7 +150,9 @@ export default {
     hours: '09:00 - 18:00 (TSİ)',
     valuesTitle: 'Temel Değerler',
     coreValues: 'Güven • Gelişim • Fırsat',
-    copyright: '© 2026 SPORTIVERF. Tüm Hakları Saklıdır. Aklimosaturizm Yetkili.'
+    copyright: '© 2026 SPORTIVERF. Tüm Hakları Saklıdır. Aklimosaturizm Yetkili.',
+    madeWith: 'Sevgiyle',
+    by: 'hazırlayan:'
   },
   common: {
     skipToContent: 'Ana içeriğe geç',

@@ -133,11 +133,24 @@ const t = useTranslations(locale);
 
     <!-- Bottom Copyright & Back to Top Row -->
     <div
-      class="flex flex-col sm:flex-row justify-between items-center pt-8 text-xs text-[#888888] gap-4 font-mono"
+      class="flex flex-col md:flex-row justify-between items-center pt-8 text-xs text-[#888888] gap-4 font-mono"
     >
-      <p>
+      <p class="text-center md:text-left">
         {t('footer.copyright')}
       </p>
+
+      <p class="text-[11px] text-[#888888] tracking-wide text-center">
+        {t('footer.madeWith')} <span class="text-[#E5383B] inline-block transition-transform duration-300 hover:scale-125 select-none" aria-hidden="true">❤️</span> {t('footer.by')}{' '}
+        <a
+          href="https://www.linkedin.com/in/mohammadreza-bonyadi/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-[#CCCCCC] hover:text-[#E5383B] font-medium transition-colors duration-200 underline decoration-[#333333] hover:decoration-[#E5383B] underline-offset-4"
+        >
+          Mohammadreza Bonyadi
+        </a>
+      </p>
+
       <div class="flex items-center gap-6">
         <a href="#main-content" class="hover:text-[#E5383B] transition uppercase tracking-wider">
           Top ↑

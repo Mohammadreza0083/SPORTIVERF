@@ -148,7 +148,9 @@ export default {
     hours: '09:00 - 18:00 (TRT)',
     valuesTitle: 'Core Values',
     coreValues: 'Trust • Development • Opportunity',
-    copyright: '© 2026 SPORTIVERF. All Rights Reserved. Aklimosaturizm Authorized.'
+    copyright: '© 2026 SPORTIVERF. All Rights Reserved. Aklimosaturizm Authorized.',
+    madeWith: 'Made with',
+    by: 'by'
   },
   common: {
     skipToContent: 'Skip to main content',

@@ -148,7 +148,9 @@ export default {
     hours: '09:00 - 18:00 (به وقت ترکیه)',
     valuesTitle: 'ارزش‌های بنیادی',
     coreValues: 'اعتماد • توسعه • فرصت',
-    copyright: '© 2026 SPORTIVERF. تمامی حقوق محفوظ است. مجاز توسط Aklimosaturizm.'
+    copyright: '© 2026 SPORTIVERF. تمامی حقوق محفوظ است. مجاز توسط Aklimosaturizm.',
+    madeWith: 'ساخته شده با',
+    by: 'توسط'
   },
   common: {
     skipToContent: 'پرش به محتوای اصلی',
