@@ -5,7 +5,7 @@ FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-# Install dependencies required for sharp/native modules if needed
+# Install dependencies required for native modules if needed
 RUN apk add --no-cache libc6-compat
 
 # Copy package files for optimal Docker caching layer
@@ -44,19 +44,15 @@ COPY --from=builder /app/dist /usr/share/nginx/html
 COPY nginx/nginx.conf /etc/nginx/nginx.conf
 COPY nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf
 
-# Set proper non-root permissions for static asset directory
+# Set proper permissions for static asset directory
 RUN chown -R nginx:nginx /usr/share/nginx/html && \
-    chmod -R 755 /usr/share/nginx/html && \
-    touch /var/run/nginx.pid && \
-    chown -R nginx:nginx /var/run/nginx.pid /var/cache/nginx /var/log/nginx
+    chmod -R 755 /usr/share/nginx/html
 
-EXPOSE 80 443
+EXPOSE 80
 
 # Container Healthcheck using local HTTP endpoint
 HEALTHCHECK --interval=15s --timeout=5s --start-period=10s --retries=3 \
   CMD curl -f http://localhost:80/health || exit 1
 
-# Run Nginx as non-root user for security compliance
-USER nginx
-
+# Run Nginx in foreground (master process binds port 80 and manages worker processes as user nginx)
 CMD ["nginx", "-g", "daemon off;"]
