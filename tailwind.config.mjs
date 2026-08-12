@@ -14,12 +14,23 @@ export default {
           dim: '#888888',
           borderSubtle: '#E5E3DC',
           borderMedium: '#D1CEC5',
-          borderStrong: '#A39F93'
+          borderStrong: '#A39F93',
+          red: '#E5383B',
+          redDark: '#B7094C'
+        },
+        accent: {
+          red: '#E5383B',
+          redDark: '#B7094C',
+          redLight: '#FF4D6D',
+          cream: '#FAF9F6',
+          softBg: '#F4F3EF',
+          charcoal: '#0D0D0D',
+          border: '#E5E3DC'
         },
         luxury: {
-          gold: '#C5A059',
-          goldDark: '#9E7B3B',
-          goldLight: '#E6C887',
+          gold: '#E5383B',
+          goldDark: '#B7094C',
+          goldLight: '#FF4D6D',
           cream: '#FAF9F6',
           softBg: '#F4F3EF',
           charcoal: '#0D0D0D',
@@ -27,8 +38,9 @@ export default {
         }
       },
       fontFamily: {
+        barlow: ['Barlow Condensed', 'sans-serif'],
+        display: ['Barlow Condensed', 'sans-serif'],
         serif: ['Cormorant Garamond', 'Playfair Display', 'Georgia', 'serif'],
-        display: ['Cormorant Garamond', 'Outfit', 'serif'],
         sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
         mono: ['Space Mono', 'monospace'],
         vazir: ['Vazirmatn', 'sans-serif']

@@ -56,7 +56,7 @@ const starTiers = [
               class={`sport-pill whitespace-nowrap px-4 py-2 border text-xs font-mono uppercase tracking-wider transition-all duration-200 focus:outline-none ${
                 isActive
                   ? 'bg-[#0D0D0D] text-white font-bold border-[#0D0D0D] shadow-sm'
-                  : 'bg-[#FAF9F6] text-[#555555] border-[#E5E3DC] hover:border-[#C5A059] hover:text-[#C5A059]'
+                  : 'bg-[#FAF9F6] text-[#555555] border-[#E5E3DC] hover:border-[#E5383B] hover:text-[#E5383B]'
               }`}
             >
               {sport.label}
@@ -83,8 +83,8 @@ const starTiers = [
               data-star-filter={tier.id}
               class={`star-pill whitespace-nowrap px-3.5 py-1.5 border text-xs font-mono uppercase tracking-wider transition-all duration-200 focus:outline-none ${
                 isActive
-                  ? 'bg-[#C5A059] text-white font-bold border-[#C5A059] shadow-sm'
-                  : 'bg-white text-[#555555] border-[#E5E3DC] hover:border-[#C5A059] hover:text-[#C5A059]'
+                  ? 'bg-[#E5383B] text-white font-bold border-[#E5383B] shadow-sm'
+                  : 'bg-white text-[#555555] border-[#E5E3DC] hover:border-[#E5383B] hover:text-[#E5383B]'
               }`}
             >
               {tier.label}
@@ -143,12 +143,12 @@ const starTiers = [
     starPills.forEach((pill) => {
       pill.addEventListener('click', () => {
         starPills.forEach((p) => {
-          p.classList.remove('bg-[#C5A059]', 'text-white', 'font-bold', 'border-[#C5A059]');
+          p.classList.remove('bg-[#E5383B]', 'text-white', 'font-bold', 'border-[#E5383B]');
           p.classList.add('bg-white', 'text-[#555555]', 'border-[#E5E3DC]');
         });
 
         pill.classList.remove('bg-white', 'text-[#555555]', 'border-[#E5E3DC]');
-        pill.classList.add('bg-[#C5A059]', 'text-white', 'font-bold', 'border-[#C5A059]');
+        pill.classList.add('bg-[#E5383B]', 'text-white', 'font-bold', 'border-[#E5383B]');
 
         currentStar = pill.getAttribute('data-star-filter') || 'ALL';
         applyFilters();

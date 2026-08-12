@@ -1,6 +1,6 @@
 export default {
   site: {
-    title: 'SPORTIVERF — Light Luxury Sports Tourism & Elite Camps',
+    title: 'SPORTIVERF — High-Performance Sports Tourism & Elite Camps',
     description:
       'Premier international sports tourism platform, football showcases, volleyball masterclasses, and 3/4/5-star athletic retreats.'
   },
@@ -17,7 +17,7 @@ export default {
   gate: {
     title: 'Select Language & Region',
     subtitle:
-      'Welcome to SPORTIVERF. Choose your preferred language for a tailored luxury service experience.',
+      'Welcome to SPORTIVERF. Choose your preferred language for a tailored athletic service experience.',
     en: 'English',
     tr: 'Türkçe',
     fa: 'فارسی',
@@ -25,7 +25,7 @@ export default {
     remember: 'Remember my choice for future visits'
   },
   hero: {
-    badge: 'LUXURY SPORTS TOURISM & SHOWCASES',
+    badge: 'ELITE SPORTS TOURISM & SHOWCASES',
     title: 'Precision Athletic & Overseas Camp Expeditions',
     subtitle:
       'Curated 3-Star, 4-Star, and 5-Star athletic retreats, scout showcases, and high-performance training camps tailored for elite performers.',
@@ -59,7 +59,7 @@ export default {
     filterAllStars: 'All Tiers',
     filter3Star: '3-Star Essentials',
     filter4Star: '4-Star Executive',
-    filter5Star: '5-Star VIP Luxury',
+    filter5Star: '5-Star VIP Showcase',
     tuition: 'PRICING MODEL',
     priceOnRequest: 'Price on Request',
     inquireForPricing: 'Inquire for Pricing',
@@ -74,13 +74,13 @@ export default {
   tiers: {
     star3: '3-Star Essentials',
     star4: '4-Star Executive',
-    star5: '5-Star VIP Luxury',
+    star5: '5-Star VIP Showcase',
     star3Desc:
       'Foundational athletic clinics with comfortable accommodation and high-standard pitch training.',
     star4Desc:
       'Executive academy packages with 4-star lodging, video analysis, and specialized coaching.',
     star5Desc:
-      'VIP luxury showcases featuring 5-star beachfront resorts, UEFA/FIVB mentors, and scout exposure.'
+      'VIP showcases featuring 5-star beachfront resorts, UEFA/FIVB mentors, and scout exposure.'
   },
   booking: {
     badge: 'DIRECT CONCIERGE INQUIRY',
@@ -121,7 +121,7 @@ export default {
       'Every SPORTIVERF expedition is conducted under the strict legal oversight of Aklimosaturizm, guaranteeing complete travel insurance, accredited hotel partnerships, and certified security.',
     standardsTitle: 'Tiered Excellence Standard',
     standardsDesc:
-      'Whether choosing a 3-Star Essentials Clinic, 4-Star Executive Academy, or 5-Star VIP Luxury Showcase, every athlete receives professional coaching, biophysical assessment, and video analysis.',
+      'Whether choosing a 3-Star Essentials Clinic, 4-Star Executive Academy, or 5-Star VIP Showcase, every athlete receives professional coaching, biophysical assessment, and video analysis.',
     leadershipTitle: 'Our Mission & Vision',
     leadershipDesc:
       'To be the premier sports tourism gateway in Eurasia, providing athletes with transparent, safe, and transformational athletic journeys.'
@@ -132,7 +132,7 @@ export default {
     q1: 'What legal supervision does SPORTIVERF operate under?',
     a1: 'SPORTIVERF operates under the direct legal supervision and license of Aklimosaturizm.',
     q2: 'What is the difference between 3-Star, 4-Star, and 5-Star camps?',
-    a2: '3-Star camps focus on essential skills and comfortable stay; 4-Star camps provide executive facilities and video breakdown; 5-Star VIP camps include luxury resorts, UEFA/FIVB coaches, and direct scout exposure.',
+    a2: '3-Star camps focus on essential skills and comfortable stay; 4-Star camps provide executive facilities and video breakdown; 5-Star VIP camps include premier resorts, UEFA/FIVB coaches, and direct scout exposure.',
     q3: 'How do I submit an inquiry for my club or academy team?',
     a3: 'You can fill out the inquiry form on any camp page or contact our concierge via WhatsApp directly.'
   },

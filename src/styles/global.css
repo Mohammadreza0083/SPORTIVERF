@@ -3,37 +3,40 @@
 @tailwind utilities;
 
 :root {
-  /* Light Luxury Surface Tokens */
+  /* Light Surface Tokens */
   --color-bg-primary: #faf9f6;
   --color-bg-secondary: #ffffff;
   --color-bg-tertiary: #f4f3ef;
   --color-bg-elevated: #ffffff;
   --color-bg-inverse: #0a0a0a;
 
-  /* Light Luxury Text Tokens */
+  /* Light Text Tokens */
   --color-text-primary: #0d0d0d;
   --color-text-secondary: #555555;
   --color-text-muted: #888888;
   --color-text-inverse: #ffffff;
-  --color-text-gold: #c5a059;
+  --color-text-gold: #e5383b;
+  --color-text-red: #e5383b;
 
-  /* Luxury Gold & Border Tokens */
-  --color-luxury-gold: #c5a059;
-  --color-luxury-gold-dark: #9e7b3b;
+  /* Accent Red & Border Tokens */
+  --color-brand-red: #e5383b;
+  --color-brand-red-dark: #b7094c;
+  --color-luxury-gold: #e5383b;
+  --color-luxury-gold-dark: #b7094c;
   --color-border-subtle: #e5e3dc;
   --color-border-medium: #d1cec5;
   --color-border-strong: #a39f93;
-  --color-border-focus: #0d0d0d;
+  --color-border-focus: #e5383b;
 
   /* Interaction Tokens */
-  --color-hover-overlay: rgba(197, 160, 89, 0.08);
-  --color-active-overlay: rgba(197, 160, 89, 0.16);
+  --color-hover-overlay: rgba(229, 56, 59, 0.08);
+  --color-active-overlay: rgba(229, 56, 59, 0.16);
   --color-glass-surface: rgba(255, 255, 255, 0.85);
   --color-glass-border: rgba(229, 227, 220, 0.8);
 
   /* Font Families */
-  --font-family-serif: 'Cormorant Garamond', 'Playfair Display', serif;
-  --font-family-display: 'Cormorant Garamond', serif;
+  --font-family-display: 'Barlow Condensed', sans-serif;
+  --font-family-serif: 'Barlow Condensed', 'Cormorant Garamond', sans-serif;
   --font-family-body: 'Inter', -apple-system, sans-serif;
   --font-family-mono: 'Space Mono', monospace;
 
@@ -101,41 +104,43 @@ html[lang='fa'] h6 {
   h4,
   h5,
   h6 {
-    font-family: var(--font-family-serif);
-    letter-spacing: -0.01em;
+    font-family: var(--font-family-display);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
   }
 
   /* Accessibility focus ring */
   :focus-visible {
-    outline: 2px solid var(--color-luxury-gold) !important;
+    outline: 2px solid var(--color-brand-red) !important;
     outline-offset: 3px !important;
   }
 }
 
 @layer components {
-  /* Primary Solid Luxury Button */
+  /* Primary Solid Button */
   .btn-primary {
-    @apply inline-flex items-center justify-center px-7 py-3.5 rounded-none bg-[#0D0D0D] text-white font-medium text-xs tracking-[0.18em] uppercase transition-all duration-300 hover:bg-[#C5A059] hover:text-white hover:shadow-lg active:scale-[0.98] focus:outline-none disabled:opacity-50 disabled:pointer-events-none;
+    @apply inline-flex items-center justify-center px-7 py-3.5 rounded-none bg-[#0D0D0D] text-white font-medium text-xs tracking-[0.18em] uppercase transition-all duration-300 hover:bg-[#E5383B] hover:text-white hover:shadow-lg active:scale-[0.98] focus:outline-none disabled:opacity-50 disabled:pointer-events-none;
   }
 
-  /* Secondary Outlined Luxury Button */
+  /* Secondary Outlined Button */
   .btn-secondary {
     @apply inline-flex items-center justify-center px-7 py-3.5 rounded-none border border-[#0D0D0D] text-[#0D0D0D] font-medium text-xs tracking-[0.18em] uppercase transition-all duration-300 hover:bg-[#0D0D0D] hover:text-white active:scale-[0.98] focus:outline-none disabled:opacity-50 disabled:pointer-events-none;
   }
 
-  /* Gold Luxury Accent Button */
-  .btn-gold {
-    @apply inline-flex items-center justify-center px-7 py-3.5 rounded-none bg-[#C5A059] text-white font-medium text-xs tracking-[0.18em] uppercase transition-all duration-300 hover:bg-[#9E7B3B] hover:shadow-lg active:scale-[0.98] focus:outline-none;
+  /* Red Accent Button */
+  .btn-gold,
+  .btn-red {
+    @apply inline-flex items-center justify-center px-7 py-3.5 rounded-none bg-[#E5383B] text-white font-medium text-xs tracking-[0.18em] uppercase transition-all duration-300 hover:bg-[#B7094C] hover:shadow-lg active:scale-[0.98] focus:outline-none;
   }
 
   /* Ghost Icon Button */
   .btn-icon {
-    @apply inline-flex items-center justify-center p-3 rounded-none bg-[#FFFFFF] border border-[#E5E3DC] text-[#0D0D0D] transition-all duration-300 hover:border-[#C5A059] hover:text-[#C5A059] focus:outline-none;
+    @apply inline-flex items-center justify-center p-3 rounded-none bg-[#FFFFFF] border border-[#E5E3DC] text-[#0D0D0D] transition-all duration-300 hover:border-[#E5383B] hover:text-[#E5383B] focus:outline-none;
   }
 
-  /* Luxury Card Container */
+  /* Card Container */
   .card-monochrome {
-    @apply bg-white border border-[#E5E3DC] rounded-none overflow-hidden transition-all duration-300 hover:border-[#C5A059] hover:-translate-y-1 hover:shadow-xl;
+    @apply bg-white border border-[#E5E3DC] rounded-none overflow-hidden transition-all duration-300 hover:border-[#E5383B] hover:-translate-y-1 hover:shadow-xl;
   }
 
   /* Glassmorphism Panel */
@@ -157,4 +162,43 @@ html[lang='fa'] h6 {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Global Custom Scrollbar Styling (Webkit & Firefox) */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF9F6;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #E5383B;
+  border-radius: 9999px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B7094C;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #E5383B #FAF9F6;
+}
+
+/* Scrollbar suppression utilities for clean native sliders */
+.no-scrollbar::-webkit-scrollbar,
+.scrollbar-none::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.no-scrollbar,
+.scrollbar-none {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
 }

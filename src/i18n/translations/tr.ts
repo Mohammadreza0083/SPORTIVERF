@@ -1,6 +1,6 @@
 export default {
   site: {
-    title: 'SPORTIVERF — Lüks Spor Turizmi & Seçkin Kamplar',
+    title: 'SPORTIVERF — Yüksek Performans Spor Turizmi & Seçkin Kamplar',
     description:
       'Uluslararası spor turizm platformu, futbol seçmeleri, voleybol uzmanlık kampları ve 3/4/5 yıldızlı atletik kamplar.'
   },
@@ -8,7 +8,7 @@ export default {
     main: 'Ana Menü',
     home: 'Ana Sayfa',
     football: 'Futbol Kampları',
-    volleyball: 'Voleybol Kampları',
+    volleyball: 'Volleyball Kampları',
     tours: 'Tüm Kamplar',
     about: 'Hakkımızda',
     contact: 'İletişim',
@@ -17,7 +17,7 @@ export default {
   gate: {
     title: 'Dil ve Bölge Seçimi',
     subtitle:
-      'SPORTIVERF platformuna hoş geldiniz. Özel lüks hizmet deneyimi için lütfen tercih ettiğiniz dili seçiniz.',
+      'SPORTIVERF platformuna hoş geldiniz. Özel hizmet deneyimi için lütfen tercih ettiğiniz dili seçiniz.',
     en: 'English',
     tr: 'Türkçe',
     fa: 'فارسی',
@@ -25,7 +25,7 @@ export default {
     remember: 'Gelecek ziyaretler için seçimimi hatırla'
   },
   hero: {
-    badge: 'LÜKS SPOR TURİZMİ VE SEÇMELER',
+    badge: 'SEÇKİN SPOR TURİZMİ VE SEÇMELER',
     title: 'Hassas Atletik ve Uluslararası Kamp Programları',
     subtitle:
       'Seçkin sporcular için özel olarak tasarlanmış 3 Yıldızlı, 4 Yıldızlı ve 5 Yıldızlı VIP atletik kamplar, scout seçmeleri ve yüksek performans eğitimleri.',
@@ -59,7 +59,7 @@ export default {
     filterAllStars: 'Tüm Kategoriler',
     filter3Star: '3 Yıldızlı Temel',
     filter4Star: '4 Yıldızlı Yönetici',
-    filter5Star: '5 Yıldızlı VIP Lüks',
+    filter5Star: '5 Yıldızlı VIP Prestij',
     tuition: 'FİYAT MODELİ',
     priceOnRequest: 'Fiyat İçin İletişime Geçin',
     inquireForPricing: 'Fiyat Ve Bilgi Alın',
@@ -74,13 +74,13 @@ export default {
   tiers: {
     star3: '3 Yıldızlı Temel',
     star4: '4 Yıldızlı Yönetici',
-    star5: '5 Yıldızlı VIP Lüks',
+    star5: '5 Yıldızlı VIP Prestij',
     star3Desc:
       'Konforlu konaklama ve standart saha antrenmanları sunan temel atletik gelişim kliniği.',
     star4Desc:
       '4 yıldızlı konaklama, video analizi ve uzman antrenör kadrosu ile akademilere özel paket.',
     star5Desc:
-      '5 yıldızlı sahil otelleri, UEFA/FIVB antrenörleri ve doğrudan scout takibi içeren VIP lüks gösteri kampı.'
+      '5 yıldızlı sahil otelleri, UEFA/FIVB antrenörleri ve doğrudan scout takibi içeren VIP gösteri kampı.'
   },
   booking: {
     badge: 'DOĞRUDAN BAŞVURU FORMU',
@@ -123,7 +123,7 @@ export default {
       "Tüm SPORTIVERF kampları, Aklimosaturizm'in yasal denetimi altında yürütülür; eksiksiz seyahat sigortası, akredite otel ortaklıkları ve sertifikalı güvenlik garanti edilir.",
     standardsTitle: 'Derecelendirilmiş Mükemmellik',
     standardsDesc:
-      'İster 3 Yıldızlı Temel Klinik, ister 4 Yıldızlı Akademi veya 5 Yıldızlı VIP Lüks Kamp seçin; her sporcu profesyonel antrenörlük, biyo-fiziksel değerlendirme ve video analizi alır.',
+      'İster 3 Yıldızlı Temel Klinik, ister 4 Yıldızlı Akademi veya 5 Yıldızlı VIP Kamp seçin; her sporcu profesyonel antrenörlük, biyo-fiziksel değerlendirme ve video analizi alır.',
     leadershipTitle: 'Misyon ve Vizyonumuz',
     leadershipDesc:
       "Avrasya'nın lider spor turizmi kapısı olarak, sporculara şeffaf, güvenli ve dönüştürücü sportif yolculuklar sağlamak."
@@ -134,7 +134,7 @@ export default {
     q1: 'SPORTIVERF hangi yasal denetim altında çalışmaktadır?',
     a1: "SPORTIVERF, Aklimosaturizm'in doğrudan yasal denetimi ve lisansı altında faaliyet göstermektedir.",
     q2: '3 Yıldızlı, 4 Yıldızlı ve 5 Yıldızlı kamplar arasındaki fark nedir?',
-    a2: '3 Yıldızlı kamplar temel beceri ve konforlu konaklamaya; 4 Yıldızlı kamplar üst düzey tesis ve video analizine; 5 Yıldızlı VIP kamplar ise lüks oteller, UEFA/FIVB antrenörler ve scout takibine odaklanır.',
+    a2: '3 Yıldızlı kamplar temel beceri ve konforlu konaklamaya; 4 Yıldızlı kamplar üst düzey tesis ve video analizine; 5 Yıldızlı VIP kamplar ise seçkin oteller, UEFA/FIVB antrenörler ve scout takibine odaklanır.',
     q3: 'Kulübüm veya akademim için nasıl başvuru yapabilirim?',
     a3: 'Herhangi bir kamp sayfasındaki başvuru formunu doldurabilir veya doğrudan WhatsApp danışmanımızla iletişime geçebilirsiniz.'
   },

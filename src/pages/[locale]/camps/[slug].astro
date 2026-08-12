@@ -44,7 +44,7 @@ const includedServices = camp.includedServices[locale] || camp.includedServices[
     image: camp.imageUrl
   }}
 >
-  <!-- Split Light Luxury Detail Section -->
+  <!-- Detail Section -->
   <section class="py-12 bg-[#FAF9F6] border-b border-[#E5E3DC]">
     <div class="max-w-[1400px] mx-auto px-4 md:px-8">
       <!-- Breadcrumb Navigation -->
@@ -52,9 +52,9 @@ const includedServices = camp.includedServices[locale] || camp.includedServices[
         aria-label="Breadcrumb"
         class="mb-6 font-mono text-xs text-[#888888] uppercase tracking-widest flex items-center gap-2"
       >
-        <a href={`/${locale}`} class="hover:text-[#C5A059] transition">{t('nav.home')}</a>
+        <a href={`/${locale}`} class="hover:text-[#E5383B] transition">{t('nav.home')}</a>
         <span>/</span>
-        <a href={`/${locale}/tours`} class="hover:text-[#C5A059] transition">{t('nav.tours')}</a>
+        <a href={`/${locale}/tours`} class="hover:text-[#E5383B] transition">{t('nav.tours')}</a>
         <span>/</span>
         <span class="text-[#0D0D0D] font-bold">{camp.sport}</span>
       </nav>
@@ -77,12 +77,12 @@ const includedServices = camp.includedServices[locale] || camp.includedServices[
             />
             <div class="absolute top-4 left-4 z-10 flex gap-2">
               <span
-                class="px-3 py-1 bg-[#0D0D0D] text-white font-mono text-xs uppercase tracking-widest shadow-md"
+                class="px-3 py-1 bg-[#0D0D0D] text-white font-barlow font-bold text-xs uppercase tracking-widest shadow-md"
               >
                 {camp.sport}
               </span>
               <span
-                class="px-3 py-1 bg-[#C5A059] text-white font-mono text-xs uppercase tracking-widest shadow-md font-bold"
+                class="px-3 py-1 bg-[#E5383B] text-white font-mono text-xs uppercase tracking-widest shadow-md font-bold"
               >
                 {camp.starRating}★ {tierName}
               </span>
@@ -92,7 +92,7 @@ const includedServices = camp.includedServices[locale] || camp.includedServices[
           <!-- Header Titles & Location -->
           <div>
             <h1
-              class="font-serif font-bold text-3xl sm:text-4xl md:text-5xl text-[#0D0D0D] tracking-tight leading-tight mb-4"
+              class="font-barlow font-black text-4xl sm:text-5xl md:text-6xl uppercase text-[#0D0D0D] tracking-tight leading-none mb-4"
             >
               {title}
             </h1>
@@ -100,7 +100,7 @@ const includedServices = camp.includedServices[locale] || camp.includedServices[
               class="font-mono text-xs text-[#888888] uppercase tracking-wider flex items-center gap-2"
             >
               <svg
-                class="w-4 h-4 fill-none stroke-current stroke-2 text-[#C5A059]"
+                class="w-4 h-4 fill-none stroke-current stroke-2 text-[#E5383B]"
                 viewBox="0 0 24 24"
                 aria-hidden="true"
               >
@@ -120,7 +120,7 @@ const includedServices = camp.includedServices[locale] || camp.includedServices[
 
           <!-- Overview Card -->
           <div class="bg-white p-6 border border-[#E5E3DC] space-y-3 shadow-sm">
-            <h3 class="font-mono text-xs font-bold text-[#C5A059] uppercase tracking-widest">
+            <h3 class="font-mono text-xs font-bold text-[#E5383B] uppercase tracking-widest">
               EXPEDITION OVERVIEW
             </h3>
             <p class="text-[#555555] text-base leading-relaxed font-light">{summary}</p>
@@ -146,20 +146,20 @@ const includedServices = camp.includedServices[locale] || camp.includedServices[
               <span class="block text-[10px] text-[#888888] uppercase tracking-widest"
                 >{t('camps.capacity')}</span
               >
-              <span class="text-xs font-bold text-[#C5A059] mt-1 block">{capacity}</span>
+              <span class="text-xs font-bold text-[#E5383B] mt-1 block">{capacity}</span>
             </div>
           </div>
 
           <!-- Included Services List -->
           <div>
-            <h3 class="font-mono text-xs font-bold text-[#C5A059] uppercase tracking-widest mb-4">
+            <h3 class="font-mono text-xs font-bold text-[#E5383B] uppercase tracking-widest mb-4">
               INCLUDED SERVICES & SPECIFICATIONS
             </h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {
                 includedServices.map((service) => (
                   <div class="bg-white p-4 border border-[#E5E3DC] flex items-center gap-3">
-                    <div class="w-2 h-2 rounded-full bg-[#C5A059] flex-shrink-0" />
+                    <div class="w-2 h-2 rounded-full bg-[#E5383B] flex-shrink-0" />
                     <span class="text-xs font-medium text-[#0D0D0D]">{service}</span>
                   </div>
                 ))

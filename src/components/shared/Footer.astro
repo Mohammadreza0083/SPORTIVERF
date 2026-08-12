@@ -10,15 +10,15 @@ const { locale } = Astro.props;
 const t = useTranslations(locale);
 ---
 
-<footer role="contentinfo" class="bg-[#0D0D0D] text-white pt-16 pb-12 border-t border-[#C5A059]">
+<footer role="contentinfo" class="bg-[#0D0D0D] text-white pt-16 pb-12 border-t border-[#E5383B]">
   <div class="max-w-[1400px] mx-auto px-4 md:px-8">
     <!-- Top Header Banner Row -->
     <div
       class="flex flex-col lg:flex-row justify-between items-start lg:items-center border-b border-[#222222] pb-10 gap-6"
     >
       <div>
-        <h2 class="font-serif font-bold text-3xl tracking-tight text-white">
-          SPORTIV<span class="text-[#C5A059]">ERF</span>
+        <h2 class="font-barlow font-black text-3xl md:text-4xl tracking-tight text-white uppercase">
+          SPORTIV<span class="text-[#E5383B]">ERF</span>
         </h2>
         <p class="font-mono text-[10px] text-[#888888] uppercase tracking-[0.2em] mt-1">
           TALENT OVERSEAS • OFFICIAL SPORTS TOURISM
@@ -37,10 +37,10 @@ const t = useTranslations(locale);
     >
       <!-- Column 1: Core Values & Mission -->
       <div>
-        <h3 class="font-mono text-xs font-bold text-[#C5A059] uppercase tracking-widest mb-4">
+        <h3 class="font-mono text-xs font-bold text-[#E5383B] uppercase tracking-widest mb-4">
           {t('footer.valuesTitle')}
         </h3>
-        <p class="font-serif font-bold text-lg text-white mb-3">
+        <p class="font-barlow font-bold text-xl text-white mb-3 uppercase">
           {t('footer.coreValues')}
         </p>
         <p class="text-xs text-[#888888] leading-relaxed font-light">
@@ -50,29 +50,29 @@ const t = useTranslations(locale);
 
       <!-- Column 2: Navigation Links -->
       <div>
-        <h3 class="font-mono text-xs font-bold text-[#C5A059] uppercase tracking-widest mb-4">
+        <h3 class="font-mono text-xs font-bold text-[#E5383B] uppercase tracking-widest mb-4">
           {t('nav.main')}
         </h3>
         <ul class="space-y-2.5 text-xs font-light text-[#CCCCCC]">
           <li>
-            <a href={`/${locale}`} class="hover:text-[#C5A059] transition">{t('nav.home')}</a>
+            <a href={`/${locale}`} class="hover:text-[#E5383B] transition">{t('nav.home')}</a>
           </li>
           <li>
-            <a href={`/${locale}/football-camps`} class="hover:text-[#C5A059] transition"
+            <a href={`/${locale}/football-camps`} class="hover:text-[#E5383B] transition"
               >{t('nav.football')}</a
             >
           </li>
           <li>
-            <a href={`/${locale}/volleyball-camps`} class="hover:text-[#C5A059] transition"
+            <a href={`/${locale}/volleyball-camps`} class="hover:text-[#E5383B] transition"
               >{t('nav.volleyball')}</a
             >
           </li>
           <li>
-            <a href={`/${locale}/tours`} class="hover:text-[#C5A059] transition">{t('nav.tours')}</a
+            <a href={`/${locale}/tours`} class="hover:text-[#E5383B] transition">{t('nav.tours')}</a
             >
           </li>
           <li>
-            <a href={`/${locale}/about`} class="hover:text-[#C5A059] transition">{t('nav.about')}</a
+            <a href={`/${locale}/about`} class="hover:text-[#E5383B] transition">{t('nav.about')}</a
             >
           </li>
         </ul>
@@ -80,7 +80,7 @@ const t = useTranslations(locale);
 
       <!-- Column 3: Contact & Headquarters -->
       <div>
-        <h3 class="font-mono text-xs font-bold text-[#C5A059] uppercase tracking-widest mb-4">
+        <h3 class="font-mono text-xs font-bold text-[#E5383B] uppercase tracking-widest mb-4">
           {t('footer.addressTitle')}
         </h3>
         <ul class="space-y-3 text-xs text-[#CCCCCC] font-light">
@@ -94,7 +94,7 @@ const t = useTranslations(locale);
             <span class="text-[#888888] block uppercase font-mono text-[9px]"
               >{t('footer.phoneTitle')}</span
             >
-            <a href="tel:+902165147808" class="hover:text-[#C5A059] transition font-mono"
+            <a href="tel:+902165147808" class="hover:text-[#E5383B] transition font-mono"
               >{t('footer.phone')}</a
             >
           </li>
@@ -106,7 +106,7 @@ const t = useTranslations(locale);
               href="https://wa.me/905421661698"
               target="_blank"
               rel="noopener noreferrer"
-              class="hover:text-[#C5A059] transition font-mono">{t('footer.whatsapp')}</a
+              class="hover:text-[#E5383B] transition font-mono">{t('footer.whatsapp')}</a
             >
           </li>
         </ul>
@@ -114,13 +114,13 @@ const t = useTranslations(locale);
 
       <!-- Column 4: Legal Supervision -->
       <div>
-        <h3 class="font-mono text-xs font-bold text-[#C5A059] uppercase tracking-widest mb-4">
+        <h3 class="font-mono text-xs font-bold text-[#E5383B] uppercase tracking-widest mb-4">
           AKLIMOSATURIZM
         </h3>
         <div
           class="bg-[#1A1A1A] border border-[#333333] p-4 text-xs text-[#AAAAAA] leading-relaxed font-light"
         >
-          <p class="font-semibold text-white mb-2">Aklimosaturizm Supervision</p>
+          <p class="font-barlow font-bold text-white mb-2 uppercase">Aklimosaturizm Supervision</p>
           <p>
             {t('footer.supervision')}
           </p>
@@ -139,7 +139,7 @@ const t = useTranslations(locale);
         {t('footer.copyright')}
       </p>
       <div class="flex items-center gap-6">
-        <a href="#main-content" class="hover:text-[#C5A059] transition uppercase tracking-wider">
+        <a href="#main-content" class="hover:text-[#E5383B] transition uppercase tracking-wider">
           Top ↑
         </a>
       </div>

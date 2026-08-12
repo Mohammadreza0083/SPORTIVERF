@@ -1,0 +1,96 @@
+---
+import type { SupportedLocale } from '@/types/i18n';
+import CampCard from '@/components/shared/CampCard.astro';
+import campsData from '@/data/camps.json';
+import type { CampItem } from '@/data/camps';
+import { useTranslations, getLocalizedField } from '@/i18n/utils';
+
+export interface Props {
+  locale: SupportedLocale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const featuredCamps = (campsData as CampItem[]).slice(0, 6);
+---
+
+<section class="py-16 md:py-24 bg-[#FAF9F6] border-b border-[#E5E3DC] overflow-hidden w-full max-w-full relative">
+  <div class="max-w-[1400px] mx-auto px-4 md:px-8 mb-10 flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+    <div>
+      <span class="inline-block px-3 py-1 bg-white border border-[#E5383B] text-[#E5383B] font-mono text-xs uppercase tracking-[0.2em] mb-2 shadow-sm">
+        {t('camps.badge')}
+      </span>
+      <h2 class="font-barlow font-extrabold text-3xl md:text-5xl uppercase tracking-tight text-[#0D0D0D]">
+        {t('camps.title')}
+      </h2>
+    </div>
+    
+    <div class="flex items-center gap-3">
+      <button
+        id="camp-slider-prev"
+        class="w-10 h-10 border border-[#E5E3DC] bg-white text-[#0D0D0D] flex items-center justify-center hover:border-[#E5383B] hover:text-[#E5383B] transition-colors focus:outline-none"
+        aria-label="Previous Slide"
+      >
+        &larr;
+      </button>
+      <button
+        id="camp-slider-next"
+        class="w-10 h-10 border border-[#E5E3DC] bg-white text-[#0D0D0D] flex items-center justify-center hover:border-[#E5383B] hover:text-[#E5383B] transition-colors focus:outline-none"
+        aria-label="Next Slide"
+      >
+        &rarr;
+      </button>
+      <a href={`/${locale}/tours`} class="btn-secondary !py-2.5 !px-5 text-xs font-barlow font-bold uppercase tracking-wider ml-2">
+        {t('nav.tours')} &rarr;
+      </a>
+    </div>
+  </div>
+
+  <!-- Peeking Slider Container -->
+  <div class="max-w-[1400px] mx-auto px-4 md:px-8 relative w-full overflow-hidden">
+    <div
+      id="featured-camps-track"
+      class="flex gap-6 overflow-x-auto overflow-y-hidden h-auto snap-x snap-mandatory pb-8 pt-2 no-scrollbar scrollbar-none scroll-smooth w-full"
+    >
+      {
+        featuredCamps.map((camp) => (
+          <div class="snap-start shrink-0 w-[85vw] sm:w-[380px] md:w-[420px] max-w-[90vw] transition-all">
+            <CampCard
+              locale={locale}
+              title={getLocalizedField(camp.title, locale)}
+              sport={camp.sport}
+              starRating={camp.starRating}
+              tierName={getLocalizedField(camp.tierName, locale)}
+              location={getLocalizedField(camp.location, locale)}
+              dates={getLocalizedField(camp.dates, locale)}
+              ageGroup={getLocalizedField(camp.ageGroup, locale)}
+              capacity={getLocalizedField(camp.capacity, locale)}
+              imageUrl={camp.imageUrl}
+              href={`/${locale}/camps/${camp.slug}`}
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const track = document.getElementById('featured-camps-track');
+    const prevBtn = document.getElementById('camp-slider-prev');
+    const nextBtn = document.getElementById('camp-slider-next');
+
+    if (!track || !prevBtn || !nextBtn) return;
+
+    const scrollAmount = 430;
+
+    prevBtn.addEventListener('click', () => {
+      track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    });
+
+    nextBtn.addEventListener('click', () => {
+      track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
+  });
+</script>

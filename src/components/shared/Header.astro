@@ -43,9 +43,9 @@ function getSwitchedPath(targetLocale: SupportedLocale): string {
       aria-label="SPORTIVERF Homepage"
     >
       <span
-        class="font-serif font-bold text-2xl md:text-3xl tracking-tight text-[#0D0D0D] group-hover:text-[#C5A059] transition-colors"
+        class="font-barlow font-black text-3xl md:text-4xl tracking-tight text-[#0D0D0D] group-hover:text-[#E5383B] transition-colors uppercase"
       >
-        SPORTIV<span class="text-[#C5A059]">ERF</span>
+        SPORTIV<span class="text-[#E5383B]">ERF</span>
       </span>
       <span class="font-mono text-[9px] tracking-[0.2em] text-[#888888] uppercase -mt-1">
         TALENT OVERSEAS
@@ -66,13 +66,13 @@ function getSwitchedPath(targetLocale: SupportedLocale): string {
           return (
             <a
               href={item.href}
-              class={`relative text-xs uppercase tracking-[0.15em] font-medium transition-colors py-1 ${
-                isActive ? 'text-[#0D0D0D] font-bold' : 'text-[#555555] hover:text-[#C5A059]'
+              class={`relative text-sm uppercase tracking-[0.15em] font-barlow font-bold transition-colors py-1 ${
+                isActive ? 'text-[#0D0D0D]' : 'text-[#555555] hover:text-[#E5383B]'
               }`}
               aria-current={isActive ? 'page' : undefined}
             >
               {item.label}
-              {isActive && <span class="absolute bottom-0 left-0 w-full h-[2px] bg-[#C5A059]" />}
+              {isActive && <span class="absolute bottom-0 left-0 w-full h-[2px] bg-[#E5383B]" />}
             </a>
           );
         })
@@ -88,7 +88,7 @@ function getSwitchedPath(targetLocale: SupportedLocale): string {
 
       <a
         href={`/${locale}/tours`}
-        class="hidden sm:inline-flex btn-primary !py-2.5 !px-5 !text-[11px]"
+        class="hidden sm:inline-flex btn-primary !py-2.5 !px-5 !text-[11px] font-barlow font-bold"
       >
         {t('nav.bookNow')}
       </a>
@@ -97,7 +97,7 @@ function getSwitchedPath(targetLocale: SupportedLocale): string {
       <button
         id="mobile-menu-toggle"
         type="button"
-        class="lg:hidden p-2 text-[#0D0D0D] border border-[#E5E3DC] hover:border-[#C5A059] focus:outline-none bg-white shadow-sm transition-all duration-200 active:scale-95"
+        class="lg:hidden p-2 text-[#0D0D0D] border border-[#E5E3DC] hover:border-[#E5383B] focus:outline-none bg-white shadow-sm transition-all duration-200 active:scale-95"
         aria-label="Toggle Navigation Menu"
         aria-expanded="false"
         aria-controls="mobile-nav-drawer"
@@ -120,7 +120,7 @@ function getSwitchedPath(targetLocale: SupportedLocale): string {
   <!-- Animated Mobile Navigation Drawer Slide -->
   <div
     id="mobile-nav-drawer"
-    class="hidden lg:hidden fixed inset-x-0 top-20 bg-[#FAF9F6] border-b-2 border-[#C5A059] p-6 flex flex-col gap-6 backdrop-blur-2xl transition-all duration-300 ease-in-out shadow-2xl max-h-[calc(100vh-80px)] overflow-y-auto z-50 transform opacity-0 -translate-y-3 pointer-events-none"
+    class="hidden lg:hidden fixed inset-x-0 top-20 bg-[#FAF9F6] border-b-2 border-[#E5383B] p-6 flex flex-col gap-6 backdrop-blur-2xl transition-all duration-300 ease-in-out shadow-2xl max-h-[calc(100vh-80px)] overflow-y-auto z-50 transform opacity-0 -translate-y-3 pointer-events-none"
   >
     <!-- Navigation Links -->
     <nav class="flex flex-col gap-3">
@@ -132,14 +132,14 @@ function getSwitchedPath(targetLocale: SupportedLocale): string {
           return (
             <a
               href={item.href}
-              class={`text-sm font-medium uppercase tracking-wider transition-all duration-200 border-b border-[#E5E3DC] pb-3 flex items-center justify-between ${
+              class={`text-base font-barlow font-bold uppercase tracking-wider transition-all duration-200 border-b border-[#E5E3DC] pb-3 flex items-center justify-between ${
                 isActive
-                  ? 'text-[#C5A059] font-bold pl-2 border-l-2 border-[#C5A059]'
-                  : 'text-[#0D0D0D] hover:text-[#C5A059] hover:pl-1'
+                  ? 'text-[#E5383B] pl-2 border-l-2 border-[#E5383B]'
+                  : 'text-[#0D0D0D] hover:text-[#E5383B] hover:pl-1'
               }`}
             >
               <span>{item.label}</span>
-              {isActive && <span class="w-2 h-2 rounded-full bg-[#C5A059]" />}
+              {isActive && <span class="w-2 h-2 rounded-full bg-[#E5383B]" />}
             </a>
           );
         })
@@ -149,7 +149,7 @@ function getSwitchedPath(targetLocale: SupportedLocale): string {
     <!-- Mobile Choose Language Section -->
     <div class="pt-4 border-t border-[#E5E3DC] space-y-3">
       <div class="flex items-center justify-between">
-        <span class="text-[10px] font-mono text-[#C5A059] uppercase tracking-[0.2em] font-bold">
+        <span class="text-[10px] font-mono text-[#E5383B] uppercase tracking-[0.2em] font-bold">
           CHOOSE LANGUAGE
         </span>
         <span class="text-[10px] font-mono text-[#888888] uppercase">
@@ -168,7 +168,7 @@ function getSwitchedPath(targetLocale: SupportedLocale): string {
                 class={`lang-switch-link flex flex-col items-center justify-center p-3 border text-center font-mono transition-all duration-200 ${
                   isActive
                     ? 'bg-[#0D0D0D] text-white font-bold border-[#0D0D0D] shadow-md scale-[1.02]'
-                    : 'bg-white text-[#555555] border-[#E5E3DC] hover:border-[#C5A059] hover:text-[#0D0D0D]'
+                    : 'bg-white text-[#555555] border-[#E5E3DC] hover:border-[#E5383B] hover:text-[#0D0D0D]'
                 }`}
               >
                 <span class="text-xs uppercase font-bold tracking-wider">{loc.code}</span>
