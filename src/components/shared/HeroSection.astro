@@ -14,10 +14,10 @@ const isRtl = dir === 'rtl';
 
 <section
   dir={dir}
-  class="relative min-h-[88vh] md:min-h-[92vh] flex flex-col justify-between bg-[#080808] text-white border-b border-white/10 overflow-hidden w-full max-w-full"
+  class="relative min-h-screen md:min-h-[92vh] flex flex-col justify-between bg-[#080808] text-white border-b border-white/10 overflow-hidden w-full max-w-full"
 >
-  <!-- Background Image Wrapper (Absolute full screen on Mobile & Desktop) -->
-  <div class="absolute inset-0 w-full h-full z-0 overflow-hidden">
+  <!-- TOP: Image Wrapper (h-[75vh] on Mobile, absolute full screen on Desktop) -->
+  <div class="relative w-full h-[75vh] md:h-full md:absolute md:inset-0 z-0 overflow-hidden">
     <!-- Responsive Picture Tag Serving Mobile Asset on Mobile Viewports -->
     <picture class="absolute inset-0 w-full h-full block z-0">
       <source media="(max-width: 767px)" srcset="/images/hero-mobile.webp" type="image/webp" />
@@ -31,9 +31,9 @@ const isRtl = dir === 'rtl';
       />
     </picture>
 
-    <!-- Dark Gradient Overlay (Bottom 65% on Mobile, 50% on Desktop) -->
+    <!-- Dark Gradient Overlay (Bottom 50% of Image Wrapper) -->
     <div
-      class="absolute bottom-0 left-0 w-full h-[65%] md:h-1/2 bg-gradient-to-t from-[#080808] via-[#080808]/85 to-transparent pointer-events-none z-10"
+      class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#080808] via-[#080808]/80 to-transparent pointer-events-none z-10"
     >
     </div>
 
@@ -52,34 +52,41 @@ const isRtl = dir === 'rtl';
       class="absolute -bottom-32 left-0 w-[350px] md:w-[600px] h-[350px] md:h-[600px] bg-[#B7094C]/15 rounded-full blur-[120px] md:blur-[160px] pointer-events-none z-10"
     >
     </div>
+
+    <!-- Mobile Badge & Main H1 Title (Positioned Absolute Bottom-6 Overlapping Image Fade) -->
+    <div
+      class={`absolute bottom-6 left-0 w-full px-5 z-20 md:hidden flex flex-col ${
+        isRtl ? 'text-right items-end' : 'text-left items-start'
+      }`}
+    >
+      <!-- Top Tagline Badge -->
+      <div
+        class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#E5383B]/10 border border-[#E5383B]/40 text-[#E5383B] font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] backdrop-blur-md shadow-[0_0_15px_rgba(229,56,59,0.2)] rounded-none mb-3"
+      >
+        <span class="w-1.5 h-1.5 rounded-full bg-[#E5383B] animate-pulse"></span>
+        <span>{t('hero.badge')}</span>
+      </div>
+
+      <!-- Main H1 Headline (+15% Mobile Font Size Preserved) -->
+      <h1
+        class="font-barlow font-black text-[38px] sm:text-[61px] uppercase tracking-tight text-white leading-[0.92] drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]"
+      >
+        {t('hero.title')}
+      </h1>
+    </div>
   </div>
 
-  <!-- Content Overlay Layer: Unifying Badge, Title, and Buttons on Mobile Overlay -->
+  <!-- BOTTOM: CTA Buttons Container Below Image Wrapper on Mobile (Overlay on Desktop) -->
   <div
-    class={`w-full max-w-[1400px] mx-auto px-5 pt-28 pb-8 md:pt-36 md:pb-20 flex flex-col relative z-20 flex-1 justify-end md:justify-center ${
+    class={`w-full max-w-[1400px] mx-auto px-5 py-6 md:pt-36 md:pb-20 flex flex-col relative z-20 flex-1 justify-start md:justify-center bg-[#080808] md:bg-transparent ${
       isRtl ? 'text-right items-end' : 'text-left items-start'
     }`}
   >
-    <!-- Mobile Tagline Badge -->
-    <div
-      class="inline-flex md:hidden items-center gap-1.5 px-2.5 py-1 bg-[#7a0000]/50 border border-red-500/30 text-red-100 font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] backdrop-blur-sm shadow-[0_0_15px_rgba(122,0,0,0.5)] rounded-none mb-3"
-    >
-      <span class="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse"></span>
-      <span>{t('hero.badge')}</span>
-    </div>
-
-    <!-- Mobile Main H1 Title (Shifted Up with mb-8 sm:mb-12) -->
-    <h1
-      class="md:hidden font-barlow font-black text-[38px] sm:text-[61px] uppercase tracking-tight text-white leading-[0.92] mb-8 sm:mb-12 drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]"
-    >
-      {t('hero.title')}
-    </h1>
-
     <!-- Desktop Tagline Badge -->
     <div
-      class="hidden md:inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#7a0000]/50 border border-red-500/30 text-red-100 font-mono text-xs uppercase tracking-[0.22em] mb-6 backdrop-blur-sm shadow-[0_0_15px_rgba(122,0,0,0.5)] rounded-none"
+      class="hidden md:inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#E5383B]/10 border border-[#E5383B]/40 text-[#E5383B] font-mono text-xs uppercase tracking-[0.22em] mb-6 backdrop-blur-md shadow-[0_0_15px_rgba(229,56,59,0.2)] rounded-none"
     >
-      <span class="w-2 h-2 rounded-full bg-red-400 animate-pulse"></span>
+      <span class="w-2 h-2 rounded-full bg-[#E5383B] animate-pulse"></span>
       <span>{t('hero.badge')}</span>
     </div>
 
