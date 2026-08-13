@@ -9,7 +9,6 @@ interface Props {
 const { locale } = Astro.props;
 const t = useTranslations(locale);
 const dir = getDirFromLocale(locale);
-const isRtl = dir === 'rtl';
 ---
 
 <section
@@ -55,9 +54,7 @@ const isRtl = dir === 'rtl';
 
     <!-- Mobile Badge & Main H1 Title (Positioned Absolute Bottom-6 Overlapping Image Fade) -->
     <div
-      class={`absolute bottom-6 left-0 w-full px-5 z-20 md:hidden flex flex-col ${
-        isRtl ? 'text-right items-end' : 'text-left items-start'
-      }`}
+      class="absolute bottom-6 left-0 w-full px-5 z-20 md:hidden flex flex-col items-start text-start"
     >
       <!-- Top Tagline Badge -->
       <div
@@ -69,7 +66,7 @@ const isRtl = dir === 'rtl';
 
       <!-- Main H1 Headline (+15% Mobile Font Size Preserved) -->
       <h1
-        class="font-barlow font-black text-[38px] sm:text-[61px] uppercase tracking-tight text-white leading-[0.92] drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]"
+        class="font-barlow font-black text-[38px] sm:text-[61px] uppercase tracking-tight text-white leading-[0.92] drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)] text-start"
       >
         {t('hero.title')}
       </h1>
@@ -78,9 +75,7 @@ const isRtl = dir === 'rtl';
 
   <!-- BOTTOM: CTA Buttons Container Below Image Wrapper on Mobile (Overlay on Desktop) -->
   <div
-    class={`w-full max-w-[1400px] mx-auto px-5 py-6 md:pt-36 md:pb-20 flex flex-col relative z-20 flex-1 justify-start md:justify-center bg-[#080808] md:bg-transparent ${
-      isRtl ? 'text-right items-end' : 'text-left items-start'
-    }`}
+    class="w-full max-w-[1400px] mx-auto px-5 py-6 md:pt-36 md:pb-20 flex flex-col relative z-20 flex-1 justify-start md:justify-center items-start text-start bg-[#080808] md:bg-transparent"
   >
     <!-- Desktop Tagline Badge -->
     <div
@@ -92,194 +87,45 @@ const isRtl = dir === 'rtl';
 
     <!-- Desktop Main H1 Headline -->
     <h1
-      class="hidden md:block font-barlow font-black md:text-[86px] lg:text-[115px] uppercase tracking-tight text-white max-w-5xl leading-[0.92] mb-6 drop-shadow-[0_10px_25px_rgba(0,0,0,0.9)]"
+      class="hidden md:block font-barlow font-black md:text-[86px] lg:text-[115px] uppercase tracking-tight text-white max-w-5xl leading-[0.92] mb-6 drop-shadow-[0_10px_25px_rgba(0,0,0,0.9)] text-start"
     >
       {t('hero.title')}
     </h1>
 
     <!-- Desktop Subtitle -->
     <p
-      class="hidden md:block font-sans text-base md:text-xl text-[#DDDDDD] max-w-2xl font-light mb-10 leading-relaxed drop-shadow-md"
+      class="hidden md:block font-sans text-base md:text-xl text-[#DDDDDD] max-w-2xl font-light mb-10 leading-relaxed drop-shadow-md text-start"
     >
       {t('hero.subtitle')}
     </p>
 
     <!-- Interactive CTA Buttons -->
     <div class="relative w-full max-w-4xl my-2 md:my-4">
-      <div
-        class={`flex flex-wrap items-center gap-3 sm:gap-6 z-20 ${
-          isRtl ? 'justify-end' : 'justify-start'
-        }`}
-      >
+      <div class="flex flex-wrap items-center gap-3 sm:gap-6 z-20 justify-start">
         <!-- CTA 1: Volleyball Camps -->
-        <div class="relative group/cta w-full sm:w-auto">
-          <a
-            href={`/${locale}/volleyball-camps`}
-            class="bg-gradient-to-r from-[#E5383B] to-[#B7094C] hover:from-[#FF4D6D] hover:to-[#E5383B] text-white shadow-[0_0_25px_rgba(229,56,59,0.4)] hover:shadow-[0_0_35px_rgba(229,56,59,0.7)] transition-all duration-300 font-barlow font-bold text-[14px] sm:text-[16px] md:text-sm tracking-[0.18em] uppercase py-3.5 sm:py-4 px-6 sm:px-7 flex items-center justify-between sm:justify-start gap-2 relative border border-[#FF4D6D]/30 w-full sm:w-auto"
-          >
-            <span>{t('hero.btnVolleyball')}</span>
-            <!-- Mobile Help Icon -->
-            <button
-              type="button"
-              data-guide-trigger="volleyball-camps"
-              class="sm:hidden w-5 h-5 rounded-full bg-white/20 text-white flex items-center justify-center text-[11px] font-mono font-bold ml-1 rtl:ml-0 rtl:mr-1 hover:bg-white/40 focus:outline-none cursor-pointer"
-              aria-label="Volleyball Camps Guide"
-            >
-              ?
-            </button>
-          </a>
-
-          <!-- Desktop Floating Glassmorphism Guidance Tooltip -->
-          <div
-            class={`hidden sm:block absolute bottom-full mb-3 w-72 p-4 bg-[#0D0D0D]/95 border border-[#E5383B]/60 text-white text-xs font-sans rounded-none shadow-[0_0_30px_rgba(229,56,59,0.3)] opacity-0 scale-95 pointer-events-none group-hover/cta:opacity-100 group-hover/cta:scale-100 transition-all duration-300 z-30 backdrop-blur-xl ${
-              isRtl ? 'right-0 text-right' : 'left-0 text-left'
-            }`}
-          >
-            <span
-              class="font-barlow font-bold text-sm uppercase text-[#E5383B] tracking-wider block mb-1"
-            >
-              Volleyball Masterclasses
-            </span>
-            <p class="text-[#CCCCCC] leading-relaxed font-light">
-              FIVB Taraflex court clinics, jump serve biomechanics, and direct scout exposure.
-            </p>
-
-            <!-- Tooltip Arrow Indicator -->
-            <div
-              class={`absolute top-full border-4 border-transparent border-t-[#E5383B]/80 ${
-                isRtl ? 'right-8' : 'left-8'
-              }`}
-            >
-            </div>
-          </div>
-        </div>
+        <a
+          href={`/${locale}/volleyball-camps`}
+          class="bg-gradient-to-r from-[#E5383B] to-[#B7094C] hover:from-[#FF4D6D] hover:to-[#E5383B] text-white shadow-[0_0_25px_rgba(229,56,59,0.4)] hover:shadow-[0_0_35px_rgba(229,56,59,0.7)] transition-all duration-300 font-barlow font-bold text-[14px] sm:text-[16px] md:text-sm tracking-[0.18em] uppercase py-3.5 sm:py-4 px-6 sm:px-7 flex items-center justify-center text-center relative border border-[#FF4D6D]/30 w-full sm:w-auto"
+        >
+          {t('hero.btnVolleyball')}
+        </a>
 
         <!-- CTA 2: Volleyball Teams Camps -->
-        <div class="relative group/cta w-full sm:w-auto">
-          <a
-            href={`/${locale}/volleyball-camps`}
-            class="bg-[#111111]/80 hover:bg-[#E5383B] text-white border border-[#E5383B]/40 hover:border-[#E5383B] shadow-[0_0_20px_rgba(229,56,59,0.15)] hover:shadow-[0_0_30px_rgba(229,56,59,0.5)] transition-all duration-300 font-barlow font-bold text-[14px] sm:text-[16px] md:text-sm tracking-[0.18em] uppercase py-3.5 sm:py-4 px-6 sm:px-7 flex items-center justify-between sm:justify-start gap-2 backdrop-blur-md relative w-full sm:w-auto"
-          >
-            <span>{t('hero.btnVolleyballTeams')}</span>
-            <!-- Mobile Help Icon -->
-            <button
-              type="button"
-              data-guide-trigger="volleyball-teams-camps"
-              class="sm:hidden w-5 h-5 rounded-full bg-white/20 text-white flex items-center justify-center text-[11px] font-mono font-bold ml-1 rtl:ml-0 rtl:mr-1 hover:bg-white/40 focus:outline-none cursor-pointer"
-              aria-label="Volleyball Teams Camps Guide"
-            >
-              ?
-            </button>
-          </a>
-
-          <!-- Desktop Floating Glassmorphism Guidance Tooltip -->
-          <div
-            class={`hidden sm:block absolute bottom-full mb-3 w-72 p-4 bg-[#0D0D0D]/95 border border-[#E5383B]/60 text-white text-xs font-sans rounded-none shadow-[0_0_30px_rgba(229,56,59,0.3)] opacity-0 scale-95 pointer-events-none group-hover/cta:opacity-100 group-hover/cta:scale-100 transition-all duration-300 z-30 backdrop-blur-xl ${
-              isRtl ? 'right-0 text-right' : 'left-0 text-left'
-            }`}
-          >
-            <span
-              class="font-barlow font-bold text-sm uppercase text-[#E5383B] tracking-wider block mb-1"
-            >
-              Volleyball Team Clinics
-            </span>
-            <p class="text-[#CCCCCC] leading-relaxed font-light">
-              FIVB certified team training, squad tactical clinics, and high-altitude conditioning.
-            </p>
-
-            <div
-              class={`absolute top-full border-4 border-transparent border-t-[#E5383B]/80 ${
-                isRtl ? 'right-8' : 'left-8'
-              }`}
-            >
-            </div>
-          </div>
-        </div>
+        <a
+          href={`/${locale}/volleyball-camps`}
+          class="bg-[#111111]/80 hover:bg-[#E5383B] text-white border border-[#E5383B]/40 hover:border-[#E5383B] shadow-[0_0_20px_rgba(229,56,59,0.15)] hover:shadow-[0_0_30px_rgba(229,56,59,0.5)] transition-all duration-300 font-barlow font-bold text-[14px] sm:text-[16px] md:text-sm tracking-[0.18em] uppercase py-3.5 sm:py-4 px-6 sm:px-7 flex items-center justify-center text-center backdrop-blur-md relative w-full sm:w-auto"
+        >
+          {t('hero.btnVolleyballTeams')}
+        </a>
 
         <!-- CTA 3: Football Teams Camps -->
-        <div class="relative group/cta w-full sm:w-auto">
-          <a
-            href={`/${locale}/football-camps`}
-            class="bg-white/10 hover:bg-white text-white hover:text-[#0D0D0D] border border-white/20 hover:border-white shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] transition-all duration-300 font-barlow font-bold text-[14px] sm:text-[16px] md:text-sm tracking-[0.18em] uppercase py-3.5 sm:py-4 px-6 sm:px-7 flex items-center justify-between sm:justify-start gap-2 backdrop-blur-md relative w-full sm:w-auto"
-          >
-            <span>{t('hero.btnFootballTeams')}</span>
-            <!-- Mobile Help Icon -->
-            <button
-              type="button"
-              data-guide-trigger="football-teams-camps"
-              class="sm:hidden w-5 h-5 rounded-full bg-white/20 text-white hover:text-[#0D0D0D] flex items-center justify-center text-[11px] font-mono font-bold ml-1 rtl:ml-0 rtl:mr-1 hover:bg-white/40 focus:outline-none cursor-pointer"
-              aria-label="Football Teams Camps Guide"
-            >
-              ?
-            </button>
-          </a>
-
-          <!-- Desktop Floating Glassmorphism Guidance Tooltip -->
-          <div
-            class={`hidden sm:block absolute bottom-full mb-3 w-72 p-4 bg-[#0D0D0D]/95 border border-[#E5383B]/60 text-white text-xs font-sans rounded-none shadow-[0_0_30px_rgba(229,56,59,0.3)] opacity-0 scale-95 pointer-events-none group-hover/cta:opacity-100 group-hover/cta:scale-100 transition-all duration-300 z-30 backdrop-blur-xl ${
-              isRtl ? 'right-0 text-right' : 'left-0 text-left'
-            }`}
-          >
-            <span
-              class="font-barlow font-bold text-sm uppercase text-[#E5383B] tracking-wider block mb-1"
-            >
-              Football Team Showcases
-            </span>
-            <p class="text-[#CCCCCC] leading-relaxed font-light">
-              UEFA Pro coaches, FIFA Quality Pro hybrid grass pitches, and European scout
-              evaluations.
-            </p>
-
-            <div
-              class={`absolute top-full border-4 border-transparent border-t-[#E5383B]/80 ${
-                isRtl ? 'right-8' : 'left-8'
-              }`}
-            >
-            </div>
-          </div>
-        </div>
+        <a
+          href={`/${locale}/football-camps`}
+          class="bg-white/10 hover:bg-white text-white hover:text-[#0D0D0D] border border-white/20 hover:border-white shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] transition-all duration-300 font-barlow font-bold text-[14px] sm:text-[16px] md:text-sm tracking-[0.18em] uppercase py-3.5 sm:py-4 px-6 sm:px-7 flex items-center justify-center text-center backdrop-blur-md relative w-full sm:w-auto"
+        >
+          {t('hero.btnFootballTeams')}
+        </a>
       </div>
-    </div>
-  </div>
-
-  <!-- Mobile Interactive Guide Popover Modal -->
-  <div
-    id="mobile-guide-modal"
-    class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-4"
-  >
-    <div
-      class={`bg-[#121212] border-2 border-[#E5383B] p-6 max-w-sm w-full relative text-white space-y-4 shadow-[0_0_40px_rgba(229,56,59,0.4)] ${
-        isRtl ? 'text-right' : 'text-left'
-      }`}
-    >
-      <button
-        id="close-guide-modal"
-        type="button"
-        class={`absolute top-3 ${
-          isRtl ? 'left-3' : 'right-3'
-        } text-[#888888] hover:text-white font-mono text-xl focus:outline-none cursor-pointer`}
-        aria-label="Close Modal"
-      >
-        &times;
-      </button>
-
-      <div class="w-12 h-1 bg-gradient-to-r from-[#E5383B] to-[#FF4D6D] mb-2"></div>
-
-      <h4 id="guide-title" class="font-barlow font-bold text-2xl uppercase text-[#E5383B]">
-        Camp Guide
-      </h4>
-
-      <p id="guide-body" class="text-sm text-[#DDDDDD] font-light leading-relaxed">
-        Explanation guide text goes here.
-      </p>
-
-      <button
-        id="guide-action-btn"
-        type="button"
-        class="w-full py-3.5 bg-gradient-to-r from-[#E5383B] to-[#B7094C] text-white text-xs font-barlow font-bold uppercase tracking-wider block text-center shadow-[0_0_20px_rgba(229,56,59,0.4)] hover:shadow-[0_0_30px_rgba(229,56,59,0.6)] cursor-pointer"
-      >
-        Explore Now
-      </button>
     </div>
   </div>
 
@@ -381,67 +227,6 @@ const isRtl = dir === 'rtl';
       );
 
       counters.forEach((c) => observer.observe(c));
-    }
-
-    // Mobile Guide Popover Trigger Logic
-    const guideTriggers = document.querySelectorAll('[data-guide-trigger]');
-    const guideModal = document.getElementById('mobile-guide-modal');
-    const closeGuideBtn = document.getElementById('close-guide-modal');
-    const guideTitle = document.getElementById('guide-title');
-    const guideBody = document.getElementById('guide-body');
-    const guideActionBtn = document.getElementById('guide-action-btn');
-
-    const guideData = {
-      'volleyball-camps': {
-        title: 'Volleyball Camps',
-        body: 'FIVB Taraflex court clinics, jump serve biomechanics, and direct scout exposure across top Turkish indoor arenas.',
-        link: 'volleyball-camps'
-      },
-      'volleyball-teams-camps': {
-        title: 'Volleyball Teams Camps',
-        body: 'FIVB certified team training, high-altitude squad conditioning, and tactical court clinics.',
-        link: 'volleyball-camps'
-      },
-      'football-teams-camps': {
-        title: 'Football Teams Camps',
-        body: 'UEFA Pro coaches, 5-Star resort stays, FIFA Quality Pro hybrid grass pitches, and European scout showcases.',
-        link: 'football-camps'
-      }
-    };
-
-    const currentPath = window.location.pathname;
-    const pathParts = currentPath.split('/').filter(Boolean);
-    const localePrefix = pathParts.length > 0 ? pathParts[0] : 'en';
-
-    guideTriggers.forEach((trigger) => {
-      trigger.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-
-        const key = trigger.getAttribute('data-guide-trigger');
-        const info = key && key in guideData ? guideData[key as keyof typeof guideData] : null;
-
-        if (info && guideModal && guideTitle && guideBody && guideActionBtn) {
-          guideTitle.textContent = info.title;
-          guideBody.textContent = info.body;
-          guideActionBtn.onclick = (): void => {
-            window.location.href = `/${localePrefix}/${info.link}`;
-          };
-          guideModal.classList.remove('hidden');
-        }
-      });
-    });
-
-    if (closeGuideBtn && guideModal) {
-      closeGuideBtn.addEventListener('click', () => {
-        guideModal.classList.add('hidden');
-      });
-
-      guideModal.addEventListener('click', (e) => {
-        if (e.target === guideModal) {
-          guideModal.classList.add('hidden');
-        }
-      });
     }
   });
 </script>

@@ -14,10 +14,17 @@ const currentPath = Astro.url.pathname;
 
 const navItems = [
   { href: `/${locale}`, label: t('nav.home'), key: 'home' },
-  { href: `/${locale}/football-camps`, label: t('nav.football'), key: 'football' },
-  { href: `/${locale}/volleyball-camps`, label: t('nav.volleyball'), key: 'volleyball' },
-  { href: `/${locale}/tours`, label: t('nav.tours'), key: 'tours' },
-  { href: `/${locale}/about`, label: t('nav.about'), key: 'about' }
+  { href: `/${locale}/volleyball-camps`, label: t('hero.btnVolleyball'), key: 'volleyball-camps' },
+  {
+    href: `/${locale}/volleyball-camps`,
+    label: t('hero.btnVolleyballTeams'),
+    key: 'volleyball-teams-camps'
+  },
+  {
+    href: `/${locale}/football-camps`,
+    label: t('hero.btnFootballTeams'),
+    key: 'football-teams-camps'
+  }
 ];
 
 function getSwitchedPath(targetLocale: SupportedLocale): string {
