@@ -33,7 +33,7 @@ function getSwitchedPath(targetLocale: SupportedLocale): string {
 <header
   id="app-header"
   role="banner"
-  class="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-[#E5E3DC] transition-all duration-300"
+  class="fixed top-0 left-0 w-full z-50 bg-[#080808] border-b border-transparent transition-all duration-300"
 >
   <div class="max-w-[1400px] mx-auto px-4 md:px-8 h-20 flex items-center justify-between">
     <!-- Brand Logo -->
@@ -43,7 +43,7 @@ function getSwitchedPath(targetLocale: SupportedLocale): string {
       aria-label="SPORTIVERF Homepage"
     >
       <span
-        class="font-barlow font-black text-3xl md:text-4xl tracking-tight text-[#0D0D0D] group-hover:text-[#E5383B] transition-colors uppercase"
+        class="font-barlow font-black text-3xl md:text-4xl tracking-tight text-white group-hover:text-[#E5383B] transition-colors uppercase"
       >
         SPORTIV<span class="text-[#E5383B]">ERF</span>
       </span>
@@ -67,7 +67,7 @@ function getSwitchedPath(targetLocale: SupportedLocale): string {
             <a
               href={item.href}
               class={`relative text-sm uppercase tracking-[0.15em] font-barlow font-bold transition-colors py-1 ${
-                isActive ? 'text-[#0D0D0D]' : 'text-[#555555] hover:text-[#E5383B]'
+                isActive ? 'text-white' : 'text-white/70 hover:text-[#E5383B]'
               }`}
               aria-current={isActive ? 'page' : undefined}
             >
@@ -88,7 +88,7 @@ function getSwitchedPath(targetLocale: SupportedLocale): string {
 
       <a
         href={`/${locale}/tours`}
-        class="hidden sm:inline-flex btn-primary !py-2.5 !px-5 !text-[11px] font-barlow font-bold"
+        class="hidden sm:inline-flex btn-primary !py-2.5 !px-5 !text-[11px] font-barlow font-bold shadow-[0_0_15px_rgba(229,56,59,0.3)]"
       >
         {t('nav.bookNow')}
       </a>
@@ -97,7 +97,7 @@ function getSwitchedPath(targetLocale: SupportedLocale): string {
       <button
         id="mobile-menu-toggle"
         type="button"
-        class="lg:hidden p-2 text-[#0D0D0D] border border-[#E5E3DC] hover:border-[#E5383B] focus:outline-none bg-white shadow-sm transition-all duration-200 active:scale-95"
+        class="lg:hidden p-2 text-white border border-white/20 hover:border-[#E5383B] focus:outline-none bg-[#121212] shadow-sm transition-all duration-200 active:scale-95"
         aria-label="Toggle Navigation Menu"
         aria-expanded="false"
         aria-controls="mobile-nav-drawer"
@@ -120,7 +120,7 @@ function getSwitchedPath(targetLocale: SupportedLocale): string {
   <!-- Animated Mobile Navigation Drawer Slide -->
   <div
     id="mobile-nav-drawer"
-    class="hidden lg:hidden fixed inset-x-0 top-20 bg-[#FAF9F6] border-b-2 border-[#E5383B] p-6 flex flex-col gap-6 backdrop-blur-2xl transition-all duration-300 ease-in-out shadow-2xl max-h-[calc(100vh-80px)] overflow-y-auto z-50 transform opacity-0 -translate-y-3 pointer-events-none"
+    class="hidden lg:hidden fixed inset-x-0 top-20 bg-[#121212]/95 border-b-2 border-[#E5383B] p-6 flex flex-col gap-6 backdrop-blur-2xl transition-all duration-300 ease-in-out shadow-2xl max-h-[calc(100vh-80px)] overflow-y-auto z-50 transform opacity-0 -translate-y-3 pointer-events-none text-white"
   >
     <!-- Navigation Links -->
     <nav class="flex flex-col gap-3">
@@ -132,10 +132,10 @@ function getSwitchedPath(targetLocale: SupportedLocale): string {
           return (
             <a
               href={item.href}
-              class={`text-base font-barlow font-bold uppercase tracking-wider transition-all duration-200 border-b border-[#E5E3DC] pb-3 flex items-center justify-between ${
+              class={`text-base font-barlow font-bold uppercase tracking-wider transition-all duration-200 border-b border-white/10 pb-3 flex items-center justify-between ${
                 isActive
                   ? 'text-[#E5383B] pl-2 border-l-2 border-[#E5383B]'
-                  : 'text-[#0D0D0D] hover:text-[#E5383B] hover:pl-1'
+                  : 'text-white hover:text-[#E5383B] hover:pl-1'
               }`}
             >
               <span>{item.label}</span>
@@ -147,7 +147,7 @@ function getSwitchedPath(targetLocale: SupportedLocale): string {
     </nav>
 
     <!-- Mobile Choose Language Section -->
-    <div class="pt-4 border-t border-[#E5E3DC] space-y-3">
+    <div class="pt-4 border-t border-white/10 space-y-3">
       <div class="flex items-center justify-between">
         <span class="text-[10px] font-mono text-[#E5383B] uppercase tracking-[0.2em] font-bold">
           CHOOSE LANGUAGE
@@ -167,8 +167,8 @@ function getSwitchedPath(targetLocale: SupportedLocale): string {
                 data-locale-switch={loc.code}
                 class={`lang-switch-link flex flex-col items-center justify-center p-3 border text-center font-mono transition-all duration-200 ${
                   isActive
-                    ? 'bg-[#0D0D0D] text-white font-bold border-[#0D0D0D] shadow-md scale-[1.02]'
-                    : 'bg-white text-[#555555] border-[#E5E3DC] hover:border-[#E5383B] hover:text-[#0D0D0D]'
+                    ? 'bg-[#E5383B] text-white font-bold border-[#E5383B] shadow-md scale-[1.02]'
+                    : 'bg-[#1A1A1A] text-white/80 border-white/10 hover:border-[#E5383B] hover:text-white'
                 }`}
               >
                 <span class="text-xs uppercase font-bold tracking-wider">{loc.code}</span>
@@ -190,48 +190,106 @@ function getSwitchedPath(targetLocale: SupportedLocale): string {
       </a>
     </div>
   </div>
+  <!-- Thin Brand Red Scroll Reading Progress Indicator Bar -->
+  <div
+    id="scroll-progress-bar"
+    class="absolute bottom-0 left-0 h-[2px] bg-[#E5383B] z-50 transition-none pointer-events-none shadow-[0_0_8px_rgba(229,56,59,0.8)]"
+    style="width: 0%"
+  >
+  </div>
 </header>
 
 <script>
-  import { setupStickyHeaderAnimation } from '@/utils/animations';
+  document.addEventListener('DOMContentLoaded', () => {
+    const header = document.getElementById('app-header');
+    const progressBar = document.getElementById('scroll-progress-bar');
+    let ticking = false;
 
-  const header = document.getElementById('app-header');
-  setupStickyHeaderAnimation(header);
-
-  const toggleBtn = document.getElementById('mobile-menu-toggle');
-  const drawer = document.getElementById('mobile-nav-drawer');
-
-  if (toggleBtn && drawer) {
-    toggleBtn.addEventListener('click', () => {
-      const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
-      const newExpanded = !isExpanded;
-      toggleBtn.setAttribute('aria-expanded', String(newExpanded));
-
-      if (newExpanded) {
-        drawer.classList.remove('hidden');
-        requestAnimationFrame(() => {
-          drawer.classList.remove('opacity-0', '-translate-y-3', 'pointer-events-none');
-          drawer.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
-        });
+    // Apple-Style Glassmorphism Scroll Handler
+    const handleScroll = (): void => {
+      if (!header) return;
+      if (window.scrollY > 10) {
+        header.classList.add('bg-[#080808]/60', 'backdrop-blur-xl', 'border-white/10', 'shadow-xl');
+        header.classList.remove('bg-[#080808]', 'border-transparent');
       } else {
-        drawer.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
-        drawer.classList.add('opacity-0', '-translate-y-3', 'pointer-events-none');
-        setTimeout(() => {
-          drawer.classList.add('hidden');
-        }, 300);
+        header.classList.remove('bg-[#080808]/60', 'backdrop-blur-xl', 'border-white/10', 'shadow-xl');
+        header.classList.add('bg-[#080808]', 'border-transparent');
       }
-    });
-  }
+    };
 
-  // Handle localStorage update on mobile language link click
-  const langLinks = document.querySelectorAll('.lang-switch-link');
-  langLinks.forEach((link) => {
-    link.addEventListener('click', () => {
-      const lang = link.getAttribute('data-locale-switch');
-      if (lang) {
-        localStorage.setItem('user-lang', lang);
-        document.cookie = `user-lang=${lang}; path=/; max-age=31536000; SameSite=Lax`;
+    // 60fps High-Performance Scroll Progress Bar Calculator
+    const updateScrollProgress = (): void => {
+      if (progressBar) {
+        const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+        if (scrollableHeight > 0) {
+          const progress = Math.min(Math.max((window.scrollY / scrollableHeight) * 100, 0), 100);
+          progressBar.style.width = `${progress}%`;
+        } else {
+          progressBar.style.width = '0%';
+        }
       }
+      ticking = false;
+    };
+
+    const onScroll = (): void => {
+      handleScroll();
+      if (!ticking) {
+        requestAnimationFrame(updateScrollProgress);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener(
+      'resize',
+      () => {
+        if (!ticking) {
+          requestAnimationFrame(updateScrollProgress);
+          ticking = true;
+        }
+      },
+      { passive: true }
+    );
+
+    handleScroll();
+    updateScrollProgress();
+
+    // Mobile Menu Toggle Logic
+    const toggleBtn = document.getElementById('mobile-menu-toggle');
+    const drawer = document.getElementById('mobile-nav-drawer');
+
+    if (toggleBtn && drawer) {
+      toggleBtn.addEventListener('click', () => {
+        const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+        const newExpanded = !isExpanded;
+        toggleBtn.setAttribute('aria-expanded', String(newExpanded));
+
+        if (newExpanded) {
+          drawer.classList.remove('hidden');
+          requestAnimationFrame(() => {
+            drawer.classList.remove('opacity-0', '-translate-y-3', 'pointer-events-none');
+            drawer.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+          });
+        } else {
+          drawer.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+          drawer.classList.add('opacity-0', '-translate-y-3', 'pointer-events-none');
+          setTimeout(() => {
+            drawer.classList.add('hidden');
+          }, 300);
+        }
+      });
+    }
+
+    // Handle localStorage update on mobile language link click
+    const langLinks = document.querySelectorAll('.lang-switch-link');
+    langLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        const lang = link.getAttribute('data-locale-switch');
+        if (lang) {
+          localStorage.setItem('user-lang', lang);
+          document.cookie = `user-lang=${lang}; path=/; max-age=31536000; SameSite=Lax`;
+        }
+      });
     });
   });
 </script>

@@ -10,7 +10,7 @@ const { locale } = Astro.props;
 const t = useTranslations(locale);
 ---
 
-<footer role="contentinfo" class="bg-[#0D0D0D] text-white pt-16 pb-12 border-t border-[#E5383B]">
+<footer role="contentinfo" class="bg-[#0D0D0D] text-white pt-16 pb-12 border-t border-[#E5383B] relative">
   <div class="max-w-[1400px] mx-auto px-4 md:px-8">
     <!-- Top Header Banner Row -->
     <div
@@ -131,7 +131,7 @@ const t = useTranslations(locale);
       </div>
     </div>
 
-    <!-- Bottom Copyright & Back to Top Row -->
+    <!-- Bottom Copyright Row -->
     <div
       class="flex flex-col md:flex-row justify-between items-center pt-8 text-xs text-[#888888] gap-4 font-mono"
     >
@@ -157,10 +157,51 @@ const t = useTranslations(locale);
       </p>
 
       <div class="flex items-center gap-6">
-        <a href="#main-content" class="hover:text-[#E5383B] transition uppercase tracking-wider">
+        <a href="#app-header" class="hover:text-[#E5383B] transition uppercase tracking-wider">
           Top ↑
         </a>
       </div>
     </div>
   </div>
+
+  <!-- Sleek Red Floating Scroll-to-Top Button (Left-positioned to avoid WhatsApp widget) -->
+  <button
+    id="scroll-to-top"
+    type="button"
+    aria-label="Scroll to Top"
+    class="fixed bottom-6 left-6 z-40 p-3.5 rounded-full bg-[#E5383B] text-white shadow-[0_0_25px_rgba(229,56,59,0.5)] hover:bg-[#FF4D6D] hover:scale-110 active:scale-95 transition-all duration-300 opacity-0 pointer-events-none translate-y-4 focus:outline-none cursor-pointer border border-[#FF4D6D]/40"
+  >
+    <svg class="w-5 h-5 fill-none stroke-current stroke-2" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5"></path>
+    </svg>
+  </button>
 </footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const scrollTopBtn = document.getElementById('scroll-to-top');
+
+    if (scrollTopBtn) {
+      const updateScrollTopVisibility = (): void => {
+        const scrollPosition = window.scrollY + window.innerHeight;
+        const bottomPosition = document.documentElement.scrollHeight - 200;
+
+        if (scrollPosition >= bottomPosition && window.scrollY > 100) {
+          scrollTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+          scrollTopBtn.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+        } else {
+          scrollTopBtn.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+          scrollTopBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+        }
+      };
+
+      window.addEventListener('scroll', updateScrollTopVisibility, { passive: true });
+      window.addEventListener('resize', updateScrollTopVisibility, { passive: true });
+      updateScrollTopVisibility();
+
+      scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+  });
+</script>
