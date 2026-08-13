@@ -26,11 +26,14 @@ export default {
   },
   hero: {
     badge: 'SEÇKİN SPOR TURİZMİ VE SEÇMELER',
-    title: 'Hassas Atletik ve Uluslararası Kamp Programları',
+    title: 'Uluslararası Spor Kampı Programları',
     subtitle:
       'Seçkin sporcular için özel olarak tasarlanmış 3 Yıldızlı, 4 Yıldızlı ve 5 Yıldızlı VIP atletik kamplar, scout seçmeleri ve yüksek performans eğitimleri.',
     ctaPrimary: 'Futbol Kamplarını İncele',
     ctaSecondary: 'Voleybol Kamplarını İncele',
+    btnVolleyball: 'Voleybol Kampları',
+    btnVolleyballTeams: 'Voleybol Takım Kampları',
+    btnFootballTeams: 'Futbol Takım Kampları',
     statAthletes: 'Yerleştirilen Sporcu',
     statClubs: 'Partner Kulüp',
     statAcademies: 'Uluslararası Akademi'

@@ -26,11 +26,14 @@ export default {
   },
   hero: {
     badge: 'ELITE SPORTS TOURISM & SHOWCASES',
-    title: 'Precision Athletic & Overseas Camp Expeditions',
+    title: 'International Sports Camp Programs',
     subtitle:
       'Curated 3-Star, 4-Star, and 5-Star athletic retreats, scout showcases, and high-performance training camps tailored for elite performers.',
     ctaPrimary: 'Explore Football Camps',
     ctaSecondary: 'Explore Volleyball Camps',
+    btnVolleyball: 'Volleyball Camps',
+    btnVolleyballTeams: 'Volleyball Teams Camps',
+    btnFootballTeams: 'Football Teams Camps',
     statAthletes: 'Athletes Placed',
     statClubs: 'Partner Clubs',
     statAcademies: 'Global Academies'

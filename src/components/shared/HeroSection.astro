@@ -69,7 +69,7 @@ const isRtl = dir === 'rtl';
 
       <!-- Main H1 Headline -->
       <h1
-        class="font-barlow font-black text-3xl sm:text-5xl uppercase tracking-tight text-white leading-[0.92] drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]"
+        class="font-barlow font-black text-[38px] sm:text-[61px] uppercase tracking-tight text-white leading-[0.92] drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]"
       >
         {t('hero.title')}
       </h1>
@@ -92,7 +92,7 @@ const isRtl = dir === 'rtl';
 
     <!-- Desktop Main H1 Headline -->
     <h1
-      class="hidden md:block font-barlow font-black text-8xl lg:text-9xl uppercase tracking-tight text-white max-w-5xl leading-[0.92] mb-6 drop-shadow-[0_10px_25px_rgba(0,0,0,0.9)]"
+      class="hidden md:block font-barlow font-black md:text-[86px] lg:text-[115px] uppercase tracking-tight text-white max-w-5xl leading-[0.92] mb-6 drop-shadow-[0_10px_25px_rgba(0,0,0,0.9)]"
     >
       {t('hero.title')}
     </h1>
@@ -115,9 +115,9 @@ const isRtl = dir === 'rtl';
         <div class="relative group/cta w-full sm:w-auto">
           <a
             href={`/${locale}/volleyball-camps`}
-            class="bg-gradient-to-r from-[#E5383B] to-[#B7094C] hover:from-[#FF4D6D] hover:to-[#E5383B] text-white shadow-[0_0_25px_rgba(229,56,59,0.4)] hover:shadow-[0_0_35px_rgba(229,56,59,0.7)] transition-all duration-300 font-barlow font-bold text-xs sm:text-sm tracking-[0.18em] uppercase py-3.5 sm:py-4 px-6 sm:px-7 flex items-center justify-between sm:justify-start gap-2 relative border border-[#FF4D6D]/30 w-full sm:w-auto"
+            class="bg-gradient-to-r from-[#E5383B] to-[#B7094C] hover:from-[#FF4D6D] hover:to-[#E5383B] text-white shadow-[0_0_25px_rgba(229,56,59,0.4)] hover:shadow-[0_0_35px_rgba(229,56,59,0.7)] transition-all duration-300 font-barlow font-bold text-[14px] sm:text-[16px] md:text-sm tracking-[0.18em] uppercase py-3.5 sm:py-4 px-6 sm:px-7 flex items-center justify-between sm:justify-start gap-2 relative border border-[#FF4D6D]/30 w-full sm:w-auto"
           >
-            <span>Volleyball Camps</span>
+            <span>{t('hero.btnVolleyball')}</span>
             <!-- Mobile Help Icon -->
             <button
               type="button"
@@ -154,19 +154,19 @@ const isRtl = dir === 'rtl';
           </div>
         </div>
 
-        <!-- CTA 2: Football Camps -->
+        <!-- CTA 2: Volleyball Teams Camps -->
         <div class="relative group/cta w-full sm:w-auto">
           <a
-            href={`/${locale}/football-camps`}
-            class="bg-white/10 hover:bg-white text-white hover:text-[#0D0D0D] border border-white/20 hover:border-white shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] transition-all duration-300 font-barlow font-bold text-xs sm:text-sm tracking-[0.18em] uppercase py-3.5 sm:py-4 px-6 sm:px-7 flex items-center justify-between sm:justify-start gap-2 backdrop-blur-md relative w-full sm:w-auto"
+            href={`/${locale}/volleyball-camps`}
+            class="bg-[#111111]/80 hover:bg-[#E5383B] text-white border border-[#E5383B]/40 hover:border-[#E5383B] shadow-[0_0_20px_rgba(229,56,59,0.15)] hover:shadow-[0_0_30px_rgba(229,56,59,0.5)] transition-all duration-300 font-barlow font-bold text-[14px] sm:text-[16px] md:text-sm tracking-[0.18em] uppercase py-3.5 sm:py-4 px-6 sm:px-7 flex items-center justify-between sm:justify-start gap-2 backdrop-blur-md relative w-full sm:w-auto"
           >
-            <span>Football Camps</span>
+            <span>{t('hero.btnVolleyballTeams')}</span>
             <!-- Mobile Help Icon -->
             <button
               type="button"
-              data-guide-trigger="football-camps"
-              class="sm:hidden w-5 h-5 rounded-full bg-white/20 text-white hover:text-[#0D0D0D] flex items-center justify-center text-[11px] font-mono font-bold ml-1 rtl:ml-0 rtl:mr-1 hover:bg-white/40 focus:outline-none cursor-pointer"
-              aria-label="Football Camps Guide"
+              data-guide-trigger="volleyball-teams-camps"
+              class="sm:hidden w-5 h-5 rounded-full bg-white/20 text-white flex items-center justify-center text-[11px] font-mono font-bold ml-1 rtl:ml-0 rtl:mr-1 hover:bg-white/40 focus:outline-none cursor-pointer"
+              aria-label="Volleyball Teams Camps Guide"
             >
               ?
             </button>
@@ -181,11 +181,10 @@ const isRtl = dir === 'rtl';
             <span
               class="font-barlow font-bold text-sm uppercase text-[#E5383B] tracking-wider block mb-1"
             >
-              Football Showcases
+              Volleyball Team Clinics
             </span>
             <p class="text-[#CCCCCC] leading-relaxed font-light">
-              UEFA Pro coaches, FIFA Quality Pro hybrid grass pitches, and European scout
-              evaluations.
+              FIVB certified team training, squad tactical clinics, and high-altitude conditioning.
             </p>
 
             <div
@@ -197,19 +196,19 @@ const isRtl = dir === 'rtl';
           </div>
         </div>
 
-        <!-- CTA 3: Volleyball Direct -->
+        <!-- CTA 3: Football Teams Camps -->
         <div class="relative group/cta w-full sm:w-auto">
           <a
-            href={`/${locale}/volleyball-camps`}
-            class="bg-[#111111]/80 hover:bg-[#E5383B] text-white border border-[#E5383B]/40 hover:border-[#E5383B] shadow-[0_0_20px_rgba(229,56,59,0.15)] hover:shadow-[0_0_30px_rgba(229,56,59,0.5)] transition-all duration-300 font-barlow font-bold text-xs sm:text-sm tracking-[0.18em] uppercase py-3.5 sm:py-4 px-6 sm:px-7 flex items-center justify-between sm:justify-start gap-2 backdrop-blur-md relative w-full sm:w-auto"
+            href={`/${locale}/football-camps`}
+            class="bg-white/10 hover:bg-white text-white hover:text-[#0D0D0D] border border-white/20 hover:border-white shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] transition-all duration-300 font-barlow font-bold text-[14px] sm:text-[16px] md:text-sm tracking-[0.18em] uppercase py-3.5 sm:py-4 px-6 sm:px-7 flex items-center justify-between sm:justify-start gap-2 backdrop-blur-md relative w-full sm:w-auto"
           >
-            <span>Volleyball</span>
+            <span>{t('hero.btnFootballTeams')}</span>
             <!-- Mobile Help Icon -->
             <button
               type="button"
-              data-guide-trigger="volleyball-direct"
-              class="sm:hidden w-5 h-5 rounded-full bg-white/20 text-white flex items-center justify-center text-[11px] font-mono font-bold ml-1 rtl:ml-0 rtl:mr-1 hover:bg-white/40 focus:outline-none cursor-pointer"
-              aria-label="Volleyball Guide"
+              data-guide-trigger="football-teams-camps"
+              class="sm:hidden w-5 h-5 rounded-full bg-white/20 text-white hover:text-[#0D0D0D] flex items-center justify-center text-[11px] font-mono font-bold ml-1 rtl:ml-0 rtl:mr-1 hover:bg-white/40 focus:outline-none cursor-pointer"
+              aria-label="Football Teams Camps Guide"
             >
               ?
             </button>
@@ -224,10 +223,10 @@ const isRtl = dir === 'rtl';
             <span
               class="font-barlow font-bold text-sm uppercase text-[#E5383B] tracking-wider block mb-1"
             >
-              High-Altitude Indoor
+              Football Team Showcases
             </span>
             <p class="text-[#CCCCCC] leading-relaxed font-light">
-              Specialized setter, libero & attacker high-altitude training clinics for youth.
+              UEFA Pro coaches, FIFA Quality Pro hybrid grass pitches, and European scout evaluations.
             </p>
 
             <div
@@ -397,15 +396,15 @@ const isRtl = dir === 'rtl';
         body: 'FIVB Taraflex court clinics, jump serve biomechanics, and direct scout exposure across top Turkish indoor arenas.',
         link: 'volleyball-camps'
       },
-      'football-camps': {
-        title: 'Football Camps',
-        body: 'UEFA Pro coaches, 5-Star resort stays, FIFA Quality Pro hybrid grass pitches, and European scout showcase evaluations.',
-        link: 'football-camps'
-      },
-      'volleyball-direct': {
-        title: 'Volleyball Masterclass',
-        body: 'Specialized setter, libero, and attacker high-altitude training clinics for international youth athletes.',
+      'volleyball-teams-camps': {
+        title: 'Volleyball Teams Camps',
+        body: 'FIVB certified team training, high-altitude squad conditioning, and tactical court clinics.',
         link: 'volleyball-camps'
+      },
+      'football-teams-camps': {
+        title: 'Football Teams Camps',
+        body: 'UEFA Pro coaches, 5-Star resort stays, FIFA Quality Pro hybrid grass pitches, and European scout showcases.',
+        link: 'football-camps'
       }
     };
 
