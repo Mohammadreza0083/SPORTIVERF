@@ -212,7 +212,12 @@ function getSwitchedPath(targetLocale: SupportedLocale): string {
         header.classList.add('bg-[#080808]/60', 'backdrop-blur-xl', 'border-white/10', 'shadow-xl');
         header.classList.remove('bg-[#080808]', 'border-transparent');
       } else {
-        header.classList.remove('bg-[#080808]/60', 'backdrop-blur-xl', 'border-white/10', 'shadow-xl');
+        header.classList.remove(
+          'bg-[#080808]/60',
+          'backdrop-blur-xl',
+          'border-white/10',
+          'shadow-xl'
+        );
         header.classList.add('bg-[#080808]', 'border-transparent');
       }
     };

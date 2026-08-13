@@ -17,9 +17,7 @@ const isRtl = dir === 'rtl';
   class="relative min-h-screen md:min-h-[92vh] flex flex-col justify-between bg-[#080808] text-white border-b border-white/10 overflow-hidden w-full max-w-full"
 >
   <!-- TOP: Image Wrapper (h-[75vh] on Mobile, absolute full screen on Desktop) -->
-  <div
-    class="relative w-full h-[75vh] md:h-full md:absolute md:inset-0 z-0 overflow-hidden"
-  >
+  <div class="relative w-full h-[75vh] md:h-full md:absolute md:inset-0 z-0 overflow-hidden">
     <!-- Responsive Picture Tag Serving Mobile Asset on Mobile Viewports -->
     <picture class="absolute inset-0 w-full h-full block z-0">
       <source media="(max-width: 767px)" srcset="/images/hero-mobile.webp" type="image/webp" />
