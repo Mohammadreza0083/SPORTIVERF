@@ -172,5 +172,12 @@ export default {
     e400Desc: 'İletilen başvuru parametreleri eksik veya hatalı biçimlendirilmiş.',
     backHome: 'Ana Sayfaya Dön',
     contactSupport: 'WhatsApp İle Danışmana Ulaşın'
+  },
+  contact: {
+    whatsappText:
+      'Merhaba, elit spor kamplarıyla ilgileniyorum ve daha fazla bilgi almak istiyorum.',
+    emailSubject: 'SPORTIVERF Kampları Hakkında Bilgi Talebi',
+    emailBody:
+      'Merhaba SPORTIVERF Ekibi,\n\nYaklaşan spor kamplarınız ve yetenek vitrinleriniz hakkında daha fazla bilgi almak istiyorum.\n\nTeşekkürler.'
   }
 } as const;

@@ -10,7 +10,7 @@ const { locale } = Astro.props;
 const t = useTranslations(locale);
 ---
 
-<footer role="contentinfo" class="bg-[#0D0D0D] text-white pt-16 pb-12 border-t border-[#E5383B] relative">
+<footer id="site-footer" role="contentinfo" class="bg-[#0D0D0D] text-white pt-16 pb-12 border-t border-[#E5383B] relative">
   <div class="max-w-[1400px] mx-auto px-4 md:px-8">
     <!-- Top Header Banner Row -->
     <div
@@ -103,7 +103,7 @@ const t = useTranslations(locale);
               >{t('footer.whatsappTitle')}</span
             >
             <a
-              href="https://wa.me/905421661698"
+              href={`https://wa.me/905421661698?text=${encodeURIComponent(t('contact.whatsappText'))}`}
               target="_blank"
               rel="noopener noreferrer"
               class="hover:text-[#E5383B] transition font-mono">{t('footer.whatsapp')}</a
@@ -180,13 +180,14 @@ const t = useTranslations(locale);
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const scrollTopBtn = document.getElementById('scroll-to-top');
+    const footer = document.getElementById('site-footer') || document.querySelector('footer');
 
-    if (scrollTopBtn) {
+    if (scrollTopBtn && footer) {
       const updateScrollTopVisibility = (): void => {
         const scrollPosition = window.scrollY + window.innerHeight;
-        const bottomPosition = document.documentElement.scrollHeight - 200;
+        const triggerPoint = footer.offsetTop - 200;
 
-        if (scrollPosition >= bottomPosition && window.scrollY > 100) {
+        if (scrollPosition >= triggerPoint && window.scrollY > 100) {
           scrollTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
           scrollTopBtn.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
         } else {

@@ -1,5 +1,9 @@
 ---
+import type { SupportedLocale } from '@/types/i18n';
+import { useTranslations } from '@/i18n/utils';
+
 export interface Props {
+  locale?: SupportedLocale;
   phoneNumber?: string; // e.g. +905421661698
   message?: string;
   label?: string;
@@ -8,15 +12,20 @@ export interface Props {
 }
 
 const {
+  locale = 'en',
   phoneNumber = '+905421661698',
-  message = 'Hello SPORTIVERF! I would like to inquire about sports camps and overseas opportunities.',
+  message,
   label = 'WhatsApp Concierge',
   class: className = '',
   variant = 'solid'
 } = Astro.props;
 
+const t = useTranslations(locale);
+const defaultMessage = t('contact.whatsappText');
+const finalMessage = message || defaultMessage;
+
 const cleanPhone = phoneNumber.replace(/[^0-9]/g, '');
-const encodedMessage = encodeURIComponent(message);
+const encodedMessage = encodeURIComponent(finalMessage);
 const whatsappUrl = `https://wa.me/${cleanPhone}?text=${encodedMessage}`;
 ---
 

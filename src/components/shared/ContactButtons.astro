@@ -1,21 +1,21 @@
 ---
+import type { SupportedLocale } from '@/types/i18n';
 import WhatsAppButton from './WhatsAppButton.astro';
 import MailtoButton from './MailtoButton.astro';
 
 export interface Props {
+  locale?: SupportedLocale;
   class?: string;
   campTitle?: string;
 }
 
-const { class: className = '', campTitle } = Astro.props;
-const whatsappMsg = campTitle
-  ? `Hello SPORTIVERF! I am interested in booking or receiving details about: ${campTitle}.`
-  : undefined;
+const { locale = 'en', class: className = '', campTitle } = Astro.props;
 ---
 
 <div class={`flex flex-wrap items-center gap-4 ${className}`}>
-  <WhatsAppButton message={whatsappMsg} variant="solid" label="WhatsApp Concierge" />
+  <WhatsAppButton locale={locale} variant="solid" label="WhatsApp Concierge" />
   <MailtoButton
+    locale={locale}
     subject={campTitle ? `Inquiry: ${campTitle}` : undefined}
     variant="outline"
     label="Send Email"

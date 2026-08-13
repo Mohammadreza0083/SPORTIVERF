@@ -52,7 +52,7 @@ const t = useTranslations(locale);
             {t('errors.backHome')}
           </a>
           <a
-            href="https://wa.me/905421661698"
+            href={`https://wa.me/905421661698?text=${encodeURIComponent(t('contact.whatsappText'))}`}
             target="_blank"
             rel="noopener noreferrer"
             class="btn-secondary !py-3.5 !px-8 text-xs"

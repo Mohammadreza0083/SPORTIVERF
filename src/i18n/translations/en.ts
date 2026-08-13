@@ -171,5 +171,12 @@ export default {
     e400Desc: 'The transmitted inquiry parameters were malformed or invalid.',
     backHome: 'Return to Homepage',
     contactSupport: 'Contact Concierge via WhatsApp'
+  },
+  contact: {
+    whatsappText:
+      'Hello, I am interested in the elite sports camps and would like to get more information.',
+    emailSubject: 'Inquiry about SPORTIVERF Camps',
+    emailBody:
+      'Hello SPORTIVERF Team,\n\nI would like to request more information about your upcoming sports camps and showcases.\n\nThank you.'
   }
 } as const;
