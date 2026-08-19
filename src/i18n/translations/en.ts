@@ -32,8 +32,8 @@ export default {
     ctaPrimary: 'Explore Football Camps',
     ctaSecondary: 'Explore Volleyball Camps',
     btnVolleyball: 'Volleyball Camps',
-    btnVolleyballTeams: 'Volleyball Teams Camps',
-    btnFootballTeams: 'Football Teams Camps',
+    btnVolleyballAcademic: 'Volleyball Academic Camps',
+    btnCollegeVolleyball: 'College Volleyball Opportunities',
     statAthletes: 'Athletes Placed',
     statClubs: 'Partner Clubs',
     statAcademies: 'Global Academies'

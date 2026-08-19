@@ -31,9 +31,9 @@ export default {
       'کمپ‌های تمرینی و آزمون‌های استعدادیابی ۳ ستاره، ۴ ستاره و ۵ ستاره ویژه طراحی شده برای ورزشکاران و قهرمانان آینده.',
     ctaPrimary: 'مشاهده کمپ‌های فوتبال',
     ctaSecondary: 'مشاهده کمپ‌های والیبال',
-    btnVolleyball: 'کمپ‌های والیبال',
-    btnVolleyballTeams: 'کمپ تیم‌های والیبال',
-    btnFootballTeams: 'کمپ تیم‌های فوتبال',
+    btnVolleyball: 'کمپهای والیبال',
+    btnVolleyballAcademic: 'کمپهای آکادمیک والیبال',
+    btnCollegeVolleyball: 'فرصتهای والیبال کالج',
     statAthletes: 'ورزشکار اعزام‌شده',
     statClubs: 'باشگاه همکار',
     statAcademies: 'آکادمی بین‌المللی'

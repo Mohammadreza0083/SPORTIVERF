@@ -11,7 +11,42 @@ const t = useTranslations(locale);
 const dir = getDirFromLocale(locale);
 ---
 
+<!-- Mobile Sticky Sub-Header with Quick-Access CTAs -->
+<div
+  id="mobile-hero-sub-header"
+  class="fixed top-20 left-0 w-full z-40 bg-[#0a0a0a]/80 backdrop-blur-md border-b border-white/10 transition-transform duration-300 ease-in-out md:hidden shadow-lg"
+>
+  <div class="px-3 py-2 max-w-lg mx-auto">
+    <div class="grid grid-cols-2 gap-1.5">
+      <!-- CTA 1: Volleyball Camps -->
+      <a
+        href={`/${locale}/volleyball-camps`}
+        class="bg-gradient-to-r from-[#E5383B] to-[#B7094C] text-white shadow-[0_0_12px_rgba(229,56,59,0.3)] font-barlow font-bold text-[11px] sm:text-xs tracking-wider uppercase py-2 px-2.5 flex items-center justify-center text-center border border-[#FF4D6D]/30 active:scale-95 transition-all truncate"
+      >
+        {t('hero.btnVolleyball')}
+      </a>
+
+      <!-- CTA 2: Volleyball Academic Camps -->
+      <a
+        href={`/${locale}/volleyball-camps`}
+        class="bg-[#111111]/90 text-white border border-[#E5383B]/40 shadow-[0_0_10px_rgba(229,56,59,0.15)] font-barlow font-bold text-[11px] sm:text-xs tracking-wider uppercase py-2 px-2.5 flex items-center justify-center text-center backdrop-blur-md active:scale-95 transition-all truncate"
+      >
+        {t('hero.btnVolleyballAcademic')}
+      </a>
+
+      <!-- CTA 3: College Volleyball Opportunities -->
+      <a
+        href={`/${locale}/volleyball-camps`}
+        class="col-span-2 bg-white/10 text-white border border-white/20 shadow-[0_0_10px_rgba(255,255,255,0.08)] font-barlow font-bold text-[11px] sm:text-xs tracking-wider uppercase py-2 px-2.5 flex items-center justify-center text-center backdrop-blur-md active:scale-95 transition-all truncate"
+      >
+        {t('hero.btnCollegeVolleyball')}
+      </a>
+    </div>
+  </div>
+</div>
+
 <section
+  id="hero-section"
   dir={dir}
   class="relative min-h-screen md:min-h-[92vh] flex flex-col justify-between bg-[#080808] text-white border-b border-white/10 overflow-hidden w-full max-w-full"
 >
@@ -75,7 +110,7 @@ const dir = getDirFromLocale(locale);
 
   <!-- BOTTOM: CTA Buttons Container Below Image Wrapper on Mobile (Overlay on Desktop) -->
   <div
-    class="w-full max-w-[1400px] mx-auto px-5 py-6 md:pt-36 md:pb-20 flex flex-col relative z-20 flex-1 justify-start md:justify-center items-start text-start bg-[#080808] md:bg-transparent"
+    class="w-full max-w-[1400px] mx-auto px-5 py-6 md:pt-36 md:pb-20 hidden md:flex flex-col relative z-20 flex-1 justify-start md:justify-center items-start text-start bg-[#080808] md:bg-transparent"
   >
     <!-- Desktop Tagline Badge -->
     <div
@@ -99,7 +134,7 @@ const dir = getDirFromLocale(locale);
       {t('hero.subtitle')}
     </p>
 
-    <!-- Interactive CTA Buttons -->
+    <!-- Interactive CTA Buttons (Desktop Viewport Only) -->
     <div class="relative w-full max-w-4xl my-2 md:my-4">
       <div class="flex flex-wrap items-center gap-3 sm:gap-6 z-20 justify-start">
         <!-- CTA 1: Volleyball Camps -->
@@ -110,20 +145,20 @@ const dir = getDirFromLocale(locale);
           {t('hero.btnVolleyball')}
         </a>
 
-        <!-- CTA 2: Volleyball Teams Camps -->
+        <!-- CTA 2: Volleyball Academic Camps -->
         <a
           href={`/${locale}/volleyball-camps`}
           class="bg-[#111111]/80 hover:bg-[#E5383B] text-white border border-[#E5383B]/40 hover:border-[#E5383B] shadow-[0_0_20px_rgba(229,56,59,0.15)] hover:shadow-[0_0_30px_rgba(229,56,59,0.5)] transition-all duration-300 font-barlow font-bold text-[14px] sm:text-[16px] md:text-sm tracking-[0.18em] uppercase py-3.5 sm:py-4 px-6 sm:px-7 flex items-center justify-center text-center backdrop-blur-md relative w-full sm:w-auto"
         >
-          {t('hero.btnVolleyballTeams')}
+          {t('hero.btnVolleyballAcademic')}
         </a>
 
-        <!-- CTA 3: Football Teams Camps -->
+        <!-- CTA 3: College Volleyball Opportunities -->
         <a
-          href={`/${locale}/football-camps`}
+          href={`/${locale}/volleyball-camps`}
           class="bg-white/10 hover:bg-white text-white hover:text-[#0D0D0D] border border-white/20 hover:border-white shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] transition-all duration-300 font-barlow font-bold text-[14px] sm:text-[16px] md:text-sm tracking-[0.18em] uppercase py-3.5 sm:py-4 px-6 sm:px-7 flex items-center justify-center text-center backdrop-blur-md relative w-full sm:w-auto"
         >
-          {t('hero.btnFootballTeams')}
+          {t('hero.btnCollegeVolleyball')}
         </a>
       </div>
     </div>
@@ -186,6 +221,36 @@ const dir = getDirFromLocale(locale);
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
+    // Mobile Sticky Sub-Header Scroll Logic
+    const heroSection = document.getElementById('hero-section');
+    const subHeader = document.getElementById('mobile-hero-sub-header');
+
+    if (heroSection && subHeader) {
+      let ticking = false;
+      const handleSubHeaderScroll = (): void => {
+        const hideThreshold = heroSection.offsetHeight + 200;
+        if (window.scrollY > hideThreshold) {
+          subHeader.classList.add('-translate-y-[200%]', 'pointer-events-none');
+        } else {
+          subHeader.classList.remove('-translate-y-[200%]', 'pointer-events-none');
+        }
+        ticking = false;
+      };
+
+      window.addEventListener(
+        'scroll',
+        () => {
+          if (!ticking) {
+            requestAnimationFrame(handleSubHeaderScroll);
+            ticking = true;
+          }
+        },
+        { passive: true }
+      );
+
+      handleSubHeaderScroll();
+    }
+
     // Kinetic Stats Counter Trigger
     const counters = document.querySelectorAll('[data-counter]');
 

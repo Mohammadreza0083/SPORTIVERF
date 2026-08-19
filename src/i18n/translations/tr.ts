@@ -32,8 +32,8 @@ export default {
     ctaPrimary: 'Futbol Kamplarını İncele',
     ctaSecondary: 'Voleybol Kamplarını İncele',
     btnVolleyball: 'Voleybol Kampları',
-    btnVolleyballTeams: 'Voleybol Takım Kampları',
-    btnFootballTeams: 'Futbol Takım Kampları',
+    btnVolleyballAcademic: 'Akademik Voleybol Kampları',
+    btnCollegeVolleyball: 'Kolej Voleybol Fırsatları',
     statAthletes: 'Yerleştirilen Sporcu',
     statClubs: 'Partner Kulüp',
     statAcademies: 'Uluslararası Akademi'
