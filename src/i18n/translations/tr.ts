@@ -114,16 +114,25 @@ export default {
     newInquiryBtn: 'Yeni Başvuru Gönder'
   },
   about: {
-    badge: 'AKLİMOSATURİZM GÜVENCESİ',
+    badge: 'AK LİMOSA TURİZM GÜVENCESİ',
     heroTitle: 'Yurt Dışı Spor Turizmini Yeniden Tanımlıyoruz',
     heroSubtitle:
       'Genç yetenekleri üst düzey, yapılandırılmış kamp deneyimleriyle uluslararası kulüpler ve akademilerle buluşturuyoruz.',
-    storyTitle: 'Marka Hikayemiz',
+    storyTitle: 'SPORTIVERF Hakkında',
     storyDesc:
-      'SPORTIVERF, yetenekli sporcular ile küresel fırsatlar arasındaki köprüyü kurmak amacıyla kurulmuştur. Aklimosaturizm resmi lisansı ve denetimi altında, eşsiz profesyonellikle uçtan uca spor turizmi hizmeti sunuyoruz.',
-    supervisionTitle: 'Lisanslı Yasal Denetim',
+      'SPORTIVERF, sporcular, yetişkin takımları ve spor akademileri için özel ve profesyonel spor kampları tasarlamaya ve organize etmeye odaklanmaktadır. Genç grup kamplarımız, uluslararası deneyime sahip seçkin antrenörler liderliğinde 3–4 günlük programlar olarak düzenlenmektedir. SPORTIVERF ayrıca, takımlara ve sporculara profesyonel, iyi organize edilmiş ve uluslararası bir spor deneyimi sunmak amacıyla spor akademileri ve profesyonel kulüp takımları için özel antrenman kampları tasarlama ve sunma konusunda uzmanlaşmıştır.',
+    aboutSportiverfTitle: 'SPORTIVERF Hakkında',
+    aboutSportiverfDesc:
+      'SPORTIVERF, sporcular, yetişkin takımları ve spor akademileri için özel ve profesyonel spor kampları tasarlamaya ve organize etmeye odaklanmaktadır. Genç grup kamplarımız, uluslararası deneyime sahip seçkin antrenörler liderliğinde 3–4 günlük programlar olarak düzenlenmektedir. SPORTIVERF ayrıca, takımlara ve sporculara profesyonel, iyi organize edilmiş ve uluslararası bir spor deneyimi sunmak amacıyla spor akademileri ve profesyonel kulüp takımları için özel antrenman kampları tasarlama ve sunma konusunda uzmanlaşmıştır.',
+    missionTitle: 'Misyonumuz',
+    missionDesc:
+      'Spor akademileri ve takımları için güvenli, profesyonel ve yüksek standartlı antrenman ortamları sağlarken, sporcuların profesyonel olarak büyümesi ve gelişmesi için fırsatlar yaratmak.',
+    visionTitle: 'Vizyonumuz',
+    visionDesc:
+      'Spor turizminde güvenilir bir uluslararası referans olmak ve dünya çapında sporcuları, spor takımlarını ve akademileri birbirine bağlayan güçlü bir köprü kurmak.',
+    supervisionTitle: 'Yasal & Resmi Denetim',
     supervisionDesc:
-      "Tüm SPORTIVERF kampları, Aklimosaturizm'in yasal denetimi altında yürütülür; eksiksiz seyahat sigortası, akredite otel ortaklıkları ve sertifikalı güvenlik garanti edilir.",
+      'Programların tüm operasyonel, seyahat ve yasal gereksinimleri Ak Limosa Turizm iş birliğiyle ve güvencesi altında yönetilmektedir.',
     standardsTitle: 'Derecelendirilmiş Mükemmellik',
     standardsDesc:
       'İster 3 Yıldızlı Temel Klinik, ister 4 Yıldızlı Akademi veya 5 Yıldızlı VIP Kamp seçin; her sporcu profesyonel antrenörlük, biyo-fiziksel değerlendirme ve video analizi alır.',

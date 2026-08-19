@@ -4,6 +4,7 @@ import { LOCALES_LIST } from '@/i18n/config';
 import type { SupportedLocale } from '@/types/i18n';
 import HeroSection from '@/components/shared/HeroSection.astro';
 import StorytellingCarousel from '@/components/islands/StorytellingCarousel.astro';
+import StatisticsStrip from '@/components/shared/StatisticsStrip.astro';
 import FeaturedCampsSlider from '@/components/islands/FeaturedCampsSlider.astro';
 import PartnerEcosystem from '@/components/shared/PartnerEcosystem.astro';
 import ContactButtons from '@/components/shared/ContactButtons.astro';
@@ -29,13 +30,16 @@ const t = useTranslations(locale);
   <!-- Redesigned Hero Section Component with Elite Obsidian Aesthetic & Language-Aware Alignment -->
   <HeroSection locale={locale} />
 
-  <!-- Interactive Storytelling Section (Hero-Adjacent Sticky Carousel) -->
+  <!-- Interactive Storytelling "About Us" Section -->
   <StorytellingCarousel locale={locale} />
+
+  <!-- Statistics Strip Placed Directly Below "About Us" Section -->
+  <StatisticsStrip locale={locale} />
 
   <!-- Home Page Featured Camps Section (Peeking/Blur Slider) -->
   <FeaturedCampsSlider locale={locale} />
 
-  <!-- Parent Agency (Aklimosaturizm) & Partner Ecosystem Section -->
+  <!-- Parent Agency (Ak Limosa Turizm) Official Accreditation Banner -->
   <PartnerEcosystem locale={locale} />
 
   <!-- Concierge Direct Action Section -->

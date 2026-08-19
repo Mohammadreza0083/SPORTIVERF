@@ -112,16 +112,25 @@ export default {
     newInquiryBtn: 'Submit Another Inquiry'
   },
   about: {
-    badge: 'AKLIMOSATURIZM SUPERVISION',
+    badge: 'AK LIMOSA TURIZM SUPERVISION',
     heroTitle: 'Redefining Overseas Sports Tourism',
     heroSubtitle:
       'Connecting young athletic talent to international clubs and academies through high-end, structured camp experiences.',
-    storyTitle: 'Our Brand Story',
+    storyTitle: 'About SPORTIVERF',
     storyDesc:
-      'SPORTIVERF was established to bridge the gap between talented athletes and global sporting opportunities. Operating under the official license and supervision of Aklimosaturizm, we deliver end-to-end sports tourism services with unrivaled professionalism.',
-    supervisionTitle: 'Licensed Legal Supervision',
+      'SPORTIVERF focuses on designing and organizing specialized and professional sports camps for athletes, adult teams, and sports academies. Our youth group camps are organized as 3–4 day programs, led by highly experienced coaches with international backgrounds. SPORTIVERF also specializes in designing and delivering dedicated training camps for sports academies and professional club teams, with the aim of providing teams and athletes with a professional, well-organized, and international sports experience.',
+    aboutSportiverfTitle: 'About SPORTIVERF',
+    aboutSportiverfDesc:
+      'SPORTIVERF focuses on designing and organizing specialized and professional sports camps for athletes, adult teams, and sports academies. Our youth group camps are organized as 3–4 day programs, led by highly experienced coaches with international backgrounds. SPORTIVERF also specializes in designing and delivering dedicated training camps for sports academies and professional club teams, with the aim of providing teams and athletes with a professional, well-organized, and international sports experience.',
+    missionTitle: 'Our Mission',
+    missionDesc:
+      'To provide safe, professional, and high-standard training environments for sports academies and teams, while creating opportunities for athletes to grow and develop professionally.',
+    visionTitle: 'Our Vision',
+    visionDesc:
+      'To become a trusted international reference in sports tourism and build a strong bridge connecting athletes, sports teams, and academies worldwide.',
+    supervisionTitle: 'Legal & Official Oversight',
     supervisionDesc:
-      'Every SPORTIVERF expedition is conducted under the strict legal oversight of Aklimosaturizm, guaranteeing complete travel insurance, accredited hotel partnerships, and certified security.',
+      'All operational, travel-related, and legal requirements of the programs are managed in cooperation with and under the coverage of Ak Limosa Turizm.',
     standardsTitle: 'Tiered Excellence Standard',
     standardsDesc:
       'Whether choosing a 3-Star Essentials Clinic, 4-Star Executive Academy, or 5-Star VIP Showcase, every athlete receives professional coaching, biophysical assessment, and video analysis.',
