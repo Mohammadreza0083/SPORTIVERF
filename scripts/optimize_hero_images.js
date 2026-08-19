@@ -9,7 +9,9 @@ async function optimize() {
   console.log('--- Starting Hero Image Optimization ---');
 
   // Desktop Asset
-  const desktopInput = path.join(photosDir, 'dekstop.webp');
+  const desktopInput = fs.existsSync(path.join(photosDir, 'Desktop.webp'))
+    ? path.join(photosDir, 'Desktop.webp')
+    : path.join(photosDir, 'dekstop.webp');
   const desktopWebpOutput = path.join(outputDir, 'hero-bg.webp');
   const desktopJpgOutput = path.join(outputDir, 'hero-bg.jpg');
 
