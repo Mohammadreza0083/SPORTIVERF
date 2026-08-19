@@ -11,223 +11,212 @@ const t = useTranslations(locale);
 const dir = getDirFromLocale(locale);
 ---
 
-<!-- Hero Wrapper with Top Offset for Fixed Main Header on Mobile -->
-<div class="relative w-full bg-[#080808] pt-20 md:pt-0">
-  <!-- Mobile Sticky Sub-Header with Quick-Access CTAs (Native document flow + sticky top-20) -->
-  <div
-    id="mobile-hero-sub-header"
-    class="sticky top-20 left-0 w-full z-40 bg-[#0a0a0a]/90 backdrop-blur-md border-b border-white/10 transition-all duration-300 ease-in-out md:hidden shadow-lg"
-  >
-    <div class="px-3 py-2 max-w-lg mx-auto">
-      <div class="grid grid-cols-2 gap-1.5">
-        <!-- CTA 1: Volleyball Camps -->
-        <a
-          href={`/${locale}/volleyball-camps`}
-          class="bg-gradient-to-r from-[#E5383B] to-[#B7094C] text-white shadow-[0_0_12px_rgba(229,56,59,0.3)] font-barlow font-bold text-[10px] sm:text-[11px] tracking-wider uppercase py-2 px-1.5 flex flex-col items-center justify-center gap-1 text-center border border-[#FF4D6D]/30 active:scale-95 transition-all group"
+<!-- Mobile Sticky Sub-Header (Fixed at top-20 to hover over hero without pushing layout) -->
+<div
+  id="mobile-hero-sub-header"
+  class="fixed top-20 left-0 w-full z-40 bg-[#0a0a0a]/90 backdrop-blur-md border-b border-white/10 transition-all duration-300 ease-in-out md:hidden shadow-lg"
+>
+  <div class="px-3 py-2 max-w-lg mx-auto">
+    <div class="grid grid-cols-2 gap-1.5">
+      <!-- CTA 1: Volleyball Camps -->
+      <a
+        href={`/${locale}/volleyball-camps`}
+        class="bg-gradient-to-r from-[#E5383B] to-[#B7094C] text-white shadow-[0_0_12px_rgba(229,56,59,0.3)] font-barlow font-bold text-[10px] sm:text-[11px] tracking-wider uppercase py-2 px-1.5 flex flex-col items-center justify-center gap-1 text-center border border-[#FF4D6D]/30 active:scale-95 transition-all group"
+      >
+        <svg
+          class="w-4 h-4 text-white shrink-0"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
         >
-          <svg
-            class="w-4 h-4 text-white shrink-0"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="m4.93 4.93 4.24 4.24"></path>
-            <path d="m14.83 9.17 4.24-4.24"></path>
-            <path d="m14.83 14.83 4.24 4.24"></path>
-            <path d="m9.17 14.83-4.24 4.24"></path>
-            <circle cx="12" cy="12" r="4"></circle>
-          </svg>
-          <span class="leading-tight">{t('hero.btnVolleyball')}</span>
-        </a>
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="m4.93 4.93 4.24 4.24"></path>
+          <path d="m14.83 9.17 4.24-4.24"></path>
+          <path d="m14.83 14.83 4.24 4.24"></path>
+          <path d="m9.17 14.83-4.24 4.24"></path>
+          <circle cx="12" cy="12" r="4"></circle>
+        </svg>
+        <span class="leading-tight">{t('hero.btnVolleyball')}</span>
+      </a>
 
-        <!-- CTA 2: Volleyball Academic Camps -->
-        <a
-          href={`/${locale}/volleyball-camps`}
-          class="bg-[#111111]/90 text-white border border-[#E5383B]/40 shadow-[0_0_10px_rgba(229,56,59,0.15)] font-barlow font-bold text-[10px] sm:text-[11px] tracking-wider uppercase py-2 px-1.5 flex flex-col items-center justify-center gap-1 text-center backdrop-blur-md active:scale-95 transition-all group"
+      <!-- CTA 2: Volleyball Academic Camps -->
+      <a
+        href={`/${locale}/volleyball-camps`}
+        class="bg-[#111111]/90 text-white border border-[#E5383B]/40 shadow-[0_0_10px_rgba(229,56,59,0.15)] font-barlow font-bold text-[10px] sm:text-[11px] tracking-wider uppercase py-2 px-1.5 flex flex-col items-center justify-center gap-1 text-center backdrop-blur-md active:scale-95 transition-all group"
+      >
+        <svg
+          class="w-4 h-4 text-[#E5383B] shrink-0"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
         >
-          <svg
-            class="w-4 h-4 text-[#E5383B] shrink-0"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"></path>
-            <path d="M6 6h10"></path>
-            <path d="M6 10h10"></path>
-          </svg>
-          <span class="leading-tight">{t('hero.btnVolleyballAcademic')}</span>
-        </a>
+          <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"></path>
+          <path d="M6 6h10"></path>
+          <path d="M6 10h10"></path>
+        </svg>
+        <span class="leading-tight">{t('hero.btnVolleyballAcademic')}</span>
+      </a>
 
-        <!-- CTA 3: College Volleyball Opportunities -->
-        <a
-          href={`/${locale}/volleyball-camps`}
-          class="col-span-2 bg-white/10 text-white border border-white/20 shadow-[0_0_10px_rgba(255,255,255,0.08)] font-barlow font-bold text-[10px] sm:text-[11px] tracking-wider uppercase py-2 px-1.5 flex flex-col items-center justify-center gap-1 text-center backdrop-blur-md active:scale-95 transition-all group"
+      <!-- CTA 3: College Volleyball Opportunities -->
+      <a
+        href={`/${locale}/volleyball-camps`}
+        class="col-span-2 bg-white/10 text-white border border-white/20 shadow-[0_0_10px_rgba(255,255,255,0.08)] font-barlow font-bold text-[10px] sm:text-[11px] tracking-wider uppercase py-2 px-1.5 flex flex-col items-center justify-center gap-1 text-center backdrop-blur-md active:scale-95 transition-all group"
+      >
+        <svg
+          class="w-4 h-4 text-white/90 shrink-0"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
         >
-          <svg
-            class="w-4 h-4 text-white/90 shrink-0"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-            <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-          </svg>
-          <span class="leading-tight">{t('hero.btnCollegeVolleyball')}</span>
-        </a>
-      </div>
+          <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+          <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+        </svg>
+        <span class="leading-tight">{t('hero.btnCollegeVolleyball')}</span>
+      </a>
     </div>
   </div>
-
-  <section
-    id="hero-section"
-    dir={dir}
-    class="relative min-h-[calc(100vh-5rem-70px)] sm:min-h-[calc(100vh-5rem)] md:min-h-[92vh] flex flex-col justify-center bg-[#080808] text-white border-b border-white/10 overflow-hidden w-full max-w-full"
-  >
-    <!-- Background Picture with Dynamic Red Hue Shift Filter & Overlays -->
-    <div class="absolute inset-0 w-full h-full z-0 overflow-hidden pointer-events-none">
-      <picture class="absolute inset-0 w-full h-full block">
-        <source media="(max-width: 767px)" srcset="/images/hero-mobile.webp" type="image/webp" />
-        <source media="(min-width: 768px)" srcset="/images/hero-bg.webp" type="image/webp" />
-        <img
-          src="/images/hero-bg.jpg"
-          alt="SPORTIVERF Elite Athletic Arena"
-          loading="eager"
-          fetchpriority="high"
-          class="w-full h-full object-cover object-center opacity-85 filter hue-rotate-[130deg] saturate-[1.3] transition-all duration-700"
-        />
-      </picture>
-
-      <!-- Multi-tier Dark Gradient Overlays for Flawless Text Readability -->
-      <div
-        class="absolute inset-0 bg-gradient-to-t from-[#080808] via-[#080808]/60 to-[#080808]/75 pointer-events-none z-10"
-      >
-      </div>
-
-      <!-- Desktop Ambient Overlay -->
-      <div
-        class="hidden md:block absolute inset-0 bg-gradient-to-r from-[#080808]/80 via-[#080808]/40 to-transparent pointer-events-none z-10"
-      >
-      </div>
-
-      <!-- Red Neon Ambient Accents -->
-      <div
-        class="absolute -top-32 right-0 w-[300px] sm:w-[350px] md:w-[500px] h-[300px] sm:h-[350px] md:h-[500px] bg-[#E5383B]/15 rounded-full blur-[100px] md:blur-[140px] pointer-events-none z-10"
-      >
-      </div>
-      <div
-        class="absolute -bottom-32 left-0 w-[300px] sm:w-[350px] md:w-[600px] h-[300px] sm:h-[350px] md:h-[600px] bg-[#B7094C]/15 rounded-full blur-[100px] md:blur-[160px] pointer-events-none z-10"
-      >
-      </div>
-    </div>
-
-    <!-- Main Hero Text Content (Unified Responsive Flow) -->
-    <div
-      class="relative z-20 w-full max-w-[1400px] mx-auto px-5 sm:px-8 py-10 sm:py-16 md:pt-36 md:pb-24 flex-1 flex flex-col justify-center items-start text-start"
-    >
-      <!-- Tagline Badge -->
-      <div
-        class="inline-flex items-center gap-2 px-3 py-1.5 md:px-3.5 md:py-1.5 bg-[#E5383B]/10 border border-[#E5383B]/40 text-[#E5383B] font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] mb-4 sm:mb-6 backdrop-blur-md shadow-[0_0_15px_rgba(229,56,59,0.2)] rounded-none"
-      >
-        <span class="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-[#E5383B] animate-pulse"></span>
-        <span>{t('hero.badge')}</span>
-      </div>
-
-      <!-- Main H1 Headline -->
-      <h1
-        class="font-barlow font-black text-4xl sm:text-6xl md:text-[86px] lg:text-[115px] uppercase tracking-tight text-white max-w-5xl leading-[0.95] md:leading-[0.92] mb-4 sm:mb-6 drop-shadow-[0_8px_20px_rgba(0,0,0,0.9)] text-start"
-      >
-        {t('hero.title')}
-      </h1>
-
-      <!-- Subtitle -->
-      <p
-        class="font-sans text-sm sm:text-base md:text-xl text-[#DDDDDD] max-w-2xl font-light mb-8 sm:mb-10 leading-relaxed drop-shadow-md text-start"
-      >
-        {t('hero.subtitle')}
-      </p>
-
-      <!-- Interactive CTA Buttons (Desktop Viewport Only) with Centered Icons Above Text -->
-      <div
-        class="hidden md:flex flex-wrap items-center gap-4 sm:gap-6 z-20 justify-start w-full max-w-4xl my-2"
-      >
-        <!-- CTA 1: Volleyball Camps -->
-        <a
-          href={`/${locale}/volleyball-camps`}
-          class="bg-gradient-to-r from-[#E5383B] to-[#B7094C] hover:from-[#FF4D6D] hover:to-[#E5383B] text-white shadow-[0_0_25px_rgba(229,56,59,0.4)] hover:shadow-[0_0_35px_rgba(229,56,59,0.7)] transition-all duration-300 font-barlow font-bold text-xs sm:text-sm tracking-[0.14em] uppercase py-3.5 px-6 flex flex-col items-center justify-center gap-1.5 text-center relative border border-[#FF4D6D]/30 min-w-[200px] group"
-        >
-          <svg
-            class="w-5 h-5 text-white"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="m4.93 4.93 4.24 4.24"></path>
-            <path d="m14.83 9.17 4.24-4.24"></path>
-            <path d="m14.83 14.83 4.24 4.24"></path>
-            <path d="m9.17 14.83-4.24 4.24"></path>
-            <circle cx="12" cy="12" r="4"></circle>
-          </svg>
-          <span class="leading-tight">{t('hero.btnVolleyball')}</span>
-        </a>
-
-        <!-- CTA 2: Volleyball Academic Camps -->
-        <a
-          href={`/${locale}/volleyball-camps`}
-          class="bg-[#111111]/80 hover:bg-[#E5383B] text-white border border-[#E5383B]/40 hover:border-[#E5383B] shadow-[0_0_20px_rgba(229,56,59,0.15)] hover:shadow-[0_0_30px_rgba(229,56,59,0.5)] transition-all duration-300 font-barlow font-bold text-xs sm:text-sm tracking-[0.14em] uppercase py-3.5 px-6 flex flex-col items-center justify-center gap-1.5 text-center backdrop-blur-md relative min-w-[200px] group"
-        >
-          <svg
-            class="w-5 h-5 text-[#E5383B] group-hover:text-white transition-colors"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"></path>
-            <path d="M6 6h10"></path>
-            <path d="M6 10h10"></path>
-          </svg>
-          <span class="leading-tight">{t('hero.btnVolleyballAcademic')}</span>
-        </a>
-
-        <!-- CTA 3: College Volleyball Opportunities -->
-        <a
-          href={`/${locale}/volleyball-camps`}
-          class="bg-white/10 hover:bg-white text-white hover:text-[#0D0D0D] border border-white/20 hover:border-white shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] transition-all duration-300 font-barlow font-bold text-xs sm:text-sm tracking-[0.14em] uppercase py-3.5 px-6 flex flex-col items-center justify-center gap-1.5 text-center backdrop-blur-md relative min-w-[220px] group"
-        >
-          <svg
-            class="w-5 h-5 text-white/90 group-hover:text-[#0D0D0D] transition-colors"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-            <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-          </svg>
-          <span class="leading-tight">{t('hero.btnCollegeVolleyball')}</span>
-        </a>
-      </div>
-    </div>
-  </section>
 </div>
+
+<!-- Hero Section Container with Immersive Full-Height Background -->
+<section
+  id="hero-section"
+  dir={dir}
+  class="relative w-full h-[85svh] md:h-screen overflow-hidden flex flex-col justify-end pb-8 sm:pb-12 md:pb-16 bg-[#080808] text-white border-b border-white/10"
+>
+  <!-- Background Picture with Dynamic Red Hue Shift Filter & Full Container Coverage -->
+  <picture class="absolute inset-0 w-full h-full block z-0">
+    <source media="(max-width: 767px)" srcset="/images/hero-mobile.webp" type="image/webp" />
+    <source media="(min-width: 768px)" srcset="/images/hero-bg.webp" type="image/webp" />
+    <img
+      src="/images/hero-bg.jpg"
+      alt="SPORTIVERF Elite Athletic Arena"
+      loading="eager"
+      fetchpriority="high"
+      class="absolute inset-0 w-full h-full object-cover object-center opacity-90 filter hue-rotate-[130deg] saturate-[1.3] transition-all duration-700 z-0"
+    />
+  </picture>
+
+  <!-- Gradient Overlay (Bottom 60% of Hero Section) -->
+  <div
+    class="absolute bottom-0 left-0 w-full h-[60%] bg-gradient-to-t from-[#080808] via-[#080808]/75 to-transparent pointer-events-none z-10"
+  >
+  </div>
+
+  <!-- Desktop Ambient Gradient Overlay -->
+  <div
+    class="hidden md:block absolute inset-0 bg-gradient-to-r from-[#080808]/80 via-[#080808]/30 to-transparent pointer-events-none z-10"
+  >
+  </div>
+
+  <!-- Red Neon Ambient Accents -->
+  <div
+    class="absolute -top-32 right-0 w-[300px] sm:w-[350px] md:w-[500px] h-[300px] sm:h-[350px] md:h-[500px] bg-[#E5383B]/15 rounded-full blur-[100px] md:blur-[140px] pointer-events-none z-10"
+  >
+  </div>
+  <div
+    class="absolute -bottom-32 left-0 w-[300px] sm:w-[350px] md:w-[600px] h-[300px] sm:h-[350px] md:h-[600px] bg-[#B7094C]/15 rounded-full blur-[100px] md:blur-[160px] pointer-events-none z-10"
+  >
+  </div>
+
+  <!-- Main Hero Content (Bottom-Aligned without Subtitle) -->
+  <div
+    class="relative z-20 w-full max-w-[1400px] mx-auto px-5 sm:px-8 flex flex-col justify-end items-start text-start"
+  >
+    <!-- Tagline Badge -->
+    <div
+      class="inline-flex items-center gap-2 px-3 py-1.5 md:px-3.5 md:py-1.5 bg-[#E5383B]/10 border border-[#E5383B]/40 text-[#E5383B] font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] mb-3 sm:mb-4 backdrop-blur-md shadow-[0_0_15px_rgba(229,56,59,0.2)] rounded-none"
+    >
+      <span class="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-[#E5383B] animate-pulse"></span>
+      <span>{t('hero.badge')}</span>
+    </div>
+
+    <!-- Main H1 Headline -->
+    <h1
+      class="font-barlow font-black text-4xl sm:text-6xl md:text-[86px] lg:text-[115px] uppercase tracking-tight text-white max-w-5xl leading-[0.95] md:leading-[0.92] mb-6 md:mb-8 drop-shadow-[0_8px_20px_rgba(0,0,0,0.9)] text-start"
+    >
+      {t('hero.title')}
+    </h1>
+
+    <!-- Interactive CTA Buttons (Desktop Viewport Only) with Centered Icons Above Text -->
+    <div
+      class="hidden md:flex flex-wrap items-center gap-4 sm:gap-6 z-20 justify-start w-full max-w-4xl"
+    >
+      <!-- CTA 1: Volleyball Camps -->
+      <a
+        href={`/${locale}/volleyball-camps`}
+        class="bg-gradient-to-r from-[#E5383B] to-[#B7094C] hover:from-[#FF4D6D] hover:to-[#E5383B] text-white shadow-[0_0_25px_rgba(229,56,59,0.4)] hover:shadow-[0_0_35px_rgba(229,56,59,0.7)] transition-all duration-300 font-barlow font-bold text-xs sm:text-sm tracking-[0.14em] uppercase py-3.5 px-6 flex flex-col items-center justify-center gap-1.5 text-center relative border border-[#FF4D6D]/30 min-w-[200px] group"
+      >
+        <svg
+          class="w-5 h-5 text-white"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="m4.93 4.93 4.24 4.24"></path>
+          <path d="m14.83 9.17 4.24-4.24"></path>
+          <path d="m14.83 14.83 4.24 4.24"></path>
+          <path d="m9.17 14.83-4.24 4.24"></path>
+          <circle cx="12" cy="12" r="4"></circle>
+        </svg>
+        <span class="leading-tight">{t('hero.btnVolleyball')}</span>
+      </a>
+
+      <!-- CTA 2: Volleyball Academic Camps -->
+      <a
+        href={`/${locale}/volleyball-camps`}
+        class="bg-[#111111]/80 hover:bg-[#E5383B] text-white border border-[#E5383B]/40 hover:border-[#E5383B] shadow-[0_0_20px_rgba(229,56,59,0.15)] hover:shadow-[0_0_30px_rgba(229,56,59,0.5)] transition-all duration-300 font-barlow font-bold text-xs sm:text-sm tracking-[0.14em] uppercase py-3.5 px-6 flex flex-col items-center justify-center gap-1.5 text-center backdrop-blur-md relative min-w-[200px] group"
+      >
+        <svg
+          class="w-5 h-5 text-[#E5383B] group-hover:text-white transition-colors"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"></path>
+          <path d="M6 6h10"></path>
+          <path d="M6 10h10"></path>
+        </svg>
+        <span class="leading-tight">{t('hero.btnVolleyballAcademic')}</span>
+      </a>
+
+      <!-- CTA 3: College Volleyball Opportunities -->
+      <a
+        href={`/${locale}/volleyball-camps`}
+        class="bg-white/10 hover:bg-white text-white hover:text-[#0D0D0D] border border-white/20 hover:border-white shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] transition-all duration-300 font-barlow font-bold text-xs sm:text-sm tracking-[0.14em] uppercase py-3.5 px-6 flex flex-col items-center justify-center gap-1.5 text-center backdrop-blur-md relative min-w-[220px] group"
+      >
+        <svg
+          class="w-5 h-5 text-white/90 group-hover:text-[#0D0D0D] transition-colors"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+          <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+        </svg>
+        <span class="leading-tight">{t('hero.btnCollegeVolleyball')}</span>
+      </a>
+    </div>
+  </div>
+</section>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
