@@ -1,20 +1,21 @@
 ---
 import type { SupportedLocale } from '@/types/i18n';
-import { getDirFromLocale } from '@/i18n/utils';
+import { useTranslations, getDirFromLocale } from '@/i18n/utils';
 
 export interface Props {
   locale: SupportedLocale;
 }
 
 const { locale } = Astro.props;
+const t = useTranslations(locale);
 const dir = getDirFromLocale(locale);
 ---
 
-<!-- Parent Agency Banner (Ak Limosa Turizm) -->
+<!-- Parent Agency Banner (Ak Limosa Turizm) - Dark Theme & i18n Supported -->
 <section
   id="parent-agency-banner"
   dir={dir}
-  class="bg-[#2a2b38] text-white py-16 px-6 border-b border-white/10"
+  class="bg-[#0A0A0A] text-white py-16 px-6 border-b border-t border-white/10"
 >
   <div
     class="max-w-[1200px] mx-auto flex flex-col md:flex-row items-center justify-between gap-10 md:gap-12"
@@ -31,20 +32,27 @@ const dir = getDirFromLocale(locale);
         />
       </div>
 
-      <!-- Turkish Company Official Text -->
-      <div class="text-gray-300 text-sm leading-relaxed space-y-1 mb-6 font-sans">
-        <p>Ak Limosa Turizm Organizasyon Bilet Seyahat</p>
-        <p>Konaklama Hizmetleri.</p>
-        <p>Ak İnşaat İth.İhr.Dek.Mob.San.Tic.Ltd.Şti.</p>
-        <p>Kuruluşudur.</p>
+      <!-- Agency Official Description (i18n translated) -->
+      <div class="text-gray-300 text-sm leading-relaxed space-y-1.5 mb-6 font-sans">
+        <p>{t('agency.desc1')}</p>
+        <p>{t('agency.desc2')}</p>
       </div>
 
-      <!-- KVKK Metni Button -->
+      <!-- Official Website CTA Button -->
       <a
-        href="#"
-        class="bg-[#db5a54] text-white px-6 py-2 rounded-sm hover:brightness-110 transition-all font-medium text-sm inline-block shadow-sm active:scale-95"
+        href="https://www.limosatur.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-[#db5a54] text-white px-6 py-2.5 rounded-sm hover:brightness-110 transition-all font-medium text-sm inline-flex items-center gap-2 shadow-sm active:scale-95"
       >
-        KVKK Metni
+        <span>{t('agency.btn')}</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+        </svg>
       </a>
     </div>
 

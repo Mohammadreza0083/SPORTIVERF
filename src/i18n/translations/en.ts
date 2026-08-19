@@ -138,6 +138,11 @@ export default {
     leadershipDesc:
       'To be the premier sports tourism gateway in Eurasia, providing athletes with transparent, safe, and transformational athletic journeys.'
   },
+  agency: {
+    desc1: 'Ak Limosa Tourism Organization, Ticketing, Travel, and Accommodation Services.',
+    desc2: 'A subsidiary of Ak Construction Imp. Exp. Dec. Furn. Ind. Trade. Ltd. Co.',
+    btn: 'Official Website'
+  },
   faq: {
     badge: 'FREQUENTLY ASKED QUESTIONS',
     title: 'Platform FAQ',

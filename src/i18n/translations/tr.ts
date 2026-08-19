@@ -140,6 +140,11 @@ export default {
     leadershipDesc:
       "Avrasya'nın lider spor turizmi kapısı olarak, sporculara şeffaf, güvenli ve dönüştürücü sportif yolculuklar sağlamak."
   },
+  agency: {
+    desc1: 'Ak Limosa Turizm Organizasyon Bilet Seyahat Konaklama Hizmetleri.',
+    desc2: 'Ak İnşaat İth.İhr.Dek.Mob.San.Tic.Ltd.Şti. Kuruluşudur.',
+    btn: 'Resmi Web Sitesi'
+  },
   faq: {
     badge: 'SIKÇA SORULAN SORULAR',
     title: 'Platform SSS',
