@@ -12,14 +12,13 @@ export default defineConfig({
   // Internationalization Architecture Config
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'tr', 'fa'],
+    locales: ['en', 'tr'],
     routing: {
-      prefixDefaultLocale: true, // Force /en, /tr, /fa for clean architecture & SEO clarity
+      prefixDefaultLocale: true, // Force /en, /tr for clean architecture & SEO clarity
       redirectToDefaultLocale: false
     },
     fallback: {
-      tr: 'en',
-      fa: 'en'
+      tr: 'en'
     }
   },
 

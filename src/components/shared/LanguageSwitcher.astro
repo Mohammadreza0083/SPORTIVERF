@@ -11,7 +11,7 @@ const currentPathname = Astro.url.pathname;
 
 function getSwitchedPath(targetLocale: SupportedLocale): string {
   const parts = currentPathname.split('/');
-  if (parts.length > 1 && ['en', 'tr', 'fa'].includes(parts[1])) {
+  if (parts.length > 1 && ['en', 'tr'].includes(parts[1])) {
     parts[1] = targetLocale;
     return parts.join('/') || `/${targetLocale}`;
   }
@@ -19,8 +19,8 @@ function getSwitchedPath(targetLocale: SupportedLocale): string {
 }
 ---
 
-<nav aria-label="Language selection" class="relative inline-block text-left">
-  <ul class="flex items-center space-x-1.5 text-xs font-mono font-medium rtl:space-x-reverse">
+<nav aria-label="Language selection" class="relative inline-flex items-center">
+  <ul class="flex items-center gap-1.5 text-xs">
     {
       Object.values(SUPPORTED_LOCALES).map((loc) => {
         const isActive = loc.code === currentLocale;
@@ -31,16 +31,56 @@ function getSwitchedPath(targetLocale: SupportedLocale): string {
               hreflang={loc.code}
               lang={loc.code}
               data-locale-switch={loc.code}
-              class={`lang-switch-link inline-flex items-center gap-1 px-2.5 py-1.5 transition-all focus:outline-none border text-[11px] uppercase tracking-wider ${
+              title={loc.name}
+              class={`lang-switch-link group inline-flex items-center justify-center p-1.5 sm:px-2 sm:py-1.5 transition-all duration-200 border rounded-[2px] focus:outline-none ${
                 isActive
-                  ? 'bg-[#0D0D0D] text-white font-bold border-[#0D0D0D] shadow-sm'
-                  : 'bg-white text-[#555555] border-[#E5E3DC] hover:border-[#E5383B] hover:text-[#E5383B]'
+                  ? 'bg-[#E5383B]/20 border-[#E5383B] ring-1 ring-[#E5383B]/60 shadow-[0_0_10px_rgba(229,56,59,0.3)] opacity-100'
+                  : 'bg-[#141414]/90 border-white/20 text-white/70 hover:border-[#E5383B]/60 hover:bg-[#1f1f1f] opacity-60 hover:opacity-100'
               }`}
               aria-current={isActive ? 'true' : undefined}
               aria-label={`Switch language to ${loc.name}`}
             >
-              <span>{loc.code.toUpperCase()}</span>
-              <span class="text-[10px] opacity-75 font-sans">({loc.nativeName})</span>
+              {loc.code === 'en' && (
+                <svg
+                  class="w-[20px] h-[14px] rounded-[1px] shadow-sm shrink-0 object-cover transition-transform group-hover:scale-105"
+                  viewBox="0 0 60 30"
+                  aria-hidden="true"
+                >
+                  <clipPath id="flag-uk-clip">
+                    <path d="M0,0 v30 h60 v-30 z" />
+                  </clipPath>
+                  <clipPath id="flag-uk-cross">
+                    <path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z" />
+                  </clipPath>
+                  <g clip-path="url(#flag-uk-clip)">
+                    <path d="M0,0 v30 h60 v-30 z" fill="#012169" />
+                    <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6" />
+                    <path
+                      d="M0,0 L60,30 M60,0 L0,30"
+                      clip-path="url(#flag-uk-cross)"
+                      stroke="#C8102E"
+                      stroke-width="4"
+                    />
+                    <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10" />
+                    <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6" />
+                  </g>
+                </svg>
+              )}
+              {loc.code === 'tr' && (
+                <svg
+                  class="w-[20px] h-[14px] rounded-[1px] shadow-sm shrink-0 object-cover transition-transform group-hover:scale-105"
+                  viewBox="0 0 1200 800"
+                  aria-hidden="true"
+                >
+                  <rect width="1200" height="800" fill="#E30A17" />
+                  <circle cx="425" cy="400" r="200" fill="#ffffff" />
+                  <circle cx="475" cy="400" r="160" fill="#E30A17" />
+                  <polygon
+                    points="583.33,400 706.84,440.13 659.81,319.87 659.81,480.13 706.84,359.87"
+                    fill="#ffffff"
+                  />
+                </svg>
+              )}
             </a>
           </li>
         );

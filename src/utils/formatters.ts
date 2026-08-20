@@ -10,8 +10,7 @@ export function formatCurrency(
 ): string {
   const localeMap: Record<SupportedLocale, string> = {
     en: 'en-US',
-    tr: 'tr-TR',
-    fa: 'fa-IR'
+    tr: 'tr-TR'
   };
 
   try {
@@ -37,8 +36,7 @@ export function formatDate(
   const date = new Date(isoDateString);
   const localeMap: Record<SupportedLocale, string> = {
     en: 'en-US',
-    tr: 'tr-TR',
-    fa: 'fa-IR-u-ca-persian' // Persian Solar Hijri calendar
+    tr: 'tr-TR'
   };
 
   const defaultOptions: Intl.DateTimeFormatOptions = options || {
@@ -60,8 +58,7 @@ export function formatDate(
 export function formatNumber(value: number, locale: SupportedLocale = 'en'): string {
   const localeMap: Record<SupportedLocale, string> = {
     en: 'en-US',
-    tr: 'tr-TR',
-    fa: 'fa-IR'
+    tr: 'tr-TR'
   };
 
   try {

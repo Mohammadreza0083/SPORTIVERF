@@ -59,16 +59,14 @@ body {
   box-sizing: inherit;
 }
 
-/* Persian (fa) & RTL Typographic Overrides for Vazirmatn */
-html[dir='rtl'],
-html[lang='fa'] {
+/* RTL Typographic Overrides */
+html[dir='rtl'] {
   --font-family-serif: 'Vazirmatn', sans-serif;
   --font-family-display: 'Vazirmatn', sans-serif;
   --font-family-body: 'Vazirmatn', sans-serif;
 }
 
-html[dir='rtl'] body,
-html[lang='fa'] body {
+html[dir='rtl'] body {
   font-family: 'Vazirmatn', 'Inter', sans-serif !important;
 }
 
@@ -77,13 +75,7 @@ html[dir='rtl'] h2,
 html[dir='rtl'] h3,
 html[dir='rtl'] h4,
 html[dir='rtl'] h5,
-html[dir='rtl'] h6,
-html[lang='fa'] h1,
-html[lang='fa'] h2,
-html[lang='fa'] h3,
-html[lang='fa'] h4,
-html[lang='fa'] h5,
-html[lang='fa'] h6 {
+html[dir='rtl'] h6 {
   font-family: 'Vazirmatn', sans-serif !important;
   letter-spacing: 0 !important;
 }

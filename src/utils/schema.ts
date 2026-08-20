@@ -63,7 +63,7 @@ export function generateOrganizationSchema(siteUrl: string): Record<string, unkn
         '@type': 'ContactPoint',
         telephone: '+1-800-555-0199',
         contactType: 'customer service',
-        availableLanguage: ['English', 'Persian', 'Arabic'],
+        availableLanguage: ['English', 'Turkish'],
         areaServed: 'Worldwide'
       }
     ]
@@ -84,7 +84,7 @@ export function generateWebSiteSchema(
     url: siteUrl,
     name: 'SportivERF',
     description: 'Multilingual Sports Tourism Platform & Athletic Expeditions',
-    inLanguage: ['en', 'fa', 'ar'],
+    inLanguage: ['en', 'tr'],
     publisher: {
       '@id': `${siteUrl}/#organization`
     },

@@ -2,9 +2,8 @@ import { DEFAULT_LOCALE, LOCALES_LIST, SUPPORTED_LOCALES } from './config';
 import type { SupportedLocale, TextDirection } from '@/types/i18n';
 import en from './translations/en';
 import tr from './translations/tr';
-import fa from './translations/fa';
 
-const translations = { en, tr, fa };
+const translations = { en, tr };
 
 /**
  * Extracts locale code from current request URL

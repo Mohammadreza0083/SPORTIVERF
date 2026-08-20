@@ -1,6 +1,5 @@
 ---
 import LanguageSwitcher from './LanguageSwitcher.astro';
-import { SUPPORTED_LOCALES } from '@/i18n/config';
 import type { SupportedLocale } from '@/types/i18n';
 import { useTranslations } from '@/i18n/utils';
 
@@ -27,14 +26,14 @@ const navItems = [
   }
 ];
 
-function getSwitchedPath(targetLocale: SupportedLocale): string {
-  const parts = currentPath.split('/');
-  if (parts.length > 1 && ['en', 'tr', 'fa'].includes(parts[1])) {
-    parts[1] = targetLocale;
-    return parts.join('/') || `/${targetLocale}`;
-  }
-  return `/${targetLocale}${currentPath.startsWith('/') ? currentPath : '/' + currentPath}`;
-}
+// Count identical hrefs to prevent multi-highlight bug on shared sub-routes
+const hrefCounts = navItems.reduce(
+  (acc, item) => {
+    acc[item.href] = (acc[item.href] || 0) + 1;
+    return acc;
+  },
+  {} as Record<string, number>
+);
 ---
 
 <header
@@ -67,9 +66,11 @@ function getSwitchedPath(targetLocale: SupportedLocale): string {
     >
       {
         navItems.map((item) => {
-          const isActive =
-            currentPath === item.href ||
-            (item.href !== `/${locale}` && currentPath.startsWith(`${item.href}`));
+          const isDuplicateHref = (hrefCounts[item.href] || 0) > 1;
+          const isExactPath = currentPath === item.href || currentPath === `${item.href}/`;
+          const isSubPath = item.href !== `/${locale}` && currentPath.startsWith(`${item.href}/`);
+          const isActive = !isDuplicateHref && (isExactPath || isSubPath);
+
           return (
             <a
               href={item.href}
@@ -87,18 +88,16 @@ function getSwitchedPath(targetLocale: SupportedLocale): string {
     </nav>
 
     <!-- Right Utilities & Action CTAs -->
-    <div class="flex items-center gap-4 rtl:space-x-reverse">
-      <!-- Persistent Desktop Language Switcher -->
-      <div class="hidden lg:block">
-        <LanguageSwitcher currentLocale={locale} />
-      </div>
-
+    <div class="flex items-center gap-3 sm:gap-4 rtl:space-x-reverse">
       <a
         href={`/${locale}/tours`}
         class="hidden sm:inline-flex btn-primary !py-2.5 !px-5 !text-[11px] font-barlow font-bold shadow-[0_0_15px_rgba(229,56,59,0.3)]"
       >
         {t('nav.bookNow')}
       </a>
+
+      <!-- Global Language Switcher (Visible on both Mobile & Desktop, adjacent to hamburger menu on mobile) -->
+      <LanguageSwitcher currentLocale={locale} />
 
       <!-- Mobile Hamburger Button -->
       <button
@@ -133,9 +132,11 @@ function getSwitchedPath(targetLocale: SupportedLocale): string {
     <nav class="flex flex-col gap-3">
       {
         navItems.map((item) => {
-          const isActive =
-            currentPath === item.href ||
-            (item.href !== `/${locale}` && currentPath.startsWith(`${item.href}`));
+          const isDuplicateHref = (hrefCounts[item.href] || 0) > 1;
+          const isExactPath = currentPath === item.href || currentPath === `${item.href}/`;
+          const isSubPath = item.href !== `/${locale}` && currentPath.startsWith(`${item.href}/`);
+          const isActive = !isDuplicateHref && (isExactPath || isSubPath);
+
           return (
             <a
               href={item.href}
@@ -152,40 +153,6 @@ function getSwitchedPath(targetLocale: SupportedLocale): string {
         })
       }
     </nav>
-
-    <!-- Mobile Choose Language Section -->
-    <div class="pt-4 border-t border-white/10 space-y-3">
-      <div class="flex items-center justify-between">
-        <span class="text-[10px] font-mono text-[#E5383B] uppercase tracking-[0.2em] font-bold">
-          CHOOSE LANGUAGE
-        </span>
-        <span class="text-[10px] font-mono text-[#888888] uppercase">
-          {locale.toUpperCase()}
-        </span>
-      </div>
-
-      <div class="grid grid-cols-3 gap-2">
-        {
-          Object.values(SUPPORTED_LOCALES).map((loc) => {
-            const isActive = loc.code === locale;
-            return (
-              <a
-                href={getSwitchedPath(loc.code)}
-                data-locale-switch={loc.code}
-                class={`lang-switch-link flex flex-col items-center justify-center p-3 border text-center font-mono transition-all duration-200 ${
-                  isActive
-                    ? 'bg-[#E5383B] text-white font-bold border-[#E5383B] shadow-md scale-[1.02]'
-                    : 'bg-[#1A1A1A] text-white/80 border-white/10 hover:border-[#E5383B] hover:text-white'
-                }`}
-              >
-                <span class="text-xs uppercase font-bold tracking-wider">{loc.code}</span>
-                <span class="text-[10px] opacity-80 font-sans mt-0.5">{loc.nativeName}</span>
-              </a>
-            );
-          })
-        }
-      </div>
-    </div>
 
     <!-- Mobile Action CTA -->
     <div class="pt-2">

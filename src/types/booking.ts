@@ -14,7 +14,7 @@ export interface CreateBookingRequest {
     nationality: string;
   };
   specialRequirements?: string;
-  preferredLanguage: 'en' | 'fa' | 'ar';
+  preferredLanguage: 'en' | 'tr';
 }
 
 /**

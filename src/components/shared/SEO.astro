@@ -39,8 +39,7 @@ const fullImageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
 // Map locale to OG locale format
 const ogLocales: Record<SupportedLocale, string> = {
   en: 'en_US',
-  tr: 'tr_TR',
-  fa: 'fa_IR'
+  tr: 'tr_TR'
 };
 const currentOgLocale = ogLocales[locale] || 'en_US';
 const alternateOgLocales = Object.entries(ogLocales)
@@ -85,7 +84,7 @@ const allSchemas = [
 <!-- Multilingual SEO Hreflang Strategy -->
 {
   LOCALES_LIST.map((loc) => {
-    const cleanPath = Astro.url.pathname.replace(/^\/(en|tr|fa)/, '');
+    const cleanPath = Astro.url.pathname.replace(/^\/(en|tr)/, '');
     const localizedHref =
       `${siteUrl}/${loc}${cleanPath.startsWith('/') ? cleanPath : '/' + cleanPath}`.replace(
         /\/$/,

@@ -1,4 +1,4 @@
-export type SupportedLocale = 'en' | 'tr' | 'fa';
+export type SupportedLocale = 'en' | 'tr';
 
 export type TextDirection = 'ltr' | 'rtl';
 

@@ -5,7 +5,6 @@ import { z } from 'zod';
 
 import en from '../src/i18n/translations/en';
 import tr from '../src/i18n/translations/tr';
-import fa from '../src/i18n/translations/fa';
 
 console.log('====================================================');
 console.log('🚀 SPORTIVERF Production Compliance & Health Audit');
@@ -25,7 +24,6 @@ function logFail(msg: string): void {
 interface CampLocalizedMap {
   en?: string | string[];
   tr?: string | string[];
-  fa?: string | string[];
   [key: string]: unknown;
 }
 
@@ -67,7 +65,7 @@ if (!fs.existsSync(campsFilePath)) {
     } else {
       logPass(`Found ${camps.length} camps in dataset.`);
 
-      const requiredLocales = ['en', 'tr', 'fa'];
+      const requiredLocales = ['en', 'tr'];
       const requiredFields: (keyof CampItem)[] = [
         'id',
         'slug',
@@ -176,7 +174,7 @@ if (!fs.existsSync(envExamplePath)) {
   // Zod schema for environment configuration
   const EnvSchema = z.object({
     PUBLIC_SITE_URL: z.string().url(),
-    PUBLIC_DEFAULT_LOCALE: z.enum(['en', 'tr', 'fa']),
+    PUBLIC_DEFAULT_LOCALE: z.enum(['en', 'tr']),
     PUBLIC_API_BASE_URL: z.string().url().optional(),
     PUBLIC_API_TIMEOUT_MS: z.string().optional(),
     PUBLIC_CMS_PROVIDER: z.string().optional(),
@@ -209,7 +207,7 @@ console.log('');
 // -----------------------------------------------------------------------------
 // 3. Translation Dictionary Key Parity Audit
 // -----------------------------------------------------------------------------
-console.log('📌 3. Verifying Translation Dictionary Parity across [en, tr, fa]...');
+console.log('📌 3. Verifying Translation Dictionary Parity across [en, tr]...');
 
 function getObjectKeyPaths(obj: Record<string, unknown>, prefix = ''): string[] {
   let keys: string[] = [];
@@ -229,28 +227,20 @@ function getObjectKeyPaths(obj: Record<string, unknown>, prefix = ''): string[] 
 
 const enKeys = getObjectKeyPaths(en as unknown as Record<string, unknown>);
 const trKeys = new Set(getObjectKeyPaths(tr as unknown as Record<string, unknown>));
-const faKeys = new Set(getObjectKeyPaths(fa as unknown as Record<string, unknown>));
 
 logPass(`Base English dictionary contains ${enKeys.length} translation keys.`);
 
 let missingTr = 0;
-let missingFa = 0;
 
 enKeys.forEach((key) => {
   if (!trKeys.has(key)) {
     logFail(`Missing Turkish translation for key: '${key}'`);
     missingTr++;
   }
-  if (!faKeys.has(key)) {
-    logFail(`Missing Persian translation for key: '${key}'`);
-    missingFa++;
-  }
 });
 
-if (missingTr === 0 && missingFa === 0) {
-  logPass(
-    '100% translation key parity verified across English, Turkish, and Persian dictionaries!'
-  );
+if (missingTr === 0) {
+  logPass('100% translation key parity verified across English and Turkish dictionaries!');
 }
 
 console.log('');

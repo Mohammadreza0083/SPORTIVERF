@@ -5,7 +5,6 @@ import type { SupportedLocale } from '@/types/i18n';
 import HeroSection from '@/components/shared/HeroSection.astro';
 import StorytellingCarousel from '@/components/islands/StorytellingCarousel.astro';
 import StatisticsStrip from '@/components/shared/StatisticsStrip.astro';
-import FeaturedCampsSlider from '@/components/islands/FeaturedCampsSlider.astro';
 import PartnerEcosystem from '@/components/shared/PartnerEcosystem.astro';
 import ContactButtons from '@/components/shared/ContactButtons.astro';
 import { useTranslations } from '@/i18n/utils';
@@ -35,9 +34,6 @@ const t = useTranslations(locale);
 
   <!-- Statistics Strip Placed Directly Below "About Us" Section -->
   <StatisticsStrip locale={locale} />
-
-  <!-- Home Page Featured Camps Section (Peeking/Blur Slider) -->
-  <FeaturedCampsSlider locale={locale} />
 
   <!-- Parent Agency (Ak Limosa Turizm) Official Accreditation Banner -->
   <PartnerEcosystem locale={locale} />

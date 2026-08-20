@@ -16,13 +16,6 @@ export const SUPPORTED_LOCALES: Record<SupportedLocale, LocaleMeta> = {
     nativeName: 'Türkçe',
     dir: 'ltr',
     flagCode: 'TR'
-  },
-  fa: {
-    code: 'fa',
-    name: 'Persian',
-    nativeName: 'فارسی',
-    dir: 'rtl',
-    flagCode: 'IR'
   }
 };
 

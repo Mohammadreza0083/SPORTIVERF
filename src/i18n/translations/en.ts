@@ -20,7 +20,6 @@ export default {
       'Welcome to SPORTIVERF. Choose your preferred language for a tailored athletic service experience.',
     en: 'English',
     tr: 'Türkçe',
-    fa: 'فارسی',
     continue: 'Enter Platform',
     remember: 'Remember my choice for future visits'
   },
@@ -118,10 +117,10 @@ export default {
       'Connecting young athletic talent to international clubs and academies through high-end, structured camp experiences.',
     storyTitle: 'About SPORTIVERF',
     storyDesc:
-      'SPORTIVERF focuses on designing and organizing specialized and professional sports camps for athletes, adult teams, and sports academies. Our youth group camps are organized as 3–4 day programs, led by highly experienced coaches with international backgrounds. SPORTIVERF also specializes in designing and delivering dedicated training camps for sports academies and professional club teams, with the aim of providing teams and athletes with a professional, well-organized, and international sports experience.',
+      'SPORTIVERF focuses on designing and organizing specialized and professional sports camps for athletes, adult teams, and sports academies. Our youth group camps are organized as 3–4 day programs, led by highly experienced coaches with international backgrounds. SPORTIVERF also specializes in designing and delivering dedicated training camps for sports academies and professional club teams, with the aim of providing teams and athletes with a professional, well-organized, and international sports experience. SPORTIVERF also provides academic and athletic opportunities for athletes to pursue their education and continue their sporting development at leading international universities.',
     aboutSportiverfTitle: 'About SPORTIVERF',
     aboutSportiverfDesc:
-      'SPORTIVERF focuses on designing and organizing specialized and professional sports camps for athletes, adult teams, and sports academies. Our youth group camps are organized as 3–4 day programs, led by highly experienced coaches with international backgrounds. SPORTIVERF also specializes in designing and delivering dedicated training camps for sports academies and professional club teams, with the aim of providing teams and athletes with a professional, well-organized, and international sports experience.',
+      'SPORTIVERF focuses on designing and organizing specialized and professional sports camps for athletes, adult teams, and sports academies. Our youth group camps are organized as 3–4 day programs, led by highly experienced coaches with international backgrounds. SPORTIVERF also specializes in designing and delivering dedicated training camps for sports academies and professional club teams, with the aim of providing teams and athletes with a professional, well-organized, and international sports experience. SPORTIVERF also provides academic and athletic opportunities for athletes to pursue their education and continue their sporting development at leading international universities.',
     missionTitle: 'Our Mission',
     missionDesc:
       'To provide safe, professional, and high-standard training environments for sports academies and teams, while creating opportunities for athletes to grow and develop professionally.',

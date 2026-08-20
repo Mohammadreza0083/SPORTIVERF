@@ -119,8 +119,8 @@ const t = useTranslations(currentLocale);
         // Robust redirect logic avoiding 404s
         setTimeout(() => {
           const currentPath = window.location.pathname;
-          // Strip locale prefix if already present (/en, /tr, /fa)
-          const cleanPath = currentPath.replace(/^\/(en|tr|fa)(\/|$)/, '/');
+          // Strip locale prefix if already present (/en, /tr)
+          const cleanPath = currentPath.replace(/^\/(en|tr)(\/|$)/, '/');
           const normalizedPath = cleanPath.startsWith('/') ? cleanPath : '/' + cleanPath;
           const targetUrl = `/${selectedLang}${normalizedPath === '/' ? '' : normalizedPath}`;
 

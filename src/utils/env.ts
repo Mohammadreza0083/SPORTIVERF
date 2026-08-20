@@ -5,7 +5,7 @@ import { z } from 'zod';
  */
 export const envSchema = z.object({
   PUBLIC_SITE_URL: z.string().url().default('https://sportiverf.com'),
-  PUBLIC_DEFAULT_LOCALE: z.enum(['en', 'fa', 'ar']).default('en'),
+  PUBLIC_DEFAULT_LOCALE: z.enum(['en', 'tr']).default('en'),
   PUBLIC_API_BASE_URL: z.string().url().optional().default('https://api.sportiverf.com/v1'),
   PUBLIC_API_TIMEOUT_MS: z.coerce.number().default(10000),
   PUBLIC_CMS_PROVIDER: z.enum(['mock', 'strapi', 'contentful', 'sanity', 'api']).default('mock'),

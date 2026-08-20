@@ -20,7 +20,6 @@ export default {
       'SPORTIVERF platformuna hoş geldiniz. Özel hizmet deneyimi için lütfen tercih ettiğiniz dili seçiniz.',
     en: 'English',
     tr: 'Türkçe',
-    fa: 'فارسی',
     continue: 'Platforma Giriş',
     remember: 'Gelecek ziyaretler için seçimimi hatırla'
   },
@@ -120,10 +119,10 @@ export default {
       'Genç yetenekleri üst düzey, yapılandırılmış kamp deneyimleriyle uluslararası kulüpler ve akademilerle buluşturuyoruz.',
     storyTitle: 'SPORTIVERF Hakkında',
     storyDesc:
-      'SPORTIVERF, sporcular, yetişkin takımları ve spor akademileri için özel ve profesyonel spor kampları tasarlamaya ve organize etmeye odaklanmaktadır. Genç grup kamplarımız, uluslararası deneyime sahip seçkin antrenörler liderliğinde 3–4 günlük programlar olarak düzenlenmektedir. SPORTIVERF ayrıca, takımlara ve sporculara profesyonel, iyi organize edilmiş ve uluslararası bir spor deneyimi sunmak amacıyla spor akademileri ve profesyonel kulüp takımları için özel antrenman kampları tasarlama ve sunma konusunda uzmanlaşmıştır.',
+      'SPORTIVERF, sporcular, yetişkin takımları ve spor akademileri için özel ve profesyonel spor kampları tasarlamaya ve organize etmeye odaklanmaktadır. Genç grup kamplarımız, uluslararası deneyime sahip seçkin antrenörler liderliğinde 3–4 günlük programlar olarak düzenlenmektedir. SPORTIVERF ayrıca, takımlara ve sporculara profesyonel, iyi organize edilmiş ve uluslararası bir spor deneyimi sunmak amacıyla spor akademileri ve profesyonel kulüp takımları için özel antrenman kampları tasarlama ve sunma konusunda uzmanlaşmıştır. SPORTIVERF ayrıca sporcuların eğitimlerine devam etmeleri ve önde gelen uluslararası üniversitelerde sportif gelişimlerini sürdürmeleri için akademik ve atletik fırsatlar sunmaktadır.',
     aboutSportiverfTitle: 'SPORTIVERF Hakkında',
     aboutSportiverfDesc:
-      'SPORTIVERF, sporcular, yetişkin takımları ve spor akademileri için özel ve profesyonel spor kampları tasarlamaya ve organize etmeye odaklanmaktadır. Genç grup kamplarımız, uluslararası deneyime sahip seçkin antrenörler liderliğinde 3–4 günlük programlar olarak düzenlenmektedir. SPORTIVERF ayrıca, takımlara ve sporculara profesyonel, iyi organize edilmiş ve uluslararası bir spor deneyimi sunmak amacıyla spor akademileri ve profesyonel kulüp takımları için özel antrenman kampları tasarlama ve sunma konusunda uzmanlaşmıştır.',
+      'SPORTIVERF, sporcular, yetişkin takımları ve spor akademileri için özel ve profesyonel spor kampları tasarlamaya ve organize etmeye odaklanmaktadır. Genç grup kamplarımız, uluslararası deneyime sahip seçkin antrenörler liderliğinde 3–4 günlük programlar olarak düzenlenmektedir. SPORTIVERF ayrıca, takımlara ve sporculara profesyonel, iyi organize edilmiş ve uluslararası bir spor deneyimi sunmak amacıyla spor akademileri ve profesyonel kulüp takımları için özel antrenman kampları tasarlama ve sunma konusunda uzmanlaşmıştır. SPORTIVERF ayrıca sporcuların eğitimlerine devam etmeleri ve önde gelen uluslararası üniversitelerde sportif gelişimlerini sürdürmeleri için akademik ve atletik fırsatlar sunmaktadır.',
     missionTitle: 'Misyonumuz',
     missionDesc:
       'Spor akademileri ve takımları için güvenli, profesyonel ve yüksek standartlı antrenman ortamları sağlarken, sporcuların profesyonel olarak büyümesi ve gelişmesi için fırsatlar yaratmak.',
