@@ -75,18 +75,25 @@ jobs:
           test -d dist
           test -f dist/index.html
 
-          echo "=== Verifying Localized Root Pages (/en, /tr, /fa) ==="
+          echo "=== Verifying Localized Root Pages (/en, /tr) ==="
           test -d dist/en && test -f dist/en/index.html
           test -d dist/tr && test -f dist/tr/index.html
-          test -d dist/fa && test -f dist/fa/index.html
 
-          echo "=== Verifying Camp Detail Pages (/camps/[slug]) ==="
-          test -d dist/en/camps/u18-football-showcase
-          test -f dist/en/camps/u18-football-showcase/index.html
-          test -d dist/tr/camps/u18-football-showcase
-          test -f dist/tr/camps/u18-football-showcase/index.html
-          test -d dist/fa/camps/u18-football-showcase
-          test -f dist/fa/camps/u18-football-showcase/index.html
+          echo "=== Verifying Volleyball Camps & Tour Pages (/volleyball-camps, /tours) ==="
+          test -d dist/en/volleyball-camps && test -f dist/en/volleyball-camps/index.html
+          test -d dist/tr/volleyball-camps && test -f dist/tr/volleyball-camps/index.html
+          test -d dist/en/tours && test -f dist/en/tours/index.html
+          test -d dist/tr/tours && test -f dist/tr/tours/index.html
+
+          echo "=== Verifying Camp & Tour Detail Pages (/camps/[slug], /tours/[slug]) ==="
+          test -d dist/en/camps/volleyball-performance-camp
+          test -f dist/en/camps/volleyball-performance-camp/index.html
+          test -d dist/tr/camps/volleyball-performance-camp
+          test -f dist/tr/camps/volleyball-performance-camp/index.html
+          test -d dist/en/tours/volleyball-performance-camp
+          test -f dist/en/tours/volleyball-performance-camp/index.html
+          test -d dist/tr/tours/volleyball-performance-camp
+          test -f dist/tr/tours/volleyball-performance-camp/index.html
 
           echo "=== Verifying Error Pages (404, 403, 500) ==="
           test -f dist/404.html
