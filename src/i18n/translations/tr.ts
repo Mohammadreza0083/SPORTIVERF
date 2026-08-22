@@ -189,6 +189,16 @@ export default {
     backHome: 'Ana Sayfaya Dön',
     contactSupport: 'WhatsApp İle Danışmana Ulaşın'
   },
+  comingSoon: {
+    badge: 'GÜNCELLENİYOR • YAKINDA',
+    title: 'Yeni Deneyimler Yakında',
+    subtitle: 'Şu anda bu bölümü güncelliyoruz. Lütfen daha sonra tekrar kontrol edin.',
+    description:
+      'Dünya standartlarında yüksek performanslı spor kampları, seçmeler ve seçkin atletik kamplar hazırlıyoruz.',
+    backHome: 'Ana Sayfaya Dön',
+    aboutUs: 'SPORTIVERF Hakkında',
+    contactSupport: 'WhatsApp Danışmanı'
+  },
   contact: {
     whatsappText:
       'Merhaba, elit spor kamplarıyla ilgileniyorum ve daha fazla bilgi almak istiyorum.',

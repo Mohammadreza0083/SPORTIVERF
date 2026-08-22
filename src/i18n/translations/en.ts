@@ -188,6 +188,16 @@ export default {
     backHome: 'Return to Homepage',
     contactSupport: 'Contact Concierge via WhatsApp'
   },
+  comingSoon: {
+    badge: 'UNDER UPGRADE • COMING SOON',
+    title: 'New Experiences Coming Soon',
+    subtitle: 'We are currently upgrading this section. Please check back later.',
+    description:
+      'We are curating high-performance sports camps, scout showcases, and elite athletic expeditions.',
+    backHome: 'Return to Homepage',
+    aboutUs: 'About SPORTIVERF',
+    contactSupport: 'Contact Concierge'
+  },
   contact: {
     whatsappText:
       'Hello, I am interested in the elite sports camps and would like to get more information.',

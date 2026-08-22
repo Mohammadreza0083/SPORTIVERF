@@ -1,0 +1,185 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/shared/Header.astro';
+import Footer from '@/components/shared/Footer.astro';
+import WhatsAppButton from '@/components/shared/WhatsAppButton.astro';
+import SkipToContent from '@/components/shared/SkipToContent.astro';
+import type { SupportedLocale } from '@/types/i18n';
+import { useTranslations } from '@/i18n/utils';
+
+export interface Props {
+  locale?: SupportedLocale;
+}
+
+const { locale = 'en' } = Astro.props;
+const t = useTranslations(locale);
+---
+
+<BaseLayout
+  locale={locale}
+  seo={{
+    title: `${t('comingSoon.title')} — SPORTIVERF`,
+    description: t('comingSoon.subtitle'),
+    noindex: true
+  }}
+>
+  <!-- Accessibility Skip Link -->
+  <SkipToContent locale={locale} targetId="main-content" />
+
+  <div
+    class="flex min-h-screen flex-col bg-[#080808] text-white font-sans selection:bg-[#E5383B] selection:text-white relative overflow-hidden"
+  >
+    <!-- Header Landmark -->
+    <Header locale={locale} />
+
+    <!-- Main Content Landmark -->
+    <main
+      id="main-content"
+      role="main"
+      class="flex-1 flex items-center justify-center relative pt-28 pb-20 px-4 sm:px-6 lg:px-8 focus:outline-none"
+      tabindex="-1"
+    >
+      <!-- Ambient Glowing Backdrop & Subtle Grid Mesh -->
+      <div
+        class="absolute inset-0 pointer-events-none opacity-40"
+        style="background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px); background-size: 32px 32px;"
+        aria-hidden="true"
+      >
+      </div>
+
+      <!-- Crimson / Red Glow Orbs -->
+      <div
+        class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-[#E5383B]/15 rounded-full blur-[140px] pointer-events-none"
+        aria-hidden="true"
+      >
+      </div>
+      <div
+        class="absolute bottom-1/4 left-1/3 -translate-x-1/2 w-[350px] h-[350px] bg-[#B7094C]/10 rounded-full blur-[120px] pointer-events-none"
+        aria-hidden="true"
+      >
+      </div>
+
+      <!-- Central Glassmorphism Card -->
+      <div
+        class="relative z-10 max-w-2xl w-full mx-auto bg-[#111111]/85 border border-white/10 p-8 sm:p-14 backdrop-blur-2xl shadow-[0_0_60px_rgba(0,0,0,0.8)] text-center transition-all duration-300"
+      >
+        <!-- Top Crimson Laser Line Accent -->
+        <div
+          class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#E5383B] to-transparent shadow-[0_0_12px_rgba(229,56,59,0.8)]"
+          aria-hidden="true"
+        >
+        </div>
+
+        <!-- Glowing Animated Icon Container (Sparkling Stars / Precision Craft) -->
+        <div class="flex justify-center mb-6">
+          <div
+            class="relative flex items-center justify-center w-20 h-20 bg-[#1A1A1A] border border-[#E5383B]/50 shadow-[0_0_30px_rgba(229,56,59,0.3)] transition-transform duration-500 hover:scale-105"
+          >
+            <!-- Background Glow -->
+            <div class="absolute inset-0 bg-[#E5383B]/10 blur-md" aria-hidden="true"></div>
+
+            <!-- Sparkling Multi-Star & Compass SVG Icon -->
+            <svg
+              class="w-10 h-10 text-[#E5383B] relative z-10 transition-transform duration-500 group-hover:rotate-12"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <!-- Primary Star Sparkle -->
+              <path
+                d="M12 2L14.4 8.6L21 11L14.4 13.4L12 20L9.6 13.4L3 11L9.6 8.6L12 2Z"
+                fill="currentColor"
+                fill-opacity="0.15"></path>
+              <!-- Secondary Sparkle Top Right -->
+              <path d="M19 3L19.8 5.2L22 6L19.8 6.8L19 9L18.2 6.8L16 6L18.2 5.2L19 3Z"></path>
+              <!-- Secondary Sparkle Bottom Left -->
+              <path d="M5 15L5.8 17.2L8 18L5.8 18.8L5 21L4.2 18.8L2 18L4.2 17.2L5 15Z"></path>
+            </svg>
+
+            <!-- Status Indicator Pulse Dot -->
+            <span
+              class="absolute -top-1 -right-1 flex h-3.5 w-3.5"
+              aria-label="Active maintenance mode"
+            >
+              <span
+                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E5383B] opacity-75"
+              ></span>
+              <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-[#E5383B]"></span>
+            </span>
+          </div>
+        </div>
+
+        <!-- Monospace Status Badge -->
+        <div class="mb-4">
+          <span
+            class="inline-block px-4 py-1.5 bg-[#E5383B]/10 border border-[#E5383B]/40 text-[#E5383B] font-mono text-[11px] uppercase tracking-[0.25em] font-medium"
+          >
+            {t('comingSoon.badge')}
+          </span>
+        </div>
+
+        <!-- Main Display Heading -->
+        <h1
+          class="font-barlow font-black text-4xl sm:text-5xl md:text-6xl uppercase tracking-tight text-white mb-4 leading-tight"
+        >
+          {t('comingSoon.title')}
+        </h1>
+
+        <!-- Subtitle & Upgrading Notice -->
+        <p
+          class="font-sans text-base sm:text-lg text-[#DDDDDD] font-light leading-relaxed max-w-lg mx-auto mb-3"
+        >
+          {t('comingSoon.subtitle')}
+        </p>
+
+        <!-- Reassuring Platform Mission Note -->
+        <p
+          class="font-sans text-xs sm:text-sm text-[#888888] font-light leading-relaxed max-w-md mx-auto mb-8"
+        >
+          {t('comingSoon.description')}
+        </p>
+
+        <!-- Action CTAs -->
+        <div class="flex flex-wrap justify-center gap-4 pt-2">
+          <a
+            href={`/${locale}`}
+            class="btn-primary !py-3.5 !px-7 !text-xs !bg-[#E5383B] !text-white hover:!bg-[#B7094C] shadow-[0_0_20px_rgba(229,56,59,0.3)] transition-all"
+          >
+            {t('comingSoon.backHome')}
+          </a>
+
+          <a
+            href={`/${locale}/about`}
+            class="btn-secondary !py-3.5 !px-7 !text-xs !border-white/20 !text-white hover:!bg-white hover:!text-[#0D0D0D] transition-all"
+          >
+            {t('comingSoon.aboutUs')}
+          </a>
+
+          <a
+            href={`https://wa.me/905421661698?text=${encodeURIComponent(t('contact.whatsappText'))}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 px-6 py-3.5 border border-[#25D366]/40 bg-[#25D366]/10 text-[#25D366] text-xs font-mono uppercase tracking-wider hover:bg-[#25D366] hover:text-white transition-all duration-300"
+          >
+            <svg class="w-4 h-4 fill-currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"
+              ></path>
+            </svg>
+            <span>{t('comingSoon.contactSupport')}</span>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Mandatory Architectural Footer -->
+    <Footer locale={locale} />
+
+    <!-- Floating WhatsApp Concierge -->
+    <WhatsAppButton locale={locale} variant="floating" />
+  </div>
+</BaseLayout>
