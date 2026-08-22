@@ -16,17 +16,6 @@ export const MAINTENANCE_MODE = true;
  */
 const ALLOWED_PATHS = new Set(['/', '/en', '/tr', '/en/about', '/tr/about']);
 
-/**
- * System and static asset route prefixes that must always bypass middleware
- */
-const STATIC_PREFIXES = ['/_astro', '/_image', '/images', '/api', '/fonts', '/assets', '/favicon'];
-
-/**
- * Static file extensions to bypass
- */
-const STATIC_EXTENSIONS =
-  /\.(svg|png|jpg|jpeg|webp|gif|ico|css|js|map|json|woff|woff2|ttf|eot|otf|xml|txt|webmanifest)$/i;
-
 export const onRequest = defineMiddleware(async (context, next) => {
   // If maintenance mode is turned off, proceed normally
   if (!MAINTENANCE_MODE) {
@@ -36,30 +25,35 @@ export const onRequest = defineMiddleware(async (context, next) => {
   const { url } = context;
   const rawPathname = url.pathname;
 
-  // 1. Bypass static asset directory prefixes
-  if (STATIC_PREFIXES.some((prefix) => rawPathname.startsWith(prefix))) {
-    return next();
-  }
-
-  // 2. Bypass static file extensions and search engine manifests
-  if (
-    STATIC_EXTENSIONS.test(rawPathname) ||
+  // 1. Instantly bypass any asset, Vite dev server, image, API, or static file requests
+  const isAsset =
+    rawPathname.startsWith('/_astro') ||
+    rawPathname.startsWith('/_image') ||
+    rawPathname.startsWith('/src/') ||
+    rawPathname.startsWith('/@') ||
+    rawPathname.startsWith('/assets/') ||
+    rawPathname.startsWith('/images/') ||
+    rawPathname.startsWith('/fonts/') ||
+    rawPathname.startsWith('/api/') ||
+    rawPathname.startsWith('/favicon') ||
     rawPathname === '/robots.txt' ||
     rawPathname === '/sitemap.xml' ||
-    rawPathname === '/site.webmanifest'
-  ) {
+    rawPathname === '/site.webmanifest' ||
+    /\.[a-zA-Z0-9]+$/.test(rawPathname);
+
+  if (isAsset) {
     return next();
   }
 
-  // 3. Normalize pathname (strip trailing slash safely, preserving single root '/')
+  // 2. Normalize pathname (strip trailing slash safely, preserving single root '/')
   const normalizedPathname = rawPathname.length > 1 ? rawPathname.replace(/\/+$/, '') : rawPathname;
 
-  // 4. If the route is in the whitelist, allow regular rendering
+  // 3. If the route is in the whitelist, allow regular rendering
   if (ALLOWED_PATHS.has(normalizedPathname)) {
     return next();
   }
 
-  // 5. Intercept all other internal routes and render Coming Soon with 503 HTTP status
+  // 4. Intercept all other internal routes and render Coming Soon with 503 HTTP status
   const locale: SupportedLocale = getLangFromUrl(url);
 
   try {
