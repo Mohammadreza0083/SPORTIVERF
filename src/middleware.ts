@@ -1,8 +1,4 @@
 import { defineMiddleware } from 'astro:middleware';
-import { experimental_AstroContainer as AstroContainer } from 'astro/container';
-import ComingSoon from '@/components/shared/ComingSoon.astro';
-import { getLangFromUrl } from '@/i18n/utils';
-import type { SupportedLocale } from '@/types/i18n';
 
 /**
  * Global Maintenance / Coming Soon Toggle
@@ -14,7 +10,7 @@ export const MAINTENANCE_MODE = true;
  * Whitelist of allowed routes during maintenance mode.
  * Trailing slashes are normalized before checking.
  */
-const ALLOWED_PATHS = new Set(['/', '/en', '/tr', '/en/about', '/tr/about']);
+const ALLOWED_PATHS = new Set(['/', '/en', '/tr', '/en/about', '/tr/about', '/coming-soon']);
 
 export const onRequest = defineMiddleware(async (context, next) => {
   // If maintenance mode is turned off, proceed normally
@@ -53,27 +49,6 @@ export const onRequest = defineMiddleware(async (context, next) => {
     return next();
   }
 
-  // 4. Intercept all other internal routes and render Coming Soon with 503 HTTP status
-  const locale: SupportedLocale = getLangFromUrl(url);
-
-  try {
-    const container = await AstroContainer.create();
-    const html = await container.renderToString(ComingSoon, {
-      props: { locale },
-      request: context.request
-    });
-
-    return new Response(html, {
-      status: 503,
-      statusText: 'Service Unavailable',
-      headers: {
-        'Content-Type': 'text/html; charset=utf-8',
-        'Retry-After': '86400',
-        'Cache-Control': 'no-store, no-cache, must-revalidate'
-      }
-    });
-  } catch (error) {
-    console.error('Error rendering ComingSoon page in middleware:', error);
-    return next();
-  }
+  // 4. Rewrite all other internal routes to the Coming Soon page with 503 response
+  return context.rewrite('/coming-soon');
 });

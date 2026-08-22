@@ -1,17 +1,18 @@
 ---
+Astro.response.status = 503;
+Astro.response.statusText = 'Service Unavailable';
+Astro.response.headers.set('Retry-After', '86400');
+Astro.response.headers.set('Cache-Control', 'no-store, no-cache, must-revalidate');
+
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/shared/Header.astro';
 import Footer from '@/components/shared/Footer.astro';
 import WhatsAppButton from '@/components/shared/WhatsAppButton.astro';
 import SkipToContent from '@/components/shared/SkipToContent.astro';
 import type { SupportedLocale } from '@/types/i18n';
-import { useTranslations } from '@/i18n/utils';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 
-export interface Props {
-  locale?: SupportedLocale;
-}
-
-const { locale = 'en' } = Astro.props;
+const locale: SupportedLocale = getLangFromUrl(Astro.url);
 const t = useTranslations(locale);
 ---
 
@@ -23,31 +24,6 @@ const t = useTranslations(locale);
     noindex: true
   }}
 >
-  <!-- Resilient Stylesheet and Tailwind CDN for Standalone/Middleware Rendering -->
-  <link rel="stylesheet" href="/src/styles/global.css" />
-  <script is:inline src="https://cdn.tailwindcss.com"></script>
-  <script is:inline>
-    if (typeof tailwind !== 'undefined') {
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              brand: {
-                red: '#E5383B',
-                redDark: '#B7094C'
-              }
-            },
-            fontFamily: {
-              barlow: ['"Barlow Condensed"', 'sans-serif'],
-              mono: ['"Space Mono"', 'monospace'],
-              sans: ['Inter', 'sans-serif']
-            }
-          }
-        }
-      };
-    }
-  </script>
-
   <!-- Accessibility Skip Link -->
   <SkipToContent locale={locale} targetId="main-content" />
 
@@ -229,54 +205,3 @@ const t = useTranslations(locale);
     <WhatsAppButton locale={locale} variant="floating" />
   </div>
 </BaseLayout>
-
-<style is:global>
-  /* Standalone Resilient Fallback CSS */
-  body {
-    background-color: #080808 !important;
-    color: #ffffff !important;
-  }
-  #app-header {
-    background-color: #080808 !important;
-  }
-  #site-footer {
-    background-color: #0d0d0d !important;
-  }
-  svg {
-    max-width: 100%;
-  }
-  .lang-switch-link svg {
-    width: 20px !important;
-    height: 14px !important;
-    max-width: 20px !important;
-    max-height: 14px !important;
-    display: inline-block !important;
-  }
-  .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #e5383b;
-    color: #ffffff;
-    font-weight: 700;
-    text-transform: uppercase;
-    transition: all 0.2s ease;
-  }
-  .btn-primary:hover {
-    background-color: #b7094c;
-  }
-  .btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: #ffffff;
-    font-weight: 700;
-    text-transform: uppercase;
-    transition: all 0.2s ease;
-  }
-  .btn-secondary:hover {
-    background-color: #ffffff;
-    color: #0d0d0d;
-  }
-</style>
