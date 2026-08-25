@@ -25,7 +25,7 @@ export default {
   },
   hero: {
     badge: 'SEÇKİN SPOR TURİZMİ VE SEÇMELER',
-    title: 'Uluslararası Spor Kampı Programları',
+    title: 'Uluslararası Spor Kampları',
     subtitle:
       'Seçkin sporcular için özel olarak tasarlanmış 3 Yıldızlı, 4 Yıldızlı ve 5 Yıldızlı VIP atletik kamplar, scout seçmeleri ve yüksek performans eğitimleri.',
     ctaPrimary: 'Futbol Kamplarını İncele',
@@ -119,10 +119,28 @@ export default {
       'Genç yetenekleri üst düzey, yapılandırılmış kamp deneyimleriyle uluslararası kulüpler ve akademilerle buluşturuyoruz.',
     storyTitle: 'SPORTIVERF Hakkında',
     storyDesc:
-      'SPORTIVERF, sporcular, yetişkin takımları ve spor akademileri için özel ve profesyonel spor kampları tasarlamaya ve organize etmeye odaklanmaktadır. Genç grup kamplarımız, uluslararası deneyime sahip seçkin antrenörler liderliğinde 3–4 günlük programlar olarak düzenlenmektedir. SPORTIVERF ayrıca, takımlara ve sporculara profesyonel, iyi organize edilmiş ve uluslararası bir spor deneyimi sunmak amacıyla spor akademileri ve profesyonel kulüp takımları için özel antrenman kampları tasarlama ve sunma konusunda uzmanlaşmıştır. SPORTIVERF ayrıca sporcuların eğitimlerine devam etmeleri ve önde gelen uluslararası üniversitelerde sportif gelişimlerini sürdürmeleri için akademik ve atletik fırsatlar sunmaktadır.',
+      'SPORTIVERF, sporcular ve takımlar için profesyonel gelişim, özel spor kampları, uluslararası spor deneyimleri ve akademik fırsatlar sunan kapsamlı bir spor platformudur.',
     aboutSportiverfTitle: 'SPORTIVERF Hakkında',
     aboutSportiverfDesc:
-      'SPORTIVERF, sporcular, yetişkin takımları ve spor akademileri için özel ve profesyonel spor kampları tasarlamaya ve organize etmeye odaklanmaktadır. Genç grup kamplarımız, uluslararası deneyime sahip seçkin antrenörler liderliğinde 3–4 günlük programlar olarak düzenlenmektedir. SPORTIVERF ayrıca, takımlara ve sporculara profesyonel, iyi organize edilmiş ve uluslararası bir spor deneyimi sunmak amacıyla spor akademileri ve profesyonel kulüp takımları için özel antrenman kampları tasarlama ve sunma konusunda uzmanlaşmıştır. SPORTIVERF ayrıca sporcuların eğitimlerine devam etmeleri ve önde gelen uluslararası üniversitelerde sportif gelişimlerini sürdürmeleri için akademik ve atletik fırsatlar sunmaktadır.',
+      'SPORTIVERF, sporcular ve takımlar için profesyonel gelişim, özel spor kampları, uluslararası spor deneyimleri ve akademik fırsatlar sunan kapsamlı bir spor platformudur.',
+    p1: 'SPORTIVERF, Türkiye merkezli bir spor platformudur ve 2026 yılında, sporcular ve spor takımları için uluslararası destek ve fırsatlar sunmak amacıyla kurulmuştur.',
+    p2: 'Sporcuları, akademileri ve spor takımlarını profesyonel gelişim ve ilerleme süreçlerinde destekliyor; uluslararası bağlantılar kurarak spor dünyasında yeni gelişim ve kariyer fırsatları sunmayı hedefliyoruz.',
+    p3: 'SPORTIVERF’in faaliyetleri; profesyonel spor programlarının tasarlanması ve organizasyonu, uzmanlaşmış spor kampları, uluslararası antrenörlerle iş birlikleri ve sportif ve akademik fırsatların oluşturulmasına odaklanmaktadır.',
+    p4: 'Amacımız yalnızca bir spor programı organize etmek değildir. Sporcuları ve takımları uluslararası fırsatlarla buluşturarak onların deneyim kazanmaları, öğrenmeleri ve profesyonel olarak gelişmeleri için yeni yollar oluşturmayı hedefliyoruz.',
+    p5: 'Misyonumuz; sporcuların, takımların ve spor akademilerinin uluslararası düzeyde gelişimini destekleyecek profesyonel ortamlar ve fırsatlar oluşturmaktır.',
+    chapter1Badge: '01 / KURULUŞ',
+    chapter1Title: 'Türkiye Merkezli Spor Platformu',
+    chapter2Badge: '02 / GELİŞİM & BAĞLANTILAR',
+    chapter2Title: 'Sporcular ve Akademiler İçin Fırsatlar',
+    chapter3Badge: '03 / FAALİYETLERİMİZ',
+    chapter3Title: 'Özel Kamplar ve Akademik Programlar',
+    chapter4Badge: '04 / HEDEFİMİZ',
+    chapter4Title: 'Uluslararası Fırsat Köprüsü',
+    chapter5Badge: '05 / MİSYONUMUZ',
+    chapter5Title: 'Profesyonel Ortamlar ve Standartlar',
+    exploreCamps: 'Kampları Keşfet',
+    contactConcierge: 'WhatsApp İle Bilgi Alın',
+    scrollPrompt: 'Aşağı Kaydırın',
     missionTitle: 'Misyonumuz',
     missionDesc:
       'Spor akademileri ve takımları için güvenli, profesyonel ve yüksek standartlı antrenman ortamları sağlarken, sporcuların profesyonel olarak büyümesi ve gelişmesi için fırsatlar yaratmak.',
@@ -200,8 +218,7 @@ export default {
     contactSupport: 'WhatsApp Danışmanı'
   },
   contact: {
-    whatsappText:
-      'Merhaba, elit spor kamplarıyla ilgileniyorum ve daha fazla bilgi almak istiyorum.',
+    whatsappText: 'Merhaba, bilgi almak istiyorum.',
     emailSubject: 'SPORTIVERF Kampları Hakkında Bilgi Talebi',
     emailBody:
       'Merhaba SPORTIVERF Ekibi,\n\nYaklaşan spor kamplarınız ve yetenek vitrinleriniz hakkında daha fazla bilgi almak istiyorum.\n\nTeşekkürler.'
