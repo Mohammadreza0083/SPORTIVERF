@@ -31,7 +31,9 @@ const features = localeContent.homepageFeatures;
     </h2>
   </div>
 
-  <!-- Mobile UI: Horizontally scrolling flex snap carousel with swipe cue -->
+  <!-- ========================================================= -->
+  <!-- MOBILE VIEW (Horizontal Swipe Carousel - Unchanged) -->
+  <!-- ========================================================= -->
   <div class="md:hidden">
     <!-- Swipe Hint Animation -->
     <div
@@ -96,59 +98,127 @@ const features = localeContent.homepageFeatures;
     </div>
   </div>
 
-  <!-- Desktop UI: Clean Grid Layout -->
+  <!-- ========================================================= -->
+  <!-- DESKTOP VIEW (Tabbed Sidebar UI with iOS-Style Nudge Scroll) -->
+  <!-- ========================================================= -->
   <div class="hidden md:block max-w-[1400px] mx-auto px-8">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {
-        features.map((feature, idx) => (
-          <div class="bg-[#121212] border border-[#262626] hover:border-[#E5383B]/60 p-7 lg:p-8 flex flex-col justify-between relative overflow-hidden group transition-all duration-300 hover:shadow-[0_0_30px_rgba(229,56,59,0.15)]">
-            <div class="absolute top-0 right-0 w-32 h-32 bg-[#E5383B]/5 rounded-full blur-3xl pointer-events-none group-hover:bg-[#E5383B]/15 transition-all duration-300" />
-            <div class="relative z-10">
-              <div class="flex items-center justify-between mb-5">
-                <span class="font-mono text-xs font-bold text-[#E5383B] uppercase tracking-widest">
-                  {String(idx + 1).padStart(2, '0')}
-                </span>
-                <span class="w-1.5 h-1.5 rounded-full bg-[#E5383B]/60 group-hover:bg-[#E5383B] transition-colors" />
-              </div>
-              <h3 class="font-barlow font-black text-2xl uppercase tracking-tight text-white mb-4 transition-colors">
-                {feature.title}
-              </h3>
-              <p class="text-sm text-[#AAAAAA] leading-relaxed font-light whitespace-pre-line">
-                {feature.description}
-              </p>
-            </div>
-            <div class="pt-6 mt-6 border-t border-white/5 flex items-center justify-between relative z-10">
-              <span class="font-mono text-[10px] uppercase tracking-widest text-[#666666] group-hover:text-[#888888] transition-colors">
-                SPORTIVERF • {locale === 'tr' ? 'HİZMET' : 'FEATURE'}
-              </span>
-              <svg
-                class="w-4 h-4 text-[#E5383B] transform group-hover:translate-x-1 transition-transform"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
-                />
-              </svg>
-            </div>
+    <div class="grid grid-cols-12 gap-8 items-stretch">
+      <!-- Left Column: iOS-style Scrollable Menu with Fixed Bottom CTA -->
+      <div class="col-span-5 lg:col-span-4 flex flex-col justify-between pr-4 border-r border-[#222222]">
+        <div>
+          <div class="flex items-center justify-between mb-3 pr-2">
+            <span class="font-mono text-xs text-[#888888] uppercase tracking-widest">
+              {locale === 'tr' ? 'HİZMET SEÇİN' : 'SELECT SERVICE'}
+            </span>
+            <span class="font-mono text-[11px] text-[#E5383B] uppercase tracking-wider">
+              {features.length} {locale === 'tr' ? 'ÖZELLİK' : 'FEATURES'}
+            </span>
           </div>
-        ))
-      }
-    </div>
 
-    <!-- Desktop CTA Button Below Grid -->
-    <div class="flex justify-center mt-12">
-      <a
-        href={`/${locale}/about`}
-        class="btn-red !py-4 !px-8 text-sm font-barlow font-bold uppercase tracking-wider inline-flex items-center gap-3 shadow-[0_0_20px_rgba(229,56,59,0.3)] hover:shadow-[0_0_30px_rgba(229,56,59,0.6)] transition-all"
-      >
-        <span>{t('about.storyTitle')}</span>
-        <span>&rarr;</span>
-      </a>
+          <!-- Vertically Scrollable List (4 items visible at a time, hidden scrollbar) -->
+          <div
+            id="homepage-feature-scroll-menu"
+            class="space-y-2.5 max-h-[355px] overflow-y-auto hide-scrollbar pr-1 scroll-smooth"
+          >
+            {
+              features.map((feature, idx) => (
+                <button
+                  type="button"
+                  data-feature-target={idx}
+                  class={`homepage-feature-tab w-full text-left p-3.5 border-l-4 transition-all duration-300 cursor-pointer flex flex-col justify-between ${
+                    idx === 0
+                      ? 'bg-[#181818] border-[#E5383B] shadow-[0_0_15px_rgba(229,56,59,0.15)]'
+                      : 'bg-[#121212] border-transparent opacity-75 hover:opacity-100 hover:bg-[#161616]'
+                  }`}
+                >
+                  <span class="font-mono text-[10px] text-[#E5383B] font-bold uppercase tracking-widest block mb-0.5">
+                    {String(idx + 1).padStart(2, '0')} / SPORTIVERF
+                  </span>
+                  <span class="font-barlow font-bold text-base uppercase tracking-wide text-white block">
+                    {feature.title}
+                  </span>
+                </button>
+              ))
+            }
+          </div>
+        </div>
+
+        <!-- Fixed Bottom CTA Button in Left Column -->
+        <div class="pt-6 mt-4 border-t border-[#222222]">
+          <a
+            href={`/${locale}/about`}
+            class="btn-red !py-3.5 !px-6 text-xs text-center w-full block font-barlow font-bold uppercase tracking-wider shadow-[0_0_20px_rgba(229,56,59,0.3)] hover:shadow-[0_0_30px_rgba(229,56,59,0.5)] transition-all"
+          >
+            {t('about.storyTitle')} &rarr;
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column: Glassmorphism Content Card -->
+      <div class="col-span-7 lg:col-span-8 relative">
+        <div
+          class="relative bg-[#121212] border border-[#262626] p-8 lg:p-10 min-h-[440px] h-full flex flex-col justify-between overflow-hidden shadow-2xl"
+        >
+          <!-- Background Ambient Neon Red Glow -->
+          <div
+            class="absolute -bottom-10 -right-10 w-72 h-72 bg-[#E5383B]/10 rounded-full blur-3xl pointer-events-none"
+          >
+          </div>
+
+          {
+            features.map((feature, idx) => (
+              <div
+                data-feature-slide={idx}
+                class={`homepage-feature-slide h-full flex flex-col justify-between transition-all duration-500 ${
+                  idx === 0 ? 'block opacity-100' : 'hidden opacity-0'
+                }`}
+              >
+                <div>
+                  <!-- Header Row with Index Badge and Accent -->
+                  <div class="flex items-center justify-between pb-5 mb-6 border-b border-white/10">
+                    <div class="flex items-center gap-3">
+                      <span class="font-mono text-xs font-bold text-[#E5383B] tracking-widest px-3 py-1 bg-[#1A1A1A] border border-[#E5383B]/30">
+                        {String(idx + 1).padStart(2, '0')} / {String(features.length).padStart(2, '0')}
+                      </span>
+                      <span class="font-mono text-xs uppercase tracking-widest text-[#888888]">
+                        SPORTIVERF • {locale === 'tr' ? 'HİZMET' : 'FEATURE'}
+                      </span>
+                    </div>
+
+                    <div class="w-10 h-10 rounded bg-[#E5383B]/10 border border-[#E5383B]/30 flex items-center justify-center text-[#E5383B] font-mono text-sm font-bold shadow-[0_0_15px_rgba(229,56,59,0.2)]">
+                      {String(idx + 1).padStart(2, '0')}
+                    </div>
+                  </div>
+
+                  <!-- Feature Title -->
+                  <h3 class="font-barlow font-black text-2xl sm:text-3xl lg:text-4xl uppercase tracking-tight text-white mb-5 leading-tight">
+                    {feature.title}
+                  </h3>
+
+                  <!-- Feature Description with Multiline Formatting -->
+                  <p class="font-sans text-sm sm:text-base text-[#CCCCCC] font-light leading-relaxed whitespace-pre-line">
+                    {feature.description}
+                  </p>
+                </div>
+
+                <!-- Footer Meta -->
+                <div class="pt-6 mt-8 border-t border-white/10 flex items-center justify-between">
+                  <span class="font-mono text-[11px] text-[#666666] uppercase tracking-widest">
+                    SPORTIVERF EXCELLENCE • 2026
+                  </span>
+                  <a
+                    href={`/${locale}/about`}
+                    class="text-xs font-barlow font-bold uppercase tracking-wider text-[#E5383B] hover:text-white transition-colors flex items-center gap-1.5"
+                  >
+                    <span>{locale === 'tr' ? 'Detayları İnceleyin' : 'Learn More'}</span>
+                    <span>&rarr;</span>
+                  </a>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -162,3 +232,84 @@ const features = localeContent.homepageFeatures;
     scrollbar-width: none;
   }
 </style>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1. Tab Switching Logic
+    const tabs = document.querySelectorAll('.homepage-feature-tab');
+    const slides = document.querySelectorAll('.homepage-feature-slide');
+
+    if (tabs.length && slides.length) {
+      const switchTab = (targetIndex) => {
+        tabs.forEach((tab, i) => {
+          if (i === targetIndex) {
+            tab.classList.remove('bg-[#121212]', 'border-transparent', 'opacity-75');
+            tab.classList.add(
+              'bg-[#181818]',
+              'border-[#E5383B]',
+              'shadow-[0_0_15px_rgba(229,56,59,0.15)]'
+            );
+          } else {
+            tab.classList.remove(
+              'bg-[#181818]',
+              'border-[#E5383B]',
+              'shadow-[0_0_15px_rgba(229,56,59,0.15)]'
+            );
+            tab.classList.add('bg-[#121212]', 'border-transparent', 'opacity-75');
+          }
+        });
+
+        slides.forEach((slide, i) => {
+          if (i === targetIndex) {
+            slide.classList.remove('hidden', 'opacity-0');
+            slide.classList.add('block', 'opacity-100');
+          } else {
+            slide.classList.add('hidden', 'opacity-0');
+            slide.classList.remove('block', 'opacity-100');
+          }
+        });
+      };
+
+      tabs.forEach((tab) => {
+        tab.addEventListener('click', () => {
+          const targetIndex = parseInt(tab.getAttribute('data-feature-target') || '0', 10);
+          switchTab(targetIndex);
+        });
+      });
+    }
+
+    // 2. iOS-Style Scroll Nudge Animation
+    const scrollContainer = document.getElementById('homepage-feature-scroll-menu');
+    if (scrollContainer) {
+      let isInteracted = false;
+
+      const stopNudge = () => {
+        if (!isInteracted) {
+          isInteracted = true;
+          if (nudgeInterval) {
+            clearInterval(nudgeInterval);
+          }
+        }
+      };
+
+      // UX Guards: stop nudge animation permanently upon any user interaction
+      scrollContainer.addEventListener('mouseenter', stopNudge, { once: true });
+      scrollContainer.addEventListener('touchstart', stopNudge, { once: true, passive: true });
+      scrollContainer.addEventListener('wheel', stopNudge, { once: true, passive: true });
+      scrollContainer.addEventListener('scroll', stopNudge, { once: true, passive: true });
+
+      // Trigger subtle nudge every 2.5s (scrolls down ~20px, waits 300ms, scrolls back up ~20px)
+      const nudgeInterval = setInterval(() => {
+        if (isInteracted) return;
+
+        scrollContainer.scrollBy({ top: 20, behavior: 'smooth' });
+
+        setTimeout(() => {
+          if (!isInteracted) {
+            scrollContainer.scrollBy({ top: -20, behavior: 'smooth' });
+          }
+        }, 300);
+      }, 2500);
+    }
+  });
+</script>
