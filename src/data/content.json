@@ -4,11 +4,25 @@
       {
         "id": 1,
         "index": "01",
-        "badge": "01 / FOUNDATION",
-        "title": "Türkiye-Based Sports Platform",
-        "description": "SPORTIVERF is a sports platform based in Türkiye, founded in 2026 with the aim of supporting athletes and sports teams and creating international opportunities for their development.",
+        "badge": "01 / SPORTIVERF FOUNDATION",
+        "title": "About SPORTIVERF",
+        "description": "SPORTIVERF is a comprehensive sports platform based in Türkiye, founded in 2026 with the aim of supporting athletes and sports teams through professional development, specialized sports camps, international sports experiences, and academic opportunities.",
         "tag": "TÜRKİYE • 2026",
-        "icon": "globe"
+        "icon": "globe",
+        "highlights": [
+          {
+            "label": "EXCELLENCE",
+            "value": "Trust & Supervision"
+          },
+          {
+            "label": "DEVELOPMENT",
+            "value": "Athletic Excellence"
+          },
+          {
+            "label": "OPPORTUNITY",
+            "value": "Global Opportunity"
+          }
+        ]
       },
       {
         "id": 2,
@@ -17,7 +31,17 @@
         "title": "Opportunities for Athletes & Academies",
         "description": "We support athletes, academies, and sports teams throughout their professional growth and development, while creating international connections and new opportunities within the global sports industry.",
         "tag": "DEVELOPMENT & NETWORK",
-        "icon": "athletes"
+        "icon": "athletes",
+        "highlights": [
+          {
+            "label": "NETWORK EXPANSION",
+            "value": "Direct bridges with European sports clubs and academies."
+          },
+          {
+            "label": "TALENT NURTURING",
+            "value": "Structured pathways for aspiring youth and professional players."
+          }
+        ]
       },
       {
         "id": 3,
@@ -26,25 +50,62 @@
         "title": "Specialized Camps & Academic Programs",
         "description": "SPORTIVERF focuses on the design and organization of professional sports programs, specialized training camps, international coaching collaborations, and academic and athletic opportunities.",
         "tag": "ELITE CAMPS & ACADEMICS",
-        "icon": "programs"
+        "icon": "programs",
+        "highlights": [
+          {
+            "label": "ELITE CLINICS",
+            "value": "Custom high-performance volleyball and multisport programs."
+          },
+          {
+            "label": "COACHING COLLABORATIONS",
+            "value": "Masterclasses led by certified international coaches."
+          }
+        ]
       },
       {
         "id": 4,
         "index": "04",
-        "badge": "04 / OUR GOAL",
-        "title": "International Opportunity Pathway",
-        "description": "Our goal is not simply to organize sports programs. We aim to connect athletes and teams with international opportunities, creating new pathways for experience, learning, and professional development.",
-        "tag": "GLOBAL HORIZONS",
-        "icon": "pathway"
+        "badge": "04 / CORE OBJECTIVE",
+        "title": "Our Mission",
+        "description": "To provide safe, professional, and high-standard training environments for sports academies and teams, while creating opportunities for athletes to grow and develop professionally.",
+        "tag": "MISSION & EXCELLENCE",
+        "icon": "mission",
+        "highlights": [
+          {
+            "label": "PROFESSIONAL GROWTH",
+            "value": "Designing high-standard athletic training camps that empower youth teams and professional clubs."
+          }
+        ]
       },
       {
         "id": 5,
         "index": "05",
-        "badge": "05 / OUR MISSION",
-        "title": "Professional Environments & Standards",
-        "description": "Our mission is to create professional environments and opportunities that support the growth and development of athletes, sports teams, and academies on an international level.",
-        "tag": "MISSION & EXCELLENCE",
-        "icon": "mission"
+        "badge": "05 / GLOBAL REACH",
+        "title": "Our Vision",
+        "description": "To become a trusted international reference in sports tourism and build a strong bridge connecting athletes, sports teams, and academies worldwide.",
+        "tag": "GLOBAL HORIZONS",
+        "icon": "pathway",
+        "highlights": [
+          {
+            "label": "GLOBAL PATHWAY",
+            "value": "Connecting athletes directly with European scout networks and international university opportunities."
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "index": "06",
+        "badge": "06 / LEGAL ASSURANCE",
+        "title": "Legal & Official Oversight",
+        "description": "All operational, travel-related, and legal requirements of the programs are managed in cooperation with and under the coverage of Ak Limosa Turizm.",
+        "tag": "TÜRSAB LICENSED GUARANTEE",
+        "icon": "shield",
+        "highlights": [
+          {
+            "label": "AK LIMOSA TURIZM SUPERVISION",
+            "value": "Official TÜRSAB licensed agency guarantee, full comprehensive travel protection & contract clarity."
+          }
+        ]
       }
     ],
     "homepageFeatures": [
@@ -90,11 +151,25 @@
       {
         "id": 1,
         "index": "01",
-        "badge": "01 / KURULUŞ",
-        "title": "Türkiye Merkezli Spor Platformu",
-        "description": "SPORTIVERF, Türkiye merkezli bir spor platformudur ve 2026 yılında, sporcular ve spor takımları için uluslararası destek ve fırsatlar sunmak amacıyla kurulmuştur.",
+        "badge": "01 / SPORTIVERF KURULUŞ",
+        "title": "SPORTIVERF Hakkında",
+        "description": "SPORTIVERF, Türkiye merkezli bir spor platformudur ve 2026 yılında, sporcular ve spor takımları için profesyonel gelişim, özel spor kampları, uluslararası spor deneyimleri ve akademik fırsatlar sunmak amacıyla kurulmuştur.",
         "tag": "TÜRKİYE • 2026",
-        "icon": "globe"
+        "icon": "globe",
+        "highlights": [
+          {
+            "label": "MÜKEMMELLİK",
+            "value": "Güven & Denetim"
+          },
+          {
+            "label": "GELİŞİM",
+            "value": "Sportif Mükemmellik"
+          },
+          {
+            "label": "FIRSAT",
+            "value": "Küresel Fırsat"
+          }
+        ]
       },
       {
         "id": 2,
@@ -102,8 +177,18 @@
         "badge": "02 / GELİŞİM & BAĞLANTILAR",
         "title": "Sporcular ve Akademiler İçin Fırsatlar",
         "description": "Sporcuları, akademileri ve spor takımlarını profesyonel gelişim ve ilerleme süreçlerinde destekliyor; uluslararası bağlantılar kurarak spor dünyasında yeni gelişim ve kariyer fırsatları sunmayı hedefliyoruz.",
-        "tag": "DEVELOPMENT & NETWORK",
-        "icon": "athletes"
+        "tag": "GELİŞİM & BAĞLANTI",
+        "icon": "athletes",
+        "highlights": [
+          {
+            "label": "AĞ GENİŞLEMESİ",
+            "value": "Avrupa spor kulüpleri ve akademileriyle doğrudan bağlantılar."
+          },
+          {
+            "label": "YETENEK GELİŞİMİ",
+            "value": "Genç ve profesyonel sporcular için yapılandırılmış gelişim yolları."
+          }
+        ]
       },
       {
         "id": 3,
@@ -111,26 +196,63 @@
         "badge": "03 / FAALİYETLERİMİZ",
         "title": "Özel Kamplar ve Akademik Programlar",
         "description": "SPORTIVERF’in faaliyetleri; profesyonel spor programlarının tasarlanması ve organizasyonu, uzmanlaşmış spor kampları, uluslararası antrenörlerle iş birlikleri ve sportif ve akademik fırsatların oluşturulmasına odaklanmaktadır.",
-        "tag": "ELITE CAMPS & ACADEMICS",
-        "icon": "programs"
+        "tag": "ÖZEL KAMPLAR & AKADEMİ",
+        "icon": "programs",
+        "highlights": [
+          {
+            "label": "SEÇKİN KLİNİKLER",
+            "value": "Özel yüksek performanslı voleybol ve spor kampları."
+          },
+          {
+            "label": "ANTRENÖR İŞ BİRLİKLERİ",
+            "value": "Sertifikalı uluslararası antrenörler liderliğinde gelişim seansları."
+          }
+        ]
       },
       {
         "id": 4,
         "index": "04",
-        "badge": "04 / HEDEFİMİZ",
-        "title": "Uluslararası Fırsat Köprüsü",
-        "description": "Amacımız yalnızca bir spor programı organize etmek değildir. Sporcuları ve takımları uluslararası fırsatlarla buluşturarak onların deneyim kazanmaları, öğrenmeleri ve profesyonel olarak gelişmeleri için yeni yollar oluşturmayı hedefliyoruz.",
-        "tag": "GLOBAL HORIZONS",
-        "icon": "pathway"
+        "badge": "04 / TEMEL HEDEF",
+        "title": "Misyonumuz",
+        "description": "Spor akademileri ve takımları için güvenli, profesyonel ve yüksek standartlı antrenman ortamları sağlarken, sporcuların profesyonel olarak büyümesi ve gelişmesi için fırsatlar yaratmak.",
+        "tag": "MİSYON & MÜKEMMELLİK",
+        "icon": "mission",
+        "highlights": [
+          {
+            "label": "PROFESYONEL GELİŞİM",
+            "value": "Genç takımları ve profesyonel kulüpleri güçlendiren yüksek standartlı spor kampları tasarlamak."
+          }
+        ]
       },
       {
         "id": 5,
         "index": "05",
-        "badge": "05 / MİSYONUMUZ",
-        "title": "Profesyonel Ortamlar ve Standartlar",
-        "description": "Misyonumuz; sporcuların, takımların ve spor akademilerinin uluslararası düzeyde gelişimini destekleyecek profesyonel ortamlar ve fırsatlar oluşturmaktır.",
-        "tag": "MISSION & EXCELLENCE",
-        "icon": "mission"
+        "badge": "05 / KÜRESEL ERİŞİM",
+        "title": "Vizyonumuz",
+        "description": "Spor turizminde güvenilir bir uluslararası referans olmak ve dünya çapında sporcuları, spor takımlarını ve akademileri birbirine bağlayan güçlü bir köprü kurmak.",
+        "tag": "KÜRESEL VİZYON",
+        "icon": "pathway",
+        "highlights": [
+          {
+            "label": "KÜRESEL YOL HARİTASI",
+            "value": "Sporcuları doğrudan Avrupa scout ağları ve uluslararası üniversite fırsatlarıyla buluşturmak."
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "index": "06",
+        "badge": "06 / YASAL GÜVENCE",
+        "title": "Yasal & Resmi Denetim",
+        "description": "Programların tüm operasyonel, seyahat ve yasal gereksinimleri Ak Limosa Turizm iş birliğiyle ve güvencesi altında yönetilmektedir.",
+        "tag": "TÜRSAB LİSANSLI GÜVENCE",
+        "icon": "shield",
+        "highlights": [
+          {
+            "label": "AK LİMOSA TURİZM DENETİMİ",
+            "value": "Resmi TÜRSAB lisanslı acente garantisi, kapsamlı seyahat güvencesi ve sözleşme şeffaflığı."
+          }
+        ]
       }
     ],
     "homepageFeatures": [

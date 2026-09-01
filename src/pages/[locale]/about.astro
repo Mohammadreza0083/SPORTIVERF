@@ -28,7 +28,8 @@ const chapters = rawSlides.map((slide, idx) => ({
   title: slide.title,
   paragraph: slide.description,
   tag: slide.tag || 'SPORTIVERF 2026',
-  icon: slide.icon || 'globe'
+  icon: slide.icon || 'globe',
+  highlights: slide.highlights || []
 }));
 
 const totalChaptersFormatted = String(chapters.length).padStart(2, '0');
@@ -184,7 +185,21 @@ const totalChaptersFormatted = String(chapters.length).padStart(2, '0');
                       <circle cx="12" cy="12" r="2" />
                     </svg>
                   )}
-                  {!['globe', 'athletes', 'programs', 'pathway', 'mission'].includes(
+                  {chapter.icon === 'shield' && (
+                    <svg
+                      class="w-16 h-16 md:w-20 md:h-20 text-[#E5383B] filter drop-shadow-[0_0_12px_rgba(229,56,59,0.6)]"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                      <path d="M9 12l2 2 4-4" />
+                    </svg>
+                  )}
+                  {!['globe', 'athletes', 'programs', 'pathway', 'mission', 'shield'].includes(
                     chapter.icon
                   ) && (
                     <svg
@@ -232,9 +247,9 @@ const totalChaptersFormatted = String(chapters.length).padStart(2, '0');
         </div>
       </div>
 
-      {/* ========================================================= */}
-      {/* SCROLLING TEXT SIDE (Full-Screen Snap-Start Sections) */}
-      {/* ========================================================= */}
+      <!-- ========================================================= -->
+      <!-- SCROLLING TEXT SIDE (Full-Screen Snap-Start Sections) -->
+      <!-- ========================================================= -->
       <div class="relative z-10 flex flex-col">
         {
           chapters.map((chapter, idx) => (
@@ -323,7 +338,21 @@ const totalChaptersFormatted = String(chapters.length).padStart(2, '0');
                         <circle cx="12" cy="12" r="2" />
                       </svg>
                     )}
-                    {!['globe', 'athletes', 'programs', 'pathway', 'mission'].includes(
+                    {chapter.icon === 'shield' && (
+                      <svg
+                        class="w-10 h-10 text-[#E5383B] filter drop-shadow-[0_0_8px_rgba(229,56,59,0.6)]"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        <path d="M9 12l2 2 4-4" />
+                      </svg>
+                    )}
+                    {!['globe', 'athletes', 'programs', 'pathway', 'mission', 'shield'].includes(
                       chapter.icon
                     ) && (
                       <svg
@@ -350,13 +379,31 @@ const totalChaptersFormatted = String(chapters.length).padStart(2, '0');
                   {chapter.title}
                 </h2>
 
-                <p class="font-sans text-base sm:text-lg md:text-xl text-[#DDDDDD] font-light leading-relaxed mb-8 whitespace-pre-line">
+                <p class="font-sans text-base sm:text-lg md:text-xl text-[#DDDDDD] font-light leading-relaxed mb-6 whitespace-pre-line">
                   {chapter.paragraph}
                 </p>
 
+                {/* Sub-highlights or Sub-points (e.g., EXCELLENCE, DEVELOPMENT, OPPORTUNITY) */}
+                {chapter.highlights && chapter.highlights.length > 0 && (
+                  <div
+                    class={`grid gap-3 mb-8 w-full ${
+                      chapter.highlights.length > 1 ? 'grid-cols-1 sm:grid-cols-3' : 'grid-cols-1'
+                    }`}
+                  >
+                    {chapter.highlights.map((h: { label: string; value: string }) => (
+                      <div class="p-3.5 bg-[#141414]/90 border border-white/10 hover:border-[#E5383B]/50 transition-colors">
+                        <span class="font-mono text-[10px] text-[#E5383B] uppercase tracking-widest block font-bold mb-1">
+                          {h.label}
+                        </span>
+                        <p class="text-xs text-[#CCCCCC] leading-snug font-light">{h.value}</p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
                 {/* Section-Specific Elements (Final Slide gets CTAs, earlier ones get scroll prompt) */}
                 {idx === chapters.length - 1 ? (
-                  <div class="space-y-6 pt-4 border-t border-white/10">
+                  <div class="space-y-6 pt-4 border-t border-white/10 w-full">
                     <div class="flex flex-wrap items-center gap-3.5">
                       <a
                         href={`/${locale}/volleyball-camps`}
