@@ -8,6 +8,7 @@ import SkipToContent from '@/components/shared/SkipToContent.astro';
 import { LOCALES_LIST } from '@/i18n/config';
 import type { SupportedLocale } from '@/types/i18n';
 import { useTranslations } from '@/i18n/utils';
+import contentData from '@/data/content.json';
 
 export function getStaticPaths() {
   return LOCALES_LIST.map((locale) => ({
@@ -18,48 +19,19 @@ export function getStaticPaths() {
 const { locale } = Astro.params as { locale: SupportedLocale };
 const t = useTranslations(locale);
 
-const chapters = [
-  {
-    index: '01',
-    badge: t('about.chapter1Badge'),
-    title: t('about.chapter1Title'),
-    paragraph: t('about.p1'),
-    tag: 'TÜRKİYE • 2026',
-    icon: 'globe'
-  },
-  {
-    index: '02',
-    badge: t('about.chapter2Badge'),
-    title: t('about.chapter2Title'),
-    paragraph: t('about.p2'),
-    tag: 'DEVELOPMENT & NETWORK',
-    icon: 'athletes'
-  },
-  {
-    index: '03',
-    badge: t('about.chapter3Badge'),
-    title: t('about.chapter3Title'),
-    paragraph: t('about.p3'),
-    tag: 'ELITE CAMPS & ACADEMICS',
-    icon: 'programs'
-  },
-  {
-    index: '04',
-    badge: t('about.chapter4Badge'),
-    title: t('about.chapter4Title'),
-    paragraph: t('about.p4'),
-    tag: 'GLOBAL HORIZONS',
-    icon: 'pathway'
-  },
-  {
-    index: '05',
-    badge: t('about.chapter5Badge'),
-    title: t('about.chapter5Title'),
-    paragraph: t('about.p5'),
-    tag: 'MISSION & EXCELLENCE',
-    icon: 'mission'
-  }
-];
+const localeContent = contentData[locale as keyof typeof contentData] || contentData.en;
+const rawSlides = localeContent.aboutPageSlides;
+
+const chapters = rawSlides.map((slide, idx) => ({
+  index: slide.index || String(idx + 1).padStart(2, '0'),
+  badge: slide.badge,
+  title: slide.title,
+  paragraph: slide.description,
+  tag: slide.tag || 'SPORTIVERF 2026',
+  icon: slide.icon || 'globe'
+}));
+
+const totalChaptersFormatted = String(chapters.length).padStart(2, '0');
 ---
 
 <BaseLayout
@@ -112,7 +84,7 @@ const chapters = [
             id="active-chapter-counter"
             class="font-mono text-xs font-bold text-[#E5383B] tracking-widest px-3 py-1 bg-[#141414]/90 border border-[#E5383B]/30 backdrop-blur-md"
           >
-            01 / 05
+            01 / {totalChaptersFormatted}
           </div>
         </div>
 
@@ -127,107 +99,109 @@ const chapters = [
             >
             </div>
 
-            <!-- Icon 01: Foundation / Globe -->
-            <div
-              data-icon-index="0"
-              class="scrolly-icon absolute transition-all duration-500 transform opacity-100 scale-100 translate-y-0"
-            >
-              <svg
-                class="w-16 h-16 md:w-20 md:h-20 text-[#E5383B] filter drop-shadow-[0_0_12px_rgba(229,56,59,0.6)]"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="2" y1="12" x2="22" y2="12"></line>
-                <path
-                  d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
-                ></path>
-              </svg>
-            </div>
-
-            <!-- Icon 02: Growth / Athletes & Network -->
-            <div
-              data-icon-index="1"
-              class="scrolly-icon absolute transition-all duration-500 transform opacity-0 scale-75 translate-y-4 pointer-events-none"
-            >
-              <svg
-                class="w-16 h-16 md:w-20 md:h-20 text-[#E5383B] filter drop-shadow-[0_0_12px_rgba(229,56,59,0.6)]"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                <circle cx="9" cy="7" r="4"></circle>
-                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-              </svg>
-            </div>
-
-            <!-- Icon 03: Core Activities & Training / Academics -->
-            <div
-              data-icon-index="2"
-              class="scrolly-icon absolute transition-all duration-500 transform opacity-0 scale-75 translate-y-4 pointer-events-none"
-            >
-              <svg
-                class="w-16 h-16 md:w-20 md:h-20 text-[#E5383B] filter drop-shadow-[0_0_12px_rgba(229,56,59,0.6)]"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-                <path d="M12 12v6"></path>
-              </svg>
-            </div>
-
-            <!-- Icon 04: International Pathways & Global Vision -->
-            <div
-              data-icon-index="3"
-              class="scrolly-icon absolute transition-all duration-500 transform opacity-0 scale-75 translate-y-4 pointer-events-none"
-            >
-              <svg
-                class="w-16 h-16 md:w-20 md:h-20 text-[#E5383B] filter drop-shadow-[0_0_12px_rgba(229,56,59,0.6)]"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <circle cx="12" cy="12" r="10"></circle>
-                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
-              </svg>
-            </div>
-
-            <!-- Icon 05: Mission / Excellence & Crest -->
-            <div
-              data-icon-index="4"
-              class="scrolly-icon absolute transition-all duration-500 transform opacity-0 scale-75 translate-y-4 pointer-events-none"
-            >
-              <svg
-                class="w-16 h-16 md:w-20 md:h-20 text-[#E5383B] filter drop-shadow-[0_0_12px_rgba(229,56,59,0.6)]"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <circle cx="12" cy="12" r="10"></circle>
-                <circle cx="12" cy="12" r="6"></circle>
-                <circle cx="12" cy="12" r="2"></circle>
-              </svg>
-            </div>
+            {
+              chapters.map((chapter, idx) => (
+                <div
+                  data-icon-index={idx}
+                  class={`scrolly-icon absolute transition-all duration-500 transform ${
+                    idx === 0
+                      ? 'opacity-100 scale-100 translate-y-0'
+                      : 'opacity-0 scale-75 translate-y-4 pointer-events-none'
+                  }`}
+                >
+                  {chapter.icon === 'globe' && (
+                    <svg
+                      class="w-16 h-16 md:w-20 md:h-20 text-[#E5383B] filter drop-shadow-[0_0_12px_rgba(229,56,59,0.6)]"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <line x1="2" y1="12" x2="22" y2="12" />
+                      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                    </svg>
+                  )}
+                  {chapter.icon === 'athletes' && (
+                    <svg
+                      class="w-16 h-16 md:w-20 md:h-20 text-[#E5383B] filter drop-shadow-[0_0_12px_rgba(229,56,59,0.6)]"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                      <circle cx="9" cy="7" r="4" />
+                      <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                    </svg>
+                  )}
+                  {chapter.icon === 'programs' && (
+                    <svg
+                      class="w-16 h-16 md:w-20 md:h-20 text-[#E5383B] filter drop-shadow-[0_0_12px_rgba(229,56,59,0.6)]"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                      <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                      <path d="M12 12v6" />
+                    </svg>
+                  )}
+                  {chapter.icon === 'pathway' && (
+                    <svg
+                      class="w-16 h-16 md:w-20 md:h-20 text-[#E5383B] filter drop-shadow-[0_0_12px_rgba(229,56,59,0.6)]"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+                    </svg>
+                  )}
+                  {chapter.icon === 'mission' && (
+                    <svg
+                      class="w-16 h-16 md:w-20 md:h-20 text-[#E5383B] filter drop-shadow-[0_0_12px_rgba(229,56,59,0.6)]"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <circle cx="12" cy="12" r="6" />
+                      <circle cx="12" cy="12" r="2" />
+                    </svg>
+                  )}
+                  {!['globe', 'athletes', 'programs', 'pathway', 'mission'].includes(
+                    chapter.icon
+                  ) && (
+                    <svg
+                      class="w-16 h-16 md:w-20 md:h-20 text-[#E5383B] filter drop-shadow-[0_0_12px_rgba(229,56,59,0.6)]"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                  )}
+                </div>
+              ))
+            }
           </div>
         </div>
 
@@ -259,7 +233,7 @@ const chapters = [
       </div>
 
       {/* ========================================================= */}
-      {/* SCROLLING TEXT SIDE (5 Full-Screen Snap-Start Sections) */}
+      {/* SCROLLING TEXT SIDE (Full-Screen Snap-Start Sections) */}
       {/* ========================================================= */}
       <div class="relative z-10 flex flex-col">
         {
@@ -349,6 +323,21 @@ const chapters = [
                         <circle cx="12" cy="12" r="2" />
                       </svg>
                     )}
+                    {!['globe', 'athletes', 'programs', 'pathway', 'mission'].includes(
+                      chapter.icon
+                    ) && (
+                      <svg
+                        class="w-10 h-10 text-[#E5383B] filter drop-shadow-[0_0_8px_rgba(229,56,59,0.6)]"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                      </svg>
+                    )}
                   </div>
                 </div>
 
@@ -361,12 +350,12 @@ const chapters = [
                   {chapter.title}
                 </h2>
 
-                <p class="font-sans text-base sm:text-lg md:text-xl text-[#DDDDDD] font-light leading-relaxed mb-8">
+                <p class="font-sans text-base sm:text-lg md:text-xl text-[#DDDDDD] font-light leading-relaxed mb-8 whitespace-pre-line">
                   {chapter.paragraph}
                 </p>
 
-                {/* Section-Specific Elements */}
-                {idx === 4 ? (
+                {/* Section-Specific Elements (Final Slide gets CTAs, earlier ones get scroll prompt) */}
+                {idx === chapters.length - 1 ? (
                   <div class="space-y-6 pt-4 border-t border-white/10">
                     <div class="flex flex-wrap items-center gap-3.5">
                       <a
@@ -433,8 +422,11 @@ const chapters = [
     const mediaIcons = document.querySelectorAll('.scrolly-icon');
     const chapterPills = document.querySelectorAll('.chapter-nav-dot');
     const chapterCounter = document.getElementById('active-chapter-counter');
+    const totalChapters = sections.length;
 
     if (!sections.length) return;
+
+    const formatNum = (n) => String(n).padStart(2, '0');
 
     const setActiveChapter = (index) => {
       // Cross-fade SVG glowing icons
@@ -461,7 +453,7 @@ const chapters = [
 
       // Update counter
       if (chapterCounter) {
-        chapterCounter.textContent = `0${index + 1} / 05`;
+        chapterCounter.textContent = `${formatNum(index + 1)} / ${formatNum(totalChapters)}`;
       }
     };
 

@@ -1,6 +1,7 @@
 ---
 import type { SupportedLocale } from '@/types/i18n';
 import { useTranslations } from '@/i18n/utils';
+import contentData from '@/data/content.json';
 
 export interface Props {
   locale: SupportedLocale;
@@ -8,496 +9,156 @@ export interface Props {
 
 const { locale } = Astro.props;
 const t = useTranslations(locale);
+
+const localeContent = contentData[locale as keyof typeof contentData] || contentData.en;
+const features = localeContent.homepageFeatures;
 ---
 
 <section
-  id="storytelling-section"
-  class="py-8 md:py-12 bg-[#0A0A0A] text-white overflow-hidden relative border-b border-[#222222]"
+  id="homepage-features-section"
+  class="py-12 md:py-20 bg-[#0A0A0A] text-white overflow-hidden relative border-b border-[#222222]"
 >
-  <div class="max-w-[1400px] mx-auto px-4 md:px-8 mb-5 md:mb-7 text-center">
+  <div class="max-w-[1400px] mx-auto px-4 md:px-8 mb-8 md:mb-12 text-center">
     <span
       class="inline-block px-3.5 py-1 bg-[#E5383B]/10 border border-[#E5383B]/30 text-[#E5383B] font-mono text-xs uppercase tracking-[0.2em] mb-3"
     >
-      {t('values.badge')}
+      {locale === 'tr' ? 'HİZMETLER & UZMANLIK' : 'SERVICES & EXPERTISE'}
     </span>
     <h2
-      class="font-barlow font-extrabold text-4xl sm:text-5xl md:text-6xl uppercase tracking-tight text-white"
+      class="font-barlow font-extrabold text-3xl sm:text-4xl md:text-5xl uppercase tracking-tight text-white"
     >
-      {t('about.storyTitle')}
+      {locale === 'tr' ? 'SPORTIVERF Hizmetleri' : 'SPORTIVERF Services & Features'}
     </h2>
   </div>
 
-  <!-- Mobile Layout: Horizontal Snap Carousel with 4 Cards -->
-  <div
-    class="md:hidden flex gap-4 overflow-x-auto snap-x snap-mandatory px-6 pb-6 pt-2 scrollbar-none scroll-smooth"
-  >
-    <!-- Slide 1: About SPORTIVERF -->
+  <!-- Mobile UI: Horizontally scrolling flex snap carousel with swipe cue -->
+  <div class="md:hidden">
+    <!-- Swipe Hint Animation -->
     <div
-      class="snap-center shrink-0 w-[88vw] max-w-[360px] bg-[#141414] border border-[#262626] p-6 flex flex-col justify-between relative overflow-hidden group"
+      class="flex items-center justify-center gap-2 text-[#888888] font-mono text-[11px] uppercase tracking-widest mb-4 animate-pulse"
     >
-      <div
-        class="absolute top-0 right-0 w-24 h-24 bg-[#E5383B]/10 rounded-full blur-2xl pointer-events-none"
+      <span>{locale === 'tr' ? 'Kaydırarak Keşfedin' : 'Swipe to explore'}</span>
+      <svg
+        class="w-4 h-4 text-[#E5383B] animate-bounce"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
       >
-      </div>
-      <div>
-        <div class="flex items-center justify-between mb-4">
-          <span class="font-mono text-xs text-[#E5383B] uppercase tracking-widest"
-            >01 / SPORTIVERF</span
-          >
-          <svg class="w-8 h-8 text-[#E5383B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-              d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-            ></path>
-          </svg>
-        </div>
-        <h3 class="font-barlow font-extrabold text-2xl uppercase tracking-tight text-white mb-3">
-          {t('about.aboutSportiverfTitle')}
-        </h3>
-        <p class="text-xs text-[#AAAAAA] leading-relaxed mb-6 font-light">
-          {t('about.aboutSportiverfDesc')}
-        </p>
-      </div>
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+      </svg>
+    </div>
+
+    <!-- Mobile Horizontal Carousel Container -->
+    <div
+      class="flex overflow-x-auto snap-x snap-mandatory gap-4 hide-scrollbar px-6 pb-6 pt-2 scroll-smooth"
+    >
+      {
+        features.map((feature, idx) => (
+          <div class="snap-center shrink-0 min-w-[85vw] max-w-[85vw] bg-[#141414] border border-[#262626] p-6 flex flex-col justify-between relative overflow-hidden group">
+            <div class="absolute top-0 right-0 w-24 h-24 bg-[#E5383B]/10 rounded-full blur-2xl pointer-events-none" />
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="font-mono text-xs text-[#E5383B] font-bold uppercase tracking-widest">
+                  {String(idx + 1).padStart(2, '0')} / SPORTIVERF
+                </span>
+                <div class="w-8 h-8 rounded bg-[#E5383B]/10 border border-[#E5383B]/30 flex items-center justify-center text-[#E5383B] font-mono text-xs font-bold">
+                  {String(idx + 1).padStart(2, '0')}
+                </div>
+              </div>
+              <h3 class="font-barlow font-extrabold text-xl uppercase tracking-tight text-white mb-3">
+                {feature.title}
+              </h3>
+              <p class="text-xs text-[#AAAAAA] leading-relaxed font-light whitespace-pre-line">
+                {feature.description}
+              </p>
+            </div>
+            <div class="pt-4 mt-6 border-t border-[#222222] font-mono text-[10px] text-[#888888] uppercase tracking-widest flex items-center justify-between">
+              <span>SPORTIVERF EXCELLENCE</span>
+              <span class="text-[#E5383B]">0{idx + 1}</span>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Mobile Bottom CTA -->
+    <div class="px-6 pt-4">
       <a
         href={`/${locale}/about`}
-        class="btn-red !py-3 !px-5 text-xs text-center w-full block font-barlow font-bold uppercase tracking-wider"
+        class="btn-red !py-3.5 !px-5 text-xs text-center w-full block font-barlow font-bold uppercase tracking-wider"
       >
-        {t('nav.about')} &rarr;
+        {t('about.storyTitle')} &rarr;
       </a>
-    </div>
-
-    <!-- Slide 2: Our Mission -->
-    <div
-      class="snap-center shrink-0 w-[88vw] max-w-[360px] bg-[#141414] border border-[#262626] p-6 flex flex-col justify-between relative overflow-hidden group"
-    >
-      <div
-        class="absolute top-0 right-0 w-24 h-24 bg-[#E5383B]/10 rounded-full blur-2xl pointer-events-none"
-      >
-      </div>
-      <div>
-        <div class="flex items-center justify-between mb-4">
-          <span class="font-mono text-xs text-[#E5383B] uppercase tracking-widest"
-            >02 / MISSION</span
-          >
-          <svg class="w-8 h-8 text-[#E5383B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-              d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-          </svg>
-        </div>
-        <h3 class="font-barlow font-extrabold text-2xl uppercase tracking-tight text-white mb-3">
-          {t('about.missionTitle')}
-        </h3>
-        <p class="text-xs text-[#AAAAAA] leading-relaxed mb-6 font-light">
-          {t('about.missionDesc')}
-        </p>
-      </div>
-      <div
-        class="pt-4 border-t border-[#222222] font-mono text-xs text-[#888888] uppercase tracking-widest"
-      >
-        {t('values.devTitle')}
-      </div>
-    </div>
-
-    <!-- Slide 3: Our Vision -->
-    <div
-      class="snap-center shrink-0 w-[88vw] max-w-[360px] bg-[#141414] border border-[#262626] p-6 flex flex-col justify-between relative overflow-hidden group"
-    >
-      <div
-        class="absolute top-0 right-0 w-24 h-24 bg-[#E5383B]/10 rounded-full blur-2xl pointer-events-none"
-      >
-      </div>
-      <div>
-        <div class="flex items-center justify-between mb-4">
-          <span class="font-mono text-xs text-[#E5383B] uppercase tracking-widest">03 / VISION</span
-          >
-          <svg class="w-8 h-8 text-[#E5383B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-              d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"
-            ></path>
-          </svg>
-        </div>
-        <h3 class="font-barlow font-extrabold text-2xl uppercase tracking-tight text-white mb-3">
-          {t('about.visionTitle')}
-        </h3>
-        <p class="text-xs text-[#AAAAAA] leading-relaxed mb-6 font-light">
-          {t('about.visionDesc')}
-        </p>
-      </div>
-      <div
-        class="pt-4 border-t border-[#222222] font-mono text-xs text-[#888888] uppercase tracking-widest"
-      >
-        {t('values.oppTitle')}
-      </div>
-    </div>
-
-    <!-- Slide 4: Legal & Official Oversight -->
-    <div
-      class="snap-center shrink-0 w-[88vw] max-w-[360px] bg-[#141414] border border-[#262626] p-6 flex flex-col justify-between relative overflow-hidden group"
-    >
-      <div
-        class="absolute top-0 right-0 w-24 h-24 bg-[#E5383B]/10 rounded-full blur-2xl pointer-events-none"
-      >
-      </div>
-      <div>
-        <div class="flex items-center justify-between mb-4">
-          <span class="font-mono text-xs text-[#E5383B] uppercase tracking-widest"
-            >04 / OVERSIGHT</span
-          >
-          <svg class="w-8 h-8 text-[#E5383B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-              d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-            ></path>
-          </svg>
-        </div>
-        <h3 class="font-barlow font-extrabold text-2xl uppercase tracking-tight text-white mb-3">
-          {t('about.supervisionTitle')}
-        </h3>
-        <p class="text-xs text-[#AAAAAA] leading-relaxed mb-6 font-light">
-          {t('about.supervisionDesc')}
-        </p>
-      </div>
-      <div
-        class="pt-4 border-t border-[#222222] font-mono text-xs text-[#E5383B] uppercase tracking-widest font-bold"
-      >
-        {t('about.badge')}
-      </div>
     </div>
   </div>
 
-  <!-- Desktop Interactive Chapter Tabs & Slide Container -->
-  <div class="hidden md:block max-w-[1400px] mx-auto px-8 relative">
-    <div id="desktop-story-container" class="grid grid-cols-12 gap-8 items-stretch min-h-[480px]">
-      <!-- Sticky Navigation Control Column -->
-      <div class="col-span-4 flex flex-col justify-between py-4 pr-6 border-r border-[#222222]">
-        <div class="space-y-4">
-          <p class="font-mono text-xs text-[#888888] uppercase tracking-widest mb-2">
-            SELECT CHAPTER
-          </p>
+  <!-- Desktop UI: Clean Grid Layout -->
+  <div class="hidden md:block max-w-[1400px] mx-auto px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {
+        features.map((feature, idx) => (
+          <div class="bg-[#121212] border border-[#262626] hover:border-[#E5383B]/60 p-7 lg:p-8 flex flex-col justify-between relative overflow-hidden group transition-all duration-300 hover:shadow-[0_0_30px_rgba(229,56,59,0.15)]">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-[#E5383B]/5 rounded-full blur-3xl pointer-events-none group-hover:bg-[#E5383B]/15 transition-all duration-300" />
+            <div class="relative z-10">
+              <div class="flex items-center justify-between mb-5">
+                <span class="font-mono text-xs font-bold text-[#E5383B] uppercase tracking-widest">
+                  {String(idx + 1).padStart(2, '0')}
+                </span>
+                <span class="w-1.5 h-1.5 rounded-full bg-[#E5383B]/60 group-hover:bg-[#E5383B] transition-colors" />
+              </div>
+              <h3 class="font-barlow font-black text-2xl uppercase tracking-tight text-white mb-4 transition-colors">
+                {feature.title}
+              </h3>
+              <p class="text-sm text-[#AAAAAA] leading-relaxed font-light whitespace-pre-line">
+                {feature.description}
+              </p>
+            </div>
+            <div class="pt-6 mt-6 border-t border-white/5 flex items-center justify-between relative z-10">
+              <span class="font-mono text-[10px] uppercase tracking-widest text-[#666666] group-hover:text-[#888888] transition-colors">
+                SPORTIVERF • {locale === 'tr' ? 'HİZMET' : 'FEATURE'}
+              </span>
+              <svg
+                class="w-4 h-4 text-[#E5383B] transform group-hover:translate-x-1 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                />
+              </svg>
+            </div>
+          </div>
+        ))
+      }
+    </div>
 
-          <button
-            data-story-target="0"
-            class="story-tab active w-full text-left p-3.5 bg-[#141414] border-l-4 border-[#E5383B] transition-all hover:bg-[#1A1A1A]"
-          >
-            <span class="font-mono text-[10px] text-[#E5383B] block uppercase tracking-widest"
-              >CHAPTER 01</span
-            >
-            <span
-              class="font-barlow font-bold text-lg uppercase tracking-wide text-white block mt-0.5"
-              >{t('about.aboutSportiverfTitle')}</span
-            >
-          </button>
-
-          <button
-            data-story-target="1"
-            class="story-tab w-full text-left p-3.5 bg-[#111111] border-l-4 border-transparent transition-all hover:bg-[#1A1A1A]"
-          >
-            <span class="font-mono text-[10px] text-[#888888] block uppercase tracking-widest"
-              >CHAPTER 02</span
-            >
-            <span
-              class="font-barlow font-bold text-lg uppercase tracking-wide text-[#CCCCCC] block mt-0.5"
-              >{t('about.missionTitle')}</span
-            >
-          </button>
-
-          <button
-            data-story-target="2"
-            class="story-tab w-full text-left p-3.5 bg-[#111111] border-l-4 border-transparent transition-all hover:bg-[#1A1A1A]"
-          >
-            <span class="font-mono text-[10px] text-[#888888] block uppercase tracking-widest"
-              >CHAPTER 03</span
-            >
-            <span
-              class="font-barlow font-bold text-lg uppercase tracking-wide text-[#CCCCCC] block mt-0.5"
-              >{t('about.visionTitle')}</span
-            >
-          </button>
-
-          <button
-            data-story-target="3"
-            class="story-tab w-full text-left p-3.5 bg-[#111111] border-l-4 border-transparent transition-all hover:bg-[#1A1A1A]"
-          >
-            <span class="font-mono text-[10px] text-[#888888] block uppercase tracking-widest"
-              >CHAPTER 04</span
-            >
-            <span
-              class="font-barlow font-bold text-lg uppercase tracking-wide text-[#CCCCCC] block mt-0.5"
-              >{t('about.supervisionTitle')}</span
-            >
-          </button>
-        </div>
-
-        <a
-          href={`/${locale}/about`}
-          class="btn-red !py-3.5 !px-6 text-xs text-center font-barlow font-bold uppercase tracking-wider block mt-6"
-        >
-          {t('about.storyTitle')} &rarr;
-        </a>
-      </div>
-
-      <!-- Slide Display Screen -->
-      <div
-        class="col-span-8 relative overflow-hidden bg-[#121212] border border-[#262626] p-10 flex flex-col justify-between"
+    <!-- Desktop CTA Button Below Grid -->
+    <div class="flex justify-center mt-12">
+      <a
+        href={`/${locale}/about`}
+        class="btn-red !py-4 !px-8 text-sm font-barlow font-bold uppercase tracking-wider inline-flex items-center gap-3 shadow-[0_0_20px_rgba(229,56,59,0.3)] hover:shadow-[0_0_30px_rgba(229,56,59,0.6)] transition-all"
       >
-        <!-- Background Ambient Glow -->
-        <div
-          class="absolute -bottom-10 -right-10 w-64 h-64 bg-[#E5383B]/10 rounded-full blur-3xl pointer-events-none"
-        >
-        </div>
-
-        <!-- Slide 1 Display (About SPORTIVERF) -->
-        <div
-          id="story-slide-0"
-          class="story-slide transition-all duration-500 opacity-100 translate-y-0 relative z-10 flex flex-col justify-between h-full"
-        >
-          <div>
-            <div class="flex items-center gap-4 mb-6">
-              <div
-                class="w-12 h-12 rounded-none bg-[#E5383B]/10 border border-[#E5383B]/30 flex items-center justify-center text-[#E5383B]"
-              >
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-                  ></path>
-                </svg>
-              </div>
-              <div>
-                <span class="font-mono text-xs text-[#E5383B] uppercase tracking-widest block"
-                  >SPORTIVERF FOUNDATION</span
-                >
-                <h3
-                  class="font-barlow font-black text-3xl md:text-4xl uppercase tracking-tight text-white"
-                >
-                  {t('about.aboutSportiverfTitle')}
-                </h3>
-              </div>
-            </div>
-            <p class="text-base text-[#CCCCCC] leading-relaxed font-light mb-8 max-w-2xl">
-              {t('about.aboutSportiverfDesc')}
-            </p>
-          </div>
-
-          <div class="grid grid-cols-3 gap-4 pt-6 border-t border-[#222222]">
-            <div>
-              <span class="font-mono text-[10px] text-[#888888] uppercase block">EXCELLENCE</span>
-              <span class="font-barlow font-bold text-lg text-white block mt-1"
-                >{t('values.trustTitle')}</span
-              >
-            </div>
-            <div>
-              <span class="font-mono text-[10px] text-[#888888] uppercase block">DEVELOPMENT</span>
-              <span class="font-barlow font-bold text-lg text-white block mt-1"
-                >{t('values.devTitle')}</span
-              >
-            </div>
-            <div>
-              <span class="font-mono text-[10px] text-[#888888] uppercase block">OPPORTUNITY</span>
-              <span class="font-barlow font-bold text-lg text-white block mt-1"
-                >{t('values.oppTitle')}</span
-              >
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 2 Display (Our Mission) -->
-        <div
-          id="story-slide-1"
-          class="story-slide hidden transition-all duration-500 opacity-0 translate-y-4 relative z-10 flex flex-col justify-between h-full"
-        >
-          <div>
-            <div class="flex items-center gap-4 mb-6">
-              <div
-                class="w-12 h-12 rounded-none bg-[#E5383B]/10 border border-[#E5383B]/30 flex items-center justify-center text-[#E5383B]"
-              >
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                </svg>
-              </div>
-              <div>
-                <span class="font-mono text-xs text-[#E5383B] uppercase tracking-widest block"
-                  >CORE OBJECTIVE</span
-                >
-                <h3
-                  class="font-barlow font-black text-3xl md:text-4xl uppercase tracking-tight text-white"
-                >
-                  {t('about.missionTitle')}
-                </h3>
-              </div>
-            </div>
-            <p class="text-base text-[#CCCCCC] leading-relaxed font-light mb-8 max-w-2xl">
-              {t('about.missionDesc')}
-            </p>
-          </div>
-
-          <div class="pt-6 border-t border-[#222222]">
-            <span
-              class="font-mono text-xs text-[#E5383B] uppercase tracking-widest block font-bold mb-1"
-              >PROFESSIONAL GROWTH</span
-            >
-            <p class="text-xs text-[#888888] font-light">
-              Designing high-standard athletic training camps that empower youth teams and
-              professional clubs.
-            </p>
-          </div>
-        </div>
-
-        <!-- Slide 3 Display (Our Vision) -->
-        <div
-          id="story-slide-2"
-          class="story-slide hidden transition-all duration-500 opacity-0 translate-y-4 relative z-10 flex flex-col justify-between h-full"
-        >
-          <div>
-            <div class="flex items-center gap-4 mb-6">
-              <div
-                class="w-12 h-12 rounded-none bg-[#E5383B]/10 border border-[#E5383B]/30 flex items-center justify-center text-[#E5383B]"
-              >
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"
-                  ></path>
-                </svg>
-              </div>
-              <div>
-                <span class="font-mono text-xs text-[#E5383B] uppercase tracking-widest block"
-                  >GLOBAL REACH</span
-                >
-                <h3
-                  class="font-barlow font-black text-3xl md:text-4xl uppercase tracking-tight text-white"
-                >
-                  {t('about.visionTitle')}
-                </h3>
-              </div>
-            </div>
-            <p class="text-base text-[#CCCCCC] leading-relaxed font-light mb-8 max-w-2xl">
-              {t('about.visionDesc')}
-            </p>
-          </div>
-
-          <div class="pt-6 border-t border-[#222222]">
-            <span
-              class="font-mono text-xs text-[#E5383B] uppercase tracking-widest block font-bold mb-1"
-              >GLOBAL PATHWAY</span
-            >
-            <p class="text-xs text-[#888888] font-light">
-              Connecting athletes directly with European scout networks and international university
-              opportunities.
-            </p>
-          </div>
-        </div>
-
-        <!-- Slide 4 Display (Legal & Official Oversight) -->
-        <div
-          id="story-slide-3"
-          class="story-slide hidden transition-all duration-500 opacity-0 translate-y-4 relative z-10 flex flex-col justify-between h-full"
-        >
-          <div>
-            <div class="flex items-center gap-4 mb-6">
-              <div
-                class="w-12 h-12 rounded-none bg-[#E5383B]/10 border border-[#E5383B]/30 flex items-center justify-center text-[#E5383B]"
-              >
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                  ></path>
-                </svg>
-              </div>
-              <div>
-                <span class="font-mono text-xs text-[#E5383B] uppercase tracking-widest block"
-                  >LEGAL ASSURANCE</span
-                >
-                <h3
-                  class="font-barlow font-black text-3xl md:text-4xl uppercase tracking-tight text-white"
-                >
-                  {t('about.supervisionTitle')}
-                </h3>
-              </div>
-            </div>
-            <p class="text-base text-[#CCCCCC] leading-relaxed font-light mb-8 max-w-2xl">
-              {t('about.supervisionDesc')}
-            </p>
-          </div>
-
-          <div class="pt-6 border-t border-[#222222]">
-            <span
-              class="font-mono text-xs text-[#E5383B] uppercase tracking-widest block font-bold mb-1"
-              >{t('about.badge')}</span
-            >
-            <p class="text-xs text-[#888888] font-light">
-              Official TÜRSAB licensed agency guarantee, full comprehensive travel protection &
-              contract clarity.
-            </p>
-          </div>
-        </div>
-      </div>
+        <span>{t('about.storyTitle')}</span>
+        <span>&rarr;</span>
+      </a>
     </div>
   </div>
 </section>
 
-<script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
-    const tabs = document.querySelectorAll('.story-tab');
-    const slides = document.querySelectorAll('.story-slide');
-
-    if (!tabs.length || !slides.length) return;
-
-    tabs.forEach((tab) => {
-      tab.addEventListener('click', () => {
-        const targetIndex = parseInt(tab.getAttribute('data-story-target') || '0', 10);
-
-        tabs.forEach((t, i) => {
-          if (i === targetIndex) {
-            t.classList.add('bg-[#141414]', 'border-[#E5383B]');
-            t.classList.remove('bg-[#111111]', 'border-transparent');
-            const titleSpan = t.querySelector('span:last-child');
-            if (titleSpan) {
-              titleSpan.classList.add('text-white');
-              titleSpan.classList.remove('text-[#CCCCCC]');
-            }
-          } else {
-            t.classList.remove('bg-[#141414]', 'border-[#E5383B]');
-            t.classList.add('bg-[#111111]', 'border-transparent');
-            const titleSpan = t.querySelector('span:last-child');
-            if (titleSpan) {
-              titleSpan.classList.remove('text-white');
-              titleSpan.classList.add('text-[#CCCCCC]');
-            }
-          }
-        });
-
-        slides.forEach((slide, i) => {
-          if (i === targetIndex) {
-            slide.classList.remove('hidden', 'opacity-0', 'translate-y-4');
-            slide.classList.add('opacity-100', 'translate-y-0');
-          } else {
-            slide.classList.add('hidden', 'opacity-0', 'translate-y-4');
-            slide.classList.remove('opacity-100', 'translate-y-0');
-          }
-        });
-      });
-    });
-  });
-</script>
+<style>
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>

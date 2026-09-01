@@ -217,8 +217,7 @@ export default {
     contactSupport: 'Contact Concierge'
   },
   contact: {
-    whatsappText:
-      'Hello, I am interested in the elite sports camps and would like to get more information.',
+    whatsappText: 'Hello, I would like some information, please.',
     emailSubject: 'Inquiry about SPORTIVERF Camps',
     emailBody:
       'Hello SPORTIVERF Team,\n\nI would like to request more information about your upcoming sports camps and showcases.\n\nThank you.'
