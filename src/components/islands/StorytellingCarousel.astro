@@ -173,9 +173,15 @@ const features = localeContent.homepageFeatures;
                       <path d="m9 12 2 2 4-4" />
                     </svg>
                   )}
-                  {!['handshake', 'globe', 'award', 'activity', 'plane', 'bus', 'shield-check'].includes(
-                    feature.icon
-                  ) && (
+                  {![
+                    'handshake',
+                    'globe',
+                    'award',
+                    'activity',
+                    'plane',
+                    'bus',
+                    'shield-check'
+                  ].includes(feature.icon) && (
                     <svg
                       class="w-5 h-5"
                       viewBox="0 0 24 24"
@@ -223,14 +229,17 @@ const features = localeContent.homepageFeatures;
   <div class="hidden md:block max-w-[1400px] mx-auto px-8">
     <div class="grid grid-cols-12 gap-8 items-stretch">
       <!-- Left Column: iOS-style Scrollable Menu with Fixed Bottom CTA -->
-      <div class="col-span-5 lg:col-span-4 flex flex-col justify-between pr-4 border-r border-[#222222]">
+      <div
+        class="col-span-5 lg:col-span-4 flex flex-col justify-between pr-4 border-r border-[#222222]"
+      >
         <div>
           <div class="flex items-center justify-between mb-3 pr-2">
             <span class="font-mono text-xs text-[#888888] uppercase tracking-widest">
               {locale === 'tr' ? 'HİZMET SEÇİN' : 'SELECT SERVICE'}
             </span>
             <span class="font-mono text-[11px] text-[#E5383B] uppercase tracking-wider">
-              {features.length} {locale === 'tr' ? 'ÖZELLİK' : 'FEATURES'}
+              {features.length}
+              {locale === 'tr' ? 'ÖZELLİK' : 'FEATURES'}
             </span>
           </div>
 
@@ -293,18 +302,19 @@ const features = localeContent.homepageFeatures;
                 }`}
               >
                 <div>
-                  <!-- Header Row with Index Badge and Prominent SVG Icon Box -->
+                  {/* Header Row with Index Badge and Prominent SVG Icon Box */}
                   <div class="flex items-center justify-between pb-5 mb-6 border-b border-white/10">
                     <div class="flex items-center gap-3">
                       <span class="font-mono text-xs font-bold text-[#E5383B] tracking-widest px-3 py-1 bg-[#1A1A1A] border border-[#E5383B]/30">
-                        {String(idx + 1).padStart(2, '0')} / {String(features.length).padStart(2, '0')}
+                        {String(idx + 1).padStart(2, '0')} /{' '}
+                        {String(features.length).padStart(2, '0')}
                       </span>
                       <span class="font-mono text-xs uppercase tracking-widest text-[#888888]">
                         SPORTIVERF • {locale === 'tr' ? 'HİZMET' : 'FEATURE'}
                       </span>
                     </div>
 
-                    <!-- Glowing Icon Box (Desktop) -->
+                    {/* Glowing Icon Box (Desktop) */}
                     <div class="w-14 h-14 rounded-2xl bg-[#181818] border border-[#E5383B]/40 flex items-center justify-center text-[#E5383B] shadow-[0_0_20px_rgba(229,56,59,0.25)] relative overflow-hidden group">
                       <div class="absolute inset-0 bg-gradient-to-br from-[#E5383B]/10 to-transparent pointer-events-none" />
                       {feature.icon === 'handshake' && (
@@ -412,9 +422,15 @@ const features = localeContent.homepageFeatures;
                           <path d="m9 12 2 2 4-4" />
                         </svg>
                       )}
-                      {!['handshake', 'globe', 'award', 'activity', 'plane', 'bus', 'shield-check'].includes(
-                        feature.icon
-                      ) && (
+                      {![
+                        'handshake',
+                        'globe',
+                        'award',
+                        'activity',
+                        'plane',
+                        'bus',
+                        'shield-check'
+                      ].includes(feature.icon) && (
                         <svg
                           class="w-7 h-7 filter drop-shadow-[0_0_8px_rgba(229,56,59,0.5)]"
                           viewBox="0 0 24 24"
@@ -430,29 +446,23 @@ const features = localeContent.homepageFeatures;
                     </div>
                   </div>
 
-                  <!-- Feature Title -->
+                  {/* Feature Title */}
                   <h3 class="font-barlow font-black text-2xl sm:text-3xl lg:text-4xl uppercase tracking-tight text-white mb-5 leading-tight">
                     {feature.title}
                   </h3>
 
-                  <!-- Feature Description with Multiline Formatting -->
+                  {/* Feature Description with Multiline Formatting */}
                   <p class="font-sans text-sm sm:text-base text-[#CCCCCC] font-light leading-relaxed whitespace-pre-line">
                     {feature.description}
                   </p>
                 </div>
 
-                <!-- Footer Meta -->
-                <div class="pt-6 mt-8 border-t border-white/10 flex items-center justify-between">
-                  <span class="font-mono text-[11px] text-[#666666] uppercase tracking-widest">
-                    SPORTIVERF EXCELLENCE • 2026
+                {/* Footer Meta */}
+                <div class="pt-5 mt-6 border-t border-white/10 flex items-center justify-between font-mono text-[11px] text-[#666666] uppercase tracking-widest">
+                  <span>SPORTIVERF EXCELLENCE</span>
+                  <span class="text-[#E5383B]">
+                    0{idx + 1} / 0{features.length}
                   </span>
-                  <a
-                    href={`/${locale}/about`}
-                    class="text-xs font-barlow font-bold uppercase tracking-wider text-[#E5383B] hover:text-white transition-colors flex items-center gap-1.5"
-                  >
-                    <span>{locale === 'tr' ? 'Detayları İnceleyin' : 'Learn More'}</span>
-                    <span>&rarr;</span>
-                  </a>
                 </div>
               </div>
             ))
