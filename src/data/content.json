@@ -112,36 +112,43 @@
       {
         "id": 1,
         "title": "Collaboration",
+        "icon": "handshake",
         "description": "When you collaborate with SPORTIVERF, you work with a reliable, solution-oriented sports platform that responds quickly to your needs. We stand by you with our international connections and expert partners for the professional and seamless planning of your sports camps and team programs. Stronger together, further together."
       },
       {
         "id": 2,
         "title": "Your Partner",
+        "icon": "globe",
         "description": "SPORTIVERF is an international sports platform. We aim to connect athletes, academies, and sports teams with professional development and international opportunities. We create new experiences, connections, and opportunities in the sports world through professional sports camps, international coaching collaborations, and athletic development programs. Connecting Athletes, Academies & Teams to the World."
       },
       {
         "id": 3,
         "title": "We Are Sports Camp Experts",
+        "icon": "award",
         "description": "Professional Sports Camps. At SPORTIVERF, we offer professional support to athletes, academies, and teams from camp planning to the completion of the organization. With our international connections and reliable business partners, we are by your side to create professional and seamless sports experiences."
       },
       {
         "id": 4,
         "title": "Training Equipment",
+        "icon": "activity",
         "description": "At SPORTIVERF, we aim to provide the essential equipment needed during the training process at our camps. Equipment such as agility ladders, slalom sets, training bibs, cones, markers, training rings, and similar items are provided by us according to the camp program."
       },
       {
         "id": 5,
         "title": "Travel & Organization Support",
+        "icon": "plane",
         "description": "At SPORTIVERF, we provide support in travel and operational matters that sports teams and academies may need during their international camp and organization processes, together with our expert partners. The coordination of transportation, luggage, accommodation, and travel itineraries is planned according to the camp's needs. We also provide support in managing relevant processes in case of date or itinerary changes."
       },
       {
         "id": 6,
         "title": "Transfer & Transportation Support",
+        "icon": "bus",
         "description": "We plan the safe and comfortable transportation needs of athletes, teams, and academies during the camp, together with our expert partners. Airport transfers, hotel-facility transportation, and intra-city transfers within the camp program are organized according to the group's needs and schedule. All transportation services comply with the legal procedures and safety standards of our tourism partners."
       },
       {
         "id": 7,
         "title": "Reservation and Cancellation Policies",
+        "icon": "shield-check",
         "description": "At SPORTIVERF, we care about the process proceeding as safely and transparently as possible when planning your sports camps. Reservation, payment, cancellation, refund, and date change conditions are determined according to the camp program, service providers, and reservation date, and are clearly communicated to the participants before booking. \n✓ Clear and transparent reservation conditions\n✓ Payment options according to the camp program\n✓ Prior notification of cancellation and refund conditions\n✓ Date change options subject to availability"
       }
     ]
@@ -167,7 +174,7 @@
           },
           {
             "label": "FIRSAT",
-            "value": "Küresel Fırsat"
+            "value": "Küresel FIRSAT"
           }
         ]
       },
@@ -259,36 +266,43 @@
       {
         "id": 1,
         "title": "İş Birliği",
+        "icon": "handshake",
         "description": "SPORTIVERF ile iş birliği yaptığınızda, ihtiyaçlarınıza hızlı yanıt veren, güvenilir ve çözüm odaklı bir spor platformuyla çalışırsınız.\n\nSpor kamplarınızın ve takım programlarınızın profesyonel ve sorunsuz şekilde planlanması için uluslararası bağlantılarımız ve uzman iş ortaklarımızla yanınızdayız.\n\nBirlikte daha güçlü, birlikte daha ileri."
       },
       {
         "id": 2,
         "title": "Partneriniz",
+        "icon": "globe",
         "description": "SPORTIVERF, uluslararası bir spor platformudur. Sporcuları, akademileri ve spor takımlarını profesyonel gelişim ve uluslararası fırsatlarla buluşturmayı hedefliyoruz.\n\nProfesyonel spor kampları, uluslararası antrenör iş birlikleri ve sportif gelişim programlarıyla spor dünyasında yeni deneyimler, bağlantılar ve fırsatlar oluşturuyoruz.\n\nConnecting Athletes, Academies & Teams to the World."
       },
       {
         "id": 3,
         "title": "Spor Kampı Uzmanıyız",
+        "icon": "award",
         "description": "Profesyonel Spor kampları \n\nSPORTIVERF olarak, sporculara, akademilere ve takımlara kamp planlamasından organizasyonun tamamlanmasına kadar profesyonel destek sunuyoruz.\n\nUluslararası bağlantılarımız ve güvenilir iş ortaklarımızla, profesyonel ve sorunsuz spor deneyimleri oluşturmak için yanınızdayız."
       },
       {
         "id": 4,
         "title": "Antrenman Malzemeleri",
+        "icon": "activity",
         "description": "SPORTIVERF olarak, kamplarımızda antrenman sürecinde ihtiyaç duyulan temel ekipmanları sağlamayı hedefliyoruz.\n\nAntrenman merdiveni, slalom seti, antrenman yelekleri, huniler, çanaklar, antrenman çemberleri ve benzeri ekipmanlar kamp programına göre tarafımızca sağlanmaktadır."
       },
       {
         "id": 5,
         "title": "Seyahat ve Organizasyon Desteği",
+        "icon": "plane",
         "description": "SPORTIVERF olarak, spor takımları ve akademilerin uluslararası kamp ve organizasyon süreçlerinde ihtiyaç duyabilecekleri seyahat ve operasyonel konularda, uzman iş ortaklarımızla birlikte destek sunuyoruz.\n\nUlaşım, bagaj, konaklama ve seyahat programlarının koordinasyonu, kampın ihtiyaçlarına göre planlanmaktadır.\n\nOlası tarih değişiklikleri veya seyahat programında meydana gelebilecek değişikliklerde, ilgili süreçlerin yönetilmesi konusunda da destek sağlıyoruz."
       },
       {
         "id": 6,
         "title": "Transfer & Ulaşım Desteği",
+        "icon": "bus",
         "description": "Sporcuların, takımların ve akademilerin kamp süresince güvenli ve konforlu ulaşım ihtiyaçlarını, uzman iş ortaklarımızla birlikte planlıyoruz.\n\nHavalimanı transferleri, otel–tesis ulaşımı ve kamp programı içerisindeki şehir içi transferler, grubun ihtiyaçlarına ve programına göre organize edilmektedir.\n\nTüm ulaşım hizmetleri, ilgili turizm ve ulaşım iş ortaklarımızın yasal prosedürleri ve güvenlik standartları doğrultusunda gerçekleştirilmektedir."
       },
       {
         "id": 7,
         "title": "Rezervasyon ve İptal Koşulları",
+        "icon": "shield-check",
         "description": "SPORTIVERF olarak, spor kamplarınızı planlarken sürecin mümkün olduğunca güvenli ve şeffaf ilerlemesini önemsiyoruz.\n\nRezervasyon, ödeme, iptal, iade ve tarih değişikliği koşulları; kamp programına, hizmet sağlayıcılarına ve rezervasyon tarihine göre belirlenir ve rezervasyon öncesinde katılımcılara açıkça bildirilir.\n\n✓ Açık ve şeffaf rezervasyon koşulları\n✓ Kamp programına göre ödeme seçenekleri\n✓ İptal ve iade koşullarının önceden belirtilmesi\n✓ Uygunluk durumuna göre tarih değişikliği seçenekleri"
       }
     ]
