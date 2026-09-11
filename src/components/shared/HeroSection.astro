@@ -36,6 +36,11 @@ const dir = getDirFromLocale(locale);
   >
   </div>
   <div class="absolute inset-0 bg-black/40 pointer-events-none z-10"></div>
+  <!-- Dark Radial Gradient Overlay for Center Contrast -->
+  <div
+    class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.7)_0%,rgba(0,0,0,0.2)_70%)] z-10 pointer-events-none"
+  >
+  </div>
 
   <!-- Red Neon Ambient Accents -->
   <div
@@ -55,7 +60,7 @@ const dir = getDirFromLocale(locale);
     <button
       id="btn-volleyball-camps"
       type="button"
-      class="aspect-square w-40 md:w-48 flex flex-col items-center justify-center gap-3 backdrop-blur-md bg-black/40 border border-white/10 hover:border-[#E5383B] transition-all hover:scale-105 active:scale-95 group cursor-pointer p-4 text-center shadow-[0_4px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(229,56,59,0.35)]"
+      class="aspect-square w-40 md:w-48 flex flex-col items-center justify-center gap-3 backdrop-blur-md bg-black/50 border border-white/10 hover:border-[#E5383B] transition-all hover:scale-105 active:scale-95 group cursor-pointer p-4 text-center shadow-[0_4px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(229,56,59,0.35)]"
       aria-haspopup="dialog"
       aria-expanded="false"
       aria-controls="volleyball-modal"
@@ -86,7 +91,7 @@ const dir = getDirFromLocale(locale);
     <!-- Button 2: Player Camps -->
     <button
       type="button"
-      class="camp-trigger-btn aspect-square w-40 md:w-48 flex flex-col items-center justify-center gap-3 backdrop-blur-md bg-black/40 border border-white/10 hover:border-[#E5383B] transition-all hover:scale-105 active:scale-95 group cursor-pointer p-4 text-center shadow-[0_4px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(229,56,59,0.35)]"
+      class="camp-trigger-btn aspect-square w-40 md:w-48 flex flex-col items-center justify-center gap-3 backdrop-blur-md bg-black/50 border border-white/10 hover:border-[#E5383B] transition-all hover:scale-105 active:scale-95 group cursor-pointer p-4 text-center shadow-[0_4px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(229,56,59,0.35)]"
       data-desc={t('camps.descPlayer')}
       data-href={`/${locale}/camps/player`}
     >
