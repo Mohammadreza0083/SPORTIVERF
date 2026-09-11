@@ -50,13 +50,15 @@ const includedServices = camp.includedServices[locale] || camp.includedServices[
       <!-- Breadcrumb Navigation -->
       <nav
         aria-label="Breadcrumb"
-        class="mb-6 font-mono text-xs text-[#888888] uppercase tracking-widest flex items-center gap-2"
+        class="mb-6 font-mono text-xs text-[#888888] tracking-wide flex items-center gap-2"
       >
         <a href={`/${locale}`} class="hover:text-[#E5383B] transition">{t('nav.home')}</a>
         <span>/</span>
         <a href={`/${locale}/tours`} class="hover:text-[#E5383B] transition">{t('nav.tours')}</a>
         <span>/</span>
-        <span class="text-[#0D0D0D] font-bold">{camp.sport}</span>
+        <span class="text-[#0D0D0D] font-bold">
+          {camp.sport.charAt(0).toUpperCase() + camp.sport.slice(1).toLowerCase()}
+        </span>
       </nav>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
@@ -77,12 +79,12 @@ const includedServices = camp.includedServices[locale] || camp.includedServices[
             />
             <div class="absolute top-4 left-4 z-10 flex gap-2">
               <span
-                class="px-3 py-1 bg-[#0D0D0D] text-white font-barlow font-bold text-xs uppercase tracking-widest shadow-md"
+                class="px-3 py-1 bg-[#0D0D0D] text-white font-barlow font-bold text-xs tracking-wide shadow-md"
               >
-                {camp.sport}
+                {camp.sport.charAt(0).toUpperCase() + camp.sport.slice(1).toLowerCase()}
               </span>
               <span
-                class="px-3 py-1 bg-[#E5383B] text-white font-mono text-xs uppercase tracking-widest shadow-md font-bold"
+                class="px-3 py-1 bg-[#E5383B] text-white font-mono text-xs tracking-wide shadow-md font-bold"
               >
                 {camp.starRating}★ {tierName}
               </span>
@@ -92,13 +94,11 @@ const includedServices = camp.includedServices[locale] || camp.includedServices[
           <!-- Header Titles & Location -->
           <div>
             <h1
-              class="font-barlow font-black text-4xl sm:text-5xl md:text-6xl uppercase text-[#0D0D0D] tracking-tight leading-none mb-4"
+              class="font-barlow font-black text-4xl sm:text-5xl md:text-6xl text-[#0D0D0D] tracking-tight leading-none mb-4"
             >
               {title}
             </h1>
-            <p
-              class="font-mono text-xs text-[#888888] uppercase tracking-wider flex items-center gap-2"
-            >
+            <p class="font-mono text-xs text-[#888888] tracking-wide flex items-center gap-2">
               <svg
                 class="w-4 h-4 fill-none stroke-current stroke-2 text-[#E5383B]"
                 viewBox="0 0 24 24"
@@ -120,8 +120,8 @@ const includedServices = camp.includedServices[locale] || camp.includedServices[
 
           <!-- Overview Card -->
           <div class="bg-white p-6 border border-[#E5E3DC] space-y-3 shadow-sm">
-            <h3 class="font-mono text-xs font-bold text-[#E5383B] uppercase tracking-widest">
-              EXPEDITION OVERVIEW
+            <h3 class="font-mono text-xs font-bold text-[#E5383B] tracking-wide">
+              Expedition Overview
             </h3>
             <p class="text-[#555555] text-base leading-relaxed font-light">{summary}</p>
           </div>
@@ -131,19 +131,15 @@ const includedServices = camp.includedServices[locale] || camp.includedServices[
             class="grid grid-cols-3 gap-4 py-4 px-6 bg-white border border-[#E5E3DC] text-center font-mono"
           >
             <div>
-              <span class="block text-[10px] text-[#888888] uppercase tracking-widest"
-                >{t('camps.dates')}</span
-              >
+              <span class="block text-[10px] text-[#888888] tracking-wide">{t('camps.dates')}</span>
               <span class="text-xs font-bold text-[#0D0D0D] mt-1 block">{dates}</span>
             </div>
             <div class="border-x border-[#E5E3DC]">
-              <span class="block text-[10px] text-[#888888] uppercase tracking-widest"
-                >{t('camps.age')}</span
-              >
+              <span class="block text-[10px] text-[#888888] tracking-wide">{t('camps.age')}</span>
               <span class="text-xs font-bold text-[#0D0D0D] mt-1 block">{ageGroup}</span>
             </div>
             <div>
-              <span class="block text-[10px] text-[#888888] uppercase tracking-widest"
+              <span class="block text-[10px] text-[#888888] tracking-wide"
                 >{t('camps.capacity')}</span
               >
               <span class="text-xs font-bold text-[#E5383B] mt-1 block">{capacity}</span>
@@ -152,8 +148,8 @@ const includedServices = camp.includedServices[locale] || camp.includedServices[
 
           <!-- Included Services List -->
           <div>
-            <h3 class="font-mono text-xs font-bold text-[#E5383B] uppercase tracking-widest mb-4">
-              INCLUDED SERVICES & SPECIFICATIONS
+            <h3 class="font-mono text-xs font-bold text-[#E5383B] tracking-wide mb-4">
+              Included Services & Specifications
             </h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {
@@ -179,7 +175,7 @@ const includedServices = camp.includedServices[locale] || camp.includedServices[
           />
 
           <div class="mt-8 bg-white p-6 border border-[#E5E3DC] text-center shadow-sm">
-            <p class="font-mono text-xs text-[#888888] uppercase tracking-widest mb-3">
+            <p class="font-mono text-xs text-[#888888] tracking-wide mb-3">
               Direct Contact & Custom Team Packages
             </p>
             <ContactButtons locale={locale} class="justify-center" campTitle={title} />

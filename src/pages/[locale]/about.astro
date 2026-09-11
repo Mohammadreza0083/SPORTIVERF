@@ -75,7 +75,7 @@ const totalChaptersFormatted = String(chapters.length).padStart(2, '0');
         <div class="relative z-20 flex items-center justify-between pt-16">
           <div class="flex items-center gap-2">
             <span class="w-2 h-2 rounded-full bg-[#E5383B] animate-pulse"></span>
-            <span class="font-mono text-[11px] uppercase tracking-[0.2em] text-[#AAAAAA]">
+            <span class="font-mono text-[11px] tracking-wide text-[#AAAAAA]">
               {t('about.badge')}
             </span>
           </div>
@@ -83,7 +83,7 @@ const totalChaptersFormatted = String(chapters.length).padStart(2, '0');
           <!-- Dynamic Counter Display -->
           <div
             id="active-chapter-counter"
-            class="font-mono text-xs font-bold text-[#E5383B] tracking-widest px-3 py-1 bg-[#141414]/90 border border-[#E5383B]/30 backdrop-blur-md"
+            class="font-mono text-xs font-bold text-[#E5383B] tracking-wide px-3 py-1 bg-[#141414]/90 border border-[#E5383B]/30 backdrop-blur-md"
           >
             01 / {totalChaptersFormatted}
           </div>
@@ -370,12 +370,12 @@ const totalChaptersFormatted = String(chapters.length).padStart(2, '0');
                   </div>
                 </div>
 
-                <div class="inline-flex items-center gap-2 px-3 py-1 bg-[#E5383B]/10 border border-[#E5383B]/40 text-[#E5383B] font-mono text-[11px] sm:text-xs uppercase tracking-[0.2em] mb-4 shadow-[0_0_15px_rgba(229,56,59,0.15)]">
+                <div class="inline-flex items-center gap-2 px-3 py-1 bg-[#E5383B]/10 border border-[#E5383B]/40 text-[#E5383B] font-mono text-[11px] sm:text-xs tracking-wide mb-4 shadow-[0_0_15px_rgba(229,56,59,0.15)]">
                   <span class="w-1.5 h-1.5 rounded-full bg-[#E5383B]" />
                   <span>{chapter.badge}</span>
                 </div>
 
-                <h2 class="font-barlow font-black text-3xl sm:text-4xl md:text-5xl uppercase tracking-tight text-white mb-6 leading-tight drop-shadow-md">
+                <h2 class="font-barlow font-black text-3xl sm:text-4xl md:text-5xl tracking-tight text-white mb-6 leading-tight drop-shadow-md">
                   {chapter.title}
                 </h2>
 
@@ -392,7 +392,7 @@ const totalChaptersFormatted = String(chapters.length).padStart(2, '0');
                   >
                     {chapter.highlights.map((h: { label: string; value: string }) => (
                       <div class="p-3.5 bg-[#141414]/90 border border-white/10 hover:border-[#E5383B]/50 transition-colors">
-                        <span class="font-mono text-[10px] text-[#E5383B] uppercase tracking-widest block font-bold mb-1">
+                        <span class="font-mono text-[10px] text-[#E5383B] tracking-wide block font-bold mb-1">
                           {h.label}
                         </span>
                         <p class="text-xs text-[#CCCCCC] leading-snug font-light">{h.value}</p>
@@ -407,7 +407,7 @@ const totalChaptersFormatted = String(chapters.length).padStart(2, '0');
                     <div class="flex flex-wrap items-center gap-3.5">
                       <a
                         href={`/${locale}/volleyball-camps`}
-                        class="bg-gradient-to-r from-[#E5383B] to-[#B7094C] hover:from-[#FF4D6D] hover:to-[#E5383B] text-white shadow-[0_0_20px_rgba(229,56,59,0.4)] transition-all duration-300 font-barlow font-bold text-xs uppercase tracking-wider py-3.5 px-6 flex items-center gap-2"
+                        class="bg-gradient-to-r from-[#E5383B] to-[#B7094C] hover:from-[#FF4D6D] hover:to-[#E5383B] text-white shadow-[0_0_20px_rgba(229,56,59,0.4)] transition-all duration-300 font-barlow font-bold text-xs tracking-wide py-3.5 px-6 flex items-center gap-2"
                       >
                         <span>{t('about.exploreCamps')}</span>
                         <span>&rarr;</span>
@@ -416,7 +416,7 @@ const totalChaptersFormatted = String(chapters.length).padStart(2, '0');
                         href={`https://wa.me/905421661698?text=${encodeURIComponent(t('contact.whatsappText'))}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="bg-[#141414] hover:bg-[#1f1f1f] text-white border border-white/20 hover:border-[#E5383B] transition-all duration-300 font-barlow font-bold text-xs uppercase tracking-wider py-3.5 px-6 flex items-center gap-2"
+                        class="bg-[#141414] hover:bg-[#1f1f1f] text-white border border-white/20 hover:border-[#E5383B] transition-all duration-300 font-barlow font-bold text-xs tracking-wide py-3.5 px-6 flex items-center gap-2"
                       >
                         <svg class="w-4 h-4 text-[#E5383B]" fill="currentColor" viewBox="0 0 24 24">
                           <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.964 9.964 0 001.333 4.993L2 22l5.233-1.237a9.982 9.982 0 004.779 1.222h.004c5.505 0 9.988-4.478 9.989-9.984 0-2.669-2.08-5.172-3.932-7.054C16.143 3.064 13.639 2 12.012 2zm0 1.8c4.52 0 8.188 3.664 8.189 8.184 0 4.52-3.668 8.184-8.189 8.184a8.167 8.167 0 01-4.162-1.129l-.299-.177-3.1 0.733.826-3.023-.194-.31a8.162 8.162 0 01-1.252-4.278c0-4.52 3.669-8.184 8.189-8.184z" />
@@ -426,14 +426,14 @@ const totalChaptersFormatted = String(chapters.length).padStart(2, '0');
                     </div>
 
                     <div class="p-4 bg-[#141414]/90 border-l-2 border-[#E5383B] text-xs text-[#AAAAAA] leading-relaxed">
-                      <span class="font-mono text-[10px] text-[#E5383B] uppercase tracking-widest block font-bold mb-1">
+                      <span class="font-mono text-[10px] text-[#E5383B] tracking-wide block font-bold mb-1">
                         {t('about.supervisionTitle')}
                       </span>
                       <p>{t('about.supervisionDesc')}</p>
                     </div>
                   </div>
                 ) : (
-                  <div class="pt-2 flex items-center gap-3 text-white/40 font-mono text-[11px] uppercase tracking-widest">
+                  <div class="pt-2 flex items-center gap-3 text-white/40 font-mono text-[11px] tracking-wide">
                     <span>{t('about.scrollPrompt')}</span>
                     <svg
                       class="w-4 h-4 text-[#E5383B] animate-bounce"

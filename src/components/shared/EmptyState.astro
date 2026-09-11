@@ -8,9 +8,9 @@ export interface Props {
 }
 
 const {
-  title = 'NO CAMPS MATCH YOUR FILTERS',
+  title = 'No Camps Match Your Filters',
   subtitle = 'Try adjusting your age group, dates, or location filters to discover available opportunities.',
-  actionText = 'RESET ALL FILTERS',
+  actionText = 'Reset All Filters',
   actionHref,
   class: className = ''
 } = Astro.props;
@@ -38,7 +38,7 @@ const {
     </svg>
   </div>
 
-  <h3 class="font-display font-bold text-xl text-white mb-2 tracking-wide uppercase">
+  <h3 class="font-display font-bold text-xl text-white mb-2 tracking-wide">
     {title}
   </h3>
 

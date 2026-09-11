@@ -22,13 +22,11 @@ const featuredCamps = (campsData as CampItem[]).slice(0, 6);
   >
     <div>
       <span
-        class="inline-block px-3 py-1 bg-white border border-[#E5383B] text-[#E5383B] font-mono text-xs uppercase tracking-[0.2em] mb-2 shadow-sm"
+        class="inline-block px-3 py-1 bg-white border border-[#E5383B] text-[#E5383B] font-mono text-xs tracking-wide mb-2 shadow-sm"
       >
         {t('camps.badge')}
       </span>
-      <h2
-        class="font-barlow font-extrabold text-3xl md:text-5xl uppercase tracking-tight text-[#0D0D0D]"
-      >
+      <h2 class="font-barlow font-extrabold text-3xl md:text-5xl tracking-tight text-[#0D0D0D]">
         {t('camps.title')}
       </h2>
     </div>
@@ -50,7 +48,7 @@ const featuredCamps = (campsData as CampItem[]).slice(0, 6);
       </button>
       <a
         href={`/${locale}/tours`}
-        class="btn-secondary !py-2.5 !px-5 text-xs font-barlow font-bold uppercase tracking-wider ml-2"
+        class="btn-secondary !py-2.5 !px-5 text-xs font-barlow font-bold tracking-wide ml-2"
       >
         {t('nav.tours')} &rarr;
       </a>

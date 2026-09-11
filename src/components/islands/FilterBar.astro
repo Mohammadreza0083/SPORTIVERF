@@ -42,9 +42,8 @@ const starTiers = [
     <div
       class="flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth w-full md:w-auto pb-1 md:pb-0"
     >
-      <span
-        class="text-[10px] font-mono uppercase tracking-widest text-[#888888] mr-2 flex-shrink-0"
-        >SPORT:</span
+      <span class="text-[10px] font-mono tracking-wide text-[#888888] mr-2 flex-shrink-0"
+        >Sport:</span
       >
       {
         sports.map((sport) => {
@@ -53,7 +52,7 @@ const starTiers = [
             <button
               type="button"
               data-sport-filter={sport.id}
-              class={`sport-pill whitespace-nowrap px-4 py-2 border text-xs font-mono uppercase tracking-wider transition-all duration-200 focus:outline-none ${
+              class={`sport-pill whitespace-nowrap px-4 py-2 border text-xs font-mono tracking-wide transition-all duration-200 focus:outline-none ${
                 isActive
                   ? 'bg-[#0D0D0D] text-white font-bold border-[#0D0D0D] shadow-sm'
                   : 'bg-[#FAF9F6] text-[#555555] border-[#E5E3DC] hover:border-[#E5383B] hover:text-[#E5383B]'
@@ -70,9 +69,8 @@ const starTiers = [
     <div
       class="flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth w-full md:w-auto"
     >
-      <span
-        class="text-[10px] font-mono uppercase tracking-widest text-[#888888] mr-2 flex-shrink-0"
-        >TIER:</span
+      <span class="text-[10px] font-mono tracking-wide text-[#888888] mr-2 flex-shrink-0"
+        >Tier:</span
       >
       {
         starTiers.map((tier) => {
@@ -81,7 +79,7 @@ const starTiers = [
             <button
               type="button"
               data-star-filter={tier.id}
-              class={`star-pill whitespace-nowrap px-3.5 py-1.5 border text-xs font-mono uppercase tracking-wider transition-all duration-200 focus:outline-none ${
+              class={`star-pill whitespace-nowrap px-3.5 py-1.5 border text-xs font-mono tracking-wide transition-all duration-200 focus:outline-none ${
                 isActive
                   ? 'bg-[#E5383B] text-white font-bold border-[#E5383B] shadow-sm'
                   : 'bg-white text-[#555555] border-[#E5E3DC] hover:border-[#E5383B] hover:text-[#E5383B]'

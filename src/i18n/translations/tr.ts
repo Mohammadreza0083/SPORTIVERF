@@ -24,7 +24,7 @@ export default {
     remember: 'Gelecek ziyaretler için seçimimi hatırla'
   },
   hero: {
-    badge: 'SEÇKİN SPOR TURİZMİ VE SEÇMELER',
+    badge: 'Seçkin Spor Turizmi ve Seçmeler',
     title: 'Uluslararası Spor Kampları',
     subtitle:
       'Seçkin sporcular için özel olarak tasarlanmış 3 Yıldızlı, 4 Yıldızlı ve 5 Yıldızlı VIP atletik kamplar, scout seçmeleri ve yüksek performans eğitimleri.',
@@ -38,7 +38,7 @@ export default {
     statAcademies: 'Uluslararası Akademi'
   },
   values: {
-    badge: 'TEMEL İLKELERİMİZ',
+    badge: 'Temel İlkelerimiz',
     title: 'Temel Değerler',
     trustTitle: 'Güven & Denetim',
     trustDesc:
@@ -58,7 +58,7 @@ export default {
     descPlayer: 'Elit sporcular için özel gelişim ve yetenek programları...',
     descTeam: 'Takımlara özel, yüksek standartlı kamp organizasyonları...',
     descFriendly: 'Uluslararası standartlarda hazırlık maçları organizasyonu...',
-    badge: 'ÖZEL SPOR PROGRAMLARI',
+    badge: 'Özel Spor Programları',
     title: 'Kategorili Spor Kampları ve Seçmeler',
     subtitle:
       'Dünya standartlarında tesisleri ve profesyonel scout seçmelerini keşfetmek için spor ve yıldız kategorisine göre filtreleyin.',
@@ -69,13 +69,13 @@ export default {
     filter3Star: '3 Yıldızlı Temel',
     filter4Star: '4 Yıldızlı Yönetici',
     filter5Star: '5 Yıldızlı VIP Prestij',
-    tuition: 'FİYAT MODELİ',
+    tuition: 'Fiyat Modeli',
     priceOnRequest: 'Fiyat İçin İletişime Geçin',
     inquireForPricing: 'Fiyat Ve Bilgi Alın',
     pricingNotice: 'Fiyatlandırma ve kontenjan bilgisi doğrudan talebiniz üzerine sağlanmaktadır.',
-    dates: 'TARİHLER',
-    age: 'YAŞ',
-    capacity: 'KONTENJAN',
+    dates: 'Tarihler',
+    age: 'Yaş',
+    capacity: 'Kontenjan',
     viewDetails: 'Kampı İncele',
     bookNow: 'Bilgi Alın',
     noCamps: 'Seçtiğiniz filtre kriterlerine uygun kamp bulunamadı. Lütfen aramanızı güncelleyin.'
@@ -92,7 +92,7 @@ export default {
       '5 yıldızlı sahil otelleri, UEFA/FIVB antrenörleri ve doğrudan scout takibi içeren VIP gösteri kampı.'
   },
   booking: {
-    badge: 'DOĞRUDAN BAŞVURU FORMU',
+    badge: 'Doğrudan Başvuru Formu',
     title: 'Kamp Başvuru ve Rezervasyon',
     subtitle:
       'Resmi başvurunuzu başlatmak için aşağıdaki formu doldurun. Hizmet ekibimiz başvurunuzu 24 saat içinde inceleyecektir.',
@@ -120,7 +120,7 @@ export default {
     newInquiryBtn: 'Yeni Başvuru Gönder'
   },
   about: {
-    badge: 'AK LİMOSA TURİZM GÜVENCESİ',
+    badge: 'Ak Limosa Turizm Güvencesi',
     heroTitle: 'Yurt Dışı Spor Turizmini Yeniden Tanımlıyoruz',
     heroSubtitle:
       'Genç yetenekleri üst düzey, yapılandırılmış kamp deneyimleriyle uluslararası kulüpler ve akademilerle buluşturuyoruz.',
@@ -135,15 +135,15 @@ export default {
     p3: 'SPORTIVERF’in faaliyetleri; profesyonel spor programlarının tasarlanması ve organizasyonu, uzmanlaşmış spor kampları, uluslararası antrenörlerle iş birlikleri ve sportif ve akademik fırsatların oluşturulmasına odaklanmaktadır.',
     p4: 'Amacımız yalnızca bir spor programı organize etmek değildir. Sporcuları ve takımları uluslararası fırsatlarla buluşturarak onların deneyim kazanmaları, öğrenmeleri ve profesyonel olarak gelişmeleri için yeni yollar oluşturmayı hedefliyoruz.',
     p5: 'Misyonumuz; sporcuların, takımların ve spor akademilerinin uluslararası düzeyde gelişimini destekleyecek profesyonel ortamlar ve fırsatlar oluşturmaktır.',
-    chapter1Badge: '01 / KURULUŞ',
+    chapter1Badge: '01 / Kuruluş',
     chapter1Title: 'Türkiye Merkezli Spor Platformu',
-    chapter2Badge: '02 / GELİŞİM & BAĞLANTILAR',
+    chapter2Badge: '02 / Gelişim & Bağlantılar',
     chapter2Title: 'Sporcular ve Akademiler İçin Fırsatlar',
-    chapter3Badge: '03 / FAALİYETLERİMİZ',
+    chapter3Badge: '03 / Faaliyetlerimiz',
     chapter3Title: 'Özel Kamplar ve Akademik Programlar',
-    chapter4Badge: '04 / HEDEFİMİZ',
+    chapter4Badge: '04 / Hedefimiz',
     chapter4Title: 'Uluslararası Fırsat Köprüsü',
-    chapter5Badge: '05 / MİSYONUMUZ',
+    chapter5Badge: '05 / Misyonumuz',
     chapter5Title: 'Profesyonel Ortamlar ve Standartlar',
     exploreCamps: 'Kampları Keşfet',
     contactConcierge: 'WhatsApp İle Bilgi Alın',
@@ -170,7 +170,7 @@ export default {
     btn: 'Resmi Web Sitesi'
   },
   faq: {
-    badge: 'SIKÇA SORULAN SORULAR',
+    badge: 'Sıkça Sorulan Sorular',
     title: 'Platform SSS',
     q1: 'SPORTIVERF hangi yasal denetim altında çalışmaktadır?',
     a1: "SPORTIVERF, Aklimosaturizm'in doğrudan yasal denetimi ve lisansı altında faaliyet göstermektedir.",
@@ -215,7 +215,7 @@ export default {
     contactSupport: 'WhatsApp İle Danışmana Ulaşın'
   },
   comingSoon: {
-    badge: 'GÜNCELLENİYOR • YAKINDA',
+    badge: 'Güncelleniyor • Yakında',
     title: 'Yeni Deneyimler Yakında',
     subtitle: 'Şu anda bu bölümü güncelliyoruz. Lütfen daha sonra tekrar kontrol edin.',
     description:

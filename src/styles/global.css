@@ -97,7 +97,6 @@ html[dir='rtl'] h6 {
   h5,
   h6 {
     font-family: var(--font-family-display);
-    text-transform: uppercase;
     letter-spacing: 0.02em;
   }
 
@@ -111,18 +110,18 @@ html[dir='rtl'] h6 {
 @layer components {
   /* Primary Solid Button */
   .btn-primary {
-    @apply inline-flex items-center justify-center px-7 py-3.5 rounded-none bg-[#0D0D0D] text-white font-medium text-xs tracking-[0.18em] uppercase transition-all duration-300 hover:bg-[#E5383B] hover:text-white hover:shadow-lg active:scale-[0.98] focus:outline-none disabled:opacity-50 disabled:pointer-events-none;
+    @apply inline-flex items-center justify-center px-7 py-3.5 rounded-none bg-[#0D0D0D] text-white font-medium text-xs tracking-wider transition-all duration-300 hover:bg-[#E5383B] hover:text-white hover:shadow-lg active:scale-[0.98] focus:outline-none disabled:opacity-50 disabled:pointer-events-none;
   }
 
   /* Secondary Outlined Button */
   .btn-secondary {
-    @apply inline-flex items-center justify-center px-7 py-3.5 rounded-none border border-[#0D0D0D] text-[#0D0D0D] font-medium text-xs tracking-[0.18em] uppercase transition-all duration-300 hover:bg-[#0D0D0D] hover:text-white active:scale-[0.98] focus:outline-none disabled:opacity-50 disabled:pointer-events-none;
+    @apply inline-flex items-center justify-center px-7 py-3.5 rounded-none border border-[#0D0D0D] text-[#0D0D0D] font-medium text-xs tracking-wider transition-all duration-300 hover:bg-[#0D0D0D] hover:text-white active:scale-[0.98] focus:outline-none disabled:opacity-50 disabled:pointer-events-none;
   }
 
   /* Red Accent Button */
   .btn-gold,
   .btn-red {
-    @apply inline-flex items-center justify-center px-7 py-3.5 rounded-none bg-[#E5383B] text-white font-medium text-xs tracking-[0.18em] uppercase transition-all duration-300 hover:bg-[#B7094C] hover:shadow-lg active:scale-[0.98] focus:outline-none;
+    @apply inline-flex items-center justify-center px-7 py-3.5 rounded-none bg-[#E5383B] text-white font-medium text-xs tracking-wider transition-all duration-300 hover:bg-[#B7094C] hover:shadow-lg active:scale-[0.98] focus:outline-none;
   }
 
   /* Ghost Icon Button */

@@ -124,8 +124,8 @@ const t = useTranslations(locale);
         <!-- Monospace Status Badge -->
         <div class="mb-4">
           <span
-            class="inline-block px-4 py-1.5 bg-[#E5383B]/10 border border-[#E5383B]/40 text-[#E5383B] font-mono text-[11px] uppercase tracking-[0.25em] font-medium"
-            style="background-color: rgba(229, 56, 59, 0.1); border: 1px solid rgba(229, 56, 59, 0.4); color: #E5383B; font-family: 'Space Mono', monospace; letter-spacing: 0.25em; padding: 6px 16px; font-size: 11px;"
+            class="inline-block px-4 py-1.5 bg-[#E5383B]/10 border border-[#E5383B]/40 text-[#E5383B] font-mono text-[11px] tracking-wide font-medium"
+            style="background-color: rgba(229, 56, 59, 0.1); border: 1px solid rgba(229, 56, 59, 0.4); color: #E5383B; font-family: 'Space Mono', monospace; padding: 6px 16px; font-size: 11px;"
           >
             {t('comingSoon.badge')}
           </span>
@@ -133,8 +133,8 @@ const t = useTranslations(locale);
 
         <!-- Main Display Heading -->
         <h1
-          class="font-barlow font-black text-4xl sm:text-5xl md:text-6xl uppercase tracking-tight text-white mb-4 leading-tight"
-          style="font-family: 'Barlow Condensed', sans-serif; font-weight: 900; text-transform: uppercase; color: #ffffff;"
+          class="font-barlow font-black text-4xl sm:text-5xl md:text-6xl tracking-tight text-white mb-4 leading-tight"
+          style="font-family: 'Barlow Condensed', sans-serif; font-weight: 900; color: #ffffff;"
         >
           {t('comingSoon.title')}
         </h1>
@@ -159,16 +159,16 @@ const t = useTranslations(locale);
         <div class="flex flex-wrap justify-center gap-4 pt-2">
           <a
             href={`/${locale}`}
-            class="btn-primary !py-3.5 !px-7 !text-xs !bg-[#E5383B] !text-white hover:!bg-[#B7094C] shadow-[0_0_20px_rgba(229,56,59,0.3)] transition-all inline-flex items-center justify-center font-bold uppercase tracking-wider"
-            style="background-color: #E5383B; color: #ffffff; padding: 14px 28px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; text-decoration: none;"
+            class="btn-primary !py-3.5 !px-7 !text-xs !bg-[#E5383B] !text-white hover:!bg-[#B7094C] shadow-[0_0_20px_rgba(229,56,59,0.3)] transition-all inline-flex items-center justify-center font-bold tracking-wide"
+            style="background-color: #E5383B; color: #ffffff; padding: 14px 28px; font-size: 12px; font-weight: 700; text-decoration: none;"
           >
             {t('comingSoon.backHome')}
           </a>
 
           <a
             href={`/${locale}/about`}
-            class="btn-secondary !py-3.5 !px-7 !text-xs !border-white/20 !text-white hover:!bg-white hover:!text-[#0D0D0D] transition-all inline-flex items-center justify-center font-bold uppercase tracking-wider"
-            style="background-color: transparent; border: 1px solid rgba(255, 255, 255, 0.2); color: #ffffff; padding: 14px 28px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; text-decoration: none;"
+            class="btn-secondary !py-3.5 !px-7 !text-xs !border-white/20 !text-white hover:!bg-white hover:!text-[#0D0D0D] transition-all inline-flex items-center justify-center font-bold tracking-wide"
+            style="background-color: transparent; border: 1px solid rgba(255, 255, 255, 0.2); color: #ffffff; padding: 14px 28px; font-size: 12px; font-weight: 700; text-decoration: none;"
           >
             {t('comingSoon.aboutUs')}
           </a>
@@ -177,8 +177,8 @@ const t = useTranslations(locale);
             href={`https://wa.me/905421661698?text=${encodeURIComponent(t('contact.whatsappText'))}`}
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center justify-center gap-2 px-6 py-3.5 border border-[#25D366]/40 bg-[#25D366]/10 text-[#25D366] text-xs font-mono uppercase tracking-wider hover:bg-[#25D366] hover:text-white transition-all duration-300"
-            style="border: 1px solid rgba(37, 211, 102, 0.4); background-color: rgba(37, 211, 102, 0.1); color: #25D366; padding: 14px 24px; font-size: 12px; font-family: 'Space Mono', monospace; text-transform: uppercase; text-decoration: none;"
+            class="inline-flex items-center justify-center gap-2 px-6 py-3.5 border border-[#25D366]/40 bg-[#25D366]/10 text-[#25D366] text-xs font-mono tracking-wide hover:bg-[#25D366] hover:text-white transition-all duration-300"
+            style="border: 1px solid rgba(37, 211, 102, 0.4); background-color: rgba(37, 211, 102, 0.1); color: #25D366; padding: 14px 24px; font-size: 12px; font-family: 'Space Mono', monospace; text-decoration: none;"
           >
             <svg
               class="w-4 h-4 fill-currentColor"

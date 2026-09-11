@@ -24,8 +24,8 @@ export default {
     remember: 'Remember my choice for future visits'
   },
   hero: {
-    badge: 'ELITE SPORTS TOURISM & SHOWCASES',
-    title: 'INTERNATIONAL SPORTS CAMP',
+    badge: 'Elite Sports Tourism & Showcases',
+    title: 'International Sports Camp',
     subtitle:
       'Curated 3-Star, 4-Star, and 5-Star athletic retreats, scout showcases, and high-performance training camps tailored for elite performers.',
     ctaPrimary: 'Explore Football Camps',
@@ -38,7 +38,7 @@ export default {
     statAcademies: 'Global Academies'
   },
   values: {
-    badge: 'FOUNDATIONAL PRINCIPLES',
+    badge: 'Foundational Principles',
     title: 'Core Values',
     trustTitle: 'Trust & Supervision',
     trustDesc:
@@ -58,7 +58,7 @@ export default {
     descPlayer: 'Specialized development and talent programs for elite athletes...',
     descTeam: 'High-standard, custom camp organizations for teams...',
     descFriendly: 'Organization of international friendly matches...',
-    badge: 'CURATED SPORTS EXPEDITIONS',
+    badge: 'Curated Sports Expeditions',
     title: 'Tiered Sports Camps & Showcases',
     subtitle:
       'Filter by sport and star-tier to discover world-class facilities and professional scout showcases.',
@@ -69,13 +69,13 @@ export default {
     filter3Star: '3-Star Essentials',
     filter4Star: '4-Star Executive',
     filter5Star: '5-Star VIP Showcase',
-    tuition: 'PRICING MODEL',
+    tuition: 'Pricing Model',
     priceOnRequest: 'Price on Request',
     inquireForPricing: 'Inquire for Pricing',
     pricingNotice: 'Pricing & availability provided upon direct inquiry.',
-    dates: 'DATES',
-    age: 'AGE',
-    capacity: 'CAPACITY',
+    dates: 'Dates',
+    age: 'Age',
+    capacity: 'Capacity',
     viewDetails: 'Explore Camp',
     bookNow: 'Inquire Now',
     noCamps: 'No camps match your selected filter criteria. Please adjust your search.'
@@ -92,7 +92,7 @@ export default {
       'VIP showcases featuring 5-star beachfront resorts, UEFA/FIVB mentors, and scout exposure.'
   },
   booking: {
-    badge: 'DIRECT CONCIERGE INQUIRY',
+    badge: 'Direct Concierge Inquiry',
     title: 'Camp Inquiry & Reservation',
     subtitle:
       'Complete the form below to initiate your official reservation. Our concierge team will review your application within 24 hours.',
@@ -118,7 +118,7 @@ export default {
     newInquiryBtn: 'Submit Another Inquiry'
   },
   about: {
-    badge: 'AK LIMOSA TURIZM SUPERVISION',
+    badge: 'Ak Limosa Turizm Supervision',
     heroTitle: 'Redefining Overseas Sports Tourism',
     heroSubtitle:
       'Connecting young athletic talent to international clubs and academies through high-end, structured camp experiences.',
@@ -133,15 +133,15 @@ export default {
     p3: 'SPORTIVERF focuses on the design and organization of professional sports programs, specialized training camps, international coaching collaborations, and academic and athletic opportunities.',
     p4: 'Our goal is not simply to organize sports programs. We aim to connect athletes and teams with international opportunities, creating new pathways for experience, learning, and professional development.',
     p5: 'Our mission is to create professional environments and opportunities that support the growth and development of athletes, sports teams, and academies on an international level.',
-    chapter1Badge: '01 / FOUNDATION',
+    chapter1Badge: '01 / Foundation',
     chapter1Title: 'Türkiye-Based Sports Platform',
-    chapter2Badge: '02 / GROWTH & CONNECTIONS',
+    chapter2Badge: '02 / Growth & Connections',
     chapter2Title: 'Opportunities for Athletes & Academies',
-    chapter3Badge: '03 / CORE ACTIVITIES',
+    chapter3Badge: '03 / Core Activities',
     chapter3Title: 'Specialized Camps & Academic Programs',
-    chapter4Badge: '04 / OUR GOAL',
+    chapter4Badge: '04 / Our Goal',
     chapter4Title: 'International Opportunity Pathway',
-    chapter5Badge: '05 / OUR MISSION',
+    chapter5Badge: '05 / Our Mission',
     chapter5Title: 'Professional Environments & Standards',
     exploreCamps: 'Explore Camps',
     contactConcierge: 'Contact Concierge',
@@ -168,7 +168,7 @@ export default {
     btn: 'Official Website'
   },
   faq: {
-    badge: 'FREQUENTLY ASKED QUESTIONS',
+    badge: 'Frequently Asked Questions',
     title: 'Platform FAQ',
     q1: 'What legal supervision does SPORTIVERF operate under?',
     a1: 'SPORTIVERF operates under the direct legal supervision and license of Aklimosaturizm.',
@@ -214,7 +214,7 @@ export default {
     contactSupport: 'Contact Concierge via WhatsApp'
   },
   comingSoon: {
-    badge: 'UNDER UPGRADE • COMING SOON',
+    badge: 'Under Upgrade • Coming Soon',
     title: 'New Experiences Coming Soon',
     subtitle: 'We are currently upgrading this section. Please check back later.',
     description:

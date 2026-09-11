@@ -32,10 +32,10 @@ const t = useTranslations(locale);
   <!-- Form Container -->
   <div id={`booking-container-${tourId}`}>
     <div class="border-b border-[#E5E3DC] pb-5 mb-6">
-      <span class="font-mono text-[10px] text-[#E5383B] uppercase tracking-[0.2em] block mb-1">
+      <span class="font-mono text-[10px] text-[#E5383B] tracking-wide block mb-1">
         {t('booking.badge')}
       </span>
-      <h3 class="font-barlow font-bold text-2xl text-[#0D0D0D] uppercase">
+      <h3 class="font-barlow font-bold text-2xl text-[#0D0D0D]">
         {tourTitle}
       </h3>
       <p class="text-xs text-[#666666] mt-1">
@@ -52,7 +52,7 @@ const t = useTranslations(locale);
       <div>
         <label
           for={`fullName-${tourId}`}
-          class="block text-xs font-medium uppercase tracking-wider text-[#0D0D0D] mb-1"
+          class="block text-xs font-medium tracking-wide text-[#0D0D0D] mb-1"
         >
           {t('booking.fullNameLabel')} *
         </label>
@@ -76,7 +76,7 @@ const t = useTranslations(locale);
         <div>
           <label
             for={`email-${tourId}`}
-            class="block text-xs font-medium uppercase tracking-wider text-[#0D0D0D] mb-1"
+            class="block text-xs font-medium tracking-wide text-[#0D0D0D] mb-1"
           >
             {t('booking.emailLabel')} *
           </label>
@@ -99,7 +99,7 @@ const t = useTranslations(locale);
         <div>
           <label
             for={`phone-${tourId}`}
-            class="block text-xs font-medium uppercase tracking-wider text-[#0D0D0D] mb-1"
+            class="block text-xs font-medium tracking-wide text-[#0D0D0D] mb-1"
           >
             {t('booking.phoneLabel')} *
           </label>
@@ -123,7 +123,7 @@ const t = useTranslations(locale);
       <div>
         <label
           for={`participants-${tourId}`}
-          class="block text-xs font-medium uppercase tracking-wider text-[#0D0D0D] mb-1"
+          class="block text-xs font-medium tracking-wide text-[#0D0D0D] mb-1"
         >
           {t('booking.participantsLabel')} *
         </label>
@@ -142,7 +142,7 @@ const t = useTranslations(locale);
       <div>
         <label
           for={`notes-${tourId}`}
-          class="block text-xs font-medium uppercase tracking-wider text-[#0D0D0D] mb-1"
+          class="block text-xs font-medium tracking-wide text-[#0D0D0D] mb-1"
         >
           {t('booking.notesLabel')}
         </label>
@@ -157,7 +157,7 @@ const t = useTranslations(locale);
 
       <!-- Price on Request Concierge Info Box -->
       <div class="bg-[#FAF9F6] p-4 border border-[#E5E3DC] space-y-1 my-4 text-center">
-        <div class="font-barlow font-bold text-sm text-[#E5383B] uppercase tracking-wider">
+        <div class="font-barlow font-bold text-sm text-[#E5383B] tracking-wide">
           {t('camps.priceOnRequest')}
         </div>
         <p class="text-[11px] text-[#666666] font-light leading-relaxed">
@@ -168,7 +168,7 @@ const t = useTranslations(locale);
       <button
         id={`submit-btn-${tourId}`}
         type="submit"
-        class="btn-red w-full justify-center !py-4 font-barlow font-bold tracking-[0.18em]"
+        class="btn-red w-full justify-center !py-4 font-barlow font-bold tracking-wide"
       >
         {t('camps.inquireForPricing')}
       </button>
@@ -186,10 +186,10 @@ const t = useTranslations(locale);
     </div>
 
     <div>
-      <span class="font-mono text-xs text-[#E5383B] uppercase tracking-widest block mb-1">
-        CONCIERGE DISPATCH CONFIRMED
+      <span class="font-mono text-xs text-[#E5383B] tracking-wide block mb-1">
+        Concierge Dispatch Confirmed
       </span>
-      <h3 class="font-barlow font-bold text-2xl text-[#0D0D0D] uppercase">
+      <h3 class="font-barlow font-bold text-2xl text-[#0D0D0D]">
         {t('booking.successTitle')}
       </h3>
       <p class="text-xs text-[#666666] max-w-sm mx-auto mt-2 leading-relaxed">
@@ -206,7 +206,7 @@ const t = useTranslations(locale);
       </div>
       <div class="flex justify-between text-[#888888]">
         <span>Status:</span>
-        <span class="text-[#E5383B] font-bold">DISPATCHED TO CONCIERGE</span>
+        <span class="text-[#E5383B] font-bold">Dispatched to Concierge</span>
       </div>
     </div>
 
@@ -228,7 +228,7 @@ const t = useTranslations(locale);
       <button
         id={`reset-btn-${tourId}`}
         type="button"
-        class="text-xs font-mono text-[#888888] hover:text-[#0D0D0D] underline uppercase tracking-wider"
+        class="text-xs font-mono text-[#888888] hover:text-[#0D0D0D] underline tracking-wide"
       >
         {t('booking.newInquiryBtn')}
       </button>
@@ -245,13 +245,11 @@ const t = useTranslations(locale);
     >
       <div class="w-12 h-1 bg-[#E5383B] mx-auto mb-2"></div>
 
-      <span class="font-mono text-[10px] text-[#E5383B] uppercase tracking-[0.2em] block">
-        CONCIERGE NOTICE
+      <span class="font-mono text-[10px] text-[#E5383B] tracking-wide block">
+        Concierge Notice
       </span>
 
-      <h4 class="font-barlow font-bold text-xl text-[#0D0D0D] uppercase">
-        Inquiry Submission Notice
-      </h4>
+      <h4 class="font-barlow font-bold text-xl text-[#0D0D0D]">Inquiry Submission Notice</h4>
 
       <p id={`error-modal-msg-${tourId}`} class="text-xs text-[#555555] font-light leading-relaxed">
         Please check your information and try again.
