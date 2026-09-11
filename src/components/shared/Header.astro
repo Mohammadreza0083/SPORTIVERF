@@ -62,7 +62,7 @@ const hrefCounts = navItems.reduce(
     <nav
       role="navigation"
       aria-label={t('nav.main')}
-      class="hidden lg:flex items-center gap-8 rtl:space-x-reverse"
+      class="hidden lg:flex items-center gap-8 lg:gap-10 rtl:space-x-reverse"
     >
       {
         navItems.map((item) => {
@@ -74,7 +74,7 @@ const hrefCounts = navItems.reduce(
           return (
             <a
               href={item.href}
-              class={`relative text-sm tracking-wide font-barlow font-bold transition-colors py-1 ${
+              class={`relative text-[15px] tracking-wide font-barlow font-semibold transition-colors pb-2 ${
                 isActive ? 'text-white' : 'text-white/70 hover:text-[#E5383B]'
               }`}
               aria-current={isActive ? 'page' : undefined}
@@ -91,7 +91,7 @@ const hrefCounts = navItems.reduce(
     <div class="flex items-center gap-3 sm:gap-4 rtl:space-x-reverse">
       <a
         href={`/${locale}/tours`}
-        class="hidden sm:inline-flex btn-primary !py-2.5 !px-5 !text-[11px] font-barlow font-bold shadow-[0_0_15px_rgba(229,56,59,0.3)]"
+        class="hidden sm:inline-flex btn-primary !py-2.5 !px-5 !text-[14px] font-barlow font-semibold tracking-wide shadow-[0_0_15px_rgba(229,56,59,0.3)]"
       >
         {t('nav.bookNow')}
       </a>
@@ -143,7 +143,7 @@ const hrefCounts = navItems.reduce(
           return (
             <a
               href={item.href}
-              class={`text-base font-barlow font-bold tracking-wide transition-all duration-200 border-b border-white/10 pb-3 flex items-center justify-between ${
+              class={`text-base font-barlow font-semibold tracking-wide transition-all duration-200 border-b border-white/10 pb-3 flex items-center justify-between ${
                 isActive
                   ? 'text-[#E5383B] pl-2 border-l-2 border-[#E5383B]'
                   : 'text-white hover:text-[#E5383B] hover:pl-1'
@@ -157,7 +157,7 @@ const hrefCounts = navItems.reduce(
       }
       <a
         href={`/${locale}/about`}
-        class={`text-base font-barlow font-bold tracking-wide transition-all duration-200 border-b border-white/10 pb-3 flex items-center justify-between ${
+        class={`text-base font-barlow font-semibold tracking-wide transition-all duration-200 border-b border-white/10 pb-3 flex items-center justify-between ${
           currentPath === `/${locale}/about` || currentPath === `/${locale}/about/`
             ? 'text-[#E5383B] pl-2 border-l-2 border-[#E5383B]'
             : 'text-white hover:text-[#E5383B] hover:pl-1'
@@ -176,7 +176,7 @@ const hrefCounts = navItems.reduce(
     <div class="pt-2">
       <a
         href={`/${locale}/tours`}
-        class="btn-primary w-full justify-center !py-3.5 text-center text-xs font-bold tracking-[0.18em] shadow-lg"
+        class="btn-primary w-full justify-center !py-3.5 text-center text-sm font-semibold tracking-wide shadow-lg"
       >
         {t('nav.bookNow')}
       </a>
