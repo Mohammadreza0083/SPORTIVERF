@@ -51,6 +51,13 @@ export default {
       'Exclusive exposure to European scouts, international university pathways, and elite club trial showcases.'
   },
   camps: {
+    volleyball: 'Volleyball Camps',
+    player: 'Player Camps',
+    team: 'Team Camps',
+    friendly: 'Friendly Matches',
+    descPlayer: 'Specialized development and talent programs for elite athletes...',
+    descTeam: 'High-standard, custom camp organizations for teams...',
+    descFriendly: 'Organization of international friendly matches...',
     badge: 'CURATED SPORTS EXPEDITIONS',
     title: 'Tiered Sports Camps & Showcases',
     subtitle:
@@ -221,5 +228,8 @@ export default {
     emailSubject: 'Inquiry about SPORTIVERF Camps',
     emailBody:
       'Hello SPORTIVERF Team,\n\nI would like to request more information about your upcoming sports camps and showcases.\n\nThank you.'
+  },
+  ui: {
+    skip: 'Skip'
   }
 } as const;

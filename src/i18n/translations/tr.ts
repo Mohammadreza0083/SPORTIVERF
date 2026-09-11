@@ -51,6 +51,13 @@ export default {
       'Avrupalı scoutlara doğrudan erişim, uluslararası üniversite burs yolları ve seçkin kulüp seçmeleri.'
   },
   camps: {
+    volleyball: 'Voleybol Kampları',
+    player: 'Oyuncu Kampları',
+    team: 'Takım Kampları',
+    friendly: 'Hazırlık Maçları',
+    descPlayer: 'Elit sporcular için özel gelişim ve yetenek programları...',
+    descTeam: 'Takımlara özel, yüksek standartlı kamp organizasyonları...',
+    descFriendly: 'Uluslararası standartlarda hazırlık maçları organizasyonu...',
     badge: 'ÖZEL SPOR PROGRAMLARI',
     title: 'Kategorili Spor Kampları ve Seçmeler',
     subtitle:
@@ -222,5 +229,8 @@ export default {
     emailSubject: 'SPORTIVERF Kampları Hakkında Bilgi Talebi',
     emailBody:
       'Merhaba SPORTIVERF Ekibi,\n\nYaklaşan spor kamplarınız ve yetenek vitrinleriniz hakkında daha fazla bilgi almak istiyorum.\n\nTeşekkürler.'
+  },
+  ui: {
+    skip: 'Geç'
   }
 } as const;

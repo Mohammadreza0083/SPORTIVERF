@@ -11,86 +11,11 @@ const t = useTranslations(locale);
 const dir = getDirFromLocale(locale);
 ---
 
-<!-- Mobile Sticky Sub-Header (Fixed at top-20 to hover over hero without pushing layout) -->
-<div
-  id="mobile-hero-sub-header"
-  class="fixed top-20 left-0 w-full z-40 bg-[#0a0a0a]/90 backdrop-blur-md border-b border-white/10 transition-all duration-300 ease-in-out md:hidden shadow-lg"
->
-  <div class="px-3 py-2 max-w-lg mx-auto">
-    <div class="grid grid-cols-2 gap-1.5">
-      <!-- CTA 1: Volleyball Camps -->
-      <a
-        href={`/${locale}/volleyball-camps`}
-        class="bg-gradient-to-r from-[#E5383B] to-[#B7094C] text-white shadow-[0_0_12px_rgba(229,56,59,0.3)] font-barlow font-bold text-[10px] sm:text-[11px] tracking-wider uppercase py-2 px-1.5 flex flex-col items-center justify-center gap-1 text-center border border-[#FF4D6D]/30 active:scale-95 transition-all group"
-      >
-        <svg
-          class="w-4 h-4 text-white shrink-0"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <circle cx="12" cy="12" r="10"></circle>
-          <path d="m4.93 4.93 4.24 4.24"></path>
-          <path d="m14.83 9.17 4.24-4.24"></path>
-          <path d="m14.83 14.83 4.24 4.24"></path>
-          <path d="m9.17 14.83-4.24 4.24"></path>
-          <circle cx="12" cy="12" r="4"></circle>
-        </svg>
-        <span class="leading-tight">{t('hero.btnVolleyball')}</span>
-      </a>
-
-      <!-- CTA 2: Volleyball Academic Camps -->
-      <a
-        href={`/${locale}/volleyball-camps`}
-        class="bg-[#111111]/90 text-white border border-[#E5383B]/40 shadow-[0_0_10px_rgba(229,56,59,0.15)] font-barlow font-bold text-[10px] sm:text-[11px] tracking-wider uppercase py-2 px-1.5 flex flex-col items-center justify-center gap-1 text-center backdrop-blur-md active:scale-95 transition-all group"
-      >
-        <svg
-          class="w-4 h-4 text-[#E5383B] shrink-0"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"></path>
-          <path d="M6 6h10"></path>
-          <path d="M6 10h10"></path>
-        </svg>
-        <span class="leading-tight">{t('hero.btnVolleyballAcademic')}</span>
-      </a>
-
-      <!-- CTA 3: College Volleyball Opportunities -->
-      <a
-        href={`/${locale}/volleyball-camps`}
-        class="col-span-2 bg-white/10 text-white border border-white/20 shadow-[0_0_10px_rgba(255,255,255,0.08)] font-barlow font-bold text-[10px] sm:text-[11px] tracking-wider uppercase py-2 px-1.5 flex flex-col items-center justify-center gap-1 text-center backdrop-blur-md active:scale-95 transition-all group"
-      >
-        <svg
-          class="w-4 h-4 text-white/90 shrink-0"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-          <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-        </svg>
-        <span class="leading-tight">{t('hero.btnCollegeVolleyball')}</span>
-      </a>
-    </div>
-  </div>
-</div>
-
-<!-- Hero Section Container with Immersive Full-Height Background -->
+<!-- Hero Section Container with Centered Interactive CTAs -->
 <section
   id="hero-section"
   dir={dir}
-  class="relative w-full h-[70svh] md:h-screen overflow-hidden flex flex-col justify-end pb-6 sm:pb-8 md:pb-16 bg-[#080808] text-white border-b border-white/10"
+  class="relative w-full min-h-[560px] h-[85svh] md:h-screen overflow-hidden flex items-center justify-center bg-[#080808] text-white border-b border-white/10"
 >
   <!-- Background Picture with Dynamic Red Hue Shift Filter & Full Container Coverage -->
   <picture class="absolute inset-0 w-full h-full block z-0">
@@ -101,21 +26,16 @@ const dir = getDirFromLocale(locale);
       alt="SPORTIVERF Elite Athletic Arena"
       loading="eager"
       fetchpriority="high"
-      class="absolute inset-0 w-full h-full object-cover object-center opacity-90 filter hue-rotate-[130deg] saturate-[1.3] transition-all duration-700 z-0"
+      class="absolute inset-0 w-full h-full object-cover object-center opacity-85 filter hue-rotate-[130deg] saturate-[1.3] transition-all duration-700 z-0"
     />
   </picture>
 
-  <!-- Gradient Overlay (Bottom 60% of Hero Section) -->
+  <!-- Ambient Dark Overlays -->
   <div
-    class="absolute bottom-0 left-0 w-full h-[60%] bg-gradient-to-t from-[#080808] via-[#080808]/75 to-transparent pointer-events-none z-10"
+    class="absolute inset-0 bg-gradient-to-t from-[#080808] via-[#080808]/60 to-[#080808]/80 pointer-events-none z-10"
   >
   </div>
-
-  <!-- Desktop Ambient Gradient Overlay -->
-  <div
-    class="hidden md:block absolute inset-0 bg-gradient-to-r from-[#080808]/80 via-[#080808]/30 to-transparent pointer-events-none z-10"
-  >
-  </div>
+  <div class="absolute inset-0 bg-black/40 pointer-events-none z-10"></div>
 
   <!-- Red Neon Ambient Accents -->
   <div
@@ -127,127 +47,371 @@ const dir = getDirFromLocale(locale);
   >
   </div>
 
-  <!-- Main Hero Content (Bottom-Aligned without Subtitle) -->
+  <!-- Centered Hero CTAs (Desktop: Row, Mobile: Column) -->
   <div
-    class="relative z-20 w-full max-w-[1400px] mx-auto px-5 sm:px-8 flex flex-col justify-end items-start text-start"
+    class="relative z-20 flex flex-col md:flex-row items-center justify-center gap-5 sm:gap-6 md:gap-8 px-4"
   >
-    <!-- Tagline Badge -->
-    <div
-      class="inline-flex items-center gap-2 px-3 py-1.5 md:px-3.5 md:py-1.5 bg-[#E5383B]/10 border border-[#E5383B]/40 text-[#E5383B] font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] mb-3 sm:mb-4 backdrop-blur-md shadow-[0_0_15px_rgba(229,56,59,0.2)] rounded-none"
+    <!-- Button 1: Volleyball Camps -->
+    <button
+      id="btn-volleyball-camps"
+      type="button"
+      class="aspect-square w-40 md:w-48 flex flex-col items-center justify-center gap-3 backdrop-blur-md bg-black/40 border border-white/10 hover:border-[#E5383B] transition-all hover:scale-105 active:scale-95 group cursor-pointer p-4 text-center shadow-[0_4px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(229,56,59,0.35)]"
+      aria-haspopup="dialog"
+      aria-expanded="false"
+      aria-controls="volleyball-modal"
     >
-      <span class="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-[#E5383B] animate-pulse"></span>
-      <span>{t('hero.badge')}</span>
-    </div>
+      <svg
+        class="w-10 h-10 md:w-12 md:h-12 text-white group-hover:text-[#E5383B] transition-colors"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="12" cy="12" r="10"></circle>
+        <path d="m4.93 4.93 4.24 4.24"></path>
+        <path d="m14.83 9.17 4.24-4.24"></path>
+        <path d="m14.83 14.83 4.24 4.24"></path>
+        <path d="m9.17 14.83-4.24 4.24"></path>
+        <circle cx="12" cy="12" r="4"></circle>
+      </svg>
+      <span
+        class="font-barlow font-bold text-sm md:text-base tracking-wider uppercase text-white group-hover:text-[#E5383B] transition-colors text-center leading-snug"
+      >
+        {t('camps.volleyball')}
+      </span>
+    </button>
 
-    <!-- Main H1 Headline -->
-    <h1
-      class="font-barlow font-black text-4xl sm:text-6xl md:text-[86px] lg:text-[115px] uppercase tracking-tight text-white max-w-5xl leading-[0.95] md:leading-[0.92] mb-6 md:mb-8 drop-shadow-[0_8px_20px_rgba(0,0,0,0.9)] text-start"
+    <!-- Button 2: Player Camps -->
+    <button
+      type="button"
+      class="camp-trigger-btn aspect-square w-40 md:w-48 flex flex-col items-center justify-center gap-3 backdrop-blur-md bg-black/40 border border-white/10 hover:border-[#E5383B] transition-all hover:scale-105 active:scale-95 group cursor-pointer p-4 text-center shadow-[0_4px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(229,56,59,0.35)]"
+      data-desc={t('camps.descPlayer')}
+      data-href={`/${locale}/camps/player`}
     >
-      {t('hero.title')}
-    </h1>
-
-    <!-- Interactive CTA Buttons (Desktop Viewport Only) with Centered Icons Above Text -->
-    <div
-      class="hidden md:flex flex-wrap items-center gap-4 sm:gap-6 z-20 justify-start w-full max-w-4xl"
-    >
-      <!-- CTA 1: Volleyball Camps -->
-      <a
-        href={`/${locale}/volleyball-camps`}
-        class="bg-gradient-to-r from-[#E5383B] to-[#B7094C] hover:from-[#FF4D6D] hover:to-[#E5383B] text-white shadow-[0_0_25px_rgba(229,56,59,0.4)] hover:shadow-[0_0_35px_rgba(229,56,59,0.7)] transition-all duration-300 font-barlow font-bold text-xs sm:text-sm tracking-[0.14em] uppercase py-3.5 px-6 flex flex-col items-center justify-center gap-1.5 text-center relative border border-[#FF4D6D]/30 min-w-[200px] group"
+      <svg
+        class="w-10 h-10 md:w-12 md:h-12 text-white group-hover:text-[#E5383B] transition-colors"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       >
-        <svg
-          class="w-5 h-5 text-white"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <circle cx="12" cy="12" r="10"></circle>
-          <path d="m4.93 4.93 4.24 4.24"></path>
-          <path d="m14.83 9.17 4.24-4.24"></path>
-          <path d="m14.83 14.83 4.24 4.24"></path>
-          <path d="m9.17 14.83-4.24 4.24"></path>
-          <circle cx="12" cy="12" r="4"></circle>
-        </svg>
-        <span class="leading-tight">{t('hero.btnVolleyball')}</span>
-      </a>
-
-      <!-- CTA 2: Volleyball Academic Camps -->
-      <a
-        href={`/${locale}/volleyball-camps`}
-        class="bg-[#111111]/80 hover:bg-[#E5383B] text-white border border-[#E5383B]/40 hover:border-[#E5383B] shadow-[0_0_20px_rgba(229,56,59,0.15)] hover:shadow-[0_0_30px_rgba(229,56,59,0.5)] transition-all duration-300 font-barlow font-bold text-xs sm:text-sm tracking-[0.14em] uppercase py-3.5 px-6 flex flex-col items-center justify-center gap-1.5 text-center backdrop-blur-md relative min-w-[200px] group"
+        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+        <circle cx="12" cy="7" r="4"></circle>
+      </svg>
+      <span
+        class="font-barlow font-bold text-sm md:text-base tracking-wider uppercase text-white group-hover:text-[#E5383B] transition-colors text-center leading-snug"
       >
-        <svg
-          class="w-5 h-5 text-[#E5383B] group-hover:text-white transition-colors"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"></path>
-          <path d="M6 6h10"></path>
-          <path d="M6 10h10"></path>
-        </svg>
-        <span class="leading-tight">{t('hero.btnVolleyballAcademic')}</span>
-      </a>
-
-      <!-- CTA 3: College Volleyball Opportunities -->
-      <a
-        href={`/${locale}/volleyball-camps`}
-        class="bg-white/10 hover:bg-white text-white hover:text-[#0D0D0D] border border-white/20 hover:border-white shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] transition-all duration-300 font-barlow font-bold text-xs sm:text-sm tracking-[0.14em] uppercase py-3.5 px-6 flex flex-col items-center justify-center gap-1.5 text-center backdrop-blur-md relative min-w-[220px] group"
-      >
-        <svg
-          class="w-5 h-5 text-white/90 group-hover:text-[#0D0D0D] transition-colors"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-          <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-        </svg>
-        <span class="leading-tight">{t('hero.btnCollegeVolleyball')}</span>
-      </a>
-    </div>
+        {t('camps.player')}
+      </span>
+    </button>
   </div>
 </section>
 
+<!-- Full-screen Blurred Modal for Volleyball Camps -->
+<div
+  id="volleyball-modal"
+  class="fixed inset-0 backdrop-blur-xl bg-black/60 z-50 hidden items-center justify-center p-4 transition-all duration-300 opacity-0"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="volleyball-modal-title"
+>
+  <div
+    id="volleyball-modal-content"
+    class="relative w-full max-w-lg bg-[#0e0e0e]/95 border border-white/15 p-6 sm:p-8 md:p-10 shadow-[0_0_50px_rgba(0,0,0,0.8)] backdrop-blur-2xl flex flex-col items-center transform transition-all duration-300 scale-95 opacity-0"
+  >
+    <!-- Modal Close Button -->
+    <button
+      id="volleyball-modal-close"
+      type="button"
+      class="absolute top-4 right-4 text-white/60 hover:text-white p-2 transition-colors cursor-pointer"
+      aria-label="Close"
+    >
+      <svg
+        class="w-6 h-6"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <div
+      class="inline-flex items-center gap-2 px-3 py-1 bg-[#E5383B]/10 border border-[#E5383B]/30 text-[#E5383B] font-mono text-[10px] uppercase tracking-[0.2em] mb-4"
+    >
+      <span class="w-1.5 h-1.5 rounded-full bg-[#E5383B] animate-pulse"></span>
+      <span>SPORTIVERF</span>
+    </div>
+
+    <h3
+      id="volleyball-modal-title"
+      class="font-barlow font-bold text-xl md:text-2xl uppercase tracking-wider text-white mb-6 text-center"
+    >
+      {t('camps.volleyball')}
+    </h3>
+
+    <!-- Sub-options: Team Camps & Friendly Matches -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 w-full">
+      <!-- Team Camps Button -->
+      <button
+        type="button"
+        class="camp-trigger-btn aspect-square w-36 sm:w-40 md:w-44 flex flex-col items-center justify-center gap-3 backdrop-blur-md bg-black/40 border border-white/10 hover:border-[#E5383B] transition-all hover:scale-105 active:scale-95 text-white group cursor-pointer p-4 shadow-lg hover:shadow-[0_0_20px_rgba(229,56,59,0.3)] text-center"
+        data-desc={t('camps.descTeam')}
+        data-href={`/${locale}/camps/team`}
+      >
+        <svg
+          class="w-8 h-8 md:w-10 md:h-10 text-white group-hover:text-[#E5383B] transition-colors"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+          <circle cx="9" cy="7" r="4"></circle>
+          <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+        </svg>
+        <span
+          class="font-barlow font-bold text-xs sm:text-sm tracking-wider uppercase text-center leading-snug"
+        >
+          {t('camps.team')}
+        </span>
+      </button>
+
+      <!-- Friendly Matches Button -->
+      <button
+        type="button"
+        class="camp-trigger-btn aspect-square w-36 sm:w-40 md:w-44 flex flex-col items-center justify-center gap-3 backdrop-blur-md bg-black/40 border border-white/10 hover:border-[#E5383B] transition-all hover:scale-105 active:scale-95 text-white group cursor-pointer p-4 shadow-lg hover:shadow-[0_0_20px_rgba(229,56,59,0.3)] text-center"
+        data-desc={t('camps.descFriendly')}
+        data-href={`/${locale}/camps/friendly`}
+      >
+        <svg
+          class="w-8 h-8 md:w-10 md:h-10 text-white group-hover:text-[#E5383B] transition-colors"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="m11 17 2 2a1 1 0 0 0 1.4 0l4.3-4.3a1 1 0 0 0 0-1.4l-3-3a1 1 0 0 0-1.4 0l-1.3 1.3"
+          ></path>
+          <path d="m14 11-1.3-1.3a1 1 0 0 0-1.4 0L7 14"></path>
+          <path d="m7 7 3-3a1 1 0 0 1 1.4 0l3 3"></path>
+          <path d="M2 14h6"></path>
+          <path d="M22 10h-6"></path>
+          <path d="m2 14 3-3a1 1 0 0 1 1.4 0L10 14"></path>
+        </svg>
+        <span
+          class="font-barlow font-bold text-xs sm:text-sm tracking-wider uppercase text-center leading-snug"
+        >
+          {t('camps.friendly')}
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Sleek Animated Motion Toast / Overlay -->
+<div
+  id="motion-toast-container"
+  class="fixed inset-0 backdrop-blur-xl bg-black/75 z-50 hidden items-center justify-center p-4 transition-all duration-300 opacity-0 pointer-events-none"
+  role="alertdialog"
+  aria-live="assertive"
+>
+  <div
+    id="motion-toast-card"
+    class="relative w-full max-w-md bg-[#111111]/95 border border-[#E5383B]/50 p-6 sm:p-8 shadow-[0_0_50px_rgba(229,56,59,0.3)] flex flex-col items-center text-center transform transition-all duration-300 ease-out translate-y-4 opacity-0"
+  >
+    <!-- Glowing indicator -->
+    <div class="w-2.5 h-2.5 rounded-full bg-[#E5383B] shadow-[0_0_12px_#E5383B] animate-ping mb-4">
+    </div>
+
+    <!-- Description Text -->
+    <p
+      id="motion-toast-desc"
+      class="text-white text-sm sm:text-base md:text-lg font-light leading-relaxed font-barlow tracking-wide mb-6"
+    >
+    </p>
+
+    <!-- Progress indicator bar for 2.5s countdown -->
+    <div class="w-full h-1 bg-white/10 overflow-hidden mb-6 rounded-full">
+      <div
+        id="motion-toast-bar"
+        class="h-full bg-gradient-to-r from-[#E5383B] to-[#FF4D6D] w-0 transition-all ease-linear"
+      >
+      </div>
+    </div>
+
+    <!-- Skip Button -->
+    <button
+      id="motion-toast-skip-btn"
+      type="button"
+      class="px-6 py-2.5 bg-white/10 hover:bg-[#E5383B] text-white border border-white/20 hover:border-[#E5383B] text-xs font-mono uppercase tracking-[0.2em] font-semibold transition-all duration-200 cursor-pointer shadow-md hover:shadow-[0_0_20px_rgba(229,56,59,0.4)] active:scale-95"
+    >
+      {t('ui.skip')} &rarr;
+    </button>
+  </div>
+</div>
+
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    // Mobile Sticky Sub-Header Scroll Logic
-    const heroSection = document.getElementById('hero-section');
-    const subHeader = document.getElementById('mobile-hero-sub-header');
+  function initHeroInteractions(): void {
+    const volleyballBtn = document.getElementById('btn-volleyball-camps');
+    const volleyballModal = document.getElementById('volleyball-modal');
+    const volleyballModalContent = document.getElementById('volleyball-modal-content');
+    const volleyballModalClose = document.getElementById('volleyball-modal-close');
 
-    if (heroSection && subHeader) {
-      let ticking = false;
-      const handleSubHeaderScroll = (): void => {
-        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
-        if (window.scrollY > heroBottom - 50) {
-          subHeader.classList.add('-translate-y-[200%]', 'opacity-0', 'pointer-events-none');
-        } else {
-          subHeader.classList.remove('-translate-y-[200%]', 'opacity-0', 'pointer-events-none');
-        }
-        ticking = false;
-      };
+    const toastContainer = document.getElementById('motion-toast-container');
+    const toastCard = document.getElementById('motion-toast-card');
+    const toastDesc = document.getElementById('motion-toast-desc');
+    const toastBar = document.getElementById('motion-toast-bar');
+    const toastSkipBtn = document.getElementById('motion-toast-skip-btn');
 
-      window.addEventListener(
-        'scroll',
-        () => {
-          if (!ticking) {
-            requestAnimationFrame(handleSubHeaderScroll);
-            ticking = true;
-          }
-        },
-        { passive: true }
-      );
+    let redirectTimer: number | null = null;
+    let targetUrl = '';
 
-      handleSubHeaderScroll();
+    const openVolleyballModal = (): void => {
+      if (!volleyballModal || !volleyballModalContent) return;
+      volleyballBtn?.setAttribute('aria-expanded', 'true');
+      volleyballModal.classList.remove('hidden');
+      volleyballModal.classList.add('flex');
+      // Trigger layout reflow
+      void volleyballModal.offsetWidth;
+      volleyballModal.classList.remove('opacity-0');
+      volleyballModal.classList.add('opacity-100');
+      volleyballModalContent.classList.remove('scale-95', 'opacity-0');
+      volleyballModalContent.classList.add('scale-100', 'opacity-100');
+    };
+
+    const closeVolleyballModal = (): void => {
+      if (!volleyballModal || !volleyballModalContent) return;
+      volleyballBtn?.setAttribute('aria-expanded', 'false');
+      volleyballModal.classList.remove('opacity-100');
+      volleyballModal.classList.add('opacity-0');
+      volleyballModalContent.classList.remove('scale-100', 'opacity-100');
+      volleyballModalContent.classList.add('scale-95', 'opacity-0');
+      setTimeout(() => {
+        volleyballModal.classList.remove('flex');
+        volleyballModal.classList.add('hidden');
+      }, 300);
+    };
+
+    if (volleyballBtn) {
+      volleyballBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openVolleyballModal();
+      });
     }
-  });
+
+    if (volleyballModalClose) {
+      volleyballModalClose.addEventListener('click', (e) => {
+        e.preventDefault();
+        closeVolleyballModal();
+      });
+    }
+
+    if (volleyballModal) {
+      volleyballModal.addEventListener('click', (e) => {
+        if (e.target === volleyballModal) {
+          closeVolleyballModal();
+        }
+      });
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeVolleyballModal();
+      }
+    });
+
+    const triggerMotionToast = (desc: string, href: string): void => {
+      // 1. Closes previous menu (if open)
+      closeVolleyballModal();
+
+      if (redirectTimer !== null) {
+        clearTimeout(redirectTimer);
+        redirectTimer = null;
+      }
+
+      targetUrl = href;
+      if (toastDesc) {
+        toastDesc.textContent = desc;
+      }
+
+      if (toastBar) {
+        toastBar.style.transitionDuration = '0ms';
+        toastBar.style.width = '0%';
+      }
+
+      if (toastContainer && toastCard) {
+        toastContainer.classList.remove('hidden', 'pointer-events-none');
+        toastContainer.classList.add('flex', 'pointer-events-auto');
+
+        // Trigger reflow for CSS transitions
+        void toastContainer.offsetWidth;
+
+        toastContainer.classList.remove('opacity-0');
+        toastContainer.classList.add('opacity-100');
+
+        // Entry animation: translate-y-4 opacity-0 to translate-y-0 opacity-100
+        toastCard.classList.remove('translate-y-4', 'opacity-0');
+        toastCard.classList.add('translate-y-0', 'opacity-100');
+
+        if (toastBar) {
+          requestAnimationFrame(() => {
+            toastBar.style.transitionDuration = '2500ms';
+            toastBar.style.width = '100%';
+          });
+        }
+      }
+
+      // 4. The Timer: 2.5s redirect
+      redirectTimer = window.setTimeout(() => {
+        if (targetUrl) {
+          window.location.href = targetUrl;
+        }
+      }, 2500);
+    };
+
+    const campTriggers = document.querySelectorAll<HTMLElement>('.camp-trigger-btn');
+    campTriggers.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const desc = btn.getAttribute('data-desc') || '';
+        const href = btn.getAttribute('data-href') || '';
+        triggerMotionToast(desc, href);
+      });
+    });
+
+    // 5. The Skip Button: clearTimeout and redirect immediately
+    if (toastSkipBtn) {
+      toastSkipBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (redirectTimer !== null) {
+          clearTimeout(redirectTimer);
+          redirectTimer = null;
+        }
+        if (targetUrl) {
+          window.location.href = targetUrl;
+        }
+      });
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHeroInteractions);
+  } else {
+    initHeroInteractions();
+  }
+  document.addEventListener('astro:page-load', initHeroInteractions);
 </script>
