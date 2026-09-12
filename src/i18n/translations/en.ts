@@ -51,8 +51,10 @@ export default {
       'Exclusive exposure to European scouts, international university pathways, and elite club trial showcases.'
   },
   camps: {
-    volleyball: 'Volleyball Camps',
+    volleyball: 'Volleyball',
     player: 'Player Camps',
+    football: 'Football',
+    basketball: 'Basketball',
     team: 'Team Camps',
     friendly: 'Friendly Matches',
     descPlayer: 'Specialized development and talent programs for elite athletes...',

@@ -51,8 +51,10 @@ export default {
       'Avrupalı scoutlara doğrudan erişim, uluslararası üniversite burs yolları ve seçkin kulüp seçmeleri.'
   },
   camps: {
-    volleyball: 'Voleybol Kampları',
+    volleyball: 'Voleybol',
     player: 'Oyuncu Kampları',
+    football: 'Futbol',
+    basketball: 'Basketbol',
     team: 'Takım Kampları',
     friendly: 'Hazırlık Maçları',
     descPlayer: 'Elit sporcular için özel gelişim ve yetenek programları...',

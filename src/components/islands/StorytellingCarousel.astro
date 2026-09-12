@@ -22,32 +22,14 @@ const features = localeContent.homepageFeatures;
   <!-- MOBILE VIEW (Horizontal Swipe Carousel with Icons) -->
   <!-- ========================================================= -->
   <div class="md:hidden">
-    <!-- Swipe Hint Animation -->
-    <div
-      class="flex items-center justify-center gap-2 text-[#888888] font-mono text-[11px] tracking-wide mb-4 animate-pulse"
-    >
-      <span>{locale === 'tr' ? 'Kaydırarak Keşfedin' : 'Swipe to explore'}</span>
-      <svg
-        class="w-4 h-4 text-[#E5383B] animate-bounce"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-      </svg>
-    </div>
-
     <!-- Mobile Horizontal Carousel Container -->
     <div
+      id="mobile-features-carousel"
       class="flex overflow-x-auto snap-x snap-mandatory gap-4 hide-scrollbar px-6 pb-6 pt-2 scroll-smooth"
     >
       {
         features.map((feature, idx) => (
-          <div class="snap-center shrink-0 min-w-[85vw] max-w-[85vw] bg-[#141414] border border-[#262626] p-6 flex flex-col justify-between relative overflow-hidden group">
+          <div class="mobile-feature-card snap-center shrink-0 min-w-[85vw] max-w-[85vw] bg-[#141414] border border-[#262626] p-6 flex flex-col justify-between relative overflow-hidden group">
             <div class="absolute top-0 right-0 w-24 h-24 bg-[#E5383B]/10 rounded-full blur-2xl pointer-events-none" />
             <div>
               <div class="flex items-center justify-between mb-4">
@@ -471,7 +453,7 @@ const features = localeContent.homepageFeatures;
 </style>
 
 <script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
+  function initStorytellingCarousel() {
     // 1. Tab Switching Logic
     const tabs = document.querySelectorAll('.homepage-feature-tab');
     const slides = document.querySelectorAll('.homepage-feature-slide');
@@ -519,12 +501,14 @@ const features = localeContent.homepageFeatures;
     const scrollContainer = document.getElementById('homepage-feature-scroll-menu');
     if (scrollContainer) {
       let isInteracted = false;
+      let nudgeInterval = null;
 
       const stopNudge = () => {
         if (!isInteracted) {
           isInteracted = true;
           if (nudgeInterval) {
             clearInterval(nudgeInterval);
+            nudgeInterval = null;
           }
         }
       };
@@ -536,7 +520,7 @@ const features = localeContent.homepageFeatures;
       scrollContainer.addEventListener('scroll', stopNudge, { once: true, passive: true });
 
       // Trigger subtle nudge every 2.5s (scrolls down ~20px, waits 300ms, scrolls back up ~20px)
-      const nudgeInterval = setInterval(() => {
+      nudgeInterval = setInterval(() => {
         if (isInteracted) return;
 
         scrollContainer.scrollBy({ top: 20, behavior: 'smooth' });
@@ -548,5 +532,62 @@ const features = localeContent.homepageFeatures;
         }, 300);
       }, 2500);
     }
-  });
+
+    // 3. Mobile Features Carousel Auto-Scroll (1000ms Interval, Infinite Reset, Touch Pause/Resume)
+    const mobileCarousel = document.getElementById('mobile-features-carousel');
+    if (mobileCarousel) {
+      let autoScrollTimer = null;
+
+      const startAutoScroll = () => {
+        if (autoScrollTimer) clearInterval(autoScrollTimer);
+
+        autoScrollTimer = setInterval(() => {
+          const firstCard = mobileCarousel.querySelector('.mobile-feature-card');
+          const gap = 16;
+          const cardWidth = firstCard
+            ? firstCard.offsetWidth + gap
+            : mobileCarousel.clientWidth * 0.85 + gap;
+          const maxScroll = mobileCarousel.scrollWidth - mobileCarousel.clientWidth;
+
+          // Infinite loop: if scroll reaches maximum scroll width, smoothly reset to 0 (start)
+          if (mobileCarousel.scrollLeft >= maxScroll - 15) {
+            mobileCarousel.scrollTo({ left: 0, behavior: 'smooth' });
+          } else {
+            mobileCarousel.scrollBy({ left: cardWidth, behavior: 'smooth' });
+          }
+        }, 1000);
+      };
+
+      const stopAutoScroll = () => {
+        if (autoScrollTimer) {
+          clearInterval(autoScrollTimer);
+          autoScrollTimer = null;
+        }
+      };
+
+      // Pause on Touch: clear interval on touchstart, resume on touchend/touchcancel
+      mobileCarousel.addEventListener('touchstart', stopAutoScroll, { passive: true });
+      mobileCarousel.addEventListener('touchend', startAutoScroll, { passive: true });
+      mobileCarousel.addEventListener('touchcancel', startAutoScroll, { passive: true });
+
+      // Start auto-scrolling
+      startAutoScroll();
+
+      // Clean up interval when navigating away with Astro view transitions
+      document.addEventListener(
+        'astro:before-swap',
+        () => {
+          stopAutoScroll();
+        },
+        { once: true }
+      );
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initStorytellingCarousel);
+  } else {
+    initStorytellingCarousel();
+  }
+  document.addEventListener('astro:page-load', initStorytellingCarousel);
 </script>
