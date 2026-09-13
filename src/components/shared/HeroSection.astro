@@ -146,7 +146,7 @@ const dir = getDirFromLocale(locale);
 
   <!-- Centered Hero CTAs (Desktop: 4 in a Row, Mobile: 2x2 Grid) -->
   <div
-    class="relative z-20 grid grid-cols-2 md:grid-cols-4 items-center justify-center gap-3.5 sm:gap-5 md:gap-6 lg:gap-8 px-4 max-w-5xl mx-auto"
+    class="relative z-20 grid grid-cols-2 md:grid-cols-4 items-center justify-center gap-x-4 sm:gap-x-6 gap-y-8 md:gap-6 lg:gap-8 px-4 max-w-5xl mx-auto"
   >
     <!-- Button 1: Volleyball -->
     <button
@@ -159,18 +159,12 @@ const dir = getDirFromLocale(locale);
     >
       <svg
         class="w-10 h-10 md:w-12 md:h-12 text-white group-hover:text-[#E5383B] transition-colors filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
-        viewBox="0 0 24 24"
+        viewBox="0 0 512 512"
         fill="currentColor"
       >
-        <circle cx="19.5" cy="4" r="1.8"></circle>
-        <circle cx="12.5" cy="5.8" r="1.6"></circle>
-        <path d="M13.2 7.6 L17.5 4.8 L18.6 6.2 L14.6 8.8 Z"></path>
-        <path d="M11.6 8.5 L8.4 10.4 L9.2 11.8 L12.3 10 Z"></path>
         <path
-          d="M11.2 7.6 C12 7.6 13.2 8.5 13 10.5 L12.5 13.8 C12.2 14.5 11.8 15 11 15 C10.4 15 10 14.5 10.2 13.8 L10.8 10.5 C11 8.8 10.6 7.6 11.2 7.6 Z"
+          d="M512 258.9c-23.4 8-47.8 13.1-72.6 15.1 5.9-98.6-30.7-191.1-94.9-258.3 97.8 36 167.5 130 167.5 240.3 0 1 0 1.9 0 2.9zm-5.9 52c-5.2 23.7-13.6 46.2-24.9 66.9-94.7 52.2-214 50-308.4-13.6 21.7-31.3 49.8-58.9 83.8-80.5 79.5 41.6 168.5 49.1 249.5 27.1zM279.7 241.6c-3.7-89.7-41.7-170.5-101.3-229.7 22.3-7.1 46-11.2 70.5-11.9 92.5 55.9 150.3 160.3 142.4 273.8-38-3.2-75.9-13.7-111.6-32.3zM130.5 32.8C149.1 49.1 165.8 67.7 179.9 88.2 91.5 132.3 29.7 210.3 3.7 299.5 1.3 285.3 0 270.8 0 256 0 160.2 52.6 76.7 130.5 32.8zm73.4 97c16.3 34.5 26.1 72.6 27.9 112.8-75.8 48-126.8 121.3-148.3 202.5-17.6-16.1-33-34.6-45.5-55 2.1-108.1 63.7-210.4 165.9-260.3zM256 512c-47.7 0-92.3-13-130.5-35.7 4.8-24.3 12.6-48 23.2-70.4 82.4 54.4 180.8 68.9 271 47-44.4 37-101.5 59.2-163.7 59.2z"
         ></path>
-        <path d="M10.8 14.2 L8.2 18 L6.2 17.2 L9.2 13.5 Z"></path>
-        <path d="M11.8 14.2 L14.8 18.2 L13.8 21.2 L12.2 20.8 L13 18.5 L10.8 14.8 Z"></path>
       </svg>
       <span
         class="font-barlow font-bold text-sm md:text-base tracking-wide text-white group-hover:text-[#E5383B] transition-colors text-center leading-snug"
@@ -186,15 +180,12 @@ const dir = getDirFromLocale(locale);
     >
       <svg
         class="w-10 h-10 md:w-12 md:h-12 text-white group-hover:text-[#E5383B] transition-colors filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
-        viewBox="0 0 24 24"
+        viewBox="0 0 512 512"
         fill="currentColor"
       >
-        <circle cx="16" cy="4.5" r="1.7"></circle>
-        <path d="M14.6 7.2 L18.4 10 L17.4 11.3 L13.8 8.6 Z"></path>
-        <path d="M12.5 8.2 L8.8 9.6 L9.4 11.1 L12.2 9.8 Z"></path>
-        <path d="M14.2 6.8 L11.2 12.8 C11 13.3 10.5 13.7 9.8 13.6 L11.2 11.8 L13 6.8 Z"></path>
-        <path d="M10.8 12.8 L15.2 14.8 L14 19.5 L12.4 19.1 L13.4 15.6 L10 13.8 Z"></path>
-        <path d="M10.2 13.2 L6.8 16.2 L3.6 17.8 L4.4 19.2 L7.4 17.6 L10.8 14 Z"></path>
+        <path
+          d="M256 0c4.6 0 9.2 1 13.4 2.9L457.8 82.8c22 9.3 38.4 31 38.3 57.2-.5 99.2-41.3 280.7-213.6 363.2-16.7 8-36.1 8-52.8 0-172.4-82.5-213.1-264-213.6-363.2-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.9 1 251.4 0 256 0zm0 52L79 123.5c-.2 73.5 31.8 231.2 177 298.5 145.2-67.3 177.2-225 177-298.5L256 52zm0 68a48 48 0 1 1 0 96 48 48 0 0 1 0-96zm0 128c53 0 96 32.2 96 72v20c0 4.4-3.6 8-8 8H168c-4.4 0-8-3.6-8-8v-20c0-39.8 43-72 96-72z"
+        ></path>
       </svg>
       <span
         class="font-barlow font-bold text-sm md:text-base tracking-wide text-white group-hover:text-[#E5383B] transition-colors text-center leading-snug"
@@ -210,18 +201,12 @@ const dir = getDirFromLocale(locale);
     >
       <svg
         class="w-10 h-10 md:w-12 md:h-12 text-white group-hover:text-[#E5383B] transition-colors filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
-        viewBox="0 0 24 24"
+        viewBox="0 0 512 512"
         fill="currentColor"
       >
-        <circle cx="20.5" cy="18" r="1.8"></circle>
-        <circle cx="9.2" cy="4.8" r="1.7"></circle>
-        <path d="M9 7.2 L5.8 5.6 L5 7 L8 8.4 Z"></path>
-        <path d="M10.5 8 L14.2 9.2 L13.8 10.8 L10.2 9.6 Z"></path>
         <path
-          d="M8.8 7 C9.5 7 10.6 8.2 10.8 10.2 L11 13.2 C11 13.8 10.5 14.4 9.8 14.4 C9.2 14.4 8.8 13.8 8.9 13.2 L9.2 10.2 C9.2 8.5 8.3 7 8.8 7 Z"
+          d="M256 48C141.31 48 48 141.31 48 256s93.31 208 208 208 208-93.31 208-208S370.69 48 256 48zm143 304h-45.22a8 8 0 01-6.91-4l-16.14-27.68a8 8 0 01-.86-6l14.86-59.92a8 8 0 014.65-5.45l28.1-11.9a8 8 0 018.34 1.3l41.63 35.82a8 8 0 012.69 7.26 174.75 174.75 0 01-24.28 66.68A8 8 0 01399 352zM134.52 237.13l28.1 11.9a8 8 0 014.65 5.45l14.86 59.92a8 8 0 01-.86 6L165.13 348a8 8 0 01-6.91 4H113a8 8 0 01-6.82-3.81 174.75 174.75 0 01-24.28-66.68 8 8 0 012.69-7.26l41.63-35.82a8 8 0 018.3-1.3zm256.94-87.24l-18.07 51.38A8 8 0 01369 206l-29.58 12.53a8 8 0 01-8.26-1.24L274.9 170.1a8 8 0 01-2.9-6.1v-33.58a8 8 0 013.56-6.65l42.83-28.54a8 8 0 017.66-.67A176.92 176.92 0 01390 142a8 8 0 011.46 7.89zM193.6 95.23l42.84 28.54a8 8 0 013.56 6.65V164a8 8 0 01-2.86 6.13l-56.26 47.19a8 8 0 01-8.26 1.24L143 206a8 8 0 01-4.43-4.72L120.5 149.9a8 8 0 011.5-7.9 176.92 176.92 0 0164-47.48 8 8 0 017.6.71zm17.31 327.46L191.18 373a8 8 0 01.52-7l15.17-26a8 8 0 016.91-4h84.44a8 8 0 016.91 4l15.18 26a8 8 0 01.53 7l-19.59 49.67a8 8 0 01-5.69 4.87 176.58 176.58 0 01-79 0 8 8 0 01-5.65-4.85z"
         ></path>
-        <path d="M9.4 13.6 L8 17.2 L7.2 21.2 L9 21.4 L9.6 17.8 L10.8 14 Z"></path>
-        <path d="M10.5 13.5 L14.8 14.5 L18.8 17.2 L17.8 18.6 L14.2 16.2 L10.2 14.6 Z"></path>
       </svg>
       <span
         class="font-barlow font-bold text-sm md:text-base tracking-wide text-white group-hover:text-[#E5383B] transition-colors text-center leading-snug"
@@ -237,18 +222,12 @@ const dir = getDirFromLocale(locale);
     >
       <svg
         class="w-10 h-10 md:w-12 md:h-12 text-white group-hover:text-[#E5383B] transition-colors filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
-        viewBox="0 0 24 24"
+        viewBox="0 0 512 512"
         fill="currentColor"
       >
-        <circle cx="18" cy="3.5" r="1.8"></circle>
-        <circle cx="11.5" cy="6.2" r="1.7"></circle>
-        <path d="M12.2 7.8 L15.6 4.8 L16.8 6 L13.5 8.8 Z"></path>
-        <path d="M10.5 8.5 L7.8 10.8 L8.6 12.2 L11.2 10 Z"></path>
         <path
-          d="M11.5 7.6 C12.2 7.6 12.8 8.8 12.6 10.8 L12.2 13.8 C12 14.5 11.5 15 10.8 15 C10.2 15 9.8 14.5 10 13.8 L10.4 10.8 C10.6 8.8 10.8 7.6 11.5 7.6 Z"
+          d="M92.7 58.8l78.4 78.4c18.2-25 28.9-55.9 28.9-89.2 0-14.1-1.9-27.7-5.5-40.6-38 9.4-72.6 27.2-101.8 51.4zM58.8 92.7c-24.2 29.2-42 63.8-51.4 101.8 12.9 3.6 26.5 5.5 40.6 5.5 33.3 0 64.1-10.7 89.2-28.9L58.8 92.7zM256 0c-4.6 0-9.2 .1-13.7 .4 3.7 15.3 5.7 31.2 5.7 47.6 0 46.6-15.9 89.4-42.6 123.4L256 222.1 419.3 58.8C374.9 22.1 318.1 0 256 0zM48 248c-16.4 0-32.4-2-47.6-5.7-.2 4.5-.4 9.1-.4 13.7 0 62.1 22.1 118.9 58.8 163.3L222.1 256 171.4 205.4C137.4 232.1 94.6 248 48 248zm463.6 21.7c.2-4.5 .4-9.1 .4-13.7 0-62.1-22.1-118.9-58.8-163.3L289.9 256 340.6 306.6c34-26.7 76.9-42.6 123.4-42.6 16.4 0 32.4 2 47.6 5.7zm-7.1 47.8c-12.9-3.6-26.5-5.5-40.6-5.5-33.3 0-64.1 10.7-89.2 28.9l78.4 78.4c24.2-29.2 42-63.8 51.4-101.8zM340.9 374.8c-18.2 25-28.9 55.9-28.9 89.2 0 14.1 1.9 27.7 5.5 40.6 38-9.4 72.6-27.2 101.8-51.4l-78.4-78.4zm-34.3-34.3L256 289.9 92.7 453.2c44.3 36.7 101.2 58.8 163.3 58.8 4.6 0 9.2-.1 13.7-.4-3.7-15.3-5.7-31.2-5.7-47.6 0-46.6 15.9-89.4 42.6-123.4z"
         ></path>
-        <path d="M11.6 14.2 L14.5 17.2 L13.2 21.2 L11.6 20.8 L12.6 17.8 L10.6 14.8 Z"></path>
-        <path d="M10.5 14.2 L7.8 17.2 L6 20.2 L7.4 21 L9.2 18 L11.2 14.8 Z"></path>
       </svg>
       <span
         class="font-barlow font-bold text-sm md:text-base tracking-wide text-white group-hover:text-[#E5383B] transition-colors text-center leading-snug"
@@ -317,18 +296,13 @@ const dir = getDirFromLocale(locale);
         class="volleyball-modal-option aspect-square w-36 sm:w-40 md:w-44 flex flex-col items-center justify-center gap-3 backdrop-blur-md bg-black/40 border border-white/10 hover:border-[#E5383B] transition-all duration-300 hover:scale-105 active:scale-95 text-white group cursor-pointer p-4 shadow-lg hover:shadow-[0_0_20px_rgba(229,56,59,0.3)] text-center transform translate-y-6 opacity-0"
       >
         <svg
-          class="w-8 h-8 md:w-10 md:h-10 text-white group-hover:text-[#E5383B] transition-colors"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          class="w-8 h-8 md:w-10 md:h-10 text-white group-hover:text-[#E5383B] transition-colors filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
+          viewBox="0 0 640 512"
+          fill="currentColor"
         >
-          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-          <circle cx="9" cy="7" r="4"></circle>
-          <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          <path
+            d="M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3zM609.3 512H478.7c5.4-9.4 8.7-20.2 9.1-31.7 4.9-39.7-4-80-25.2-113.6C476 348.8 497.6 336 521.7 336h68.6C607 336 624 353 624 369.7V482.3c0 16.4-14.7 29.7-14.7 29.7zM480 96a96 96 0 1 1 0 192 96 96 0 1 1 0-192z"
+          ></path>
         </svg>
         <span
           class="font-barlow font-bold text-xs sm:text-sm tracking-wide text-center leading-snug"
@@ -343,21 +317,13 @@ const dir = getDirFromLocale(locale);
         class="volleyball-modal-option aspect-square w-36 sm:w-40 md:w-44 flex flex-col items-center justify-center gap-3 backdrop-blur-md bg-black/40 border border-white/10 hover:border-[#E5383B] transition-all duration-300 hover:scale-105 active:scale-95 text-white group cursor-pointer p-4 shadow-lg hover:shadow-[0_0_20px_rgba(229,56,59,0.3)] text-center transform translate-y-6 opacity-0"
       >
         <svg
-          class="w-8 h-8 md:w-10 md:h-10 text-white group-hover:text-[#E5383B] transition-colors"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          class="w-8 h-8 md:w-10 md:h-10 text-white group-hover:text-[#E5383B] transition-colors filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
+          viewBox="0 0 576 512"
+          fill="currentColor"
         >
-          <path d="m11 17 2 2a1 1 0 0 0 1.4 0l4.3-4.3a1 1 0 0 0 0-1.4l-3-3a1 1 0 0 0-1.4 0l-1.3 1.3"
+          <path
+            d="M268.9 85.2L152.3 214.8c-4.6 5.1-4.4 13 .5 17.9 30.5 30.5 80 30.5 110.5 0l31.8-31.8c4.2-4.2 9.5-6.5 14.9-6.9 6.8-.6 13.8 1.7 19 6.9L505.6 376 576 320 576 32 464 96 440.2 80.1C424.4 69.6 405.9 64 386.9 64l-70.4 0c-1.1 0-2.3 0-3.4 .1-16.9 .9-32.8 8.5-44.2 21.1zM116.6 182.7L223.4 64 183.8 64c-25.5 0-49.9 10.1-67.9 28.1L112 96 0 32 0 320 156.4 450.3c23 19.2 52 29.7 81.9 29.7l15.7 0-7-7c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l41 41 9 0c19.1 0 37.8-4.3 54.8-12.3L359 441c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l32 32 17.5-17.5c8.9-8.9 11.5-21.8 7.6-33.1l-137.9-136.8-14.9 14.9c-49.3 49.3-129.1 49.3-178.4 0-23-23-23.9-59.9-2.2-84z"
           ></path>
-          <path d="m14 11-1.3-1.3a1 1 0 0 0-1.4 0L7 14"></path>
-          <path d="m7 7 3-3a1 1 0 0 1 1.4 0l3 3"></path>
-          <path d="M2 14h6"></path>
-          <path d="M22 10h-6"></path>
-          <path d="m2 14 3-3a1 1 0 0 1 1.4 0L10 14"></path>
         </svg>
         <span
           class="font-barlow font-bold text-xs sm:text-sm tracking-wide text-center leading-snug"

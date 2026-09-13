@@ -533,7 +533,7 @@ const features = localeContent.homepageFeatures;
       }, 2500);
     }
 
-    // 3. Mobile Features Carousel Auto-Scroll (1000ms Interval, Infinite Reset, Touch Pause/Resume)
+    // 3. Mobile Features Carousel Auto-Scroll (3300ms Interval, Infinite Reset, Touch Pause/Resume)
     const mobileCarousel = document.getElementById('mobile-features-carousel');
     if (mobileCarousel) {
       let autoScrollTimer = null;
@@ -555,7 +555,7 @@ const features = localeContent.homepageFeatures;
           } else {
             mobileCarousel.scrollBy({ left: cardWidth, behavior: 'smooth' });
           }
-        }, 1000);
+        }, 3300);
       };
 
       const stopAutoScroll = () => {
