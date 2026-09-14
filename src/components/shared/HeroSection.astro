@@ -356,12 +356,12 @@ const dir = getDirFromLocale(locale);
       box-shadow: 0 0 0px rgba(229, 56, 59, 0);
     }
     50% {
-      box-shadow: 0 0 25px rgba(229, 56, 59, 0.15); /* Adjust opacity visually to feel like 5% */
+      box-shadow: 0 0 30px rgba(229, 56, 59, 0.2);
     }
   }
 
   .animate-subtle-glow {
-    animation: subtleGlow 3s ease-in-out infinite;
+    animation: subtleGlow 1.3s ease-in-out infinite;
   }
 </style>
 
@@ -454,7 +454,7 @@ const dir = getDirFromLocale(locale);
       }
     });
 
-    // --- 2. Mobile Hero Image Slideshow (Fades every 1.3 seconds / 1300ms) ---
+    // --- 2. Mobile Hero Image Slideshow (Fades every 2.7 seconds / 2700ms) ---
     const mobileSlides = document.querySelectorAll<HTMLElement>('.hero-mobile-slide');
     if (mobileSlides.length > 1) {
       let currentSlideIdx = 0;
@@ -466,7 +466,7 @@ const dir = getDirFromLocale(locale);
 
         mobileSlides[currentSlideIdx].classList.remove('opacity-0');
         mobileSlides[currentSlideIdx].classList.add('opacity-100');
-      }, 1300);
+      }, 2700);
 
       // Clean up interval if navigating away
       document.addEventListener(
