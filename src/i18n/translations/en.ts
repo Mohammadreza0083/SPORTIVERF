@@ -25,7 +25,7 @@ export default {
   },
   hero: {
     badge: 'Elite Sports Tourism & Showcases',
-    title: 'International Sports Camp',
+    title: 'International Sports Camps',
     subtitle:
       'Curated 3-Star, 4-Star, and 5-Star athletic retreats, scout showcases, and high-performance training camps tailored for elite performers.',
     ctaPrimary: 'Explore Football Camps',
