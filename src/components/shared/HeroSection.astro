@@ -143,28 +143,7 @@ const dir = getDirFromLocale(locale);
   <div
     class="relative z-20 grid grid-cols-2 md:grid-cols-4 items-center justify-center gap-x-4 sm:gap-x-6 gap-y-8 md:gap-6 lg:gap-8 px-4 max-w-5xl mx-auto"
   >
-    <!-- Button 1: Football (Top Left) -->
-    <a
-      href={`/${locale}/football-camps`}
-      class="animate-subtle-glow aspect-square w-36 sm:w-40 md:w-44 lg:w-48 flex flex-col items-center justify-center gap-2.5 sm:gap-3 backdrop-blur-md bg-black/40 border border-[#E5383B] transition-all duration-300 hover:scale-105 active:scale-95 group cursor-pointer p-3 sm:p-4 text-center hover:shadow-[0_0_30px_rgba(229,56,59,0.35)]"
-    >
-      <svg
-        class="w-10 h-10 md:w-12 md:h-12 text-white group-hover:text-[#E5383B] transition-colors filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
-        viewBox="0 0 512 512"
-        fill="currentColor"
-      >
-        <path
-          d="M256 48C141.31 48 48 141.31 48 256s93.31 208 208 208 208-93.31 208-208S370.69 48 256 48zm143 304h-45.22a8 8 0 01-6.91-4l-16.14-27.68a8 8 0 01-.86-6l14.86-59.92a8 8 0 014.65-5.45l28.1-11.9a8 8 0 018.34 1.3l41.63 35.82a8 8 0 012.69 7.26 174.75 174.75 0 01-24.28 66.68A8 8 0 01399 352zM134.52 237.13l28.1 11.9a8 8 0 014.65 5.45l14.86 59.92a8 8 0 01-.86 6L165.13 348a8 8 0 01-6.91 4H113a8 8 0 01-6.82-3.81 174.75 174.75 0 01-24.28-66.68 8 8 0 012.69-7.26l41.63-35.82a8 8 0 018.3-1.3zm256.94-87.24l-18.07 51.38A8 8 0 01369 206l-29.58 12.53a8 8 0 01-8.26-1.24L274.9 170.1a8 8 0 01-2.9-6.1v-33.58a8 8 0 013.56-6.65l42.83-28.54a8 8 0 017.66-.67A176.92 176.92 0 01390 142a8 8 0 011.46 7.89zM193.6 95.23l42.84 28.54a8 8 0 013.56 6.65V164a8 8 0 01-2.86 6.13l-56.26 47.19a8 8 0 01-8.26 1.24L143 206a8 8 0 01-4.43-4.72L120.5 149.9a8 8 0 011.5-7.9 176.92 176.92 0 0164-47.48 8 8 0 017.6.71zm17.31 327.46L191.18 373a8 8 0 01.52-7l15.17-26a8 8 0 016.91-4h84.44a8 8 0 016.91 4l15.18 26a8 8 0 01.53 7l-19.59 49.67a8 8 0 01-5.69 4.87 176.58 176.58 0 01-79 0 8 8 0 01-5.65-4.85z"
-        ></path>
-      </svg>
-      <span
-        class="font-barlow font-bold text-sm md:text-base tracking-wide text-white group-hover:text-[#E5383B] transition-colors text-center leading-snug"
-      >
-        {t('camps.football')}
-      </span>
-    </a>
-
-    <!-- Button 2: Volleyball (Top Right) -->
+    <!-- Button 1: Volleyball (Top Left) -->
     <button
       id="btn-volleyball-camps"
       type="button"
@@ -189,9 +168,9 @@ const dir = getDirFromLocale(locale);
       </span>
     </button>
 
-    <!-- Button 3: Player Camps (Bottom Left) -->
+    <!-- Button 2: Football (Top Right) -->
     <a
-      href={`/${locale}/camps/player`}
+      href={`/${locale}/football-camps`}
       class="animate-subtle-glow aspect-square w-36 sm:w-40 md:w-44 lg:w-48 flex flex-col items-center justify-center gap-2.5 sm:gap-3 backdrop-blur-md bg-black/40 border border-[#E5383B] transition-all duration-300 hover:scale-105 active:scale-95 group cursor-pointer p-3 sm:p-4 text-center hover:shadow-[0_0_30px_rgba(229,56,59,0.35)]"
     >
       <svg
@@ -200,17 +179,17 @@ const dir = getDirFromLocale(locale);
         fill="currentColor"
       >
         <path
-          d="M256 0c4.6 0 9.2 1 13.4 2.9L457.8 82.8c22 9.3 38.4 31 38.3 57.2-.5 99.2-41.3 280.7-213.6 363.2-16.7 8-36.1 8-52.8 0-172.4-82.5-213.1-264-213.6-363.2-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.9 1 251.4 0 256 0zm0 52L79 123.5c-.2 73.5 31.8 231.2 177 298.5 145.2-67.3 177.2-225 177-298.5L256 52zm0 68a48 48 0 1 1 0 96 48 48 0 0 1 0-96zm0 128c53 0 96 32.2 96 72v20c0 4.4-3.6 8-8 8H168c-4.4 0-8-3.6-8-8v-20c0-39.8 43-72 96-72z"
+          d="M256 48C141.31 48 48 141.31 48 256s93.31 208 208 208 208-93.31 208-208S370.69 48 256 48zm143 304h-45.22a8 8 0 01-6.91-4l-16.14-27.68a8 8 0 01-.86-6l14.86-59.92a8 8 0 014.65-5.45l28.1-11.9a8 8 0 018.34 1.3l41.63 35.82a8 8 0 012.69 7.26 174.75 174.75 0 01-24.28 66.68A8 8 0 01399 352zM134.52 237.13l28.1 11.9a8 8 0 014.65 5.45l14.86 59.92a8 8 0 01-.86 6L165.13 348a8 8 0 01-6.91 4H113a8 8 0 01-6.82-3.81 174.75 174.75 0 01-24.28-66.68 8 8 0 012.69-7.26l41.63-35.82a8 8 0 018.3-1.3zm256.94-87.24l-18.07 51.38A8 8 0 01369 206l-29.58 12.53a8 8 0 01-8.26-1.24L274.9 170.1a8 8 0 01-2.9-6.1v-33.58a8 8 0 013.56-6.65l42.83-28.54a8 8 0 017.66-.67A176.92 176.92 0 01390 142a8 8 0 011.46 7.89zM193.6 95.23l42.84 28.54a8 8 0 013.56 6.65V164a8 8 0 01-2.86 6.13l-56.26 47.19a8 8 0 01-8.26 1.24L143 206a8 8 0 01-4.43-4.72L120.5 149.9a8 8 0 011.5-7.9 176.92 176.92 0 0164-47.48 8 8 0 017.6.71zm17.31 327.46L191.18 373a8 8 0 01.52-7l15.17-26a8 8 0 016.91-4h84.44a8 8 0 016.91 4l15.18 26a8 8 0 01.53 7l-19.59 49.67a8 8 0 01-5.69 4.87 176.58 176.58 0 01-79 0 8 8 0 01-5.65-4.85z"
         ></path>
       </svg>
       <span
         class="font-barlow font-bold text-sm md:text-base tracking-wide text-white group-hover:text-[#E5383B] transition-colors text-center leading-snug"
       >
-        {t('camps.player')}
+        {t('camps.football')}
       </span>
     </a>
 
-    <!-- Button 4: Basketball (Bottom Right) -->
+    <!-- Button 3: Basketball (Bottom Left) -->
     <a
       href="/coming-soon"
       class="animate-subtle-glow aspect-square w-36 sm:w-40 md:w-44 lg:w-48 flex flex-col items-center justify-center gap-2.5 sm:gap-3 backdrop-blur-md bg-black/40 border border-[#E5383B] transition-all duration-300 hover:scale-105 active:scale-95 group cursor-pointer p-3 sm:p-4 text-center hover:shadow-[0_0_30px_rgba(229,56,59,0.35)]"
@@ -228,6 +207,27 @@ const dir = getDirFromLocale(locale);
         class="font-barlow font-bold text-sm md:text-base tracking-wide text-white group-hover:text-[#E5383B] transition-colors text-center leading-snug"
       >
         {t('camps.basketball')}
+      </span>
+    </a>
+
+    <!-- Button 4: Player Camps (Bottom Right) -->
+    <a
+      href={`/${locale}/camps/player`}
+      class="animate-subtle-glow aspect-square w-36 sm:w-40 md:w-44 lg:w-48 flex flex-col items-center justify-center gap-2.5 sm:gap-3 backdrop-blur-md bg-black/40 border border-[#E5383B] transition-all duration-300 hover:scale-105 active:scale-95 group cursor-pointer p-3 sm:p-4 text-center hover:shadow-[0_0_30px_rgba(229,56,59,0.35)]"
+    >
+      <svg
+        class="w-10 h-10 md:w-12 md:h-12 text-white group-hover:text-[#E5383B] transition-colors filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
+        viewBox="0 0 512 512"
+        fill="currentColor"
+      >
+        <path
+          d="M256 0c4.6 0 9.2 1 13.4 2.9L457.8 82.8c22 9.3 38.4 31 38.3 57.2-.5 99.2-41.3 280.7-213.6 363.2-16.7 8-36.1 8-52.8 0-172.4-82.5-213.1-264-213.6-363.2-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.9 1 251.4 0 256 0zm0 52L79 123.5c-.2 73.5 31.8 231.2 177 298.5 145.2-67.3 177.2-225 177-298.5L256 52zm0 68a48 48 0 1 1 0 96 48 48 0 0 1 0-96zm0 128c53 0 96 32.2 96 72v20c0 4.4-3.6 8-8 8H168c-4.4 0-8-3.6-8-8v-20c0-39.8 43-72 96-72z"
+        ></path>
+      </svg>
+      <span
+        class="font-barlow font-bold text-sm md:text-base tracking-wide text-white group-hover:text-[#E5383B] transition-colors text-center leading-snug"
+      >
+        {t('camps.player')}
       </span>
     </a>
   </div>
