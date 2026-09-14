@@ -6,9 +6,13 @@ export default {
   },
   nav: {
     home: 'الرئيسية',
+    football: 'كرة القدم',
+    volleyball: 'كرة الطائرة',
+    playerCamps: 'معسكرات اللاعبين',
+    basketball: 'كرة السلة',
+    about: 'من نحن',
     tours: 'الباقات الرياضية',
     destinations: 'الوجهات',
-    about: 'من نحن',
     contact: 'اتصل بنا',
     bookNow: 'احجز الآن'
   },

@@ -7,10 +7,12 @@ export default {
   nav: {
     main: 'Main Navigation',
     home: 'Home',
-    football: 'Football Camps',
-    volleyball: 'Volleyball Camps',
-    tours: 'All Expeditions',
+    football: 'Football',
+    volleyball: 'Volleyball',
+    playerCamps: 'Player Camps',
+    basketball: 'Basketball',
     about: 'About Us',
+    tours: 'All Expeditions',
     contact: 'Contact',
     bookNow: 'Inquire Camp'
   },

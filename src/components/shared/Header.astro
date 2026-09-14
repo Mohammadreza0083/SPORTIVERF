@@ -13,17 +13,11 @@ const currentPath = Astro.url.pathname;
 
 const navItems = [
   { href: `/${locale}`, label: t('nav.home'), key: 'home' },
-  { href: `/${locale}/volleyball-camps`, label: t('hero.btnVolleyball'), key: 'volleyball-camps' },
-  {
-    href: `/${locale}/volleyball-camps`,
-    label: t('hero.btnVolleyballAcademic'),
-    key: 'volleyball-academic-camps'
-  },
-  {
-    href: `/${locale}/volleyball-camps`,
-    label: t('hero.btnCollegeVolleyball'),
-    key: 'college-volleyball'
-  }
+  { href: `/${locale}/camps/football`, label: t('nav.football'), key: 'football' },
+  { href: `/${locale}/camps/volleyball`, label: t('nav.volleyball'), key: 'volleyball' },
+  { href: `/${locale}/camps/player`, label: t('nav.playerCamps'), key: 'player-camps' },
+  { href: `/${locale}/camps/basketball`, label: t('nav.basketball'), key: 'basketball' },
+  { href: `/${locale}/about`, label: t('nav.about'), key: 'about' }
 ];
 
 // Count identical hrefs to prevent multi-highlight bug on shared sub-routes
@@ -155,21 +149,6 @@ const hrefCounts = navItems.reduce(
           );
         })
       }
-      <a
-        href={`/${locale}/about`}
-        class={`text-base font-barlow font-semibold tracking-wide transition-all duration-200 border-b border-white/10 pb-3 flex items-center justify-between ${
-          currentPath === `/${locale}/about` || currentPath === `/${locale}/about/`
-            ? 'text-[#E5383B] pl-2 border-l-2 border-[#E5383B]'
-            : 'text-white hover:text-[#E5383B] hover:pl-1'
-        }`}
-      >
-        <span>{t('nav.about')}</span>
-        {
-          (currentPath === `/${locale}/about` || currentPath === `/${locale}/about/`) && (
-            <span class="w-2 h-2 rounded-full bg-[#E5383B]" />
-          )
-        }
-      </a>
     </nav>
 
     <!-- Mobile Action CTA -->

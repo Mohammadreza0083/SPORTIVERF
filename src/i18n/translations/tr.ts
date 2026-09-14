@@ -7,10 +7,12 @@ export default {
   nav: {
     main: 'Ana Menü',
     home: 'Ana Sayfa',
-    football: 'Futbol Kampları',
-    volleyball: 'Volleyball Kampları',
-    tours: 'Tüm Kamplar',
+    football: 'Futbol',
+    volleyball: 'Voleybol',
+    playerCamps: 'Oyuncu Kampları',
+    basketball: 'Basketbol',
     about: 'Hakkımızda',
+    tours: 'Tüm Kamplar',
     contact: 'İletişim',
     bookNow: 'Başvuru Yap'
   },
