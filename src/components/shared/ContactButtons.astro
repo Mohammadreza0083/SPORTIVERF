@@ -13,7 +13,7 @@ const { locale = 'en', class: className = '' } = Astro.props;
 ---
 
 <div class={`flex flex-wrap items-center gap-4 ${className}`}>
-  <WhatsAppButton locale={locale} variant="solid" />
+  <WhatsAppButton locale={locale} variant="solid" label="WhatsApp Concierge" />
   <MailtoButton locale={locale} variant="outline" label="Send Email" />
   <a
     href="tel:+902165147808"
