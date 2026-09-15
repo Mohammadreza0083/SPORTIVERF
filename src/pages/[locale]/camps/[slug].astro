@@ -2,7 +2,6 @@
 import MainLayout from '@/layouts/MainLayout.astro';
 import { LOCALES_LIST } from '@/i18n/config';
 import type { SupportedLocale } from '@/types/i18n';
-import BookingIsland from '@/components/islands/BookingIsland.astro';
 import OptimizedImage from '@/components/seo/OptimizedImage.astro';
 import ContactButtons from '@/components/shared/ContactButtons.astro';
 import campsData from '@/data/camps.json';
@@ -165,16 +164,9 @@ const includedServices = camp.includedServices[locale] || camp.includedServices[
         </div>
 
         <!-- Right 40% Sticky Booking Card -->
+        <!-- Right 40% Sticky Booking Card -->
         <div class="lg:col-span-5 lg:sticky lg:top-28">
-          <BookingIsland
-            locale={locale}
-            tourId={slug}
-            tourTitle={title}
-            sport={camp.sport}
-            starTier={`${camp.starRating}-Star ${tierName}`}
-          />
-
-          <div class="mt-8 bg-white p-6 border border-[#E5E3DC] text-center shadow-sm">
+          <div class="bg-white p-6 border border-[#E5E3DC] text-center shadow-sm">
             <p class="font-mono text-xs text-[#888888] tracking-wide mb-3">
               Direct Contact & Custom Team Packages
             </p>

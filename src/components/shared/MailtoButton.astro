@@ -1,6 +1,5 @@
 ---
 import type { SupportedLocale } from '@/types/i18n';
-import { useTranslations } from '@/i18n/utils';
 
 export interface Props {
   locale?: SupportedLocale;
@@ -13,20 +12,18 @@ export interface Props {
 }
 
 const {
-  locale = 'en',
-  email = 'contact@sportiverf.com',
+  email = 'info@sportiverf.com',
   subject,
   body,
-  label = 'Email Headquarters',
+  label = 'Send Email',
   class: className = '',
   variant = 'outline'
 } = Astro.props;
 
-const t = useTranslations(locale);
-const finalSubject = subject || t('contact.emailSubject');
-const finalBody = body || t('contact.emailBody');
-
-const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(finalSubject)}&body=${encodeURIComponent(finalBody)}`;
+const mailtoUrl =
+  subject || body
+    ? `mailto:${email}?subject=${encodeURIComponent(subject || '')}&body=${encodeURIComponent(body || '')}`
+    : `mailto:${email}`;
 ---
 
 <a

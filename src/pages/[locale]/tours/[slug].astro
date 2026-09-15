@@ -2,7 +2,7 @@
 import MainLayout from '@/layouts/MainLayout.astro';
 import { LOCALES_LIST } from '@/i18n/config';
 import type { SupportedLocale } from '@/types/i18n';
-import BookingIsland from '@/components/islands/BookingIsland.astro';
+import ContactButtons from '@/components/shared/ContactButtons.astro';
 import OptimizedImage from '@/components/seo/OptimizedImage.astro';
 import campsData from '@/data/camps.json';
 import { getCampBySlug, type CampItem } from '@/data/camps';
@@ -66,13 +66,12 @@ const tierName = getLocalizedField(camp.tierName, locale);
           <p class="text-[#555555] font-light leading-relaxed">{summary}</p>
         </div>
         <div class="lg:col-span-5 lg:sticky lg:top-28">
-          <BookingIsland
-            locale={locale}
-            tourId={slug}
-            tourTitle={title}
-            sport={camp.sport}
-            starTier={`${camp.starRating}-Star ${tierName}`}
-          />
+          <div class="bg-white p-6 border border-[#E5E3DC] text-center shadow-sm">
+            <p class="font-mono text-xs text-[#888888] tracking-wide mb-3">
+              Direct Contact & Custom Team Packages
+            </p>
+            <ContactButtons locale={locale} class="justify-center" campTitle={title} />
+          </div>
         </div>
       </div>
     </div>

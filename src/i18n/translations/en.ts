@@ -1,8 +1,7 @@
 export default {
   site: {
     title: 'SPORTIVERF — High-Performance Sports Tourism & Elite Camps',
-    description:
-      'Premier international sports tourism platform, football showcases, volleyball masterclasses, and 3/4/5-star athletic retreats.'
+    description: 'International sports tourism platform.'
   },
   nav: {
     main: 'Main Navigation',
@@ -98,8 +97,7 @@ export default {
   booking: {
     badge: 'Direct Concierge Inquiry',
     title: 'Camp Inquiry & Reservation',
-    subtitle:
-      'Complete the form below to initiate your official reservation. Our concierge team will review your application within 24 hours.',
+    subtitle: '',
     fullNameLabel: 'Full Name',
     fullNamePlaceholder: 'e.g. Alexander Wright',
     emailLabel: 'Email Address',

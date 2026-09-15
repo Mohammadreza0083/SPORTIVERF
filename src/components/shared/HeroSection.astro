@@ -147,7 +147,8 @@ const dir = getDirFromLocale(locale);
     <button
       id="btn-volleyball-camps"
       type="button"
-      class="animate-subtle-glow aspect-square w-36 sm:w-40 md:w-44 lg:w-48 flex flex-col items-center justify-center gap-2.5 sm:gap-3 backdrop-blur-md bg-black/40 border border-[#E5383B] transition-all duration-300 hover:scale-105 active:scale-95 group cursor-pointer p-3 sm:p-4 text-center hover:shadow-[0_0_30px_rgba(229,56,59,0.35)]"
+      data-sport-title={t('camps.volleyball')}
+      class="sport-modal-btn animate-subtle-glow aspect-square w-36 sm:w-40 md:w-44 lg:w-48 flex flex-col items-center justify-center gap-2.5 sm:gap-3 backdrop-blur-md bg-black/40 border border-[#E5383B] transition-all duration-300 hover:scale-105 active:scale-95 group cursor-pointer p-3 sm:p-4 text-center hover:shadow-[0_0_30px_rgba(229,56,59,0.35)]"
       aria-haspopup="dialog"
       aria-expanded="false"
       aria-controls="volleyball-modal"
@@ -169,9 +170,14 @@ const dir = getDirFromLocale(locale);
     </button>
 
     <!-- Button 2: Football (Top Right) -->
-    <a
-      href={`/${locale}/football-camps`}
-      class="animate-subtle-glow aspect-square w-36 sm:w-40 md:w-44 lg:w-48 flex flex-col items-center justify-center gap-2.5 sm:gap-3 backdrop-blur-md bg-black/40 border border-[#E5383B] transition-all duration-300 hover:scale-105 active:scale-95 group cursor-pointer p-3 sm:p-4 text-center hover:shadow-[0_0_30px_rgba(229,56,59,0.35)]"
+    <button
+      id="btn-football-camps"
+      type="button"
+      data-sport-title={t('camps.football')}
+      class="sport-modal-btn animate-subtle-glow aspect-square w-36 sm:w-40 md:w-44 lg:w-48 flex flex-col items-center justify-center gap-2.5 sm:gap-3 backdrop-blur-md bg-black/40 border border-[#E5383B] transition-all duration-300 hover:scale-105 active:scale-95 group cursor-pointer p-3 sm:p-4 text-center hover:shadow-[0_0_30px_rgba(229,56,59,0.35)]"
+      aria-haspopup="dialog"
+      aria-expanded="false"
+      aria-controls="volleyball-modal"
     >
       <svg
         class="w-10 h-10 md:w-12 md:h-12 text-white group-hover:text-[#E5383B] transition-colors filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
@@ -187,12 +193,17 @@ const dir = getDirFromLocale(locale);
       >
         {t('camps.football')}
       </span>
-    </a>
+    </button>
 
     <!-- Button 3: Basketball (Bottom Left) -->
-    <a
-      href="/coming-soon"
-      class="animate-subtle-glow aspect-square w-36 sm:w-40 md:w-44 lg:w-48 flex flex-col items-center justify-center gap-2.5 sm:gap-3 backdrop-blur-md bg-black/40 border border-[#E5383B] transition-all duration-300 hover:scale-105 active:scale-95 group cursor-pointer p-3 sm:p-4 text-center hover:shadow-[0_0_30px_rgba(229,56,59,0.35)]"
+    <button
+      id="btn-basketball-camps"
+      type="button"
+      data-sport-title={t('camps.basketball')}
+      class="sport-modal-btn animate-subtle-glow aspect-square w-36 sm:w-40 md:w-44 lg:w-48 flex flex-col items-center justify-center gap-2.5 sm:gap-3 backdrop-blur-md bg-black/40 border border-[#E5383B] transition-all duration-300 hover:scale-105 active:scale-95 group cursor-pointer p-3 sm:p-4 text-center hover:shadow-[0_0_30px_rgba(229,56,59,0.35)]"
+      aria-haspopup="dialog"
+      aria-expanded="false"
+      aria-controls="volleyball-modal"
     >
       <svg
         class="w-10 h-10 md:w-12 md:h-12 text-white group-hover:text-[#E5383B] transition-colors filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
@@ -208,11 +219,11 @@ const dir = getDirFromLocale(locale);
       >
         {t('camps.basketball')}
       </span>
-    </a>
+    </button>
 
     <!-- Button 4: Player Camps (Bottom Right) -->
     <a
-      href={`/${locale}/camps/player`}
+      href="/coming-soon"
       class="animate-subtle-glow aspect-square w-36 sm:w-40 md:w-44 lg:w-48 flex flex-col items-center justify-center gap-2.5 sm:gap-3 backdrop-blur-md bg-black/40 border border-[#E5383B] transition-all duration-300 hover:scale-105 active:scale-95 group cursor-pointer p-3 sm:p-4 text-center hover:shadow-[0_0_30px_rgba(229,56,59,0.35)]"
     >
       <svg
@@ -231,6 +242,13 @@ const dir = getDirFromLocale(locale);
       </span>
     </a>
   </div>
+
+  <!-- Section Title at the absolute bottom of Hero Section -->
+  <h2
+    class="absolute bottom-6 left-0 right-0 text-center text-3xl md:text-5xl lg:text-6xl font-black text-white tracking-wide drop-shadow-lg z-20 font-barlow pointer-events-none"
+  >
+    {locale === 'tr' ? 'Uluslararası Spor Kampları' : 'International Sports Camps'}
+  </h2>
 </section>
 
 <!-- Full-screen Blurred Modal for Volleyball -->
@@ -367,32 +385,40 @@ const dir = getDirFromLocale(locale);
 
 <script>
   function initHeroInteractions(): void {
-    // --- 1. Volleyball Modal Logic (Instant Motion, No Loading Delay) ---
-    const volleyballBtn = document.getElementById('btn-volleyball-camps');
-    const volleyballModal = document.getElementById('volleyball-modal');
-    const volleyballModalContent = document.getElementById('volleyball-modal-content');
-    const volleyballModalClose = document.getElementById('volleyball-modal-close');
-    const volleyballModalSkip = document.getElementById('volleyball-modal-skip');
+    // --- 1. Sport Modal Logic (Volleyball, Football, Basketball) ---
+    const sportButtons = document.querySelectorAll<HTMLElement>('.sport-modal-btn');
+    const sportsModal = document.getElementById('volleyball-modal');
+    const sportsModalContent = document.getElementById('volleyball-modal-content');
+    const sportsModalTitle = document.getElementById('volleyball-modal-title');
+    const sportsModalClose = document.getElementById('volleyball-modal-close');
+    const sportsModalSkip = document.getElementById('volleyball-modal-skip');
 
-    const openVolleyballModal = (): void => {
-      if (!volleyballModal || !volleyballModalContent) return;
-      volleyballBtn?.setAttribute('aria-expanded', 'true');
-      volleyballModal.classList.remove('hidden');
-      volleyballModal.classList.add('flex');
+    let activeSportBtn: HTMLElement | null = null;
+
+    const openSportsModal = (btn: HTMLElement): void => {
+      if (!sportsModal || !sportsModalContent) return;
+      activeSportBtn = btn;
+      btn.setAttribute('aria-expanded', 'true');
+
+      const sportTitle = btn.getAttribute('data-sport-title');
+      if (sportTitle && sportsModalTitle) {
+        sportsModalTitle.textContent = sportTitle;
+      }
+
+      sportsModal.classList.remove('hidden');
+      sportsModal.classList.add('flex');
 
       // Force layout reflow
-      void volleyballModal.offsetWidth;
+      void sportsModal.offsetWidth;
 
       // Instant backdrop blur and modal card entrance
-      volleyballModal.classList.remove('opacity-0');
-      volleyballModal.classList.add('opacity-100');
-      volleyballModalContent.classList.remove('scale-95', 'opacity-0', 'translate-y-4');
-      volleyballModalContent.classList.add('scale-100', 'opacity-100', 'translate-y-0');
+      sportsModal.classList.remove('opacity-0');
+      sportsModal.classList.add('opacity-100');
+      sportsModalContent.classList.remove('scale-95', 'opacity-0', 'translate-y-4');
+      sportsModalContent.classList.add('scale-100', 'opacity-100', 'translate-y-0');
 
       // Staggered animated motion for sub-options
-      const modalOptions = volleyballModal.querySelectorAll<HTMLElement>(
-        '.volleyball-modal-option'
-      );
+      const modalOptions = sportsModal.querySelectorAll<HTMLElement>('.volleyball-modal-option');
       modalOptions.forEach((option, index) => {
         setTimeout(
           () => {
@@ -404,53 +430,53 @@ const dir = getDirFromLocale(locale);
       });
     };
 
-    const closeVolleyballModal = (): void => {
-      if (!volleyballModal || !volleyballModalContent) return;
-      volleyballBtn?.setAttribute('aria-expanded', 'false');
+    const closeSportsModal = (): void => {
+      if (!sportsModal || !sportsModalContent) return;
+      activeSportBtn?.setAttribute('aria-expanded', 'false');
 
-      const modalOptions = volleyballModal.querySelectorAll<HTMLElement>(
-        '.volleyball-modal-option'
-      );
+      const modalOptions = sportsModal.querySelectorAll<HTMLElement>('.volleyball-modal-option');
       modalOptions.forEach((option) => {
         option.classList.remove('translate-y-0', 'opacity-100');
         option.classList.add('translate-y-6', 'opacity-0');
       });
 
-      volleyballModal.classList.remove('opacity-100');
-      volleyballModal.classList.add('opacity-0');
-      volleyballModalContent.classList.remove('scale-100', 'opacity-100', 'translate-y-0');
-      volleyballModalContent.classList.add('scale-95', 'opacity-0', 'translate-y-4');
+      sportsModal.classList.remove('opacity-100');
+      sportsModal.classList.add('opacity-0');
+      sportsModalContent.classList.remove('scale-100', 'opacity-100', 'translate-y-0');
+      sportsModalContent.classList.add('scale-95', 'opacity-0', 'translate-y-4');
 
       setTimeout(() => {
-        volleyballModal.classList.remove('flex');
-        volleyballModal.classList.add('hidden');
+        sportsModal.classList.remove('flex');
+        sportsModal.classList.add('hidden');
       }, 300);
     };
 
-    volleyballBtn?.addEventListener('click', (e) => {
-      e.preventDefault();
-      openVolleyballModal();
+    sportButtons.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openSportsModal(btn);
+      });
     });
 
-    volleyballModalClose?.addEventListener('click', (e) => {
+    sportsModalClose?.addEventListener('click', (e) => {
       e.preventDefault();
-      closeVolleyballModal();
+      closeSportsModal();
     });
 
-    volleyballModalSkip?.addEventListener('click', (e) => {
+    sportsModalSkip?.addEventListener('click', (e) => {
       e.preventDefault();
-      closeVolleyballModal();
+      closeSportsModal();
     });
 
-    volleyballModal?.addEventListener('click', (e) => {
-      if (e.target === volleyballModal) {
-        closeVolleyballModal();
+    sportsModal?.addEventListener('click', (e) => {
+      if (e.target === sportsModal) {
+        closeSportsModal();
       }
     });
 
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
-        closeVolleyballModal();
+        closeSportsModal();
       }
     });
 

@@ -1,15 +1,14 @@
 export default {
   site: {
     title: 'SPORTIVERF — Yüksek Performans Spor Turizmi & Seçkin Kamplar',
-    description:
-      'Uluslararası spor turizm platformu, futbol seçmeleri, voleybol uzmanlık kampları ve 3/4/5 yıldızlı atletik kamplar.'
+    description: 'Uluslararası spor turizm platformu.'
   },
   nav: {
     main: 'Ana Menü',
     home: 'Ana Sayfa',
     football: 'Futbol',
     volleyball: 'Voleybol',
-    playerCamps: 'Oyuncu Kampları',
+    playerCamps: 'Sporcu Kampları',
     basketball: 'Basketbol',
     about: 'Hakkımızda',
     tours: 'Tüm Kamplar',
@@ -54,7 +53,7 @@ export default {
   },
   camps: {
     volleyball: 'Voleybol',
-    player: 'Oyuncu Kampları',
+    player: 'Sporcu Kampları',
     football: 'Futbol',
     basketball: 'Basketbol',
     team: 'Takım Kampları',
@@ -98,8 +97,7 @@ export default {
   booking: {
     badge: 'Doğrudan Başvuru Formu',
     title: 'Kamp Başvuru ve Rezervasyon',
-    subtitle:
-      'Resmi başvurunuzu başlatmak için aşağıdaki formu doldurun. Hizmet ekibimiz başvurunuzu 24 saat içinde inceleyecektir.',
+    subtitle: '',
     fullNameLabel: 'Ad Soyad',
     fullNamePlaceholder: 'ör. Alexander Wright',
     emailLabel: 'E-posta Adresi',

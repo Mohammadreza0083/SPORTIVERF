@@ -9,17 +9,12 @@ export interface Props {
   campTitle?: string;
 }
 
-const { locale = 'en', class: className = '', campTitle } = Astro.props;
+const { locale = 'en', class: className = '' } = Astro.props;
 ---
 
 <div class={`flex flex-wrap items-center gap-4 ${className}`}>
-  <WhatsAppButton locale={locale} variant="solid" label="WhatsApp Concierge" />
-  <MailtoButton
-    locale={locale}
-    subject={campTitle ? `Inquiry: ${campTitle}` : undefined}
-    variant="outline"
-    label="Send Email"
-  />
+  <WhatsAppButton locale={locale} variant="solid" />
+  <MailtoButton locale={locale} variant="outline" label="Send Email" />
   <a
     href="tel:+902165147808"
     class="btn-secondary gap-2"
