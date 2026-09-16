@@ -8,8 +8,7 @@ export const GET: APIRoute = ({ site }) => {
 User-agent: *
 Allow: /
 Allow: /en/
-Allow: /fa/
-Allow: /ar/
+Allow: /tr/
 Disallow: /api/
 Disallow: /admin/
 Disallow: /*?*query=

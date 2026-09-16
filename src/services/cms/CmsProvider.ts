@@ -34,7 +34,7 @@ export class StrapiCmsAdapter implements ICmsProvider {
 
   constructor() {
     this.baseUrl = import.meta.env.PUBLIC_CMS_URL || '';
-    this.apiKey = import.meta.env.PUBLIC_CMS_API_KEY || '';
+    this.apiKey = import.meta.env.CMS_API_KEY || import.meta.env.PUBLIC_CMS_API_KEY || '';
   }
 
   public async fetchPageContent<T>(pageSlug: string, locale: string): Promise<T | null> {

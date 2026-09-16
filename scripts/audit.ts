@@ -179,7 +179,10 @@ if (!fs.existsSync(envExamplePath)) {
     PUBLIC_API_TIMEOUT_MS: z.string().optional(),
     PUBLIC_CMS_PROVIDER: z.string().optional(),
     PUBLIC_CMS_URL: z.string().url().optional(),
-    PUBLIC_BOOKING_SERVICE_URL: z.string().url().optional()
+    PUBLIC_BOOKING_SERVICE_URL: z.string().url().optional(),
+    CMS_API_KEY: z.string().optional(),
+    TELEGRAM_BOT_TOKEN: z.string().optional(),
+    TELEGRAM_CHAT_ID: z.string().optional()
   });
 
   // Mock template object built from .env.example lines for schema validation test

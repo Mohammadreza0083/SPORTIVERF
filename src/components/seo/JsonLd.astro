@@ -5,7 +5,7 @@ export interface Props {
 }
 
 const { schema } = Astro.props;
-const jsonLdString = JSON.stringify(schema, null, 0);
+const jsonLdString = JSON.stringify(schema, null, 0).replace(/</g, '\\u003c');
 ---
 
 <script type="application/ld+json" is:inline set:html={jsonLdString} />

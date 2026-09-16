@@ -10,7 +10,11 @@ export const envSchema = z.object({
   PUBLIC_API_TIMEOUT_MS: z.coerce.number().default(10000),
   PUBLIC_CMS_PROVIDER: z.enum(['mock', 'strapi', 'contentful', 'sanity', 'api']).default('mock'),
   PUBLIC_CMS_URL: z.string().optional().default('https://cms.sportiverf.com'),
-  PUBLIC_BOOKING_SERVICE_URL: z.string().optional().default('https://booking.sportiverf.com/api')
+  PUBLIC_BOOKING_SERVICE_URL: z.string().optional().default('https://booking.sportiverf.com/api'),
+  // Server-side Secrets (never exposed with PUBLIC_ prefix to client bundles)
+  CMS_API_KEY: z.string().optional().default(''),
+  TELEGRAM_BOT_TOKEN: z.string().optional().default(''),
+  TELEGRAM_CHAT_ID: z.string().optional().default('')
 });
 
 /**

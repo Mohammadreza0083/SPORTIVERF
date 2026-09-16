@@ -2,8 +2,15 @@ import type { APIRoute } from 'astro';
 
 export const prerender = false;
 
-const TELEGRAM_BOT_TOKEN = '8921060827:AAHUNo_mdKGBwTlbysIf3nbBYd3BIX9k1Pw';
-const TELEGRAM_CHAT_ID = '269309616';
+const TELEGRAM_BOT_TOKEN = (import.meta.env.TELEGRAM_BOT_TOKEN as string | undefined) || '';
+const TELEGRAM_CHAT_ID = (import.meta.env.TELEGRAM_CHAT_ID as string | undefined) || '';
+
+/**
+ * Escapes characters with special meaning in Telegram legacy Markdown mode
+ */
+function escapeMarkdown(text: string): string {
+  return text.replace(/([*_`\[\]])/g, '\\$1');
+}
 
 const corsHeaders = {
   'Content-Type': 'application/json; charset=utf-8',
@@ -158,14 +165,14 @@ export const POST: APIRoute = async ({ request }) => {
     const messageText = `
 🏆 *NEW SPORTIVERF PRICING INQUIRY*
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
-📍 *Camp:* ${campTitle}
-⭐ *Tier:* ${starTier} | *Sport:* ${sport}
-👤 *Athlete/Agent:* ${fullName}
-📧 *Email:* \`${email}\`
-📱 *Phone/WhatsApp:* \`${rawPhone}\`
-👥 *Athletes Count:* ${participants}
-🌐 *Locale:* ${locale}
-📝 *Notes:* ${notes}
+📍 *Camp:* ${escapeMarkdown(campTitle)}
+⭐ *Tier:* ${escapeMarkdown(starTier)} | *Sport:* ${escapeMarkdown(sport)}
+👤 *Athlete/Agent:* ${escapeMarkdown(fullName)}
+📧 *Email:* \`${escapeMarkdown(email)}\`
+📱 *Phone/WhatsApp:* \`${escapeMarkdown(rawPhone)}\`
+👥 *Athletes Count:* ${escapeMarkdown(participants)}
+🌐 *Locale:* ${escapeMarkdown(locale)}
+📝 *Notes:* ${escapeMarkdown(notes)}
 ⏰ *Time:* ${now} UTC
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
 ⚡ *Action Required:* Click button below to contact via WhatsApp:
@@ -173,32 +180,36 @@ export const POST: APIRoute = async ({ request }) => {
 
     // Send Telegram payload with interactive Inline Keyboard Button for WhatsApp
     let telegramDelivered = false;
-    try {
-      const telegramRes = await fetch(
-        `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            chat_id: TELEGRAM_CHAT_ID,
-            text: messageText,
-            parse_mode: 'Markdown',
-            reply_markup: {
-              inline_keyboard: [
-                [
-                  {
-                    text: '💬 Open WhatsApp Chat',
-                    url: `https://wa.me/${phoneDigits}`
-                  }
+    if (TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_ID) {
+      try {
+        const telegramRes = await fetch(
+          `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              chat_id: TELEGRAM_CHAT_ID,
+              text: messageText,
+              parse_mode: 'Markdown',
+              reply_markup: {
+                inline_keyboard: [
+                  [
+                    {
+                      text: '💬 Open WhatsApp Chat',
+                      url: `https://wa.me/${phoneDigits}`
+                    }
+                  ]
                 ]
-              ]
-            }
-          })
-        }
-      );
-      telegramDelivered = telegramRes.ok;
-    } catch (tgErr) {
-      console.error('Telegram dispatch error:', tgErr);
+              }
+            })
+          }
+        );
+        telegramDelivered = telegramRes.ok;
+      } catch (tgErr) {
+        console.error('Telegram dispatch error:', tgErr);
+      }
+    } else {
+      console.warn('[Inquiry API] Skipping Telegram dispatch: TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID is missing.');
     }
 
     const referenceId = `SRF-${Date.now().toString().slice(-6)}`;

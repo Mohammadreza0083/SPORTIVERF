@@ -97,6 +97,7 @@ const dir = getDirFromLocale(locale);
         src="/photos/volleyball.webp"
         alt="Volleyball"
         loading="eager"
+        fetchpriority="high"
         class="w-full h-full object-cover object-center"
       />
     </div>
@@ -106,7 +107,8 @@ const dir = getDirFromLocale(locale);
       <img
         src="/photos/football.webp"
         alt="Football"
-        loading="eager"
+        loading="lazy"
+        decoding="async"
         class="w-full h-full object-cover object-center"
       />
     </div>
@@ -116,7 +118,8 @@ const dir = getDirFromLocale(locale);
       <img
         src="/photos/basketball.webp"
         alt="Basketball"
-        loading="eager"
+        loading="lazy"
+        decoding="async"
         class="w-full h-full object-cover object-center"
       />
     </div>

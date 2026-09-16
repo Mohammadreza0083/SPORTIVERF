@@ -38,9 +38,21 @@ export default defineConfig({
       }
     },
     build: {
-      sourcemap: true,
+      sourcemap: false,
       minify: 'esbuild',
-      cssCodeSplit: true
+      cssCodeSplit: true,
+      rollupOptions: {
+        output: {
+          manualChunks: (id) => {
+            if (id.includes('node_modules/motion')) {
+              return 'vendor-motion';
+            }
+            if (id.includes('node_modules/@vercel/speed-insights')) {
+              return 'vendor-insights';
+            }
+          }
+        }
+      }
     }
   }
 });

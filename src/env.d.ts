@@ -8,8 +8,11 @@ interface ImportMetaEnv {
   readonly PUBLIC_API_TIMEOUT_MS: string;
   readonly PUBLIC_CMS_PROVIDER: 'mock' | 'strapi' | 'contentful' | 'sanity' | 'api';
   readonly PUBLIC_CMS_URL: string;
-  readonly PUBLIC_CMS_API_KEY: string;
+  readonly PUBLIC_CMS_API_KEY?: string;
   readonly PUBLIC_BOOKING_SERVICE_URL: string;
+  readonly CMS_API_KEY?: string;
+  readonly TELEGRAM_BOT_TOKEN?: string;
+  readonly TELEGRAM_CHAT_ID?: string;
 }
 
 interface ImportMeta {
