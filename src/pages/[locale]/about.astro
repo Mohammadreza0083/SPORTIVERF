@@ -462,8 +462,8 @@ const totalChaptersFormatted = String(chapters.length).padStart(2, '0');
   </main>
 </BaseLayout>
 
-<script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
+<script>
+  document.addEventListener('DOMContentLoaded', (): void => {
     const container = document.getElementById('scrollytelling-container');
     const sections = document.querySelectorAll('.scrolly-section');
     const mediaIcons = document.querySelectorAll('.scrolly-icon');
@@ -473,11 +473,11 @@ const totalChaptersFormatted = String(chapters.length).padStart(2, '0');
 
     if (!sections.length) return;
 
-    const formatNum = (n) => String(n).padStart(2, '0');
+    const formatNum = (n: number | string): string => String(n).padStart(2, '0');
 
-    const setActiveChapter = (index) => {
+    const setActiveChapter = (index: number): void => {
       // Cross-fade SVG glowing icons
-      mediaIcons.forEach((icon, i) => {
+      mediaIcons.forEach((icon, i): void => {
         if (i === index) {
           icon.classList.remove('opacity-0', 'scale-75', 'translate-y-4', 'pointer-events-none');
           icon.classList.add('opacity-100', 'scale-100', 'translate-y-0');
@@ -488,7 +488,7 @@ const totalChaptersFormatted = String(chapters.length).padStart(2, '0');
       });
 
       // Update chapter navigation dots
-      chapterPills.forEach((dot, i) => {
+      chapterPills.forEach((dot, i): void => {
         if (i === index) {
           dot.classList.add('bg-[#E5383B]', 'w-8', 'shadow-[0_0_10px_rgba(229,56,59,0.8)]');
           dot.classList.remove('bg-white/20', 'w-2.5');
@@ -510,8 +510,8 @@ const totalChaptersFormatted = String(chapters.length).padStart(2, '0');
       threshold: 0.55
     };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer = new IntersectionObserver((entries): void => {
+      entries.forEach((entry): void => {
         if (entry.isIntersecting) {
           const index = parseInt(entry.target.getAttribute('data-chapter-index') || '0', 10);
           setActiveChapter(index);
@@ -531,11 +531,11 @@ const totalChaptersFormatted = String(chapters.length).padStart(2, '0');
       });
     }, observerOptions);
 
-    sections.forEach((sec) => observer.observe(sec));
+    sections.forEach((sec): void => observer.observe(sec));
 
     // Allow jumping to section via navigation dots
-    chapterPills.forEach((pill) => {
-      pill.addEventListener('click', () => {
+    chapterPills.forEach((pill): void => {
+      pill.addEventListener('click', (): void => {
         const targetIndex = parseInt(pill.getAttribute('data-target-index') || '0', 10);
         const targetSection = document.getElementById(`story-section-${targetIndex}`);
         if (targetSection) {

@@ -85,7 +85,7 @@ const allSchemas = [
 {
   (() => {
     const cleanPath = Astro.url.pathname.replace(/^\/(en|tr)/, '');
-    const pathSuffix = cleanPath.startsWith('/') ? cleanPath : (cleanPath ? '/' + cleanPath : '');
+    const pathSuffix = cleanPath.startsWith('/') ? cleanPath : cleanPath ? '/' + cleanPath : '';
     const xDefaultHref = `${siteUrl}/en${pathSuffix}`.replace(/\/$/, '') || `${siteUrl}/en`;
 
     return (

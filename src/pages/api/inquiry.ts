@@ -209,7 +209,9 @@ export const POST: APIRoute = async ({ request }) => {
         console.error('Telegram dispatch error:', tgErr);
       }
     } else {
-      console.warn('[Inquiry API] Skipping Telegram dispatch: TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID is missing.');
+      console.warn(
+        '[Inquiry API] Skipping Telegram dispatch: TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID is missing.'
+      );
     }
 
     const referenceId = `SRF-${Date.now().toString().slice(-6)}`;

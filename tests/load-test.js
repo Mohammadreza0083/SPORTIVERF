@@ -20,16 +20,16 @@ const BASE_URL = __ENV.BASE_URL || 'http://localhost:80';
 // ==============================================================================
 export const options = {
   stages: [
-    { duration: '30s', target: 30 },  // Stage 1: Warm-up & Ramp-up (0 -> 30 VUs)
-    { duration: '1m', target: 50 },   // Stage 2: Soak Testing (50 sustained VUs)
+    { duration: '30s', target: 30 }, // Stage 1: Warm-up & Ramp-up (0 -> 30 VUs)
+    { duration: '1m', target: 50 }, // Stage 2: Soak Testing (50 sustained VUs)
     { duration: '30s', target: 100 }, // Stage 3: Stress Spike (50 -> 100 VUs)
-    { duration: '20s', target: 0 }    // Stage 4: Cooldown & Socket Recovery (100 -> 0 VUs)
+    { duration: '20s', target: 0 } // Stage 4: Cooldown & Socket Recovery (100 -> 0 VUs)
   ],
   thresholds: {
     // Global HTTP Metrics
     http_req_duration: ['p(95)<300', 'p(99)<500', 'avg<150'],
     http_req_failed: ['rate<0.001'], // Global HTTP failure rate < 0.1%
-    errors: ['rate<0.001'],          // Custom assertion failure rate < 0.1%
+    errors: ['rate<0.001'], // Custom assertion failure rate < 0.1%
 
     // Route-specific Latency SLAs
     home_en_duration: ['p(95)<250'],
@@ -47,9 +47,9 @@ export default function () {
   const params = {
     headers: {
       'User-Agent': 'k6-load-test/sportiverf-devsecops',
-      'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+      Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
       'Accept-Language': 'en-US,en;q=0.9,tr;q=0.8',
-      'Connection': 'keep-alive'
+      Connection: 'keep-alive'
     },
     timeout: '10s'
   };
@@ -135,7 +135,7 @@ export default function () {
   // ----------------------------------------------------------------------------
   group('05_Healthcheck', function () {
     const res = http.get(`${BASE_URL}/health`, {
-      headers: { 'Accept': 'application/json' },
+      headers: { Accept: 'application/json' },
       timeout: '5s'
     });
     healthcheckTrend.add(res.timings.duration);

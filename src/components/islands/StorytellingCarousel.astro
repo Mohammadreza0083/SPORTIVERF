@@ -452,15 +452,15 @@ const features = localeContent.homepageFeatures;
   }
 </style>
 
-<script is:inline>
-  function initStorytellingCarousel() {
+<script>
+  function initStorytellingCarousel(): void {
     // 1. Tab Switching Logic
     const tabs = document.querySelectorAll('.homepage-feature-tab');
     const slides = document.querySelectorAll('.homepage-feature-slide');
 
     if (tabs.length && slides.length) {
-      const switchTab = (targetIndex) => {
-        tabs.forEach((tab, i) => {
+      const switchTab = (targetIndex: number): void => {
+        tabs.forEach((tab, i): void => {
           if (i === targetIndex) {
             tab.classList.remove('bg-[#121212]', 'border-transparent', 'opacity-75');
             tab.classList.add(
@@ -478,7 +478,7 @@ const features = localeContent.homepageFeatures;
           }
         });
 
-        slides.forEach((slide, i) => {
+        slides.forEach((slide, i): void => {
           if (i === targetIndex) {
             slide.classList.remove('hidden', 'opacity-0');
             slide.classList.add('block', 'opacity-100');
@@ -489,8 +489,8 @@ const features = localeContent.homepageFeatures;
         });
       };
 
-      tabs.forEach((tab) => {
-        tab.addEventListener('click', () => {
+      tabs.forEach((tab): void => {
+        tab.addEventListener('click', (): void => {
           const targetIndex = parseInt(tab.getAttribute('data-feature-target') || '0', 10);
           switchTab(targetIndex);
         });
@@ -501,9 +501,9 @@ const features = localeContent.homepageFeatures;
     const scrollContainer = document.getElementById('homepage-feature-scroll-menu');
     if (scrollContainer) {
       let isInteracted = false;
-      let nudgeInterval = null;
+      let nudgeInterval: ReturnType<typeof setInterval> | null = null;
 
-      const stopNudge = () => {
+      const stopNudge = (): void => {
         if (!isInteracted) {
           isInteracted = true;
           if (nudgeInterval) {
@@ -520,12 +520,12 @@ const features = localeContent.homepageFeatures;
       scrollContainer.addEventListener('scroll', stopNudge, { once: true, passive: true });
 
       // Trigger subtle nudge every 2.5s (scrolls down ~20px, waits 300ms, scrolls back up ~20px)
-      nudgeInterval = setInterval(() => {
+      nudgeInterval = setInterval((): void => {
         if (isInteracted) return;
 
         scrollContainer.scrollBy({ top: 20, behavior: 'smooth' });
 
-        setTimeout(() => {
+        setTimeout((): void => {
           if (!isInteracted) {
             scrollContainer.scrollBy({ top: -20, behavior: 'smooth' });
           }
@@ -536,13 +536,15 @@ const features = localeContent.homepageFeatures;
     // 3. Mobile Features Carousel Auto-Scroll (5000ms Interval, Infinite Reset, Touch Pause/Resume)
     const mobileCarousel = document.getElementById('mobile-features-carousel');
     if (mobileCarousel) {
-      let autoScrollTimer = null;
+      let autoScrollTimer: ReturnType<typeof setInterval> | null = null;
 
-      const startAutoScroll = () => {
+      const startAutoScroll = (): void => {
         if (autoScrollTimer) clearInterval(autoScrollTimer);
 
-        autoScrollTimer = setInterval(() => {
-          const firstCard = mobileCarousel.querySelector('.mobile-feature-card');
+        autoScrollTimer = setInterval((): void => {
+          const firstCard = mobileCarousel.querySelector(
+            '.mobile-feature-card'
+          ) as HTMLElement | null;
           const gap = 16;
           const cardWidth = firstCard
             ? firstCard.offsetWidth + gap
@@ -558,7 +560,7 @@ const features = localeContent.homepageFeatures;
         }, 5000);
       };
 
-      const stopAutoScroll = () => {
+      const stopAutoScroll = (): void => {
         if (autoScrollTimer) {
           clearInterval(autoScrollTimer);
           autoScrollTimer = null;
@@ -576,7 +578,7 @@ const features = localeContent.homepageFeatures;
       // Clean up interval when navigating away with Astro view transitions
       document.addEventListener(
         'astro:before-swap',
-        () => {
+        (): void => {
           stopAutoScroll();
         },
         { once: true }
