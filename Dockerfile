@@ -1,5 +1,30 @@
 # ==============================================================================
-# SPORTIVERF Production Web Server (Alpine Nginx)
+# STAGE 1: Build Stage
+# ==============================================================================
+FROM node:20-alpine AS builder
+
+WORKDIR /app
+
+# Install dependencies required for native modules if needed
+RUN apk add --no-cache libc6-compat
+
+# Copy package files for optimal Docker caching layer
+COPY package.json package-lock.json ./
+
+# Install dependencies deterministically
+RUN npm ci
+
+# Copy full application source
+COPY . .
+
+# Environment flag for production build
+ENV NODE_ENV=production
+
+# Build Astro static output (dist/)
+RUN npm run build
+
+# ==============================================================================
+# STAGE 2: Production Web Server Stage (Nginx Alpine)
 # ==============================================================================
 FROM nginx:alpine AS runner
 
@@ -12,8 +37,8 @@ RUN apk add --no-cache curl
 # Remove default Nginx welcome page
 RUN rm -rf /usr/share/nginx/html/*
 
-# Copy pre-compiled production distribution (dist/)
-COPY dist /usr/share/nginx/html
+# Copy built static site from builder stage
+COPY --from=builder /app/dist /usr/share/nginx/html
 
 # Copy custom Nginx configuration & security headers
 COPY nginx/nginx.conf /etc/nginx/nginx.conf
